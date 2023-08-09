@@ -1,8 +1,8 @@
-"use client"
-import Map from '@components/map';
-import styles from '../../globals.css'
+"use client";
+import Map from "@components/map";
+import styles from "../../globals.css";
 export default function MapPage() {
-    const DEFAULT_CENTER = [38.907132, -77.036546]
+  const DEFAULT_CENTER = [38.907132, -77.036546];
   return (
     <main className=" min-h-screen flex-col items-center justify-between p-40">
       <Map
@@ -15,7 +15,10 @@ export default function MapPage() {
         {({ TileLayer, Marker, Popup }) => (
           <>
             <TileLayer
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              // url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              //url='https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png'
+              //url='https://tile.openstreetmap.org/{z}/{x}/{y}.png'
+              url="https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png"
               attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             />
             <Marker position={DEFAULT_CENTER}>
