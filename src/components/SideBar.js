@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
-
+import {routers_submenu_proyects} from '@utils/routers';
 export default function SideBar({ navLinks }) {
   const [open, setOpen] = useState(false)
   const router = useRouter()

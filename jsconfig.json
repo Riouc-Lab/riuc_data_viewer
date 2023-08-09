@@ -3,7 +3,8 @@
     "paths": {
       "@riuc/*": ["./src/*"],
       "@components/*": ["./src/components/*"],
-      "@styles/*": ["./src/assets/*"]
+      "@styles/*": ["./src/assets/*"],
+      "@utils/*": ["./src/utils/*"]
     }
   }
 }
