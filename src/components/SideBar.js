@@ -21,7 +21,7 @@ export default function SideBar({ navLinks }) {
           &nbsp;
           <div className="font-mono font-bold">
             <a
-              className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
+              className="cursor-pointer flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => router.push("/")}
