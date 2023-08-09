@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
     "paths": {
-      "@riuc/*": ["./src/*"]
+      "@riuc/*": ["./src/*"],
+      "@components/*": ["./src/components/*"]
     }
   }
 }
