@@ -14,6 +14,7 @@ export const routers_menu = [
     to: "/proyectos",
     name: "Proyectos",
   },
+  
 ];
 export const routers_submenu_proyects = [
   {
@@ -22,4 +23,9 @@ export const routers_submenu_proyects = [
     to: "/projectos/map",
     name: "Mapa",
   },
+  {
+    id: 2,
+    to: "/proyectos/canastaBasica",
+    name: "Canasta Básica",
+  },  
 ];

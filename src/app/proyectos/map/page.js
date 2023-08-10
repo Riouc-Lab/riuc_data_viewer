@@ -2,7 +2,7 @@
 import Map from "@components/map";
 import styles from "../../globals.css";
 export default function MapPage() {
-  const DEFAULT_CENTER = [38.907132, -77.036546];
+  const DEFAULT_CENTER = [-2.855038, -78.965722];
   return (
     <main className=" min-h-screen flex-col items-center justify-between p-40">
       <Map
@@ -10,7 +10,7 @@ export default function MapPage() {
         width="800"
         height="400"
         center={DEFAULT_CENTER}
-        zoom={12}
+        zoom={11}
       >
         {({ TileLayer, Marker, Popup }) => (
           <>
