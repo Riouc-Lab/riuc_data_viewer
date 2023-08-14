@@ -4,7 +4,7 @@ import styles from "../../globals.css";
 export default function MapPage() {
   const DEFAULT_CENTER = [-2.855038, -78.965722];
   return (
-    <main className=" min-h-screen flex-col items-center justify-between p-40">
+    <main className="min-h-screen flex-col items-center justify-between p-40">
       <Map
         className={styles.homeMap}
         width="800"

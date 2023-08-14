@@ -1,16 +1,16 @@
 export const lista_proyectos = [
   {
     id: 1,
-    to: "/projectos/map",
-    name: "Mapa",
-    description: "Mapa de la canasta básica en México",
-    date: "2021-10-01",
+    to: "/proyectos/map",
+    name: "Canasta Básica",
+    description: "Visualiza y compara datos sobre las canastas básicas en diferentes regiones del país en tiempo real.",
+    date: "2023-08-01",
   },
   {
     id: 2,
-    to: "/projectos/map",
+    to: "",
     name: "Mapa",
-    description: "Mapa de la canasta básica en México",
+    description: "Mapa de datos en Ecuador",
     date: "2021-10-01",
   },
 ];

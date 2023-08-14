@@ -20,12 +20,13 @@ export const routers_submenu_proyects = [
   {
     id: 1,
     parent:3,
-    to: "/projectos/map",
+    to: "/proyectos/map",
     name: "Mapa",
   },
   {
     id: 2,
+    parent:3,
     to: "/proyectos/canastaBasica",
-    name: "Canasta Básica",
+    name: "Canasta  Básica",
   },  
 ];
