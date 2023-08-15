@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
-import {routers_submenu_proyects} from '@utils/routers';
+
 export default function SideBar({ navLinks }) {
   const [open, setOpen] = useState(false)
   const router = useRouter()
@@ -40,7 +40,7 @@ export default function SideBar({ navLinks }) {
         </div>
       </div>
       <button
-        className="ml-4 fixed right-10 p-1 border-b border-gray-50"
+        className="ml-4 fixed right-3 p-5 border-b border-gray-50"
         onClick={() => setOpen(true)}
       >
         <svg
@@ -83,7 +83,7 @@ export default function SideBar({ navLinks }) {
                {link.name} 
               </button>
             );
-          })}
+          })} 
 
           <svg
             xmlns="http://www.w3.org/2000/svg"
