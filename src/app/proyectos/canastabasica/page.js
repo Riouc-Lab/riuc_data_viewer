@@ -5,9 +5,10 @@ import styles from "../../globals.css";
 export default function canastabasica() {
   const DEFAULT_CENTER = [-2.855038, -78.965722];
   
+    
   return (
-    <main className="scroll-behavior: smooth;">
-        <h1 className="text-6xl font-bold p-5">Canasta Básica</h1>
+    <main className="items-center justify-center min-h-screen">
+        <h1 className="text-6xl font-bold">Canasta Básica</h1>
         <div className="flex items-center justify-center min-h-screen">
                 
                 <div class="h-[calc(100vh_-_80px)] w-[350px] overflow-hidden overflow-y-auto rounded-lg bg-white p-3 shadow-md">
@@ -45,7 +46,7 @@ export default function canastabasica() {
                                 width="600"
                                 height="400"
                             >
-                                {({ TileLayer, Marker, Popup }) => (
+                                {({ TileLayer, Marker, Popup, Polygon }) => (
                                 <>
                                     <TileLayer
                                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
