@@ -26,7 +26,7 @@ export const routers_submenu_proyects = [
   {
     id: 2,
     parent:3,
-    to: "/proyectos/canastaBasica",
+    to: "/proyectos/canastabasica",
     name: "Canasta  Básica",
   },  
 ];

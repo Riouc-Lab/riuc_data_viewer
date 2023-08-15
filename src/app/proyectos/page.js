@@ -8,10 +8,7 @@ export default function Proyectos() {
   const router = useRouter()
   const pathname= usePathname()
 
-  function setRouteAndHide(to){
-    //console.log(to);
-      router.push(to)
-   }
+
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-5 mb-3">
@@ -23,8 +20,9 @@ export default function Proyectos() {
               
             <div className='flex min-h-screen mb-1'>
             
+
             {lista_proyectos.map((item, link) => {
-            const isActive = pathname === link.to;
+                const isActive = pathname === link.to;
 
 
             return (
@@ -38,8 +36,6 @@ export default function Proyectos() {
                   width={500}
                   height={30}
                   priority
-                  onClick={() => setRouteAndHide('/proyectos/map')}
-                  //onClick={() => setRouteAndHide(link.to)}
                 />
                 
                   <div className="p-6 hover:bg-black hover:text-white transition duration-270 ease-in">
@@ -47,7 +43,13 @@ export default function Proyectos() {
                       <h1 className="text-2xl font-semibold mb-3">{item.name}</h1>
                       <p className="leading-relaxed mb-3"> {item.description}</p>
                       <div className="flex items-center flex-wrap ">
-                          <a className="text-indigo-300 inline-flex items-center md:mb-2 lg:mb-0">Saber mas 
+                          <a className="text-indigo-300 inline-flex items-center md:mb-2 lg:mb-0" >
+                          
+                          <button className={isActive ? 'ml-4 grid text-center text-text-red-700 text-xl text-red-700 py-3 mb-2' : 'text-indigo-300 inline-flex items-center md:mb-2 lg:mb-0'} 
+                          type="button" onClick={() => router.push(lista_proyectos[link].to)
+                          }>Saber mas 
+                          </button>
+                          
                               <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
                                   fill="none" stroke-linecap="round" stroke-linejoin="round">
                                   <path d="M5 12h14"></path>
