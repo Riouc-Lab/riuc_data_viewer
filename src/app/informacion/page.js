@@ -2,9 +2,13 @@ import Image from "next/image";
 
 export default function Informacion() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-5">
-        
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
+    <div className="bg-white rounded-lg shadow p-6">
+      <h1 className="text-2xl font-bold mb-4">Información de la Página</h1>
+      <p className="text-gray-700">
+        Bienvenido a esta página. Aquí encontrarás información importante sobre
+        nuestro sitio.
+      </p>
+      <div className="mb-3">
         <Image
           className="dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
           src="/img/objetivos.jpg"
@@ -13,27 +17,87 @@ export default function Informacion() {
           height={30}
           priority
         />
-      </div>    
-
-      <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-1 lg:text-left">
-
-
       </div>
-      <h1 className='font-sans text-left font-bold mb-1 text-red-500 text-lg'> 
-            Objetivos del CIITT
+      <h1 className="font-sans text-left font-bold mb-3 text-red-500 text-lg">
+        Objetivos del CIITT
       </h1>
 
-      
+      <p className="text-gray-700">
+      Ofrecer sus instalaciones a investigadores para que desarrollen su
+        actividad científica; fortaleciendo la generación y transferencia del
+        conocimiento; para solucionar los problemas de la comunidad y la
+        sociedad.
+      </p>
 
-      <h2 className='font-sans text-center'>
-      Ofrecer sus instalaciones a investigadores para que desarrollen su actividad científica; fortaleciendo la generación y transferencia del conocimiento; para solucionar los problemas de la comunidad y la sociedad.
-            </h2>
-            <h2 className='font-sans text-center'>Se lo plantea hacer por medio de:</h2>
-            <h2 className='font-sans text-center'>-La transferencia de la tecnología a otros ámbitos académicos, productivos y sociales.</h2>
-            <h2 className='font-sans text-center'>-La captación de investigadores nacionales e internacionales.</h2>
-            <h2 className='font-sans text-center'>-La generación de procesos de innovación social, técnica y tecnológica.</h2>
-            <h2 className='font-sans text-center'>-El desarrollo científico entre la sociedad civil, empresas e instituciones públicas y privadas, nacionales y extranjeras.</h2>
-            <h2 className='font-sans text-center'>-La oferta de los resultados obtenidos a la comunidad y sectores productivos.</h2>
-    </main>
+      <p className="text-gray-700 mb-1">
+        Se lo plantea hacer por medio de:
+      </p>
+      <h2 className="text-gray-700 mb-1">
+        -La transferencia de la tecnología a otros ámbitos académicos,
+        productivos y sociales.
+      </h2>
+      <h2 className="text-gray-700 mb-1">
+        -La captación de investigadores nacionales e internacionales.
+      </h2>
+      <h2 className="text-gray-700 mb-1">
+        -La generación de procesos de innovación social, técnica y tecnológica.
+      </h2>
+      <h2 className="ftext-gray-700 mb-1">
+        -El desarrollo científico entre la sociedad civil, empresas e
+        instituciones públicas y privadas, nacionales y extranjeras.
+      </h2>
+      <h2 className="text-gray-700 mb-1">
+        -La oferta de los resultados obtenidos a la comunidad y sectores
+        productivos.
+      </h2>
+
+      <ul className="mt-4">
+        <li className="flex items-center">
+          <svg
+            className="w-5 h-5 text-green-500 mr-2"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fillRule="evenodd"
+              d="M9 19a1 1 0 01-.707-.293l-6-6a1 1 0 011.414-1.414L9 16.586l9.293-9.293a1 1 0 111.414 1.414l-10 10A1 1 0 019 19z"
+              clipRule="evenodd"
+            />
+          </svg>
+          Contenido informativo.
+        </li>
+        <li className="flex items-center mt-2">
+          <svg
+            className="w-5 h-5 text-green-500 mr-2"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fillRule="evenodd"
+              d="M2 3a1 1 0 011-1h14a1 1 0 011 1v14a1 1 0 01-1 1H3a1 1 0 01-1-1V3zm5.293 9.293a1 1 0 011.414 0L10 13.586l2.293-2.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
+              clipRule="evenodd"
+            />
+          </svg>
+          Datos relevantes.
+        </li>
+        <li className="flex items-center mt-2">
+          <svg
+            className="w-5 h-5 text-green-500 mr-2"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fillRule="evenodd"
+              d="M10 2a8 8 0 100 16 8 8 0 000-16zM9 9a1 1 0 112 0v4a1 1 0 11-2 0V9zm0-4a1 1 0 112 0 1 1 0 01-2 0z"
+              clipRule="evenodd"
+            />
+          </svg>
+          Información útil.
+        </li>
+      </ul>
+    </div>
   );
 }
