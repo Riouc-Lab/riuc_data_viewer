@@ -13,7 +13,7 @@ export default function RootLayout({ children }) {
     <html lang="es">
       <body className={inter.className}>
         <SideBar navLinks={routers_menu} />
-       <main className=" min-h-screen flex-col items-center justify-between p-40">
+       <main className=" min-h-screen flex-col items-center justify-between p-20">
        {children}
        </main>
       </body>

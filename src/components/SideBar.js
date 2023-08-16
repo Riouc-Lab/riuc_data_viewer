@@ -17,7 +17,7 @@ export default function SideBar({ navLinks }) {
   return (
     <>
       <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <div className="fixed left-0 top-0 flex w-full justify-left p-10 border-b border-gray-350 bg-gradient-to-b bg-black pb-6 pt-3">
+        <div className="fixed left-0 top-0 flex w-full justify-left p-10 border-b border-gray-350 bg-gradient-to-b bg-black pb-3 pt-3">
           &nbsp;
           <div className="font-mono font-bold">
             <a
@@ -31,7 +31,7 @@ export default function SideBar({ navLinks }) {
                 src="/img/ciitt-logo.png"
                 alt="CIITT Logo"
                 className="dark:invert"
-                width={300}
+                width={250}
                 height={30}
                 priority
               />
