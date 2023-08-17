@@ -13,6 +13,7 @@ export default function canastabasica() {
   const [button4Active, setButton4Active] = useState(false);
   const [button5Active, setButton5Active] = useState(false);
 
+  
   return (
     <main className="fixed scroll-behavior-smooth">
       <div className="flex space-x-3 p-3">
@@ -100,11 +101,11 @@ export default function canastabasica() {
                 />
                 
                 {/* Marcador 1 */}
-              <Marker position={[-2.855038, -78.965722]}>
+              <Marker position={[-2.855038, -78.965722]} alt="CIIT">
                 <Popup>
                   <div className="popup-content">
                     <h3>CIITT</h3>
-                    <img src="/img/ciitt-centro.png" alt="Ubicación" />
+                    <img src="/img/ciitt-centro.png"/>
                     <p>Centro de Investigación, Innovación y Transferencia de Tecnología.</p>
                   </div>
                 </Popup>
@@ -116,14 +117,14 @@ export default function canastabasica() {
                 </Circle>
                 
                 {/* Marcador 2 con zona circular */}
-                <Marker position={[-2.852039, -79.014585]}>
+                <Marker position={[-2.855369, -79.099310]}>
                   <Popup>
                     <div className="popup-content">
                       <h3>Área Destacada</h3>
                       <p>Esta área tiene una importancia especial.</p>
                     </div>
                   </Popup>
-                  <Circle center={[-2.852039, -79.014585]} radius={1000} pathOptions={{ color: 'blue' }} />
+                  <Circle center={[-2.855369, -79.099310]} radius={1000} pathOptions={{ color: 'blue' }} />
                 </Marker>
 
               </>
