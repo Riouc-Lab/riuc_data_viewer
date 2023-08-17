@@ -13,6 +13,7 @@ export default function canastabasica() {
   const [button4Active, setButton4Active] = useState(false);
   const [button5Active, setButton5Active] = useState(false);
 
+
   return (
     <main className="fixed scroll-behavior-smooth">
       <div className="flex space-x-3 p-3">
@@ -79,7 +80,7 @@ export default function canastabasica() {
           <Map
             className="rounded-lg shadow-xl"
             center={DEFAULT_CENTER}
-            zoom={7.5}
+            zoom={11.5} //7.5
             width="850"
             height="400"
             //dragging={false} // Deshabilitar arrastrar
@@ -89,7 +90,7 @@ export default function canastabasica() {
             //tap={false} // Deshabilitar toques
             //zoomControl={false} // Deshabilitar control de zoom
           >
-            {({ TileLayer, Marker, Popup, Polygon }) => (
+            {({ TileLayer, Marker, Popup, Circle  }) => (
               <>
                 <TileLayer
                   //url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -101,6 +102,10 @@ export default function canastabasica() {
                 <Marker position={[-2.855038, -78.965722]}>
                   <Popup>CIITT</Popup>
                 </Marker>
+                {/* Polígono circular */}
+                <Circle center={[-2.855038, -78.965722]} radius={5000} pathOptions={{ color: 'red' }}>
+                  <Popup>Zona circular</Popup>
+                </Circle>
               </>
             )}
           </Map>
