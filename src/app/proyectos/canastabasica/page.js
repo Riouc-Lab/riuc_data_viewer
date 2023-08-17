@@ -13,7 +13,6 @@ export default function canastabasica() {
   const [button4Active, setButton4Active] = useState(false);
   const [button5Active, setButton5Active] = useState(false);
 
-
   return (
     <main className="fixed scroll-behavior-smooth">
       <div className="flex space-x-3 p-3">
@@ -80,7 +79,7 @@ export default function canastabasica() {
           <Map
             className="rounded-lg shadow-xl"
             center={DEFAULT_CENTER}
-            zoom={11.5} //7.5
+            zoom={12} //7.5
             width="850"
             height="400"
             //dragging={false} // Deshabilitar arrastrar
@@ -90,7 +89,7 @@ export default function canastabasica() {
             //tap={false} // Deshabilitar toques
             //zoomControl={false} // Deshabilitar control de zoom
           >
-            {({ TileLayer, Marker, Popup, Circle  }) => (
+            {({ TileLayer, Marker, Popup, Circle}) => (
               <>
                 <TileLayer
                   //url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -99,13 +98,34 @@ export default function canastabasica() {
                   url="https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png"
                   attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                 />
-                <Marker position={[-2.855038, -78.965722]}>
-                  <Popup>CIITT</Popup>
-                </Marker>
+                
+                {/* Marcador 1 */}
+              <Marker position={[-2.855038, -78.965722]}>
+                <Popup>
+                  <div className="popup-content">
+                    <h3>CIITT</h3>
+                    <img src="/img/ciitt-centro.png" alt="Ubicación" />
+                    <p>Centro de Investigación, Innovación y Transferencia de Tecnología.</p>
+                  </div>
+                </Popup>
+              </Marker>
+
                 {/* Polígono circular */}
-                <Circle center={[-2.855038, -78.965722]} radius={5000} pathOptions={{ color: 'red' }}>
+                <Circle center={[-2.898612, -79.000625]} radius={5000} pathOptions={{ color: 'red' }}>
                   <Popup>Zona circular</Popup>
                 </Circle>
+                
+                {/* Marcador 2 con zona circular */}
+                <Marker position={[-2.852039, -79.014585]}>
+                  <Popup>
+                    <div className="popup-content">
+                      <h3>Área Destacada</h3>
+                      <p>Esta área tiene una importancia especial.</p>
+                    </div>
+                  </Popup>
+                  <Circle center={[-2.852039, -79.014585]} radius={1000} pathOptions={{ color: 'blue' }} />
+                </Marker>
+
               </>
             )}
           </Map>
