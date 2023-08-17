@@ -14,7 +14,7 @@ export default function canastabasica() {
   const [button5Active, setButton5Active] = useState(false);
 
   return (
-    <main className="scroll-behavior-smooth">
+    <main className="fixed scroll-behavior-smooth">
       <div className="flex space-x-3 p-3">
         <div className="h-[calc(100vh-80px)] w-[400px] overflow-hidden overflow-y-auto rounded-lg bg-white p-3 shadow-md">
           <div className="border-b border-gray-300 pb-1">
@@ -73,14 +73,14 @@ export default function canastabasica() {
             </ul>
           </div>
         </div>
-        <div className="h-[calc(100vh-100px)] w-full overflow-hidden rounded-lg bg-white shadow-md">
-          {/* Mapa */}
 
+        <div className="h-[calc(100vh-80px)] overflow-hidden rounded-lg">
+          {/* Mapa */}
           <Map
             className="rounded-lg shadow-xl"
             center={DEFAULT_CENTER}
             zoom={7.5}
-            width="600"
+            width="850"
             height="400"
             //dragging={false} // Deshabilitar arrastrar
             //doubleClickZoom={false} // Deshabilitar zoom con doble clic

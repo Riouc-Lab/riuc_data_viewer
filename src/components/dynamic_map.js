@@ -30,7 +30,7 @@ const Map = ({ children, className, width, height, ...rest }) => {
     <div className={mapClassName}>
 
     <MapContainer
-      className={''} style={{ width: 1240, height: 850 }} center={[51.505, -0.09]} scrollWheelZoom={false} 
+      className={''} style={{ width: 1400, height: 875 }} center={[51.505, -0.09]} scrollWheelZoom={false} 
       {...rest}
     >
       {children(ReactLeaflet, Leaflet)}
