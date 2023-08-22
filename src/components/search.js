@@ -15,7 +15,7 @@ const Search = ({ onSearch }) => {
         placeholder="Buscar proyecto..."
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
-        className="border border-black rounded-l px-2 py-1 focus:outline-none focus:ring focus:border-blue-300"
+        className="border border-black rounded-l px-2 py-1 focus:outline-none focus:red focus:border-red-500 transition duration-200"
       />
       <button
         type="submit"
