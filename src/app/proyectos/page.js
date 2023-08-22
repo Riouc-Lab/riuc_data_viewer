@@ -28,9 +28,8 @@ export default function Proyectos() {
                 <Search onSearch={handleSearch} />
             </div>
               
-            <div className='flex min-h-screen mb-1'>
+            <div className='flex flex-wrap min-h-screen mb-1'>
             
-
             {projectsToDisplay.map((item) => {
           const isActive = pathname === item.to;
 
@@ -42,7 +41,7 @@ export default function Proyectos() {
                   className='dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert'
                   src={item.Image}
                   alt='Next.js Logo'
-                  width={500}
+                  width={550}
                   height={30}
                   priority
                 />
