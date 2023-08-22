@@ -1,29 +1,38 @@
 "use client";
+import React, { useState } from "react";
 import Image from "next/image";
 import{lista_proyectos} from '@utils/modelo_proyectos';
 import Search from "@riuc/components/search";
 import { usePathname, useRouter } from "next/navigation";
 
 export default function Proyectos() {
-  const router = useRouter()
-  const pathname= usePathname()
+  const router = useRouter();
+  const pathname = usePathname();
+  const [searchResults, setSearchResults] = useState([]);
 
+  const handleSearch = (query) => {
+    const filteredProjects = lista_proyectos.filter((project) =>
+      project.name.toLowerCase().includes(query.toLowerCase())
+    );
+    setSearchResults(filteredProjects);
+  };
 
+  const projectsToDisplay = searchResults.length > 0 ? searchResults : lista_proyectos;
 
+ 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-5 mb-3">
       <div className='text-center mb-3'>
                 <h5 className='text-base md:text-lg text-red-500 mb-3'>GeoVisor</h5>
                 <h1 className='text-4xl md:text-6xl text-black font-semibold mb-5'>PROYECTOS</h1>
-                < Search />
+                <Search onSearch={handleSearch} />
             </div>
               
             <div className='flex min-h-screen mb-1'>
             
 
-            {lista_proyectos.map((item, link) => {
-                const isActive = pathname === link.to;
-
+            {projectsToDisplay.map((item) => {
+          const isActive = pathname === item.to;
 
             return (
               // eslint-disable-next-line react/jsx-key
@@ -31,7 +40,7 @@ export default function Proyectos() {
               <div className='border-2 border-black border-opacity-10 rounded-lg overflow-hidden'>
               <Image
                   className='dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert'
-                  src='/img/geovisor_mapa.png'
+                  src={item.Image}
                   alt='Next.js Logo'
                   width={500}
                   height={30}
@@ -46,7 +55,7 @@ export default function Proyectos() {
                           <a className="text-indigo-300 inline-flex items-center md:mb-2 lg:mb-0" >
                           
                           <button className={isActive ? 'ml-4 grid text-center text-text-red-700 text-xl text-red-700 py-3 mb-2' : 'text-indigo-300 inline-flex items-center md:mb-2 lg:mb-0'} 
-                          type="button" onClick={() => router.push(lista_proyectos[link].to)
+                          type="button" onClick={() => router.push(item.to)
                           }>Saber mas 
                           </button>
                           
