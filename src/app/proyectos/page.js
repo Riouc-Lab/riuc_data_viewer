@@ -28,7 +28,7 @@ export default function Proyectos() {
                 <Search onSearch={handleSearch} />
             </div>
               
-            <div className='flex flex-wrap min-h-screen mb-1'>
+            <div className='flex flex-wrap min-h-screen'>
             
             {projectsToDisplay.map((item) => {
           const isActive = pathname === item.to;
