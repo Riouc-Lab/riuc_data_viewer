@@ -21,27 +21,27 @@ export default function Proyectos() {
 
  
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-5 mb-3">
-      <div className='text-center mb-3'>
+    <main className="flex min-h-screen flex-col items-center p-5 mb-5">
+      <div className='text-center mb-10'>
                 <h5 className='text-base md:text-lg text-red-500 mb-3'>GeoVisor</h5>
                 <h1 className='text-4xl md:text-6xl text-black font-semibold mb-5'>PROYECTOS</h1>
                 <Search onSearch={handleSearch} />
             </div>
               
-            <div className='flex flex-wrap min-h-screen'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
             
             {projectsToDisplay.map((item) => {
           const isActive = pathname === item.to;
 
             return (
               // eslint-disable-next-line react/jsx-key
-              <div className='p-4 sm:w-1/2 lg:w-1/3'>
+              <div className=''>
               <div className='border-2 border-black border-opacity-10 rounded-lg overflow-hidden'>
               <Image
                   className='dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert'
                   src={item.Image}
                   alt='Next.js Logo'
-                  width={550}
+                  width={562}
                   height={30}
                   priority
                 />
