@@ -102,8 +102,8 @@ export default function canastabasica() {
               <>
                 <TileLayer
                   //url='https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png'
-                  //url='https://tile.openstreetmap.org/{z}/{x}/{y}.png'
-                  url="https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png"
+                  url='https://tile.openstreetmap.org/{z}/{x}/{y}.png'
+                  //url="https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png"
                   //url="https://stamen-tiles.a.ssl.fastly.net/terrain/{z}/{x}/{y}.png" 
                   //url="https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png"  // Mapa claro
                   //url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}" // Mapa satelital
