@@ -101,10 +101,20 @@ export default function canastabasica() {
             {({ TileLayer, Marker, Popup, Circle, Polygon}) => (
               <>
                 <TileLayer
-                  //url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                   //url='https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png'
                   //url='https://tile.openstreetmap.org/{z}/{x}/{y}.png'
                   url="https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png"
+                  //url="https://stamen-tiles.a.ssl.fastly.net/terrain/{z}/{x}/{y}.png" 
+                  //url="https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png"  // Mapa claro
+                  //url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}" // Mapa satelital
+                  //url="https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png"  // Mapa topográfico
+                  //url="https://stamen-tiles.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.jpg" // Mapa acuarela
+                  //url="https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png" // Mapa wikimedia
+                  //url="https://basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png" // Mapa carto
+                  //url="https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png" // Mapa oscuro
+                  //url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}" // Mapa callejero
+                  //url="https://stamen-tiles.a.ssl.fastly.net/toner/{z}/{x}/{y}.png" // Mapa toner
+
                   attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                 />
                 
