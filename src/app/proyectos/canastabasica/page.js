@@ -7,12 +7,20 @@ import SwitchButton from "@components/buttonswitch";
 export default function canastabasica() {
   const DEFAULT_CENTER = [-2.855038, -78.965722];
 
-  const [button1Active, setButton1Active] = useState(false);
-  const [button2Active, setButton2Active] = useState(false);
-  const [button3Active, setButton3Active] = useState(false);
+  const [marker1Visible, setMarker1Visible] = useState(false);
+  const [circle1Visible, setCircle1Visible] = useState(false);
+  const [polygonVisible, setPolygonVisible] = useState(false);
   const [button4Active, setButton4Active] = useState(false);
   const [button5Active, setButton5Active] = useState(false);
 
+  const cityPolygon = [
+    [-2.871360, -79.077560], // Vértice 1
+    [-2.877275, -78.979509], // Vértice 2
+    [-2.894891, -78.959296], // Vértice 3
+    [-2.922150, -79.001181], // Vértice 4
+    [-2.926864, -79.042209], // Vértice 5
+    // ... más coordenadas de vértices si es necesario
+  ];
   
   return (
     <main className="fixed scroll-behavior-smooth">
@@ -31,28 +39,28 @@ export default function canastabasica() {
                 GeoVisor
               </h2>
               <h1 class="text-2xl font-semibold mb-5">CAPAS</h1>
-              <p class="leading-relaxed mb-5">CAPA 1</p>
+              <p class="leading-relaxed mb-5">Marcador</p>
               {/* Botón 1 */}
               <div className="mb-4">
                 <SwitchButton
-                  isActive={button1Active}
-                  onClick={() => setButton1Active(!button1Active)}
+                  isActive={marker1Visible}
+                  onClick={() => setMarker1Visible(!marker1Visible)}
                 />
               </div>
-              <p class="leading-relaxed mb-5">CAPA 2</p>
+              <p class="leading-relaxed mb-5">Zona circular</p>
               {/* Botón 2 */}
               <div className="mb-4">
                 <SwitchButton
-                  isActive={button2Active}
-                  onClick={() => setButton2Active(!button2Active)}
+                  isActive={circle1Visible}
+                  onClick={() => setCircle1Visible(!circle1Visible)}
                 />
               </div>
-              <p class="leading-relaxed mb-5">CAPA 3</p>
+              <p class="leading-relaxed mb-5">Poligono de la ciudad</p>
               {/* Botón 3 */}
               <div className="mb-4">
                 <SwitchButton
-                  isActive={button3Active}
-                  onClick={() => setButton3Active(!button3Active)}
+                  isActive={polygonVisible}
+                  onClick={() => setPolygonVisible(!polygonVisible)}
                 />
               </div>
               <p class="leading-relaxed mb-5">CAPA 4</p>
@@ -90,7 +98,7 @@ export default function canastabasica() {
             //tap={false} // Deshabilitar toques
             //zoomControl={false} // Deshabilitar control de zoom
           >
-            {({ TileLayer, Marker, Popup, Circle}) => (
+            {({ TileLayer, Marker, Popup, Circle, Polygon}) => (
               <>
                 <TileLayer
                   //url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -101,7 +109,7 @@ export default function canastabasica() {
                 />
                 
                 {/* Marcador 1 */}
-              <Marker position={[-2.855038, -78.965722]} alt="CIIT">
+              <Marker position={[-2.855038, -78.965722]} alt="CIIT" opacity={marker1Visible ? 1 : 0}>
                 <Popup>
                   <div className="popup-content">
                     <h3>CIITT</h3>
@@ -110,23 +118,33 @@ export default function canastabasica() {
                   </div>
                 </Popup>
               </Marker>
+              
 
                 {/* Polígono circular */}
-                <Circle center={[-2.898612, -79.000625]} radius={5000} pathOptions={{ color: 'red' }}>
+                <Circle center={[-2.898612, -79.000625]} 
+                radius={5000}
+                pathOptions={{
+                  color: 'red',
+                  fillOpacity: circle1Visible ? 0.3 : 0, // Ajusta la opacidad del relleno
+                  opacity: circle1Visible ? 1 : 0, // Ajusta la opacidad del borde
+                }}>
                   <Popup>Zona circular</Popup>
                 </Circle>
                 
-                {/* Marcador 2 con zona circular */}
-                <Marker position={[-2.855369, -79.099310]}>
-                  <Popup>
-                    <div className="popup-content">
-                      <h3>Área Destacada</h3>
-                      <p>Esta área tiene una importancia especial.</p>
-                    </div>
-                  </Popup>
-                  <Circle center={[-2.855369, -79.099310]} radius={1000} pathOptions={{ color: 'blue' }} />
-                </Marker>
 
+                {/* Polígono de la ciudad */}
+                <Polygon
+                  positions={cityPolygon}
+                  pathOptions={{ color: "blue", 
+                  fillOpacity: polygonVisible ? 0.3 : 0, // Ajusta la opacidad del relleno
+                  opacity: polygonVisible ? 0.8 : 0, // Ajusta la opacidad del borde
+                }}
+                >
+                  <Popup>
+                    Cuenca
+                  </Popup>
+                </Polygon>
+                
               </>
             )}
           </Map>

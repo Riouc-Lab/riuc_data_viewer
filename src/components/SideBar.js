@@ -78,7 +78,7 @@ export default function SideBar({ navLinks }) {
 
             return (
               // eslint-disable-next-line react/jsx-key
-              <button key={link.id}  className={isActive ? 'ml-4 grid text-center text-text-red-700 text-xl text-red-700 py-3 mb-2' : 'ml-4 grid text-center text-white text-xl hover:bg-red-700 py-3 mb-2'} type="button" onClick={() => setRouteAndHide(link.to)
+              <button key={link.id}  className={isActive ? 'ml-4 grid text-center text-text-red-700 text-xl text-red-700 py-3 mb-2' : 'ml-4 grid text-center text-white text-xl rounded-full hover:bg-red-700 py-3 mb-2'} type="button" onClick={() => setRouteAndHide(link.to)
               }>
                {link.name} 
               </button>
