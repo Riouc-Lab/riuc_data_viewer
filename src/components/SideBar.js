@@ -93,7 +93,7 @@ export default function SideBar({ navLinks }) {
                 </button>
 
                 {link.expanded ? (
-                  <svg
+                  <button><svg
                     className="place-self-center h-6 text-white hover:text-red-700 transition-all duration-300 ease-in-out transform hover:scale-110"
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -103,6 +103,7 @@ export default function SideBar({ navLinks }) {
                   >
                     <path d="M8 10.293l-4.146-4.147a.5.5 0 10-.708.708l4.5 4.5a.5.5 0 00.708 0l4.5-4.5a.5.5 0 10-.708-.708L8 10.293z" />
                   </svg>
+                  </button>
                 ) : (
                   <></>
                 )}

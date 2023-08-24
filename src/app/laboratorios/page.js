@@ -126,8 +126,8 @@ export default function Laboratorios() {
                   className="text-white hover:text-red-600"
                   > Autoridades
                   </a> 
-                  <hr className="my-2 border-white" />
                   </p>
+                  <hr className="my-2 border-white" />
                   <p>
                     <a
                     href="https://www.ucacue.edu.ec/la-universidad/politica-de-calidad/"
@@ -136,8 +136,8 @@ export default function Laboratorios() {
                     className="text-white hover:text-red-600"
                   > Politica de Calidad
                   </a>
-                  <hr className="my-2 border-white" />
                   </p>
+                  <hr className="my-2 border-white" />
                   <p>
                   <a
                     href="https://www.ucacue.edu.ec/ejes/administrativo/"
@@ -146,8 +146,8 @@ export default function Laboratorios() {
                     className="text-white hover:text-red-600"
                   > Areas administrativas
                   </a>
-                  <hr className="my-2 border-white" />
                   </p>
+                  <hr className="my-2 border-white" />
                   <p>
                   <a
                     href="https://www.ucacue.edu.ec/la-universidad/campus-universitario/"
@@ -156,8 +156,8 @@ export default function Laboratorios() {
                     className="text-white hover:text-red-600"
                   > Campus
                   </a>
-                  <hr className="my-2 border-white" />
                   </p>
+                  <hr className="my-2 border-white" />
                   <p>
                   <a
                     href="https://internacional.ucacue.edu.ec/"
@@ -166,8 +166,8 @@ export default function Laboratorios() {
                     className="text-white hover:text-red-600"
                   > Relaciones Internacionales
                   </a>
-                  <hr className="my-2 border-white" />
                   </p>
+                  <hr className="my-2 border-white" />
                   <p>
                   <a
                     href="https://www.ucacue.edu.ec/transparencia/"
@@ -176,8 +176,8 @@ export default function Laboratorios() {
                     className="text-white hover:text-red-600"
                   > Transparencia
                   </a>
-                  <hr className="my-2 border-white" />
                   </p>
+                  <hr className="my-2 border-white" />
                   <p>
                   <a
                     href="https://documentacion.ucacue.edu.ec/collections/show/2044"
@@ -186,8 +186,8 @@ export default function Laboratorios() {
                     className="text-white hover:text-red-600"
                   > Protocolos
                   </a>
-                  <hr className="my-2 border-white" />
                   </p>
+                  <hr className="my-2 border-white" />
                   
               </div>
               <div className="bg-black rounded-lg shadow p-4">
@@ -208,8 +208,8 @@ export default function Laboratorios() {
                   className="text-white hover:text-red-600"
                   > Centros de investigación
                   </a> 
-                  <hr className="my-2 border-white" />
                   </p>
+                  <hr className="my-2 border-white" />
                   <p>
                     <a
                     href="https://investigacion.ucacue.edu.ec/laboratorios-de-investigacion/"
@@ -218,8 +218,8 @@ export default function Laboratorios() {
                     className="text-white hover:text-red-600"
                   > Laboratorios
                   </a>
-                  <hr className="my-2 border-white" />
                   </p>
+                  <hr className="my-2 border-white" />
                   <p>
                   <a
                     href="https://innovacion.ucacue.edu.ec/"
@@ -228,8 +228,8 @@ export default function Laboratorios() {
                     className="text-white hover:text-red-600"
                   > Innovación
                   </a>
-                  <hr className="my-2 border-white" />
                   </p>
+                  <hr className="my-2 border-white" />
                   <p>
                   <a
                     href="https://investigacion.ucacue.edu.ec/publicaciones/"
@@ -238,8 +238,8 @@ export default function Laboratorios() {
                     className="text-white hover:text-red-600"
                   > Revistas científicas
                   </a>
-                  <hr className="my-2 border-white" />
                   </p>
+                  <hr className="my-2 border-white" />
               </div>
               <div className="bg-black rounded-lg shadow p-4">
                 <h3 className="text-lg font-semibold mb-2 text-white">CONTACTOS</h3>
@@ -256,8 +256,8 @@ export default function Laboratorios() {
                     className="text-white hover:text-red-600"
                   > info@ucacue.edu.ec
                   </a>
-                  <hr className="my-2 border-white" />
                 </p>
+                <hr className="my-2 border-white" />
               </div>
             </div>
           </div>
