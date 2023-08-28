@@ -3,11 +3,13 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import Proyectos from "@riuc/app/proyectos/page";
+import { lista_proyectos } from "@riuc/utils/modelo_proyectos";
 
 export default function SideBar({ navLinks }) {
   const [open, setOpen] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
+  const [showProjects, setShowProjects] = useState(false); 
 
   function setRouteAndHide(to) {
     //console.log(to);
@@ -91,9 +93,13 @@ export default function SideBar({ navLinks }) {
                 >
                   {link.name}
                 </button>
-
+                  
+                  {/* Boton desplegable \*/}
+                  
                 {link.expanded ? (
-                  <button><svg
+                  <button className="mb-5 p-1"
+                  onClick={() => setShowProjects(!showProjects)}
+                  ><svg
                     className="place-self-center h-6 text-white hover:text-red-700 transition-all duration-300 ease-in-out transform hover:scale-110"
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -107,10 +113,25 @@ export default function SideBar({ navLinks }) {
                 ) : (
                   <></>
                 )}
+                {showProjects && link.expanded && (
+                  <div className="pl-6">
+                    {lista_proyectos.map((proyecto) => (
+                      <a
+                        key={proyecto.id}
+                        href={proyecto.to}
+                        className="text-white hover:text-red-600 block"
+                      >
+                        {proyecto.name}
+                      </a>
+                    ))}
+                  </div>
+                )}
               </div>
             );
           })}
 
+        </div>
+        <div className="absolute bottom-0 w-full">
           <h1 className="font-sans text-center text-white">
             ciitt@ucacue.edu.ec
           </h1>
