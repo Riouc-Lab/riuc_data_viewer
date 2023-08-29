@@ -1,68 +1,30 @@
-"use client";
-import React, { useMemo, useRef, useState } from 'react'
-import { createAutocomplete } from '@algolia/autocomplete-core'
-import Link from 'next/link'
-import{lista_proyectos} from '@utils/modelo_proyectos';
+import React, { useState } from "react";
 
-export default function Search() {
-    const [inputValue, setInputValue] = useState('')
-    const [suggestions, setSuggestions] = useState([])
-    const [selectedSuggestion, setSelectedSuggestion] = useState(null)
-    const autocomplete = useRef(
-        createAutocomplete({
-            onStateChange({ state }) {
-                setSuggestions(state.suggestions)
-                setSelectedSuggestion(state.selectedItem)
-            },
-            getSources() {
-                return [
-                    {
-                        sourceId: 'lista_proyectos',
-                        getItems() {
-                            return lista_proyectos
-                        },
-                        getItemInputValue({ item }) {
-                            return item.name
-                        },
-                        getItemUrl({ item }) {
-                            return item.to
-                        },
-                    },
-                ]
-            },
-            onSelectedItemChange({ item }) {
+const Search = ({ onSearch }) => {
+  const [searchQuery, setSearchQuery] = useState("");
 
-                if (!item) {
-                    setInputValue('')
-                    return
-                }
+  const handleSearch = (e) => {
+    e.preventDefault();
+    onSearch(searchQuery);
+  };
 
-                setInputValue(item.name)
-            },
-        })
-    ).current
+  return (
+    <form onSubmit={handleSearch} className="flex items-center">
+      <input
+        type="text"
+        placeholder="Buscar proyecto..."
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
+        className="border border-black rounded-l px-2 py-1 focus:outline-none focus:red focus:border-red-500 transition duration-200"
+      />
+      <button
+        type="submit"
+        className="bg-red-500 text-white rounded-r px-4 py-1"
+      >
+        Buscar
+      </button>
+    </form>
+  );
+};
 
-    const inputProps = useMemo(
-        () => autocomplete.getInputProps({}),
-        [autocomplete]
-    )
-
-
-return (
-    <div className="w-full">
-    <div className="">
-        <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-            
-        </div>
-        <input
-        className="block w-full py-2 pl-10 pr-3 text-sm text-black placeholder-gray-400 bg-white border border-black rounded-md shadow-sm focus:outline-none focus:ring-1 focus:ring-red-500 focus:border-black sm:text-sm"
-                    type='search'
-                    name='search'
-                    placeholder='Ingrese el nombre del proyecto a buscar'
-                    autoComplete='on'
-        />
-    </div>
-    </div>
-)
-
-}
+export default Search;

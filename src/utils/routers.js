@@ -3,16 +3,19 @@ export const routers_menu = [
     id: 1,
     to: "/informacion",
     name: "Información",
+    expanded: false,
   },
   {
     id: 2,
     to: "/laboratorios",
     name: "Laboratorios",
+    expanded: false,
   },
   {
     id: 3,
     to: "/proyectos",
     name: "Proyectos",
+    expanded: true,
   },
   
 ];

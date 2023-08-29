@@ -2,15 +2,15 @@ import Image from "next/image";
 
 export default function Informacion() {
   return (
-    <div className="bg-white rounded-lg shadow p-6">
-      <h1 className="text-2xl font-bold mb-4">Información de la Página</h1>
-      <p className="text-gray-700">
+    <div className="bg-white flex flex-col rounded-lg shadow p-6 mx-auto max-w-6xl">
+      <h1 className="text-3xl font-bold mb-4">Información de la Página</h1>
+      <p className="text-black mb-3">
         Bienvenido a esta página. Aquí encontrarás información importante sobre
         nuestro sitio.
       </p>
-      <div className="mb-3">
-        <Image
-          className="dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
+      <div className="mb-3 justify-center">
+      <Image
+          className="mb-3 mx-auto max-w-6xl rounded-lg shadow p-3 mx-auto max-w-6xl justify-center" 
           src="/img/objetivos.jpg"
           alt="Next.js Logo"
           width={600}
@@ -18,7 +18,8 @@ export default function Informacion() {
           priority
         />
       </div>
-      <h1 className="font-sans text-left font-bold mb-3 text-red-500 text-lg">
+      
+      <h1 className="text-left font-size mb-3 text-red-500 text-lg mb-3">
         Objetivos del CIITT
       </h1>
 
@@ -50,6 +51,7 @@ export default function Informacion() {
         -La oferta de los resultados obtenidos a la comunidad y sectores
         productivos.
       </h2>
+
 
       <ul className="mt-4">
         <li className="flex items-center">
