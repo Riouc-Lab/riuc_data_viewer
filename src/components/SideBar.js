@@ -9,10 +9,22 @@ export default function SideBar({ navLinks }) {
   const [open, setOpen] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
-  const [showProjects, setShowProjects] = useState(false); 
+  const [showProjects, setShowProjects] = useState(false);
+  const ref = React.useRef(null);
 
-  function setRouteAndHide(to) {
-    //console.log(to);
+  function showMenu1(flag,to) {
+    let icon1 = document.getElementById("icon1");
+    let menu1 = document.getElementById("menu1");
+
+    if (flag) {
+      icon1.classList.toggle("rotate-180");
+      menu1.classList.toggle("hidden");
+    }else{
+      router.push(to);
+      setOpen(false);
+    }
+  }
+  function goto(to){
     router.push(to);
     setOpen(false);
   }
@@ -80,56 +92,100 @@ export default function SideBar({ navLinks }) {
 
             return (
               // eslint-disable-next-line react/jsx-key
-              <div className="">
-                <button
-                  key={link.id}
-                  className={
-                    isActive
-                      ? "ml-4 text-center text-text-red-700 text-xl text-red-700 py-3 mb-2"
-                      : "ml-4 text-center text-white text-xl rounded-full hover:bg-red-700 py-3 mb-2"
-                  }
-                  type="button"
-                  onClick={() => setRouteAndHide(link.to)}
-                >
-                  {link.name}
-                </button>
-                  
-                  {/* Boton desplegable \*/}
-                  
-                {link.expanded ? (
-                  <button className="mb-5 p-1"
-                  onClick={() => setShowProjects(!showProjects)}
-                  ><svg
-                    className="place-self-center h-6 text-white hover:text-red-700 transition-all duration-300 ease-in-out transform hover:scale-110"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    viewBox="0 0 16 16"
-                    fill="white"
+              <>
+                <div className="flex items-center justify-between">
+                  {/* <button
+                    key={link.id}
+                    className={
+                      isActive
+                        ? "ml-4 text-center text-text-red-700 text-xl text-red-700 py-3 mb-2"
+                        : "ml-4 text-center text-white text-xl rounded-full hover:bg-red-700 py-3 mb-2"
+                    }
+                    type="button"
+                    onClick={() => setRouteAndHide(link.to)}
                   >
-                    <path d="M8 10.293l-4.146-4.147a.5.5 0 10-.708.708l4.5 4.5a.5.5 0 00.708 0l4.5-4.5a.5.5 0 10-.708-.708L8 10.293z" />
-                  </svg>
-                  </button>
-                ) : (
-                  <></>
-                )}
-                {showProjects && link.expanded && (
-                  <div className="pl-8">
-                    {lista_proyectos.map((proyecto) => (
-                      <a
-                        key={proyecto.id}
-                        href={proyecto.to}
-                        className="text-white hover:text-red-600 block"
+                    {link.name}
+                  </button> */}
+                  <div class="flex flex-col justify-start items-center   px-6 border-b border-gray-600 w-full  ">
+                    <button
+                    key={link.id}
+                      onClick={() => showMenu1(link.expanded,link.to)}
+                      class="focus:outline-none focus:text-indigo-400 text-left  text-white flex justify-between items-center w-full py-5 space-x-14  "
+                    >
+                      <p class="text-sm leading-5  uppercase">{link.name}</p>
+                      {link.expanded ? (
+                        <svg
+                          ref={ref}
+                          id="icon1"
+                          class="transform"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M18 15L12 9L6 15"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                          />
+                        </svg>
+                      ) : (
+                        <></>
+                      )}
+                    </button>
+                    {link.expanded ? (
+                      <div
+                        ref={ref}
+                        id="menu1"
+                        class="flex justify-start  flex-col w-full md:w-auto items-start pb-1 "
                       >
-                        {proyecto.name}
-                      </a>
-                    ))}
+                        {lista_proyectos.map((proyecto) => (
+                          <button key={proyecto.id} onClick={()=>goto(proyecto.to)} class="flex justify-start items-center space-x-6 hover:text-white focus:bg-gray-700 focus:text-white hover:bg-gray-700 text-gray-400 rounded px-3 py-2  w-full md:w-52">
+                            <p class="text-base leading-6  ">{proyecto.name}</p>
+                          </button>
+                        ))}
+                      </div>
+                    ) : (
+                      <></>
+                    )}
                   </div>
-                )}
-              </div>
+                  {/* {link.expanded ? (
+                    <button
+                      className="mb-5 p-1"
+                      onClick={() => setShowProjects(!showProjects)}
+                    >
+                      <svg
+                        className=" pl-1 place-self-center h-6 text-white hover:text-red-700 transition-all duration-300 ease-in-out transform hover:scale-110"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="white"
+                      >
+                        <path d="M8 10.293l-4.146-4.147a.5.5 0 10-.708.708l4.5 4.5a.5.5 0 00.708 0l4.5-4.5a.5.5 0 10-.708-.708L8 10.293z" />
+                      </svg>
+                    </button>
+                  ) : (
+                    <></>
+                  )} */}
+                  {/* {showProjects && link.expanded && (
+                    <div className="pl-8">
+                      {lista_proyectos.map((proyecto) => (
+                        <a
+                          key={proyecto.id}
+                          href={proyecto.to}
+                          className="text-white hover:text-red-600 block"
+                        >
+                          {proyecto.name}
+                        </a>
+                      ))}
+                    </div>
+                  )} */}
+                </div>
+              </>
             );
           })}
-
         </div>
         <div className="absolute bottom-0 w-full">
           <h1 className="font-sans text-center text-white">
