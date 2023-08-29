@@ -114,7 +114,7 @@ export default function SideBar({ navLinks }) {
                   <></>
                 )}
                 {showProjects && link.expanded && (
-                  <div className="pl-6">
+                  <div className="pl-8">
                     {lista_proyectos.map((proyecto) => (
                       <a
                         key={proyecto.id}

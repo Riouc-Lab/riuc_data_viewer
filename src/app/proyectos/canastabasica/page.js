@@ -23,7 +23,7 @@ export default function canastabasica() {
   ];
   
   return (
-    <main className="fixed scroll-behavior-smooth">
+    <main className="fixed scroll-behavior-smooth font-mono text-sm"> 
       <div className="flex space-x-3 p-3">
         <div className="h-[calc(100vh-80px)] w-[400px] overflow-hidden overflow-y-auto rounded-lg bg-white p-3 shadow-md">
           <div className="border-b border-gray-300 pb-1">
