@@ -23,8 +23,22 @@ export default function canastabasica() {
   ];
   
   return (
-    <main className="fixed scroll-behavior-smooth font-mono text-sm"> 
-      <div className="flex space-x-3 p-3">
+    <main className="scroll-behavior-smooth text-sm"> 
+
+  
+      <div className="flex items-center justify-center h-80 overflow-hidden bg-cover bg-center bg-no-repeat"
+       style={{ backgroundImage: "url('/img/geovisor_mapa.png')",
+      }}>
+      
+      <div className="p-5">
+        <h1 className="text-4xl font-bold text-white mb-4">Geovisor de Canasta Basica</h1>
+        <p className="text-lg text-white">
+          Descripción del proyecto.
+        </p>
+      </div>
+    </div>
+
+      <div className="flex space-x-3 p-3 font-mono">
         <div className="h-[calc(100vh-80px)] w-[400px] overflow-hidden overflow-y-auto rounded-lg bg-white p-3 shadow-md">
           <div className="border-b border-gray-300 pb-1">
             <h3 className="text-xl font-semibold text-slate-700">

@@ -1,3 +1,4 @@
+import Footer from "@riuc/components/footer";
 import Image from "next/image";
 
 export default function Home() {
@@ -21,7 +22,6 @@ export default function Home() {
           promoviendo la vinculación y la capacitación.
         </h1>
       <div className="relative flex place-items-center">
-        
       </div>
     </main>
   );

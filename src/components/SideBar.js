@@ -129,13 +129,13 @@ export default function SideBar({ navLinks }) {
               </div>
             );
           })}
-
-        </div>
         <div className="absolute bottom-0 w-full">
           <h1 className="font-sans text-center text-white">
             ciitt@ucacue.edu.ec
           </h1>
         </div>
+        </div>
+        
       </div>
     </>
   );

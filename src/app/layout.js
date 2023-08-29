@@ -2,6 +2,7 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import SideBar from "@riuc/components/SideBar";
 import {routers_menu} from '@utils/routers';
+import Footer from "@riuc/components/footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -15,7 +16,9 @@ export default function RootLayout({ children }) {
         <SideBar navLinks={routers_menu} />
        <main className=" min-h-screen flex-col items-center justify-between p-16 bg-white">
        {children}
+       
        </main>
+       <Footer/>
       </body>
     </html>
   );
