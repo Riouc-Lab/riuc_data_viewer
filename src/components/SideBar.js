@@ -20,12 +20,12 @@ export default function SideBar({ navLinks }) {
       icon1.classList.toggle("rotate-180");
       menu1.classList.toggle("hidden");
     }else{
-      await router.prefetch(to);
+      await router.push(to);
       setOpen(false);
     }
   }
   async function goto(to){
-    await router.prefetch(to,);
+    await router.push(to,);
     setOpen(false);
   }
 
@@ -44,7 +44,7 @@ export default function SideBar({ navLinks }) {
               className="cursor-pointer flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => router.prefetch("/")}
+              onClick={() => router.push("/")}
             >
               {" "}
               <Image
