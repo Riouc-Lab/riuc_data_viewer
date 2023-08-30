@@ -1,9 +1,25 @@
+import Footer from "@riuc/components/footer";
 import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-40">
-      <div className="">
+    <main className="flex min-h-screen flex-col items-center justify-between p-1">
+
+        <div className="flex items-center justify-center">
+          <video
+            autoPlay
+            loop
+            muted
+            controls={false}
+            style={{ pointerEvents: 'none', width: '1700px', height: '885px' }}
+            className="object-cover rounded-lg shadow-lg"
+              >
+            <source src="/video/riouc.mp4" type="video/mp4" />
+            Tu navegador no admite la reproducción de video.
+          </video>
+        </div>
+
+      <div className="p-16 mb-5">
         <Image
           className=""
           src="/img/riouc_centro.png"
@@ -21,7 +37,6 @@ export default function Home() {
           promoviendo la vinculación y la capacitación.
         </h1>
       <div className="relative flex place-items-center">
-        
       </div>
     </main>
   );
