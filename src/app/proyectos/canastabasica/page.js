@@ -23,25 +23,24 @@ export default function canastabasica() {
   ];
   
   return (
-    <main className="scroll-behavior-smooth text-sm"> 
+    <main className="scroll-behavior-smooth text-sm p-8"> 
 
       {/* Informacion del proyecto */}
-      <div className="flex items-center justify-center h-80 overflow-hidden bg-cover bg-center bg-no-repeat"
-       style={{ backgroundImage: "url('/img/geovisor_mapa.png')",
-      }}>
-      
-      <div className="p-5">
-        <h1 className="text-4xl font-bold text-black mb-4">Geovisor de Canasta Basica</h1>
-        <p className="text-lg text-black">
-        Este proyecto consiste en una herramienta interactiva y visualmente impactante que tiene como objetivo principal 
-        proporcionar una perspectiva detallada y accesible sobre los datos relacionados con la canasta básica en el país de Ecuador a lo largo de diversos años.
-        Este geovisor aprovecha las capacidades de la tecnología geoespacial y la visualización de datos para ofrecer a los usuarios una comprensión profunda de cómo los precios 
-        y la disponibilidad de los elementos esenciales en la canasta básica han evolucionado con el tiempo en diferentes regiones del país.
-        </p>
+      <div className="flex items-center justify-center h-80 overflow-hidden bg-cover bg-center bg-no-repeat mb-5 rounded-lg shadow-lg "
+        style={{ backgroundImage: "url('/img/geovisor_mapa.png')" }}>
+        
+        <div className="p-5 bg-white bg-opacity-40 shadow-lg">
+          <h1 className="text-4xl font-sans text-black mb-4">Geovisor de Canasta Básica</h1>
+          <p className="text-lg font-sans text-gray-700">
+            Este proyecto consiste en una herramienta interactiva y visualmente impactante que tiene como objetivo principal 
+            proporcionar una perspectiva detallada y accesible sobre los datos relacionados con la canasta básica en el país de Ecuador a lo largo de diversos años.
+            Este geovisor aprovecha las capacidades de la tecnología geoespacial y la visualización de datos para ofrecer a los usuarios una comprensión profunda de cómo los precios 
+            y la disponibilidad de los elementos esenciales en la canasta básica han evolucionado con el tiempo en diferentes regiones del país.
+          </p>
+        </div>
       </div>
-    </div>
 
-      <div className="flex space-x-3 p-3 font-mono">
+      <div className="flex space-x-3 p-3 font-sans">
         <div className="h-[calc(100vh-80px)] w-[400px] overflow-hidden overflow-y-auto rounded-lg bg-white p-3 shadow-md">
           <div className="border-b border-gray-300 pb-1">
             <h3 className="text-xl font-semibold text-slate-700">
@@ -103,7 +102,7 @@ export default function canastabasica() {
         <div className="h-[calc(100vh-80px)] overflow-hidden rounded-lg">
           {/* Mapa */}
           <Map
-            className="rounded-lg shadow-xl"
+            className=" shadow-xl"
             center={DEFAULT_CENTER}
             zoom={12} //7.5
             width="850"

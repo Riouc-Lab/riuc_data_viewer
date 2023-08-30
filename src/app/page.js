@@ -11,9 +11,13 @@ export default function Home() {
             loop
             muted
             controls={false}
-            style={{ pointerEvents: 'none', width: '1700px', height: '885px' }}
-            className="object-cover rounded-lg shadow-lg"
-              >
+            style={{
+              pointerEvents: 'none',  // Evitar que el video se pueda pausar o reproducir al hacer click
+              width: '2000px', height: '1010px', // Tamaño del video
+              marginTop: '-135px',  // Margen superior negativo para recortar
+            }}
+            className="object-cover w-full h-full rounded-lg shadow-lg "
+          >
             <source src="/video/riouc.mp4" type="video/mp4" />
             Tu navegador no admite la reproducción de video.
           </video>
@@ -30,7 +34,7 @@ export default function Home() {
         />
         
       </div>
-      <h1 className="font-sans-25 text-center">
+      <h1 className="font-sans-25 text-center mb-15 p-5">
           {" "}
           El CIITT busca crear condiciones para que los resultados de la
           investigación sean transferidos a la sociedad para generar innovación;

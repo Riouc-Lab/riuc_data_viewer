@@ -14,7 +14,7 @@ export default function RootLayout({ children }) {
     <html lang="es">
       <body className={inter.className}>
         <SideBar navLinks={routers_menu} />
-       <main className=" min-h-screen flex-col items-center justify-between p-16 bg-white">
+       <main className= "bg-white mt-16">
        {children}
        
        </main>

@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Informacion() {
   return (
-    <div className="bg-white flex flex-col rounded-lg shadow p-6 mx-auto max-w-6xl">
+    <div className="bg-white flex flex-col p-6 mx-auto max-w-6xl">
       <h1 className="text-3xl font-bold mb-4">Información de la Página</h1>
       <p className="text-black mb-3">
         Bienvenido a esta página. Aquí encontrarás información importante sobre
