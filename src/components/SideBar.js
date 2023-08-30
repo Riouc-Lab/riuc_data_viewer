@@ -12,7 +12,7 @@ export default function SideBar({ navLinks }) {
   const [showProjects, setShowProjects] = useState(false);
   const ref = React.useRef(null);
 
-  function showMenu1(flag,to) {
+  async function showMenu1(flag,to) {
     let icon1 = document.getElementById("icon1");
     let menu1 = document.getElementById("menu1");
 
@@ -20,12 +20,12 @@ export default function SideBar({ navLinks }) {
       icon1.classList.toggle("rotate-180");
       menu1.classList.toggle("hidden");
     }else{
-      router.push(to);
+      await router.prefetch(to);
       setOpen(false);
     }
   }
-  function goto(to){
-    router.push(to);
+  async function goto(to){
+    await router.prefetch(to,);
     setOpen(false);
   }
 
@@ -39,7 +39,7 @@ export default function SideBar({ navLinks }) {
               className="cursor-pointer flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => router.push("/")}
+              onClick={() => router.prefetch("/")}
             >
               {" "}
               <Image
