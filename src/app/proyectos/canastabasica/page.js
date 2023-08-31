@@ -23,10 +23,10 @@ export default function canastabasica() {
   ];
   
   return (
-    <main className="scroll-behavior-smooth text-sm p-8"> 
+    <div className="container mx-auto px-1 scroll-behavior-smooth text-sm p-8"> 
 
       {/* Informacion del proyecto */}
-      <div className="flex items-center justify-center h-80 overflow-hidden bg-cover bg-center bg-no-repeat mb-5 rounded-lg shadow-lg "
+      <div className="flex items-center justify-center h-80 overflow-hidden bg-cover bg-center bg-no-repeat mb-5 rounded-lg shadow-lg"
         style={{ backgroundImage: "url('/img/geovisor_mapa.png')" }}>
         
         <div className="p-5 bg-white bg-opacity-40 shadow-lg">
@@ -38,9 +38,10 @@ export default function canastabasica() {
             y la disponibilidad de los elementos esenciales en la canasta básica han evolucionado con el tiempo en diferentes regiones del país.
           </p>
         </div>
+
       </div>
 
-      <div className="flex space-x-3 p-3 font-sans">
+      <div className="container flex space-x-3 p-3 font-sans">
         <div className="h-[calc(100vh-80px)] w-[400px] overflow-hidden overflow-y-auto rounded-lg bg-white p-3 shadow-md">
           <div className="border-b border-gray-300 pb-1">
             <h3 className="text-xl font-semibold text-slate-700">
@@ -176,6 +177,6 @@ export default function canastabasica() {
           </Map>
         </div>
       </div>
-    </main>
+    </div>
   );
 }

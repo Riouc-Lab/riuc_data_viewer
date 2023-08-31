@@ -36,12 +36,12 @@ export default function SideBar({ navLinks }) {
 
   return (
     <>
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <div className="fixed left-0 top-0 flex w-full justify-left p-10 border-b border-gray-350 bg-gradient-to-b bg-black pb-3 pt-3">
+      <div className="z-20 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
+        <div className="fixed left-0 top-0 flex w-full justify-left p-24 border-b border-gray-350 bg-gradient-to-b bg-black pb-3 pt-3">
           &nbsp;
           <div className="font-mono font-bold">
             <a
-              className="cursor-pointer flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
+              className="cursor-pointer flex place-items-center gap-5 p-8 lg:pointer-events-auto lg:p-0"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => router.push("/")}

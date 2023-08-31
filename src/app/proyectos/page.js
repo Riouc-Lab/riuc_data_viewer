@@ -41,7 +41,7 @@ export default function Proyectos() {
                   className='dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert'
                   src={item.Image}
                   alt='Next.js Logo'
-                  width={562}
+                  width={605}
                   height={30}
                   priority
                 />

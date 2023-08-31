@@ -16,7 +16,7 @@ export default function Home() {
               width: '2000px', height: '1010px', // Tamaño del video
               marginTop: '-135px',  // Margen superior negativo para recortar
             }}
-            className="object-cover w-full h-full rounded-lg shadow-lg "
+            className="object-cover w-full h-full rounded-lg"
           >
             <source src="/video/riouc.mp4" type="video/mp4" />
             Tu navegador no admite la reproducción de video.
