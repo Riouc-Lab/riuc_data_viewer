@@ -24,12 +24,21 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+    z-index: 10;
 }
 .homeMap{
 width: 100%;
 
 }
+/* Agrega estos estilos en tu archivo CSS o SCSS */
+/* Estilos para el contenedor del mapa */
+.leaflet-map {
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 999; /* Ajusta un valor ligeramente inferior al z-index de la navbar */
 
+}
 svg{
   display: inline !important;
 
