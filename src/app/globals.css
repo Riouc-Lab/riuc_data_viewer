@@ -30,15 +30,46 @@ body {
 width: 100%;
 
 }
-/* Agrega estos estilos en tu archivo CSS o SCSS */
+
 /* Estilos para el contenedor del mapa */
 .leaflet-map {
   border: 2px solid #ccc;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  z-index: 999; /* Ajusta un valor ligeramente inferior al z-index de la navbar */
+  z-index: 1; 
+  /* Hacer que el mapa se ponga por detras de otros objetos y no por encima */
+  position: relative;
+  /* Hacer que el mapa se ponga por detras de otros objetos y no por encima */
+  overflow: hidden;
+  /* Hacer que el mapa se ponga por detras de otros objetos y no por encima */
+  width: 100%;
+  /* Hacer que el mapa se ponga por detras de otros objetos y no por encima */
+  height: 100%;
+  /* Hacer que el mapa se ponga por detras de otros objetos y no por encima */
+  
 
 }
+/* Ejemplo de estilo personalizado para el control de zoom */
+.leaflet-control-zoom-in,
+.leaflet-control-zoom-out {
+  background-color: transparent;
+  color: red; /* Cambiar el color del texto */
+}
+
+/* Ejemplo de estilo personalizado para los marcadores */
+.leaflet-marker-icon {
+  width: 15px; /* Cambiar el tamaño de los marcadores */
+  height: 15px;
+  background-color: rgb(52, 201, 247); /* Cambiar el color de fondo de los marcadores */
+  /* Personalizar el icono del marcador */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
 svg{
   display: inline !important;
 
