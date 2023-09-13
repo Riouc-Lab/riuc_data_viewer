@@ -105,7 +105,7 @@ export default function canastabasica() {
           <Map
             className=" shadow-xl"
             center={DEFAULT_CENTER}
-            zoom={12} //7.5
+            zoom={12} 
             width="850"
             height="400"
             //dragging={false} // Deshabilitar arrastrar
