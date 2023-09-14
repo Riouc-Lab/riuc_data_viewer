@@ -74,3 +74,15 @@ svg{
   display: inline !important;
 
 }
+@keyframes shine {
+  0% {
+    mask-position: -100% 0;
+  }
+  100% {
+    mask-position: 200% 0;
+  }
+}
+
+
+
+
