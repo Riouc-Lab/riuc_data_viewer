@@ -3,25 +3,82 @@ import Map from "@components/map";
 import styles from "../../globals.css";
 import React, { useState } from "react";
 import SwitchButton from "@components/buttonswitch";
+import { usePathname, useRouter } from "next/navigation";
 
 const DEFAULT_CENTER = [-1.598653, -78.180479];
 
 export default function modelogeovisor() {
+  const router = useRouter();
   const [circle1Visible, setCircle1Visible] = useState(false);
+  const [isTextVisible, setTextVisibility] = useState(false);
+
+  const toggleTextVisibility = () => {
+    setTextVisibility(!isTextVisible);
+  };
+
+  function proyect(to){
+    router.push(to);
+  };
 
   return (
     <main style={{ scrollBehavior: "smooth" }}>
-      <div className="flex space-x-3 p-3">
+      <div className="flex space-x-3 p-3 font-">
         <div className="h-[calc(100vh-_80px)] w-[400px] overflow-hidden rounded-lg bg-white p-3 shadow-md">
           {/* Contenido de la primera columna */}
           <div className="flex">
             <div className="w-[400px]">
               <div className="h-[calc(100vh-80px)] overflow-hidden overflow-y-auto rounded-lg bg-white p-3 shadow-md">
+                {/* Botón para regresar a la página anterior */}
+                <button
+                  className="p-2 text-gray-500 hover:underline mb-2 font-medium mb-2 flex items-center space-x-2"
+                  onClick={() => proyect("/proyectos")}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-arrow-left-circle"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"
+                    />
+                  </svg>
+                  Regresar
+                </button>
+
                 <div className="border-b border-gray-300 pb-1">
-                  <h2 class="text-base font-medium text-indigo-300 mb-1">
-                    GeoVisor de ...
+                  <h2 className="text-base font-medium text-black mb-1">
+                    GeoVisor de Canasta Básica
                   </h2>
+                  <button
+                    className="text-red-400 hover:underline font-medium"
+                    onClick={toggleTextVisibility}
+                  >
+                    {isTextVisible
+                      ? "Ocultar Descripcion"
+                      : "Mostrar Descripcion"}
+                  </button>
+                  {isTextVisible && (
+                    <div className="mt-2 text-gray-700 text-justify">
+                      {/* Aquí coloca el texto que deseas mostrar u ocultar */}
+                      Este proyecto consiste en una herramienta interactiva y
+                      visualmente impactante que tiene como objetivo principal
+                      proporcionar una perspectiva detallada y accesible sobre
+                      los datos relacionados con la canasta básica en el país de
+                      Ecuador a lo largo de diversos años. Este geovisor
+                      aprovecha las capacidades de la tecnología geoespacial y
+                      la visualización de datos para ofrecer a los usuarios una
+                      comprensión profunda de cómo los precios y la
+                      disponibilidad de los elementos esenciales en la canasta
+                      básica han evolucionado con el tiempo en diferentes
+                      regiones del país.
+                    </div>
+                  )}
                 </div>
+
                 <div className="mt-4">
                   <ul className="space-y-3">
                     {/* Capas */}
