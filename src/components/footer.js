@@ -1,6 +1,6 @@
 export default function Footer  () {
   return (
-    <section className="bg-black my-1">
+    <section className="bg-black">
       <div className="flex bg-white justify-center">
                 <a
                   href="https://www.facebook.com/universidadcatolicacuenca"
