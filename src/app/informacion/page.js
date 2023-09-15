@@ -22,7 +22,7 @@ export default function Informacion() {
   return (
     <div className="bg-white p-6 mx-auto max-w-6xl">
       <h1 className="text-4xl font-bold text-center mb-6">¿Qué es la RIOUC?</h1>
-      <div className="mb-6 text-center">
+      <div className="mb-10 text-center">
         <Image
           className="mx-auto"
           src="/img/riouc_centro.png"
@@ -45,7 +45,7 @@ export default function Informacion() {
         de su entorno.
       </p>
 
-      <p className="text-lg text-gray-800 mb-6 text-justify">
+      <p className="text-lg text-gray-800 mb-10 text-justify">
         En la visión del Sr. Rector, estaba la necesidad de creación de un
         Observatorio de Fenómenos Socioeconómicos, inquietud manifestada en
         conversación con el Coordinador del Centro de Investigación de Ciencias
@@ -67,7 +67,7 @@ export default function Informacion() {
         ¿Qué hace un observatorio?
       </h2>
 
-      <p className="text-lg text-blue-500 mb-6 text-justify pl-4 border-l-4 border-blue-500">
+      <p className="text-lg text-blue-400 mb-6 text-justify pl-4 border-l-4 border-blue-500">
         Cuando se menciona la palabra Observatorio, se evoca aquellas complejas
         instalaciones ubicadas en las montañas, dotadas de potentes telescopios
         para escudriñar el universo, Prieto (2003).
@@ -94,7 +94,7 @@ export default function Informacion() {
         observación.
       </p>
 
-      <p className="text-lg text-gray-800 mb-6 text-justify">
+      <p className="text-lg text-gray-800 mb-10 text-justify">
         Dentro de las funciones de un observatorio, es precisamente la de
         presentar la información de manera clara, coherente y accesible, de tal
         manera que el usuario de la información pueda leerla y entenderla
@@ -169,7 +169,7 @@ export default function Informacion() {
         Investigación.
       </p>
 
-      <p className="text-lg text-gray-800 mb-6 text-justify">
+      <p className="text-lg text-gray-800 mb-10 text-justify">
         Para el Gobierno Vasco (2008), la misión de un observatorio es vigilar y
         detectar lo que ocurre en su ámbito de actuación, y su valor agregado se
         sustenta en: 1) buscar la información, 2) discernir su relevancia, 3)
@@ -221,17 +221,150 @@ export default function Informacion() {
         positiva en sus diferentes aristas en la investigación.
       </p>
 
-      <div className="mb-6 text-center">
+      <div className="mb-10 text-center">
         <Image
-          className="mx-auto"
-          src="/img/riouc_centro.png"
+          className="mx-auto rounded-lg"
+          src="/img/info_1.png"
           alt="RIOUC"
-          width={350}
-          height={175}
+          width={650}
+          height={475}
         />
       </div>
 
-      
+      <h2 className="text-2xl font-semibold text-red-500 mb-6">
+        ¿Quiénes somos?
+      </h2>
+
+      <p className="text-lg text-blue-400 mb-6 text-justify pl-4 border-l-4 border-blue-500">
+        Somos una red compuesta por 7 observatorios que asumen distintos temas a
+        observar. Como ya se ha mencionado anteriormente, somos un equipo
+        multidisciplinario.
+      </p>
+
+      <div className="flex justify-center mb-6">
+        <div className="w-5/6 p-2">
+          <Image
+            className="mx-auto"
+            src="/img/phd.png"
+            alt="Imagen 1"
+            width={310}
+            height={160}
+          />
+          <h1 className="text-center font-semibold p-3 mb-2 bg-gradient-to-r from-black to-black bg-clip-text text-transparent border-b-2 border-red-400 w-2/4 mx-auto">
+            Jaime Tinto Arandes Ph.D
+          </h1>
+        </div>
+        <div className="w-5/6 p-2">
+          <Image
+            className="mx-auto"
+            src="/img/ing.png"
+            alt="Imagen 2"
+            width={310}
+            height={160}
+          />
+          <h1 className="text-center font-semibold p-3 mb-2 bg-gradient-to-r from-black to-black bg-clip-text text-transparent border-b-2 border-red-400 w-2/4 mx-auto">
+            Ing. Marcos Lenín Villarreal
+          </h1>
+        </div>
+      </div>
+
+      <p className="text-lg text-gray-800 mb-6 text-justify"></p>
+
+      <p className="text-lg text-gray-800 mb-6 text-justify">
+        El Coordinador de la RIOUC es Jaime Tinto Arandes Ph.D; quien es
+        Economista Universidad de Los Andes-Venezuela, Especialista en Técnicas
+        de Muestreo CIENES-Chile, Postgrado en Ciencias Empresariales
+        Universitat de Barcelona-España, Doctor en Ciencias Económicas y
+        Empresariales Universitat de Barcelona España.
+      </p>
+
+      <p className="text-lg text-gray-800 mb-6 text-justify">
+        Tiene una amplia trayectoria en el ámbito universitario, en docencia,
+        investigación y gestión, destacándose en todos esos ámbitos.
+      </p>
+
+      <p className="text-lg text-gray-800 mb-6 text-justify">
+        Forma parte del equipo el Ing. Marcos Lenín Villarreal Esquivel,
+        responsable del diseño y estructuración de las bases de datos e
+        información recolectada dentro de la RIOUC.
+      </p>
+
+      <p className="text-lg text-gray-800 mb-10 text-justify">
+        La RIOUC cuenta con el apoyo permanente del Laboratorio de Calculo
+        Computacional y Analítica de Datos ubicado en el CIITT, coordinado por
+        Orlando Álvarez Llamoza PhD, quienes contribuyen en el análisis y
+        almacenamiento de la información.
+      </p>
+
+      <h2 className="text-2xl font-semibold text-red-500 mb-6">
+        Observatorio Fenómenos Socioeconómicos
+      </h2>
+
+      <p className="text-lg text-blue-400 mb-6 text-justify pl-4 border-l-4 border-blue-500">
+        El observatorio de fenómenos socioeconómicos tiene interés en comprender
+        el comportamiento de los individuos con su entorno en sus distintas
+        dimensiones en ámbito social y económico.
+      </p>
+
+      <div className="mb-10 text-center">
+        <Image
+          className="mx-auto rounded-lg"
+          src="/img/lic.png"
+          alt="RIOUC"
+          width={450}
+          height={225}
+        />
+        <h1 className="text-center font-semibold p-3 mb-2 bg-gradient-to-r from-black to-black bg-clip-text text-transparent border-b-2 border-red-400 w-2/4 mx-auto">
+          Lic. María Emilia Molina de Tinto
+        </h1>
+      </div>
+
+      <p className="text-lg text-gray-800 mb-6 text-justify">
+        Este Observatorio busca recopilar, monitorear información acerca de
+        temas como: el empleo, consumo, migraciones, emprendimientos, con la
+        finalidad de entender el comportamiento de las variables que inciden en
+        dichos fenómenos, y de esta manera poder explicarlos.
+      </p>
+
+      <p className="text-lg text-gray-800 mb-6 text-justify">
+        La responsable del Observatorio es María Emilia Molina de Tinto, Lic. en
+        Administración de Empresas–Universidad de Los Andes, Venezuela.
+        Especialista en Gestión de Proyectos Barcelona Activa- España y
+        Logística Integral Universitat Politécnica de Catalunya-España, MSc en
+        Ciencia Contable Universidad de Los Andes-Venezuela, MSc. en Gestión del
+        Bienestar Organizacional- Universidad Nebrija-España. Actualmente es
+        Doctorando en Ciencia Contable
+      </p>
+
+      <p className="text-lg text-gray-800 mb-6 text-justify">
+        Su inquietud en el ámbito de la observación se basa en el comportamiento
+        del empleo y consumo.
+      </p>
+
+      <h2 className="text-2xl font-semibold text-black mb-6">
+        Proyecto de investigación
+      </h2>
+
+      <p className="text-lg text-gray-800 mb-6 text-justify">
+        El impacto del teletrabajo, estructuración de base de datos
+        empresariales para el comportamiento mipyme, estructuración de bases
+        informativas para el área de Derecho y Bienestar Social.
+      </p>
+
+      <p className="text-lg text-gray-800 mb-6 text-justify">
+        También participa en colaboración en los proyectos: Modelos de gestión
+        universitaria, Modelo Dinámico cognitivo teórico entre las variables que
+        inciden en la difusión del rumor, Aplicaciones interdisciplinarias de
+        sistemas complejos en la gestión integrada de cuencas hidrográficas en
+        los altos Andes del Macizo del Cajas.
+      </p>
+
+      <p className="text-lg text-gray-800 mb-6 text-justify">
+        Proyectos en colaboración con instituciones: Ministerio del Ambiente,
+        Agua, Energía y Tecnología (MAAET), Proyecto” Mi Barrio Verde”.
+        Universidad Politécnica Salesiana: Estructuración de plataforma
+        tecnológica para las necesidades MiPymes.
+      </p>
     </div>
   );
 }
