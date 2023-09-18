@@ -51,16 +51,16 @@ export default function SideBar({ navLinks }) {
                 src="/img/ucacue-sidebar.png"
                 alt="CIITT Logo"
                 className="dark:invert"
-                width={145}
-                height={25}
+                width={135}
+                height={20}
                 priority
               />
                <Image
-                src="/img/riouc_centro.png"
+                src="/img/riouc_transparente.png"
                 alt="CIITT Logo"
                 className="dark:invert"
-                width={55}
-                height={55}
+                width={46}
+                height={46}
                 priority
               />
             </a>
