@@ -20,15 +20,15 @@ export default function Informacion() {
   }, []);
 
   return (
-    <div className="bg-white p-6 mx-auto max-w-6xl">
-      <h1 className="text-4xl font-bold text-center mb-6">¿Qué es la RIOUC?</h1>
+    <div className="bg-white p-6 mx-auto max-w-7xl font-serif">
+      <h1 className="text-4xl uppercase font-semibold text-red-500 mb-8 text-center">¿Qué es la RIOUC?</h1>
       <div className="mb-10 text-center">
         <Image
           className="mx-auto"
           src="/img/riouc_centro.png"
           alt="RIOUC"
-          width={350}
-          height={175}
+          width={360}
+          height={180}
         />
       </div>
 

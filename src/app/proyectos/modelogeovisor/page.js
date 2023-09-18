@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import SwitchButton from "@components/buttonswitch";
 import { usePathname, useRouter } from "next/navigation";
 
+
 const DEFAULT_CENTER = [-1.598653, -78.180479];
 
 export default function modelogeovisor() {
@@ -21,6 +22,7 @@ export default function modelogeovisor() {
   };
 
   return (
+    
     <main style={{ scrollBehavior: "smooth" }}>
       <div className="flex space-x-3 p-3 font-">
         <div className="h-[calc(100vh-_80px)] w-[410px] overflow-hidden rounded-lg bg-white p-3 shadow-md">

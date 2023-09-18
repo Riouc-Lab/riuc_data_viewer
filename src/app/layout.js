@@ -16,7 +16,6 @@ export default function RootLayout({ children }) {
         <SideBar navLinks={routers_menu} />
        <main className= "bg-white mt-16">
        {children}
-       
        </main>
        <Footer/>
       </body>
