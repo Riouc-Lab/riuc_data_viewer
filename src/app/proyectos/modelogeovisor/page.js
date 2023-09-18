@@ -23,7 +23,7 @@ export default function modelogeovisor() {
   return (
     <main style={{ scrollBehavior: "smooth" }}>
       <div className="flex space-x-3 p-2">
-        <div className="h-[calc(100vh-_80px)] w-[410px] overflow-hidden rounded-lg bg-white p-3 shadow-md">
+        <div className="h-[calc(100vh-_80px)] w-[410px] overflow-hidden overflow-y-auto rounded-lg bg-white p-3 shadow-md">
           {/* Contenido de la primera columna */}
           <div className="flex">
             <div className="w-[400px]">

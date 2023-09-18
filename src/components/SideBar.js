@@ -15,7 +15,7 @@ export default function SideBar({ navLinks }) {
   async function showMenu1(flag,to) {
     let icon1 = document.getElementById("icon1");
     let menu1 = document.getElementById("menu1");
-
+    
     if (flag) {
       icon1.classList.toggle("rotate-180");
       menu1.classList.toggle("hidden");
@@ -106,13 +106,13 @@ export default function SideBar({ navLinks }) {
             return (
               <>
                 <div className="flex items-center justify-between">
-                  <div class="flex flex-col justify-start items-center   px-6 border-b border-gray-600 w-full  ">
+                  <div class="flex flex-col justify-start items-center px-6 border-b border-gray-600 w-full">
                     <button
                     key={link.id}
                       onClick={() => showMenu1(link.expanded,link.to)}
-                      class={isActive?"focus:outline-none focus:text-red-600 text-left text-red-500 flex justify-between items-center w-full py-5 space-x-14  ":"focus:outline-none focus:text-red-600 text-left text-white flex justify-between items-center w-full py-5 space-x-14  "}
+                      className={isActive?"focus:outline-none focus:text-red-600 text-left text-red-500 flex justify-between items-center w-full py-5 space-x-14":"focus:outline-none focus:text-red-600 text-left text-white flex justify-between items-center w-full py-5 space-x-14"}
                     >
-                      <p class="text-sm leading-5  uppercase">{link.name}</p>
+                      <p class="text-sm leading-5 uppercase">{link.name}</p>
                       {link.expanded ? (
                         <svg
                           ref={ref}
@@ -138,7 +138,7 @@ export default function SideBar({ navLinks }) {
                       <div
                         ref={ref}
                         id="menu1"
-                        class="flex justify-start  flex-col w-full md:w-auto items-start pb-1 "
+                        class="flex justify-start flex-col w-full md:w-auto items-start pb-1 hidden"
                       >
                         {/* Agrega la opción "Ver todos los proyectos" */}
                         <button onClick={() => proyect("/proyectos")} className="flex justify-start items-center space-x-6 hover:text-white focus:bg-red-800 focus:text-white hover:bg-red-800 text-gray-400 rounded px-3 py-2  w-full md:w-52">Ver todos los proyectos</button>
@@ -159,7 +159,7 @@ export default function SideBar({ navLinks }) {
           })}
            <div className="absolute bottom-0 w-full">
           <h1 className="font-sans text-center text-white">
-            ciitt@ucacue.edu.ec
+            
 
           </h1>
         </div>
