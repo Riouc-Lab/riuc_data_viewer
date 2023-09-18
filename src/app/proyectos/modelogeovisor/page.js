@@ -5,7 +5,6 @@ import React, { useState } from "react";
 import SwitchButton from "@components/buttonswitch";
 import { usePathname, useRouter } from "next/navigation";
 
-
 const DEFAULT_CENTER = [-1.598653, -78.180479];
 
 export default function modelogeovisor() {
@@ -233,5 +232,6 @@ export default function modelogeovisor() {
         </div>
       </div>
     </main>
+   
   );
 }
