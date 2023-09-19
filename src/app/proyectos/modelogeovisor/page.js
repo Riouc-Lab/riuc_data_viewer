@@ -179,13 +179,13 @@ export default function modelogeovisor() {
         <div className="h-[calc(100vh-_80px)] w-[300px] overflow-hidden overflow-y-auto rounded-lg bg-white p-3 shadow-md">
           {/* Contenido de la tercera columna */}
           <div className="border-b border-gray-300 pb-1">
-            <h3 className="text-xl font-semibold text-slate-700">Tablas</h3>
+            <h3 className="text-xl text-base font-medium text-black mb-1">Tablas</h3>
           </div>
 
           {/* Tabla 1 */}
           <div className="bg-white rounded-t-lg p-6 my-6 ">
             {/* Encabezado de la tabla 1 */}
-            <div className="bg-red-400 text-white font-semibold p-2 rounded-t-lg ">
+            <div className="bg-red-400 text-white text-base font-medium p-2 rounded-t-lg ">
               Tabla 1
             </div>
             {/* Cuerpo de la tabla 1 */}
@@ -197,7 +197,7 @@ export default function modelogeovisor() {
           {/* Tabla 2 */}
           <div className="bg-white rounded-t-lg p-6 my-6">
             {/* Encabezado de la tabla 2 */}
-            <div className="bg-red-400 text-white font-semibold p-2 rounded-t-lg">
+            <div className="bg-red-400 text-white text-base font-medium p-2 rounded-t-lg">
               Tabla 2
             </div>
             {/* Cuerpo de la tabla 2 */}
@@ -209,7 +209,7 @@ export default function modelogeovisor() {
           {/* Tabla 3 */}
           <div className="bg-white rounded-t-lg p-6 my-6">
             {/* Encabezado de la tabla 3 */}
-            <div className="bg-red-400 text-white font-semibold p-2 rounded-t-lg">
+            <div className="bg-red-400 text-white text-base font-medium p-2 rounded-t-lg">
               Tabla 3
             </div>
             {/* Cuerpo de la tabla 3 */}
@@ -221,7 +221,7 @@ export default function modelogeovisor() {
           {/* Tabla 4 */}
           <div className="bg-white rounded-t-lg p-6 my-6">
             {/* Encabezado de la tabla 4 */}
-            <div className="bg-red-400 text-white font-semibold p-2 rounded-t-lg">
+            <div className="bg-red-400 text-white text-base font-medium p-2 rounded-t-lg">
               Tabla 4
             </div>
             {/* Cuerpo de la tabla 4 */}

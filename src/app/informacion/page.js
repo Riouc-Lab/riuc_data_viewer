@@ -67,7 +67,7 @@ export default function Informacion() {
         ¿Qué hace un observatorio?
       </h2>
 
-      <p className="text-lg text-blue-400 mb-6 text-justify pl-4 border-l-4 border-blue-500">
+      <p className="text-lg text-blue-300 mb-6 text-justify pl-4 border-l-4 border-blue-400">
         Cuando se menciona la palabra Observatorio, se evoca aquellas complejas
         instalaciones ubicadas en las montañas, dotadas de potentes telescopios
         para escudriñar el universo, Prieto (2003).
@@ -235,7 +235,7 @@ export default function Informacion() {
         ¿Quiénes somos?
       </h2>
 
-      <p className="text-lg text-blue-400 mb-6 text-justify pl-4 border-l-4 border-blue-500">
+      <p className="text-lg text-blue-300 mb-6 text-justify pl-4 border-l-4 border-blue-400">
         Somos una red compuesta por 7 observatorios que asumen distintos temas a
         observar. Como ya se ha mencionado anteriormente, somos un equipo
         multidisciplinario.
@@ -300,7 +300,7 @@ export default function Informacion() {
         Observatorio Fenómenos Socioeconómicos
       </h2>
 
-      <p className="text-lg text-blue-400 mb-6 text-justify pl-4 border-l-4 border-blue-500">
+      <p className="text-lg text-blue-300 mb-6 text-justify pl-4 border-l-4 border-blue-400">
         El observatorio de fenómenos socioeconómicos tiene interés en comprender
         el comportamiento de los individuos con su entorno en sus distintas
         dimensiones en ámbito social y económico.

@@ -7,6 +7,7 @@ import "leaflet/dist/leaflet.css";
 import styles from "@styles/scss/Map.module.scss";
 
 const { MapContainer } = ReactLeaflet;
+const { LayersControl, LayerGroup, TileLayer, ScaleControl } = ReactLeaflet;
 
 const Map = ({ children, className, width, height, ...rest }) => {
   let mapClassName = styles.map;
@@ -28,16 +29,39 @@ const Map = ({ children, className, width, height, ...rest }) => {
 
   return (
     <div className={mapClassName}>
+      <MapContainer
+        className={"static-map"}
+        style={{ width: 1400, height: 875 }}
+        center={[51.505, -0.09]}
+        scrollWheelZoom={true} //habilita el zoom con la rueda del mouse
+        {...rest}
+      >
+        {/* Agregar capas en el mapa */}
+        <LayersControl position="topright" className={styles.layersControl}>
+          <LayersControl.Overlay name="Satelite">
+            <LayerGroup>
+              <TileLayer
+                url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
+                attribution="&amp;copy Esri &amp;mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community"
+              />
+            </LayerGroup>
+          </LayersControl.Overlay>
+        </LayersControl>
 
-    <MapContainer
-      className={'static'} style={{ width: 1400, height: 875 }} center={[51.505, -0.09]} scrollWheelZoom={false} 
-      {...rest}
-    >
-      {children(ReactLeaflet, Leaflet)}
-    </MapContainer>
-   
+        {/* Agregar leaflet bar y leaflet ruler */}
+        <div className={styles.leafletBar}>
+          <div className={styles.leafletRuler}>
+            <div className={styles.leafletRulerTop}></div>
+            <div className={styles.leafletRulerBottom}></div>
+          </div>
+        </div>
+
+        {/* Agrega el control de escala */}
+        <ScaleControl imperial={true} />
+
+        {children(ReactLeaflet, Leaflet)}
+      </MapContainer>
     </div>
-
   );
 };
 

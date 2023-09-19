@@ -1,14 +1,14 @@
 export const lista_proyectos = [
   {
-    Image: "/img/Geoportal.png",
+    Image: "/img/geovisor_mapa.png",
     id: 1,
-    to: "/proyectos/canastabasica",
-    name: "Canasta Básica",
+    to: "/proyectos/modelogeovisor",
+    name: "Prototipo Geovisor",
     description: "Visualiza y compara datos sobre las canastas básicas en diferentes regiones del país en tiempo real.",
-    date: "2023-08-01",
+    date: "2021-10-01",
   },
   {
-    Image: "/img/Geoportal.png",
+    Image: "/img/geovisor_mapa.png",
     id: 2,
     to: "/proyectos/map",
     name: "Mapa Leaflet",
@@ -16,7 +16,7 @@ export const lista_proyectos = [
     date: "2021-10-01",
   },
   {
-    Image: "/img/Geoportal.png",
+    Image: "/img/geovisor_mapa.png",
     id: 3,
     to: "https://geo-visor-c2mad.vercel.app/mapas/jose",
     name: "Proyecto 3",
@@ -24,11 +24,11 @@ export const lista_proyectos = [
     date: "2021-10-01",
   },
   {
-    Image: "/img/geovisor_mapa.png",
+    Image: "/img/Geoportal.png",
     id: 4,
-    to: "/proyectos/modelogeovisor",
-    name: "Prototipo Geovisor",
-    description: "Coloque la desripcion del proyecto numero 4",
-    date: "2021-10-01",
+    to: "/proyectos/canastabasica",
+    name: "Canasta Básica",
+    description: "Visualiza y compara datos sobre las canastas básicas en diferentes regiones del país en tiempo real.",
+    date: "2023-08-01",
   },
 ];
