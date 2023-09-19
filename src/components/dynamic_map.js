@@ -31,17 +31,33 @@ const Map = ({ children, className, width, height, ...rest }) => {
     <div className={mapClassName}>
       <MapContainer
         className={"static-map"}
-        style={{ width: 1400, height: 875 }}
+        style={{ width: 1160, height: 875 }}
         center={[51.505, -0.09]}
         scrollWheelZoom={true} //habilita el zoom con la rueda del mouse
         {...rest}
       >
         {/* Agregar capas en el mapa */}
-        <LayersControl position="topright" className={styles.layersControl}>
-          <LayersControl.Overlay name="Satelite">
+        <LayersControl position="topleft" className={styles.layersControl}>
+          <LayersControl.Overlay name="Mapa Satelital">
             <LayerGroup>
               <TileLayer
                 url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
+                attribution="&amp;copy Esri &amp;mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community"
+              />
+            </LayerGroup>
+          </LayersControl.Overlay>
+          <LayersControl.Overlay name="Mapa Callejero">
+            <LayerGroup>
+              <TileLayer
+                url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}"
+                attribution="&amp;copy OpenStreetMap contributors"
+              />
+            </LayerGroup>
+          </LayersControl.Overlay>
+          <LayersControl.Overlay name="Mapa Carto">
+            <LayerGroup>
+              <TileLayer
+                url="https://basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
                 attribution="&amp;copy Esri &amp;mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community"
               />
             </LayerGroup>
