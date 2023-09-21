@@ -56,11 +56,11 @@ export default function SideBar({ navLinks }) {
                 priority
               />
               <Image
-                src="/img/RED-SB.png"
+                src="/img/RED-SIDEBAR.png"
                 alt="CIITT Logo"
                 className="dark:invert"
-                width={48}
-                height={46}
+                width={47}
+                height={47}
                 priority
               />
               <h2 className="text-xl font-semibold mb-1 text-red-500">RIOUC</h2>

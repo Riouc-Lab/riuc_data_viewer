@@ -2,12 +2,12 @@ import Image from "next/image";
 
 export default function Laboratorios() {
   return (
-    <main className="container mx-auto p-4">
-      <h1 className="text-5xl md:text-6xl font-extrabold p-5 mb-12 text-red-500 bg-gradient-to-r from-black via-white to-black bg-clip-text text-transparent border-b-2 border-red-400">
+    <main className="container mx-auto p-4 text-justify">
+      <h1 className="text-5xl md:text-6xl font-extrabold p-5 mb-7 text-red-500 bg-gradient-to-r from-black via-white to-black bg-clip-text text-transparent border-b-2 border-red-400 mt-5">
         LABORATORIOS
       </h1>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-14">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-5">
         {/* Laboratorio 1 */}
         <div className="bg-white rounded-lg p-6">
           <div className="flex">
@@ -37,7 +37,7 @@ export default function Laboratorios() {
             <div className="flex items-center mb-1">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 inline text-green-500 mr-2"
+                className="h-5 w-5 inline text-red-500 mr-2"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -55,7 +55,7 @@ export default function Laboratorios() {
             <div className="flex items-center mb-1">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 inline text-green-500 mr-2"
+                className="h-5 w-5 inline text-red-500 mr-2"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -72,7 +72,7 @@ export default function Laboratorios() {
             <div className="flex items-center mb-1">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 inline text-green-500 mr-2"
+                className="h-5 w-5 inline text-red-500 mr-2"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -90,7 +90,7 @@ export default function Laboratorios() {
             <div className="flex items-center mb-1">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 inline text-green-500 mr-2"
+                className="h-5 w-5 inline text-red-500 mr-2"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -108,7 +108,7 @@ export default function Laboratorios() {
             <div className="flex items-center mb-1">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 inline text-green-500 mr-2"
+                className="h-5 w-5 inline text-red-500 mr-2"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -124,32 +124,120 @@ export default function Laboratorios() {
             </div>
           </div>
 
-          <p className="text-gray-700 font-semibold mb-4">
-            En este espacio se trabaja en:
-          </p>
-          <ul className="list-disc ml-6 text-gray-700 mb-4">
-            <li>
-              Construir y gestionar bases de datos que permitan sistematizar el
-              proceso del monitoreo de la información recopilada.
-            </li>
-            <li>
-              Construcción de indicadores que permitan una mejor toma de
-              decisiones.
-            </li>
-            <li>
-              Generar redes de colaboración a lo interno y con otros
-              observatorios o entes institucionales.
-            </li>
-            <li>Generación de cátedras libres.</li>
-            <li>
-              Formación de los profesionales en las diversas áreas del
-              conocimiento.
-            </li>
-            <li>
-              Desarrollo de programas para apoyar decisiones estratégicas en la
-              solución de problemáticas regionales.
-            </li>
-          </ul>
+          <div className="mb-8">
+            <p className="text-gray-700 font-semibold text-lg mb-4">
+              En este espacio se trabaja en:
+            </p>
+            <ul className="list-disc ml-6 text-gray-700 mb-4 space-y-2">
+              <li className="flex items-start">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5 text-red-500 mr-2"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+                Generación de cátedras libres.
+              </li>
+              <li className="flex items-start">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5 text-red-500 mr-2"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+                Formación de los profesionales en las diversas áreas del
+                conocimiento.
+              </li>
+              <li className="flex items-start">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5 text-red-500 mr-2"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+                Construcción de indicadores que permitan una mejor toma de
+                decisiones.
+              </li>
+              <li className="flex items-start">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5 text-red-500 mr-2"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+                Generar redes de colaboración a lo interno y con otros
+                observatorios o entes institucionales.
+              </li>
+              <li className="flex items-start">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5 text-red-500 mr-2"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+                Desarrollo de programas para apoyar decisiones estratégicas en
+                la solución de problemáticas regionales.
+              </li>
+              <li className="flex items-start">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5 text-red-500 mr-2"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+                Construir y gestionar bases de datos que permitan sistematizar
+                el proceso del monitoreo de la información recopilada.
+              </li>
+            </ul>
+          </div>
         </div>
 
         {/* Imagen para Laboratorio 1 */}
@@ -161,12 +249,12 @@ export default function Laboratorios() {
             width={705}
             height={470} // Ajusta la altura según tus necesidades
             objectFit="cover"
-            className="rounded-lg mt-6"
+            className="rounded-lg mt-16"
           />
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
         {/* Laboratorio 2 */}
         <div className="bg-white rounded-lg p-6">
           <h2 className="text-xl font-semibold mb-2 text-red-500">C2MAD</h2>
@@ -184,16 +272,45 @@ export default function Laboratorios() {
           <p className="text-gray-700 font-semibold mb-4">
             En este laboratorio se trabajan:
           </p>
-          <ul className="list-disc ml-6 text-gray-700 mb-4">
-            <li>
-              Construcción de modelos matemáticos para resolver problemas
+          <ul className="list-disc ml-6 text-gray-700 mb-4 space-y-2">
+              <li className="flex items-start">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5 text-red-500 mr-2"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+                Construcción de modelos matemáticos para resolver problemas
               relacionados a fenómenos sociales, naturales y antrópicos.
-            </li>
-            <li>
-              Manejo y procesamiento de grandes volúmenes de datos a través del
+              </li>
+              <li className="flex items-start">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5 text-red-500 mr-2"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+                Manejo y procesamiento de grandes volúmenes de datos a través del
               “Data Mining” y técnicas de inteligencia artificial.
-            </li>
-          </ul>
+              </li>
+              </ul>
+         
           <p className="text-gray-700 font-semibold mb-4">
             Equipos disponibles:
           </p>
@@ -201,7 +318,7 @@ export default function Laboratorios() {
             <div className="flex items-center mb-1">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 inline text-green-500 mr-2"
+                className="h-5 w-5 inline text-red-500 mr-2"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -219,7 +336,7 @@ export default function Laboratorios() {
             <div className="flex items-center mb-1">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 inline text-green-500 mr-2"
+                className="h-5 w-5 inline text-red-500 mr-2"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -236,7 +353,7 @@ export default function Laboratorios() {
             <div className="flex items-center mb-1">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 inline text-green-500 mr-2"
+                className="h-5 w-5 inline text-red-500 mr-2"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -254,7 +371,7 @@ export default function Laboratorios() {
             <div className="flex items-center mb-1">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 inline text-green-500 mr-2"
+                className="h-5 w-5 inline text-red-500 mr-2"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -272,7 +389,7 @@ export default function Laboratorios() {
             <div className="flex items-center mb-1">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 inline text-green-500 mr-2"
+                className="h-5 w-5 inline text-red-500 mr-2"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -298,14 +415,14 @@ export default function Laboratorios() {
             width={705}
             height={470} // Ajusta la altura según tus necesidades
             objectFit="cover"
-            className="rounded-lg mt-10"
+            className="rounded-lg mt-14"
           />
         </div>
       </div>
 
       {/* ... (otros laboratorios) */}
 
-      <div className="bg-white rounded-lg p-6 mb-20">
+      <div className="bg-white rounded-lg p-6 mb-5">
         <h2 className="text-xl font-semibold mb-4 text-red-500">Proyectos</h2>
         <ul className="list-disc ml-6 text-gray-700 mb-4">
           <li>

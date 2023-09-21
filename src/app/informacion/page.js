@@ -359,7 +359,7 @@ export default function Informacion() {
         los altos Andes del Macizo del Cajas.
       </p>
 
-      <p className="text-lg text-gray-800 mb-6 text-justify">
+      <p className="text-lg text-gray-800 mb-12 text-justify">
         Proyectos en colaboración con instituciones: Ministerio del Ambiente,
         Agua, Energía y Tecnología (MAAET), Proyecto” Mi Barrio Verde”.
         Universidad Politécnica Salesiana: Estructuración de plataforma
