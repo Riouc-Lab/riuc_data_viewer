@@ -12,24 +12,24 @@ export default function SideBar({ navLinks }) {
   const [showProjects, setShowProjects] = useState(false);
   const ref = React.useRef(null);
 
-  async function showMenu1(flag,to) {
+  async function showMenu1(flag, to) {
     let icon1 = document.getElementById("icon1");
     let menu1 = document.getElementById("menu1");
-    
+
     if (flag) {
       icon1.classList.toggle("rotate-180");
       menu1.classList.toggle("hidden");
-    }else{
+    } else {
       await router.push(to);
       setOpen(false);
     }
   }
-  async function goto(to){
-    await router.push(to,);
+  async function goto(to) {
+    await router.push(to);
     setOpen(false);
   }
 
-  function proyect(to){
+  function proyect(to) {
     router.push(to);
     setOpen(false);
   }
@@ -55,14 +55,15 @@ export default function SideBar({ navLinks }) {
                 height={20}
                 priority
               />
-               <Image
-                src="/img/riouc_transparente.png"
+              <Image
+                src="/img/RED-SB.png"
                 alt="CIITT Logo"
                 className="dark:invert"
-                width={46}
+                width={48}
                 height={46}
                 priority
               />
+              <h2 className="text-xl font-semibold mb-1 text-red-500">RIOUC</h2>
             </a>
           </div>
         </div>
@@ -108,16 +109,20 @@ export default function SideBar({ navLinks }) {
                 <div className="flex items-center justify-between">
                   <div class="flex flex-col justify-start items-center px-6 border-b border-gray-600 w-full">
                     <button
-                    key={link.id}
-                      onClick={() => showMenu1(link.expanded,link.to)}
-                      className={isActive?"focus:outline-none focus:text-red-600 text-left text-red-500 flex justify-between items-center w-full py-5 space-x-14":"focus:outline-none focus:text-red-600 text-left text-white flex justify-between items-center w-full py-5 space-x-14"}
+                      key={link.id}
+                      onClick={() => showMenu1(link.expanded, link.to)}
+                      className={
+                        isActive
+                          ? "focus:outline-none focus:text-red-600 text-left text-red-500 flex justify-between items-center w-full py-5 space-x-14"
+                          : "focus:outline-none focus:text-red-600 text-left text-white flex justify-between items-center w-full py-5 space-x-14"
+                      }
                     >
                       <p class="text-sm leading-5 uppercase">{link.name}</p>
                       {link.expanded ? (
                         <svg
                           ref={ref}
                           id="icon1"
-                          class="transform"
+                          class="transform rotate-180"
                           width="24"
                           height="24"
                           viewBox="0 0 24 24"
@@ -141,11 +146,21 @@ export default function SideBar({ navLinks }) {
                         class="flex justify-start flex-col w-full md:w-auto items-start pb-1 hidden"
                       >
                         {/* Agrega la opción "Ver todos los proyectos" */}
-                        <button onClick={() => proyect("/proyectos")} className="flex justify-start items-center space-x-6 hover:text-white focus:bg-red-800 focus:text-white hover:bg-red-800 text-gray-400 rounded px-3 py-2  w-full md:w-52">Ver todos los proyectos</button>
+                        <button
+                          onClick={() => proyect("/proyectos")}
+                          className="flex justify-start items-center space-x-6 hover:text-white focus:bg-red-800 focus:text-white hover:bg-red-800 text-gray-400 rounded px-3 py-2  w-full md:w-52"
+                        >
+                          Ver todos los proyectos
+                        </button>
                         {lista_proyectos.map((proyecto) => (
-                          <button key={proyecto.id} onClick={()=>goto(proyecto.to)} class="flex justify-start items-center space-x-6 hover:text-white focus:bg-red-800 focus:text-white hover:bg-red-800 text-gray-400 rounded px-3 py-2  w-full md:w-52">
-                            <p class="text-base leading-6  ">- {proyecto.name}</p>
-
+                          <button
+                            key={proyecto.id}
+                            onClick={() => goto(proyecto.to)}
+                            class="flex justify-start items-center space-x-6 hover:text-white focus:bg-red-800 focus:text-white hover:bg-red-800 text-gray-400 rounded px-3 py-2  w-full md:w-52"
+                          >
+                            <p class="text-base leading-6  ">
+                              - {proyecto.name}
+                            </p>
                           </button>
                         ))}
                       </div>
@@ -157,15 +172,11 @@ export default function SideBar({ navLinks }) {
               </>
             );
           })}
-           <div className="absolute bottom-0 w-full">
-          <h1 className="font-sans text-center text-white">
-            
-
-          </h1>
+          <div className="absolute bottom-0 w-full">
+            <h1 className="font-sans text-center text-white"></h1>
+          </div>
         </div>
-        </div>
-        </div>
-        
+      </div>
     </>
   );
 }
