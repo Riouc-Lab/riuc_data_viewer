@@ -13,6 +13,12 @@ export const routers_menu = [
   },
   {
     id: 3,
+    to: "/quienes_somos",
+    name: "Quienes Somos",
+    expanded: false,
+  },
+  {
+    id: 4,
     to: "/proyectos",
     name: "Proyectos",
     expanded: true,
