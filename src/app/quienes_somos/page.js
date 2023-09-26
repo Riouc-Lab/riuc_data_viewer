@@ -77,10 +77,10 @@ export default function Equipo() {
         Orlando Álvarez Llamoza PhD, quienes contribuyen en el análisis y
         almacenamiento de la información.
       </p>
-
+      
       {/* Primer observatorio */}
       <h2
-        className="text-2xl font-semibold text-red-500 mb-8 cursor-pointer"
+        className="text-2xl font-semibold text-red-500 mb-8 cursor-pointer border-b-2 border-red-300 w-full"
         onClick={() => setShowInfo1(!showInfo1)}
       >
         Observatorio Fenómenos Socioeconómicos
@@ -152,7 +152,7 @@ export default function Equipo() {
 
       {/* Segundo observatorio */}
       <h2
-        className="text-2xl font-semibold text-red-500 mb-8 cursor-pointer"
+        className="text-2xl font-semibold text-red-500 mb-8 cursor-pointer border-b-2 border-red-300 w-full"
         onClick={() => setShowInfo2(!showInfo2)}
       >
         Observatorio Desarrollo Social
@@ -258,7 +258,7 @@ export default function Equipo() {
 
       {/* Tercer observatorio */}
       <h2
-        className="text-2xl font-semibold text-red-500 mb-8 cursor-pointer"
+        className="text-2xl font-semibold text-red-500 mb-8 cursor-pointer border-b-2 border-red-300 w-full"
         onClick={() => setShowInfo3(!showInfo3)}
       >
         Observatorio Salud Pública
@@ -400,7 +400,7 @@ export default function Equipo() {
 
       {/* Cuarto observatorio */}
       <h2
-        className="text-2xl font-semibold text-red-500 mb-8 cursor-pointer"
+        className="text-2xl font-semibold text-red-500 mb-8 cursor-pointer border-b-2 border-red-300 w-full"
         onClick={() => setShowInfo4(!showInfo4)}
       >
         Observatorio Comportamiento Urbano
@@ -457,7 +457,7 @@ export default function Equipo() {
 
       {/* Quinto observatorio */}
       <h2
-        className="text-2xl font-semibold text-red-500 mb-8 cursor-pointer"
+        className="text-2xl font-semibold text-red-500 mb-8 cursor-pointer border-b-2 border-red-300 w-full"
         onClick={() => setShowInfo5(!showInfo5)}
       >
         Observatorio Ambiental
@@ -559,7 +559,7 @@ export default function Equipo() {
 
       {/* Sexto observatorio */}
       <h2
-        className="text-2xl font-semibold text-red-500 mb-8 cursor-pointer"
+        className="text-2xl font-semibold text-red-500 mb-8 cursor-pointer border-b-2 border-red-300 w-full"
         onClick={() => setShowInfo6(!showInfo6)}
       >
         Observatorio Natural
@@ -660,7 +660,7 @@ export default function Equipo() {
 
       {/* Septimo observatorio */}
       <h2
-        className="text-2xl font-semibold text-red-500 mb-8 cursor-pointer"
+        className="text-2xl font-semibold text-red-500 mb-8 cursor-pointer border-b-2 border-red-300 w-full"
         onClick={() => setShowInfo7(!showInfo7)}
       >
         Observatorio Innovación Educativa

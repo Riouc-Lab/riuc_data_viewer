@@ -21,16 +21,8 @@ export default function Informacion() {
 
   return (
     <div className="bg-white p-6 mx-auto max-w-7xl font-serif">
-      <h1 className="text-4xl uppercase font-semibold text-red-500 mb-8 text-center">¿Qué es la RIOUC?</h1>
-      <div className="mb-10 text-center">
-        <Image
-          className="mx-auto"
-          src="/img/riouc_centro.png"
-          alt="RIOUC"
-          width={360}
-          height={180}
-        />
-      </div>
+      <h1 className="text-6xl text-red-500 font-extrabold text-opacity-90 mb-6 mt-10">RIOUC</h1>
+      
 
       <p className="text-lg text-gray-800 mb-6 text-justify">
         La idea de crear la Red de Investigación y Observatorios de la
@@ -44,7 +36,15 @@ export default function Informacion() {
         de innovación, con conciencia social y empoderamiento por los problemas
         de su entorno.
       </p>
-
+      <div className="mb-10 text-center">
+        <Image
+          className="mx-auto"
+          src="/img/riouc_centro.png"
+          alt="RIOUC"
+          width={340}
+          height={170}
+        />
+      </div>
       <p className="text-lg text-gray-800 mb-10 text-justify">
         En la visión del Sr. Rector, estaba la necesidad de creación de un
         Observatorio de Fenómenos Socioeconómicos, inquietud manifestada en
@@ -113,7 +113,7 @@ export default function Informacion() {
           loop
           muted
           controls={false}
-          style={{ maxWidth: "100%" }}
+          style={{ maxWidth: "70%" }}
           className="rounded-lg"
           ref={videoRef}
         >
@@ -206,7 +206,7 @@ export default function Informacion() {
         territorial.
       </p>
 
-      <p className="text-lg text-gray-800 mb-6 text-justify">
+      <p className="text-lg text-gray-800 mb-10 text-justify">
         Es precisamente este trabajo colaborativo, que impulsa y desarrolla el
         trabajo en equipo, promueva estas nuevas formas de organización y
         trabajo académico que obedecen, entre otras razones, al desarrollo de
