@@ -85,7 +85,7 @@ export default function modelogeovisor() {
                     {/* Capas */}
 
                     <h1 class="text-2xl font-semibold mb-5">Capas</h1>
-                    <p class="leading-relaxed mb-5">Marcador</p>
+                    <p class="leading-relaxed mb-5">Marcador ciudad de Cuenca</p>
                     {/* Botón 1 */}
                     <div className="mb-4">
                       <SwitchButton
@@ -159,14 +159,14 @@ export default function modelogeovisor() {
                         />
                         <Circle
                           center={[-2.898612, -79.000625]}
-                          radius={50000}
+                          radius={30000}
                           pathOptions={{
                             color: "red",
                             fillOpacity: circle1Visible ? 0.3 : 0, // Ajusta la opacidad del relleno
                             opacity: circle1Visible ? 1 : 0, // Ajusta la opacidad del borde
                           }}
                         >
-                          <Popup>Zona circular</Popup>
+                          <Popup>Ciudad de Cuenca.</Popup>
                         </Circle>
                       </>
                     )}
@@ -190,7 +190,10 @@ export default function modelogeovisor() {
             </div>
             {/* Cuerpo de la tabla 1 */}
             <div className="bg-white rounded-b-lg p-5 border-gray-300 border">
-              {/* Contenido de la tabla 1 */}
+            {/* Contenido de la tabla 1 */}
+            {circle1Visible && (
+              <p>603.269 habitantes</p>
+            )}
             </div>
           </div>
 
@@ -203,6 +206,9 @@ export default function modelogeovisor() {
             {/* Cuerpo de la tabla 2 */}
             <div className="bg-white rounded-b-lg p-5 border-gray-300 border">
               {/* Contenido de la tabla 2 */}
+              {circle1Visible && (
+              <p>2.538 m.s.n.m </p>
+            )}
             </div>
           </div>
 
@@ -215,6 +221,9 @@ export default function modelogeovisor() {
             {/* Cuerpo de la tabla 3 */}
             <div className="bg-white rounded-b-lg p-5 border-gray-300 border">
               {/* Contenido de la tabla 3 */}
+              {circle1Visible && (
+              <p>Superficie de 15.730 hectáreas </p>
+            )}
             </div>
           </div>
 
@@ -227,6 +236,9 @@ export default function modelogeovisor() {
             {/* Cuerpo de la tabla 4 */}
             <div className="bg-white rounded-b-lg p-5 border-gray-300 border">
               {/* Contenido de la tabla 4 */}
+              {circle1Visible && (
+              <p>Temperaturas que oscilan entre los 14ºC y los 18ºC.</p>
+            )}
             </div>
           </div>
         </div>
