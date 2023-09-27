@@ -26,7 +26,7 @@ export default function Informacion() {
 
   return (
     <div className="bg-white p-6 mx-auto max-w-7xl font-serif">
-      <h1 className="text-6xl text-red-500 font-extrabold text-opacity-90 mb-6 mt-10">
+      <h1 className="text-6xl text-red-500 font-extrabold mb-6 mt-10">
         RIOUC
       </h1>
 
@@ -186,60 +186,74 @@ export default function Informacion() {
         observan. (Phelan, 2007).
       </p>
 
-      <h2 className="text-2xl font-semibold text-red-500 mb-6">
-        ¿Cómo lo hacemos?
-      </h2>
+      <div className="bg-white mx-auto max-w-7xl font-serif flex flex-wrap">
+        <h2 className="text-2xl font-semibold text-red-500 mb-6 w-full">
+          ¿Cómo lo hacemos?
+        </h2>
 
-      <p className="text-lg text-gray-800 mb-6 text-justify">
-        Las redes académicas se posicionan cada vez más en la educación
-        superior, articulando instituciones de diferente naturaleza, tanto del
-        orden nacional como internacional para la producción del conocimiento.
-        Estas redes contribuyen en la detección de las necesidades y en la
-        construcción de programas que desarrollan la gestión del conocimiento.
-        Cada día se reconocen más cambios en la llamada sociedad del
-        conocimiento. Aparecen, por ejemplo, poderosos sistemas de información
-        en tiempo real, educación totalmente en línea o comunicaciones móviles
-        para asistir necesidades familiares, laborales, de salud, educativas. En
-        educación superior las comunidades temáticas, las asociaciones,
-        consorcios y alianzas interinstitucionales asumen retos académicos que
-        van desde la conformación de comunidades universitarias de expertos en
-        torno al fortalecimiento de un programa académico de pregrado o
-        posgrado, hasta la reunión y los acuerdos de investigación e innovación
-        entre instituciones de diversos sectores. Este es el caso del trabajo
-        colaborativo entre entidades académicas, empresas/ industria y sociedad,
-        para lograr soluciones ambientales, de salud, tecnológicas,
-        comunicacionales, en fin, acciones que conlleven al desarrollo
-        territorial.
-      </p>
+        <div className="w-full md:w-2/4 mb-6 text-lg text-gray-800 text-justify pr-5">
+          Las redes académicas se posicionan cada vez más en la educación
+          superior, articulando instituciones de diferente naturaleza, tanto del
+          orden nacional como internacional para la producción del conocimiento.
+          Estas redes contribuyen en la detección de las necesidades y en la
+          construcción de programas que desarrollan la gestión del conocimiento.
+          Cada día se reconocen más cambios en la llamada sociedad del
+          conocimiento. Aparecen, por ejemplo, poderosos sistemas de información
+          en tiempo real, educación totalmente en línea o comunicaciones móviles
+          para asistir necesidades familiares, laborales, de salud, educativas.
+          En educación superior las comunidades temáticas, las asociaciones,
+          consorcios y alianzas interinstitucionales asumen retos académicos que
+          van desde la conformación de comunidades universitarias de expertos en
+          torno al fortalecimiento de un programa académico de pregrado o
+          posgrado, hasta la reunión y los acuerdos de investigación e
+          innovación entre instituciones de diversos sectores.
+        </div>
 
-      <p className="text-lg text-gray-800 mb-10 text-justify">
-        Es precisamente este trabajo colaborativo, que impulsa y desarrolla el
-        trabajo en equipo, promueva estas nuevas formas de organización y
-        trabajo académico que obedecen, entre otras razones, al desarrollo de
-        las nuevas tecnologías de la información y de la comunicación, las que
-        han dado paso a la desmaterialización del trabajo y al lenguaje de la
-        informática, abriendo la posibilidad para que organizaciones o
-        individuos conectados interactúen en red a través de medios
-        electrónicos. Sin embargo, en tanto redes sociales, estas organizaciones
-        han existido de forma permanentemente en la historia humana. Es por ello
-        la importancia de la interdisciplinariedad y transdisciplinariedad que
-        aportan en el desarrollo de la investigación que tributan de manera
-        positiva en sus diferentes aristas en la investigación.
-      </p>
-
-      <div className="mb-16 text-center">
-        <Image
-          className="mx-auto rounded-lg"
-          src="/img/info_1.png"
-          alt="RIOUC"
-          width={650}
-          height={475}
-        />
+        <div className="w-full md:w-2/4 mb-5 p-2 mt-3 text-center">
+          <Image
+            className="mx-auto rounded-lg"
+            src="/img/info_1.png"
+            alt="RIOUC"
+            width={540}
+            height={300}
+          />
+        </div>
+        <p className="text-lg text-gray-800 mb-10 text-justify">
+          Este es el caso del trabajo colaborativo entre entidades académicas,
+          empresas/ industria y sociedad, para lograr soluciones ambientales, de
+          salud, tecnológicas, comunicacionales, en fin, acciones que conlleven
+          al desarrollo territorial. Es precisamente este trabajo colaborativo,
+          que impulsa y desarrolla el trabajo en equipo, promueva estas nuevas
+          formas de organización y trabajo académico que obedecen, entre otras
+          razones, al desarrollo de las nuevas tecnologías de la información y
+          de la comunicación, las que han dado paso a la desmaterialización del
+          trabajo y al lenguaje de la informática, abriendo la posibilidad para
+          que organizaciones o individuos conectados interactúen en red a través
+          de medios electrónicos. Sin embargo, en tanto redes sociales, estas
+          organizaciones han existido de forma permanentemente en la historia
+          humana. Es por ello la importancia de la interdisciplinariedad y
+          transdisciplinariedad que aportan en el desarrollo de la investigación
+          que tributan de manera positiva en sus diferentes aristas en la
+          investigación.
+        </p>
       </div>
+
       {/* Boletin */}
-      <h2 className="text-2xl font-semibold text-red-500 mb-6">
-        Boletín RIOUC
-      </h2>
+      <div className="flex flex-col-2 mb-5">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          fill="currentColor"
+          class="bi bi-book items-center mr-2 mt-1.5 inline text-red-500"
+          viewBox="0 0 16 16"
+        >
+          <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z" />
+        </svg>
+        <h2 className="text-2xl font-semibold text-red-500 mb-6">
+          Boletín RIOUC
+        </h2>
+      </div>
       <p className="text-lg text-gray-800 mb-6 text-justify">
         El presente boletín “La RIOUC Informa” es una publicación semestral en
         la que presentamos las principales estadísticas de datos producto de
@@ -305,7 +319,7 @@ export default function Informacion() {
         investigaciones, así como mostrar las bases de datos que se manejan con
         información de calidad.
       </div>
-      <div className="text-lg text-gray-800 mb-6 text-justify">
+      <div className="text-lg text-gray-800 mb-10 text-justify">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-5 w-5 inline text-red-500 mr-2"
