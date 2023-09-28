@@ -10,6 +10,8 @@ const DEFAULT_CENTER = [-1.598653, -78.180479];
 export default function modelogeovisor() {
   const router = useRouter();
   const [circle1Visible, setCircle1Visible] = useState(false);
+  const [circle2Visible, setCircle2Visible] = useState(false);
+  const [circle3Visible, setCircle3Visible] = useState(false);
   const [isTextVisible, setTextVisibility] = useState(false);
 
   const toggleTextVisibility = () => {
@@ -93,15 +95,19 @@ export default function modelogeovisor() {
                         onClick={() => setCircle1Visible(!circle1Visible)}
                       />
                     </div>
-                    <p class="leading-relaxed mb-5">Capa 2</p>
+                    <p class="leading-relaxed mb-5">Marcador ciudad de Guayaquil</p>
                     {/* Botón 2 */}
                     <div className="mb-4">
-                      <SwitchButton />
+                      <SwitchButton
+                      isActive={circle2Visible}
+                      onClick={() => setCircle2Visible(!circle2Visible)} />
                     </div>
-                    <p class="leading-relaxed mb-5">Capa 3</p>
+                    <p class="leading-relaxed mb-5">Marcador ciudad de Quito</p>
                     {/* Botón 3 */}
                     <div className="mb-4">
-                      <SwitchButton />
+                      <SwitchButton 
+                      isActive={circle3Visible}
+                        onClick={() => setCircle3Visible(!circle3Visible)}/>
                     </div>
                     <p class="leading-relaxed mb-5">Capa 4</p>
                     {/* Botón 4 */}
@@ -168,6 +174,28 @@ export default function modelogeovisor() {
                         >
                           <Popup>Ciudad de Cuenca.</Popup>
                         </Circle>
+                        <Circle
+                          center={[-2.148725, -79.892557]}
+                          radius={30000}
+                          pathOptions={{
+                            color: "blue",
+                            fillOpacity: circle2Visible ? 0.3 : 0, // Ajusta la opacidad del relleno
+                            opacity: circle2Visible ? 1 : 0, // Ajusta la opacidad del borde
+                          }}
+                        >
+                          <Popup>Ciudad de Guayaquil.</Popup>
+                        </Circle>
+                        <Circle
+                          center={[-0.171487, -78.440852]}
+                          radius={30000}
+                          pathOptions={{
+                            color: "green",
+                            fillOpacity: circle3Visible ? 0.3 : 0, // Ajusta la opacidad del relleno
+                            opacity: circle3Visible ? 1 : 0, // Ajusta la opacidad del borde
+                          }}
+                        >
+                          <Popup>Ciudad de Quito.</Popup>
+                        </Circle>
                       </>
                     )}
                   </Map>
@@ -183,61 +211,85 @@ export default function modelogeovisor() {
           </div>
 
           {/* Tabla 1 */}
-          <div className="bg-white rounded-t-lg p-6 my-6 ">
+          <div className="bg-white rounded-t-lg p-1 my-6 ">
             {/* Encabezado de la tabla 1 */}
-            <div className="bg-red-400 text-white text-base font-medium p-2 rounded-t-lg ">
-              Tabla 1
+            <div className="bg-red-500 text-white text-base font-medium p-2 rounded-t-lg ">
+              Población
             </div>
             {/* Cuerpo de la tabla 1 */}
             <div className="bg-white rounded-b-lg p-5 border-gray-300 border">
             {/* Contenido de la tabla 1 */}
             {circle1Visible && (
-              <p>603.269 habitantes</p>
+              <p>Cuenca: 603.269 habitantes</p>
+            )}
+            {circle2Visible && (
+              <p>Guayaquil: 2,698 millones habitantes</p>
+            )}
+            {circle3Visible && (
+              <p>Quito: 2,011 millones habitantes</p>
             )}
             </div>
           </div>
 
           {/* Tabla 2 */}
-          <div className="bg-white rounded-t-lg p-6 my-6">
+          <div className="bg-white rounded-t-lg p-1 my-6">
             {/* Encabezado de la tabla 2 */}
-            <div className="bg-red-400 text-white text-base font-medium p-2 rounded-t-lg">
-              Tabla 2
+            <div className="bg-red-500 text-white text-base font-medium p-2 rounded-t-lg">
+              Metros sobre el nivel del mar
             </div>
             {/* Cuerpo de la tabla 2 */}
             <div className="bg-white rounded-b-lg p-5 border-gray-300 border">
               {/* Contenido de la tabla 2 */}
               {circle1Visible && (
-              <p>2.538 m.s.n.m </p>
+              <p>Cuenca: 2.538 m.s.n.m </p>
+            )}
+            {circle2Visible && (
+              <p>Guayaquil: 4 m s. n. m.</p>
+            )}
+            {circle3Visible && (
+              <p>Quito: 2.850 m s. n. m.</p>
             )}
             </div>
           </div>
 
           {/* Tabla 3 */}
-          <div className="bg-white rounded-t-lg p-6 my-6">
+          <div className="bg-white rounded-t-lg p-1 my-6">
             {/* Encabezado de la tabla 3 */}
-            <div className="bg-red-400 text-white text-base font-medium p-2 rounded-t-lg">
-              Tabla 3
+            <div className="bg-red-500 text-white text-base font-medium p-2 rounded-t-lg">
+              Superficie en hectareas
             </div>
             {/* Cuerpo de la tabla 3 */}
             <div className="bg-white rounded-b-lg p-5 border-gray-300 border">
               {/* Contenido de la tabla 3 */}
               {circle1Visible && (
-              <p>Superficie de 15.730 hectáreas </p>
+              <p>Cuenca: Superficie de 15.730 ha </p>
+            )}
+            {circle2Visible && (
+              <p>Guayaquil:Superficie de 34.450 ha</p>
+            )}
+            {circle3Visible && (
+              <p>Quito:Superficie de 37.240 ha</p>
             )}
             </div>
           </div>
 
           {/* Tabla 4 */}
-          <div className="bg-white rounded-t-lg p-6 my-6">
+          <div className="bg-white rounded-t-lg p-1 my-6">
             {/* Encabezado de la tabla 4 */}
-            <div className="bg-red-400 text-white text-base font-medium p-2 rounded-t-lg">
-              Tabla 4
+            <div className="bg-red-500 text-white text-base font-medium p-2 rounded-t-lg">
+              Temperatura
             </div>
             {/* Cuerpo de la tabla 4 */}
             <div className="bg-white rounded-b-lg p-5 border-gray-300 border">
               {/* Contenido de la tabla 4 */}
               {circle1Visible && (
-              <p>Temperaturas que oscilan entre los 14ºC y los 18ºC.</p>
+              <p>Cuenca: Temperaturas que oscilan entre los 14ºC y los 18ºC.</p>
+            )}
+            {circle2Visible && (
+              <p>Guayaquil: Temperaturas que oscilan entre los 23ºC y los 32ºC.</p>
+            )}
+            {circle3Visible && (
+              <p>Quito: Temperaturas que oscilan entre los 8ºC y los 21ºC.</p>
             )}
             </div>
           </div>
