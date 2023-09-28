@@ -19,6 +19,12 @@ export const routers_menu = [
   },
   {
     id: 4,
+    to: "/boletin",
+    name: "Boletin",
+    expanded: false,
+  },
+  {
+    id: 5,
     to: "/proyectos",
     name: "Proyectos",
     expanded: true,

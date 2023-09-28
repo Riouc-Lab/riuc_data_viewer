@@ -3,13 +3,6 @@ import Image from "next/image";
 import { useEffect, useRef } from "react";
 
 export default function Informacion() {
-  const abrirPDF = () => {
-    // Reemplaza 'nombre-del-archivo.pdf' con el nombre real de tu archivo PDF
-    const pdfUrl = "/pdf/REVISTA.pdf";
-    window.open(pdfUrl, "_blank");
-  };
-
-
   const videoRef = useRef(null);
 
   useEffect(() => {
@@ -220,7 +213,7 @@ export default function Informacion() {
             height={300}
           />
         </div>
-        <p className="text-lg text-gray-800 mb-10 text-justify">
+        <p className="text-lg text-gray-800 mb-16 text-justify">
           Este es el caso del trabajo colaborativo entre entidades académicas,
           empresas/ industria y sociedad, para lograr soluciones ambientales, de
           salud, tecnológicas, comunicacionales, en fin, acciones que conlleven
@@ -238,126 +231,6 @@ export default function Informacion() {
           que tributan de manera positiva en sus diferentes aristas en la
           investigación.
         </p>
-      </div>
-
-      {/* Boletin */}
-      <div className="flex flex-col-2 mb-5">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="20"
-          height="20"
-          fill="currentColor"
-          class="bi bi-book items-center mr-2 mt-1.5 inline text-red-500"
-          viewBox="0 0 16 16"
-        >
-          <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z" />
-        </svg>
-        <h2 className="text-2xl font-semibold text-red-500 mb-1">
-          Boletín RIOUC
-        </h2>
-      </div>
-      <p className="text-lg text-gray-800 mb-6 text-justify">
-        El presente boletín “La RIOUC Informa” es una publicación semestral en
-        la que presentamos las principales estadísticas de datos producto de
-        nuestras investigaciones, conformadas por siete observatorios que hacen
-        vida en la Universidad Católica de Cuenca. Este boletín está conformado
-        por cuatro secciones:
-      </p>
-      <div className="text-lg text-gray-800 mb-6 text-justify">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-5 w-5 inline text-red-500 mr-2"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M5 13l4 4L19 7"
-          />
-        </svg>
-        La primera denominada, Bajo la lupa de los observatorios, presenta en
-        qué consiste cada observatorio, quienes son los responsables, qué
-        servicios ofrecen y cuáles son los proyectos actuales que llevan
-        adelante.
-      </div>
-      <div className="text-lg text-gray-800 mb-6 text-justify">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-5 w-5 inline text-red-500 mr-2"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M5 13l4 4L19 7"
-          />
-        </svg>
-        La segunda sección, denominada “hablando con expertos”, pretende
-        presentar la opinión de investigadores en diferentes áreas de la ciencia
-        haciendo énfasis en sus respectivas especialidades de investigación.
-      </div>
-      <div className="text-lg text-gray-800 mb-6 text-justify">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-5 w-5 inline text-red-500 mr-2"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M5 13l4 4L19 7"
-          />
-        </svg>
-        Una tercera sección está enmarcada a visibilizar datos relevantes de
-        investigaciones, así como mostrar las bases de datos que se manejan con
-        información de calidad.
-      </div>
-      <div className="text-lg text-gray-800 mb-10 text-justify">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-5 w-5 inline text-red-500 mr-2"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M5 13l4 4L19 7"
-          />
-        </svg>
-        Por último, una cuarta sección, donde se exponen las actividades
-        realizadas en la Red de Investigación y Observatorios en el último
-        semestre y los eventos próximos a realizarse donde participarán miembros
-        de nuestra red.
-      </div>
-
-      <div className="mb-5 text-center">
-        <Image
-          className="mx-auto rounded-lg"
-          src="/img/boletin.png"
-          alt="RIOUC"
-          width={750}
-          height={400}
-        />
-      </div>
-      <div className="mb-12 text-center">
-        <button
-          className="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-full focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50"
-          onClick={abrirPDF}
-        >
-          Abrir Boletin
-        </button>
       </div>
     </div>
   );
