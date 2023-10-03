@@ -18,7 +18,7 @@ export default function boletinn1() {
     <div className="bg-white p-6 mx-auto max-w-7xl font-serif ">
       <div className="bg-white p-6 mx-auto max-w-7xl font-serif">
       <button
-                  className="p-1 text-gray-500 hover:underline mb-2 font-medium mb-2 flex items-center space-x-2 mt-5"
+                  className="p-1 text-gray-500 hover:underline mb-2 font-medium mb-2 flex items-center space-x-2 mt-4"
                   onClick={() => proyect("/boletin")}
                 >
                   <svg
@@ -41,6 +41,9 @@ export default function boletinn1() {
         <h1 className="text-6xl text-red-500 font-extrabold mb-5 mt-3">
           BOLETIN
         </h1>
+        <h2 className="text-base font-medium text-gray-400">
+          Volumen 1 / N°1
+        </h2>
         <h2 className="text-base font-medium text-gray-400 mb-1">
           enero - abril 2023
         </h2>
