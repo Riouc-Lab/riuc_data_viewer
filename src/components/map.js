@@ -14,7 +14,7 @@ const Map = (props) => {
   const { width = DEFAULT_WIDTH, height = DEFAULT_HEIGHT } = props;
   return (
     <div style={{ aspectRatio: width / height }}>
-      <DynamicMap {...props} />zz
+      <DynamicMap {...props} />
     </div>
   )
 }

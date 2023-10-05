@@ -4,7 +4,8 @@ import styles from "../../globals.css";
 import React, { useState } from "react";
 import SwitchButton from "@components/buttonswitch";
 import { usePathname, useRouter } from "next/navigation";
-
+import capas from "/src/components/capas_provincias_ec.js";
+import axios from "axios";
 const DEFAULT_CENTER = [-1.598653, -78.180479];
 
 export default function modelogeovisor() {
@@ -13,7 +14,7 @@ export default function modelogeovisor() {
   const [circle2Visible, setCircle2Visible] = useState(false);
   const [circle3Visible, setCircle3Visible] = useState(false);
   const [isTextVisible, setTextVisibility] = useState(false);
-
+  const [provincias, setProvincias] = useState([]);
   const toggleTextVisibility = () => {
     setTextVisibility(!isTextVisible);
   };
@@ -21,6 +22,20 @@ export default function modelogeovisor() {
   function proyect(to) {
     router.push(to);
   }
+
+  async function getcapas() {
+    return await axios.get(
+      "https://raw.githubusercontent.com/zpio/mapa-ecuador/main/ec-all.geo.json"
+    );
+  }
+
+  getcapas().then((res) => {
+    let prov = res.data.features;
+    if (provincias.length == 0) {
+      setProvincias(prov);
+      console.log(prov);
+    }
+  });
 
   return (
     <main style={{ scrollBehavior: "smooth" }}>
@@ -86,8 +101,10 @@ export default function modelogeovisor() {
                   <ul className="space-y-3">
                     {/* Capas */}
 
-                    <h1 class="text-2xl font-semibold mb-5">Capas</h1>
-                    <p class="leading-relaxed mb-5">Marcador ciudad de Cuenca</p>
+                    <h1 className="text-2xl font-semibold mb-5">Capas</h1>
+                    <p className="leading-relaxed mb-5">
+                      Marcador ciudad de Cuenca
+                    </p>
                     {/* Botón 1 */}
                     <div className="mb-4">
                       <SwitchButton
@@ -95,26 +112,32 @@ export default function modelogeovisor() {
                         onClick={() => setCircle1Visible(!circle1Visible)}
                       />
                     </div>
-                    <p class="leading-relaxed mb-5">Marcador ciudad de Guayaquil</p>
+                    <p className="leading-relaxed mb-5">
+                      Marcador ciudad de Guayaquil
+                    </p>
                     {/* Botón 2 */}
                     <div className="mb-4">
                       <SwitchButton
-                      isActive={circle2Visible}
-                      onClick={() => setCircle2Visible(!circle2Visible)} />
+                        isActive={circle2Visible}
+                        onClick={() => setCircle2Visible(!circle2Visible)}
+                      />
                     </div>
-                    <p class="leading-relaxed mb-5">Marcador ciudad de Quito</p>
+                    <p className="leading-relaxed mb-5">
+                      Marcador ciudad de Quito
+                    </p>
                     {/* Botón 3 */}
                     <div className="mb-4">
-                      <SwitchButton 
-                      isActive={circle3Visible}
-                        onClick={() => setCircle3Visible(!circle3Visible)}/>
+                      <SwitchButton
+                        isActive={circle3Visible}
+                        onClick={() => setCircle3Visible(!circle3Visible)}
+                      />
                     </div>
-                    <p class="leading-relaxed mb-5">Capa 4</p>
+                    <p className="leading-relaxed mb-5">Capa 4</p>
                     {/* Botón 4 */}
                     <div className="mb-4">
                       <SwitchButton />
                     </div>
-                    <p class="leading-relaxed mb-5">Capa 5</p>
+                    <p className="leading-relaxed mb-5">Capa 5</p>
                     {/* Botón 5 */}
                     <div className="mb-4">
                       <SwitchButton />
@@ -144,7 +167,14 @@ export default function modelogeovisor() {
                     //tap={false} // Deshabilitar toques
                     //zoomControl={false} // Deshabilitar control de zoom
                   >
-                    {({ TileLayer, Marker, Popup, Circle, Polygon }) => (
+                    {({
+                      TileLayer,
+                      Marker,
+                      Popup,
+                      Circle,
+                      Polygon,
+                      GeoJSON,
+                    }) => (
                       <>
                         <TileLayer
                           //url='https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png'
@@ -163,6 +193,18 @@ export default function modelogeovisor() {
 
                           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                         />
+
+                        <GeoJSON
+                        key="provincias"
+                          data={provincias}
+                          style={() => ({
+                            color: "red",
+                            weight: 5,
+                            fillColor: "red",
+                            fillOpacity: 0.1,
+                          })}
+                        />
+
                         <Circle
                           center={[-2.898612, -79.000625]}
                           radius={30000}
@@ -207,7 +249,9 @@ export default function modelogeovisor() {
         <div className="h-[calc(100vh-_80px)] w-[300px] overflow-hidden overflow-y-auto rounded-lg bg-white p-3 shadow-md">
           {/* Contenido de la tercera columna */}
           <div className="border-b border-gray-300 pb-1">
-            <h3 className="text-xl text-base font-medium text-black mb-1">Tablas</h3>
+            <h3 className="text-xl text-base font-medium text-black mb-1">
+              Tablas
+            </h3>
           </div>
 
           {/* Tabla 1 */}
@@ -218,16 +262,10 @@ export default function modelogeovisor() {
             </div>
             {/* Cuerpo de la tabla 1 */}
             <div className="bg-white rounded-b-lg p-5 border-gray-300 border">
-            {/* Contenido de la tabla 1 */}
-            {circle1Visible && (
-              <p>Cuenca: 603.269 habitantes</p>
-            )}
-            {circle2Visible && (
-              <p>Guayaquil: 2,698 millones habitantes</p>
-            )}
-            {circle3Visible && (
-              <p>Quito: 2,011 millones habitantes</p>
-            )}
+              {/* Contenido de la tabla 1 */}
+              {circle1Visible && <p>Cuenca: 603.269 habitantes</p>}
+              {circle2Visible && <p>Guayaquil: 2,698 millones habitantes</p>}
+              {circle3Visible && <p>Quito: 2,011 millones habitantes</p>}
             </div>
           </div>
 
@@ -240,15 +278,9 @@ export default function modelogeovisor() {
             {/* Cuerpo de la tabla 2 */}
             <div className="bg-white rounded-b-lg p-5 border-gray-300 border">
               {/* Contenido de la tabla 2 */}
-              {circle1Visible && (
-              <p>Cuenca: 2.538 m.s.n.m </p>
-            )}
-            {circle2Visible && (
-              <p>Guayaquil: 4 m s. n. m.</p>
-            )}
-            {circle3Visible && (
-              <p>Quito: 2.850 m s. n. m.</p>
-            )}
+              {circle1Visible && <p>Cuenca: 2.538 m.s.n.m </p>}
+              {circle2Visible && <p>Guayaquil: 4 m s. n. m.</p>}
+              {circle3Visible && <p>Quito: 2.850 m s. n. m.</p>}
             </div>
           </div>
 
@@ -261,15 +293,9 @@ export default function modelogeovisor() {
             {/* Cuerpo de la tabla 3 */}
             <div className="bg-white rounded-b-lg p-5 border-gray-300 border">
               {/* Contenido de la tabla 3 */}
-              {circle1Visible && (
-              <p>Cuenca: Superficie de 15.730 ha </p>
-            )}
-            {circle2Visible && (
-              <p>Guayaquil:Superficie de 34.450 ha</p>
-            )}
-            {circle3Visible && (
-              <p>Quito:Superficie de 37.240 ha</p>
-            )}
+              {circle1Visible && <p>Cuenca: Superficie de 15.730 ha </p>}
+              {circle2Visible && <p>Guayaquil:Superficie de 34.450 ha</p>}
+              {circle3Visible && <p>Quito:Superficie de 37.240 ha</p>}
             </div>
           </div>
 
@@ -283,14 +309,18 @@ export default function modelogeovisor() {
             <div className="bg-white rounded-b-lg p-5 border-gray-300 border">
               {/* Contenido de la tabla 4 */}
               {circle1Visible && (
-              <p>Cuenca: Temperaturas que oscilan entre los 14ºC y los 18ºC.</p>
-            )}
-            {circle2Visible && (
-              <p>Guayaquil: Temperaturas que oscilan entre los 23ºC y los 32ºC.</p>
-            )}
-            {circle3Visible && (
-              <p>Quito: Temperaturas que oscilan entre los 8ºC y los 21ºC.</p>
-            )}
+                <p>
+                  Cuenca: Temperaturas que oscilan entre los 14ºC y los 18ºC.
+                </p>
+              )}
+              {circle2Visible && (
+                <p>
+                  Guayaquil: Temperaturas que oscilan entre los 23ºC y los 32ºC.
+                </p>
+              )}
+              {circle3Visible && (
+                <p>Quito: Temperaturas que oscilan entre los 8ºC y los 21ºC.</p>
+              )}
             </div>
           </div>
         </div>
