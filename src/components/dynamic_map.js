@@ -32,7 +32,6 @@ const Map = ({ children, className, width, height, ...rest }) => {
       <MapContainer
         className={"static-map"}
         style={{ width: 1160, height: 875 }}
-        center={[51.505, -0.09]}
         scrollWheelZoom={true} //habilita el zoom con la rueda del mouse
         {...rest}
       >

@@ -21,9 +21,7 @@ export default function Informacion() {
 
   return (
     <div className="bg-white p-6 mx-auto max-w-7xl font-serif">
-      <h1 className="text-6xl text-red-500 font-extrabold mb-6 mt-10">
-        RIOUC
-      </h1>
+      <h1 className="text-6xl text-red-500 font-extrabold mb-6 mt-10">RIOUC</h1>
 
       <p className="text-lg text-gray-800 mb-6 text-justify">
         La idea de crear la Red de Investigación y Observatorios de la

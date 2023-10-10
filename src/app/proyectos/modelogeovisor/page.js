@@ -25,7 +25,7 @@ export default function modelogeovisor() {
 
   async function getcapas() {
     return await axios.get(
-      "https://raw.githubusercontent.com/zpio/mapa-ecuador/main/ec-all.geo.json"
+      "https://s3.us-east-1.amazonaws.com/hdx-production-filestore/resources/6fa37b41-ad28-40a6-9641-3b4efd4dbe13/ecuador.geojson?AWSAccessKeyId=AKIAXYC32WNAS5V67V55&Signature=qZS93nRSiV9zACfUmIO0atkwdq0%3D&Expires=1696956756"
     );
   }
 
@@ -195,14 +195,20 @@ export default function modelogeovisor() {
                         />
 
                         <GeoJSON
-                        key="provincias"
+                          key="provincias"
                           data={provincias}
-                          style={() => ({
-                            color: "red",
-                            weight: 5,
-                            fillColor: "red",
-                            fillOpacity: 0.1,
-                          })}
+                          style={(feature) => {
+                            // Define tu lógica para establecer estilos aquí
+                            const fillColor = feature.properties.color; // Reemplaza 'color' con la propiedad que desees usar para el color de relleno
+                            const strokeColor = feature.properties.strokeColor; // Reemplaza 'strokeColor' con la propiedad que desees usar para el color del borde
+
+                            return {
+                              color: strokeColor || "red", // Color del borde predeterminado a rojo si no se especifica
+                              weight: 0.7, // Grosor del borde
+                              fillColor: fillColor || "red", // Color de relleno predeterminado a rojo si no se especifica
+                              fillOpacity: 0.2, // Opacidad del relleno
+                            };
+                          }}
                         />
 
                         <Circle
