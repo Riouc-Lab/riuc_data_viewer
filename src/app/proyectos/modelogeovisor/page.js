@@ -44,34 +44,47 @@ export default function modelogeovisor() {
     layer.on({
       mouseover: highlightFeature,
       mouseout: resetHighlight,
+      click: (e) => {
+        e.target.setStyle({
+          weight: 1.5,
+          color: "red",
+          dashArray: "",
+          fillOpacity: 0.5,
+        });
+      },
     });
     layer.bindPopup("<p>Población: " + feature.properties.Poblacion + "</p>");
   }
 
   function highlightFeature(e) {
     var layer = e.target;
-
     layer.setStyle({
-      weight: 3,
+      weight: 1.5,
       color: "red",
       dashArray: "",
       fillOpacity: 0.5,
     });
 
-    if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+    if (
+      !L.Browser.ie &&
+      !L.Browser.opera &&
+      !L.Browser.edge &&
+      !L.Browser.ie11 &&
+      !L.Browser.safari &&
+      !L.Browser.chrome
+    ) {
       layer.bringToFront();
     }
-
     setHighlightedLayer(layer);
   }
 
   function resetHighlight(e) {
     var layer = e.target;
     layer.setStyle({
-      weight: 0.5,
-      color: "purple",
-      fillColor: "purple",
-      fillOpacity: 0.1,
+      weight: 1.5,
+      color: "yellow",
+      dashArray: "",
+      fillOpacity: 0.5,
     });
   }
 
@@ -237,9 +250,9 @@ export default function modelogeovisor() {
                           data={provincias}
                           onEachFeature={onEachFeature}
                           style={() => ({
-                            color: "purple",
-                            weight: 0.5,
-                            fillColor: "purple",
+                            color: "yellow",
+                            weight: 0.6,
+                            fillColor: "red",
                             fillOpacity: 0.1,
                           })}
                         />
