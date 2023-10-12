@@ -9,7 +9,6 @@ import axios from "axios";
 const DEFAULT_CENTER = [-1.598653, -78.180479];
 
 export default function modelogeovisor() {
-  const [highlightedLayer, setHighlightedLayer] = useState(null);
   const router = useRouter();
   const [circle1Visible, setCircle1Visible] = useState(false);
   const [circle2Visible, setCircle2Visible] = useState(false);
@@ -19,6 +18,12 @@ export default function modelogeovisor() {
   const toggleTextVisibility = () => {
     setTextVisibility(!isTextVisible);
   };
+  const [poblacion, setPoblacion] = useState([]);
+
+  async function getPoblacion() {
+    var result = await axios.get("http://localhost:3000/api/poblacion");
+    return result.data;
+  }
 
   function proyect(to) {
     router.push(to);
@@ -26,7 +31,9 @@ export default function modelogeovisor() {
 
   async function getcapas() {
     return await axios.get(
+      //GEOJSON CANTONES
       //"https://s3.us-east-1.amazonaws.com/hdx-production-filestore/resources/6fa37b41-ad28-40a6-9641-3b4efd4dbe13/ecuador.geojson?AWSAccessKeyId=AKIAXYC32WNAS5V67V55&Signature=qZS93nRSiV9zACfUmIO0atkwdq0%3D&Expires=1696956756"
+      //GEOJSON PROVINCIAS
       "https://raw.githubusercontent.com/jpmarindiaz/geo-collection/master/ecu/ecuador.geojson"
     );
   }
@@ -38,55 +45,16 @@ export default function modelogeovisor() {
       console.log(prov);
     }
   });
+  getPoblacion().then((res) => {
+    let result = res;
+    console.log(result);
+    if (poblacion.length == 0) {
+      setPoblacion(result);
+      //console.log(poblacion);
+    }
+  });
 
   //funcion para resaltar provincias
-  function onEachFeature(feature, layer) {
-    layer.on({
-      mouseover: highlightFeature,
-      mouseout: resetHighlight,
-      click: (e) => {
-        e.target.setStyle({
-          weight: 1.5,
-          color: "red",
-          dashArray: "",
-          fillOpacity: 0.5,
-        });
-      },
-    });
-    layer.bindPopup("<p>Población: " + feature.properties.Poblacion + "</p>");
-  }
-
-  function highlightFeature(e) {
-    var layer = e.target;
-    layer.setStyle({
-      weight: 1.5,
-      color: "red",
-      dashArray: "",
-      fillOpacity: 0.5,
-    });
-
-    if (
-      !L.Browser.ie &&
-      !L.Browser.opera &&
-      !L.Browser.edge &&
-      !L.Browser.ie11 &&
-      !L.Browser.safari &&
-      !L.Browser.chrome
-    ) {
-      layer.bringToFront();
-    }
-    setHighlightedLayer(layer);
-  }
-
-  function resetHighlight(e) {
-    var layer = e.target;
-    layer.setStyle({
-      weight: 1.5,
-      color: "yellow",
-      dashArray: "",
-      fillOpacity: 0.5,
-    });
-  }
 
   return (
     <main style={{ scrollBehavior: "smooth" }}>
@@ -248,7 +216,6 @@ export default function modelogeovisor() {
                         <GeoJSON
                           key="provincias"
                           data={provincias}
-                          onEachFeature={onEachFeature}
                           style={() => ({
                             color: "yellow",
                             weight: 0.6,
