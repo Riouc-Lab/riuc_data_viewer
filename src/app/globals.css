@@ -82,6 +82,22 @@ svg{
     mask-position: 200% 0;
   }
 }
+/* Estilo de resaltado para provincias */
+.highlighted-province {
+  color: red;
+  weight: 2;
+  fillColor: red;
+  fillOpacity: 0.2;
+}
+
+/* Estilo predeterminado para provincias */
+.default-province {
+  color: purple;
+  weight: 0.5;
+  fillColor: purple;
+  fillOpacity: 0.1;
+}
+
 
 
 

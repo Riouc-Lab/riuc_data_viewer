@@ -1,7 +1,7 @@
 "use client";
 import Map from "@components/map";
 import styles from "../../globals.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import SwitchButton from "@components/buttonswitch";
 import { usePathname, useRouter } from "next/navigation";
 import capas from "/src/components/capas_provincias_ec.js";
@@ -9,6 +9,7 @@ import axios from "axios";
 const DEFAULT_CENTER = [-1.598653, -78.180479];
 
 export default function modelogeovisor() {
+  const [highlightedLayer, setHighlightedLayer] = useState(null);
   const router = useRouter();
   const [circle1Visible, setCircle1Visible] = useState(false);
   const [circle2Visible, setCircle2Visible] = useState(false);
@@ -26,7 +27,6 @@ export default function modelogeovisor() {
   async function getcapas() {
     return await axios.get(
       //"https://s3.us-east-1.amazonaws.com/hdx-production-filestore/resources/6fa37b41-ad28-40a6-9641-3b4efd4dbe13/ecuador.geojson?AWSAccessKeyId=AKIAXYC32WNAS5V67V55&Signature=qZS93nRSiV9zACfUmIO0atkwdq0%3D&Expires=1696956756"
-      //"https://raw.githubusercontent.com/zpio/Mapa-Ecuador/main/ec-all.geo.json"
       "https://raw.githubusercontent.com/jpmarindiaz/geo-collection/master/ecu/ecuador.geojson"
     );
   }
@@ -38,6 +38,42 @@ export default function modelogeovisor() {
       console.log(prov);
     }
   });
+
+  //funcion para resaltar provincias
+  function onEachFeature(feature, layer) {
+    layer.on({
+      mouseover: highlightFeature,
+      mouseout: resetHighlight,
+    });
+    layer.bindPopup("<p>Población: " + feature.properties.Poblacion + "</p>");
+  }
+
+  function highlightFeature(e) {
+    var layer = e.target;
+
+    layer.setStyle({
+      weight: 3,
+      color: "red",
+      dashArray: "",
+      fillOpacity: 0.5,
+    });
+
+    if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+      layer.bringToFront();
+    }
+
+    setHighlightedLayer(layer);
+  }
+
+  function resetHighlight(e) {
+    var layer = e.target;
+    layer.setStyle({
+      weight: 0.5,
+      color: "purple",
+      fillColor: "purple",
+      fillOpacity: 0.1,
+    });
+  }
 
   return (
     <main style={{ scrollBehavior: "smooth" }}>
@@ -199,10 +235,11 @@ export default function modelogeovisor() {
                         <GeoJSON
                           key="provincias"
                           data={provincias}
+                          onEachFeature={onEachFeature}
                           style={() => ({
-                            color: "red",
+                            color: "purple",
                             weight: 0.5,
-                            fillColor: "red",
+                            fillColor: "purple",
                             fillOpacity: 0.1,
                           })}
                         />
