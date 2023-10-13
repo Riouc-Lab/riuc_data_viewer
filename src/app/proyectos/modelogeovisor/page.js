@@ -56,6 +56,7 @@ export default function modelogeovisor() {
   });
 
   //llamar datos de provincia y poblacion
+  
 
   return (
     <main style={{ scrollBehavior: "smooth" }}>
@@ -175,6 +176,8 @@ export default function modelogeovisor() {
               <div className="leaflet-container h-full w-full">
                 <div className="">
                   <Map
+                  selectedProvince={selectedProvince}
+                  setSelectedProvince={setSelectedProvince}
                     className=" shadow-xl"
                     center={DEFAULT_CENTER}
                     zoom={6.5}
@@ -213,7 +216,7 @@ export default function modelogeovisor() {
 
                           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                         />
-
+                        
                         <GeoJSON
                           key="provincias"
                           data={provincias}
@@ -229,10 +232,6 @@ export default function modelogeovisor() {
                               selectedProvince === feature ? 0.5 : 0.1,
                           })}
                           onEachFeature={(feature, layer) => {
-                            
-                            layer.bindPopup(
-                              `${feature.properties.dpa_despro}<br>Población: ${feature.properties.total}`
-                            );
                             layer.on("click", () => {
                               setSelectedProvince(feature);
                             });

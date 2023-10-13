@@ -8,8 +8,24 @@ import styles from "../assets/scss/Map.module.scss";
 
 const { MapContainer } = ReactLeaflet;
 const { LayersControl, LayerGroup, TileLayer, ScaleControl } = ReactLeaflet;
-
-const Map = ({ children, className, width, height, ...rest }) => {
+const InfoBox = ({ content }) => {
+  return (
+    <div className="info-box">
+      <div className="info-content">
+        <p>{content}</p>
+      </div>
+    </div>
+  );
+};
+const Map = ({
+  selectedProvince,
+  setSelectedProvince,
+  children,
+  className,
+  width,
+  height,
+  ...rest
+}) => {
   let mapClassName = styles.map;
 
   if (className) {
@@ -35,6 +51,19 @@ const Map = ({ children, className, width, height, ...rest }) => {
         scrollWheelZoom={true} //habilita el zoom con la rueda del mouse
         {...rest}
       >
+        <InfoBox
+          content={
+            selectedProvince ? (
+              <div>
+                {selectedProvince.properties.dpa_despro} <br />
+                Población: {selectedProvince.properties.total}
+              </div>
+            ) : (
+              "Seleccione una provincia"
+            )
+          }
+        />
+
         {/* Agregar capas en el mapa */}
         <LayersControl position="topleft" className={styles.layersControl}>
           <LayersControl.Overlay name="Mapa Satelital">
