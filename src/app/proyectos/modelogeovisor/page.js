@@ -1,8 +1,8 @@
 "use client";
-import Map from "@components/map";
+import Map from "../../../components/map";
 import styles from "../../globals.css";
 import React, { useState, useEffect } from "react";
-import SwitchButton from "@components/buttonswitch";
+import SwitchButton from "../../../components/buttonswitch";
 import { usePathname, useRouter } from "next/navigation";
 import capas from "/src/components/capas_provincias_ec.js";
 import axios from "axios";
@@ -15,10 +15,11 @@ export default function modelogeovisor() {
   const [circle3Visible, setCircle3Visible] = useState(false);
   const [isTextVisible, setTextVisibility] = useState(false);
   const [provincias, setProvincias] = useState([]);
+  const [poblacion, setPoblacion] = useState([]);
   const toggleTextVisibility = () => {
     setTextVisibility(!isTextVisible);
   };
-  const [poblacion, setPoblacion] = useState([]);
+  const [selectedProvince, setSelectedProvince] = useState(null);
 
   async function getPoblacion() {
     var result = await axios.get("http://localhost:3000/api/poblacion");
@@ -54,7 +55,7 @@ export default function modelogeovisor() {
     }
   });
 
-  //funcion para resaltar provincias
+  //llamar datos de provincia y poblacion
 
   return (
     <main style={{ scrollBehavior: "smooth" }}>
@@ -216,12 +217,26 @@ export default function modelogeovisor() {
                         <GeoJSON
                           key="provincias"
                           data={provincias}
-                          style={() => ({
-                            color: "yellow",
-                            weight: 0.6,
-                            fillColor: "red",
-                            fillOpacity: 0.1,
+                          style={(feature) => ({
+                            color:
+                              selectedProvince === feature ? "blue" : "yellow",
+                            weight: selectedProvince === feature ? 2 : 0.6,
+                            fillColor:
+                              selectedProvince === feature
+                                ? "lightblue"
+                                : "red",
+                            fillOpacity:
+                              selectedProvince === feature ? 0.5 : 0.1,
                           })}
+                          onEachFeature={(feature, layer) => {
+                            
+                            layer.bindPopup(
+                              `${feature.properties.dpa_despro}<br>Población: ${feature.properties.total}`
+                            );
+                            layer.on("click", () => {
+                              setSelectedProvince(feature);
+                            });
+                          }}
                         />
 
                         <Circle
@@ -232,9 +247,7 @@ export default function modelogeovisor() {
                             fillOpacity: circle1Visible ? 0.3 : 0, // Ajusta la opacidad del relleno
                             opacity: circle1Visible ? 1 : 0, // Ajusta la opacidad del borde
                           }}
-                        >
-                          <Popup>Ciudad de Cuenca.</Popup>
-                        </Circle>
+                        ></Circle>
                         <Circle
                           center={[-2.148725, -79.892557]}
                           radius={30000}
@@ -243,9 +256,7 @@ export default function modelogeovisor() {
                             fillOpacity: circle2Visible ? 0.3 : 0, // Ajusta la opacidad del relleno
                             opacity: circle2Visible ? 1 : 0, // Ajusta la opacidad del borde
                           }}
-                        >
-                          <Popup>Ciudad de Guayaquil.</Popup>
-                        </Circle>
+                        ></Circle>
                         <Circle
                           center={[-0.171487, -78.440852]}
                           radius={30000}
@@ -254,9 +265,7 @@ export default function modelogeovisor() {
                             fillOpacity: circle3Visible ? 0.3 : 0, // Ajusta la opacidad del relleno
                             opacity: circle3Visible ? 1 : 0, // Ajusta la opacidad del borde
                           }}
-                        >
-                          <Popup>Ciudad de Quito.</Popup>
-                        </Circle>
+                        ></Circle>
                       </>
                     )}
                   </Map>

@@ -1,8 +1,8 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
-import { lista_proyectos } from "@utils/modelo_proyectos";
-import Search from "@riuc/components/search";
+import { lista_proyectos } from "../../utils/modelo_proyectos";
+import Search from "../../components/search";
 import { usePathname, useRouter } from "next/navigation";
 
 export default function Proyectos() {

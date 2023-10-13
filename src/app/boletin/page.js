@@ -1,10 +1,9 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
-import Search from "@riuc/components/search";
+import Search from "../../components/search"
 import { usePathname, useRouter } from "next/navigation";
-
-import { lista_boletin } from "@utils/modelo_boletin";
+import { lista_boletin } from "../../utils/modelo_boletin";
 
 export default function Boletin() {
   const router = useRouter();

@@ -4,7 +4,7 @@ import Leaflet from "leaflet";
 import * as ReactLeaflet from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 
-import styles from "@styles/scss/Map.module.scss";
+import styles from "../assets/scss/Map.module.scss";
 
 const { MapContainer } = ReactLeaflet;
 const { LayersControl, LayerGroup, TileLayer, ScaleControl } = ReactLeaflet;
