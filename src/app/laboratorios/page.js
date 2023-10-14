@@ -2,8 +2,8 @@ import Image from "next/image";
 
 export default function Laboratorios() {
   return (
-    <main className="container mx-auto p-4 text-justify">
-      <h1 className="text-5xl md:text-6xl font-extrabold p-5 mb-7 text-red-500 bg-gradient-to-r from-black via-white to-black bg-clip-text text-transparent border-b-2 border-red-400 mt-8">
+    <main className="container mx-auto p-4 text-justify font-serif">
+      <h1 className="text-5xl md:text-5xl font-extrabold p-5 mb-7 text-black border-b-2 border-red-400 mt-8">
         LABORATORIOS
       </h1>
 

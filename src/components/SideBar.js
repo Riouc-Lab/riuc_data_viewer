@@ -36,31 +36,27 @@ export default function SideBar({ navLinks }) {
   return (
     <>
       <div className="z-20 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <div className="fixed left-0 top-0 flex w-full justify-left p-24 border-b border-gray-350 bg-gradient-to-b bg-black pb-3 pt-3">
-          &nbsp;
+        <div className="fixed left-0 top-0 w-full flex justify-left p-3 bg-gradient-to-b from-gray-900 to-black border-b border-gray-600">
           <div className="font-mono font-bold">
             <a
-              className="cursor-pointer flex place-items-center gap-5 p-8 lg:pointer-events-auto lg:p-0"
+              className="cursor-pointer flex items-center gap-4 p-2 lg:p-0"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => router.push("/")}
             >
-              {" "}
               <Image
                 src="/img/ucacue-sidebar.png"
                 alt="CIITT Logo"
-                className="dark:invert"
                 width={135}
                 height={20}
-                priority
+                className="ml-5" // Añadir ml-2 para ajustar la posición a la derecha
               />
               <Image
                 src="/img/RED-SIDEBAR.png"
                 alt="CIITT Logo"
-                className="dark:invert"
                 width={47}
                 height={47}
-                priority
+                className="ml-2" // Añadir ml-2 para ajustar la posición a la derecha
               />
               <h2 className="text-xl font-semibold mb-1 text-red-500">RIOUC</h2>
             </a>
@@ -106,7 +102,7 @@ export default function SideBar({ navLinks }) {
             return (
               <>
                 <div className="flex items-center justify-between">
-                  <div class="flex flex-col justify-start items-center px-6 border-b border-gray-600 w-full">
+                  <div class="flex flex-col justify-start items-center px-6 border-b border-gray-800 w-full mt-1">
                     <button
                       key={link.id}
                       onClick={() => showMenu1(link.expanded, link.to)}

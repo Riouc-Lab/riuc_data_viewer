@@ -20,8 +20,11 @@ export default function Informacion() {
   }, []);
 
   return (
-    <div className="bg-white p-6 mx-auto max-w-7xl font-serif">
-      <h1 className="text-6xl text-red-500 font-extrabold mb-6 mt-10">RIOUC</h1>
+    <div className="bg-white p-4 mx-auto max-w-7xl font-serif">
+      <h1 className="text-5xl md:text-5xl font-extrabold p-5 text-black border-b-2 border-red-400 mt-8 ">
+        INFORMACIÓN
+      </h1>
+      <h1 className="text-5xl text-red-500 font-extrabold mb-6 mt-12">RIOUC</h1>
 
       <p className="text-lg text-gray-800 mb-6 text-justify">
         La idea de crear la Red de Investigación y Observatorios de la
@@ -40,7 +43,7 @@ export default function Informacion() {
           className="mx-auto"
           src="/img/riouc_centro.png"
           alt="RIOUC"
-          width={340}
+          width={310}
           height={170}
         />
       </div>
@@ -112,7 +115,7 @@ export default function Informacion() {
           loop
           muted
           controls={false}
-          style={{ maxWidth: "70%" }}
+          style={{ maxWidth: "60%" }}
           className="rounded-lg"
           ref={videoRef}
         >
@@ -179,7 +182,7 @@ export default function Informacion() {
         observan. (Phelan, 2007).
       </p>
 
-      <div className="bg-white mx-auto max-w-7xl font-serif flex flex-wrap">
+      <div className="bg-white mx-auto max-w-8xl font-serif flex flex-wrap">
         <h2 className="text-2xl font-semibold text-red-500 mb-6 w-full">
           ¿Cómo lo hacemos?
         </h2>
@@ -202,13 +205,13 @@ export default function Informacion() {
           innovación entre instituciones de diversos sectores.
         </div>
 
-        <div className="w-full md:w-2/4 mb-5 p-2 mt-3 text-center">
+        <div className="w-full md:w-2/4 mt-5 p-2 text-center">
           <Image
             className="mx-auto rounded-lg"
             src="/img/info_1.png"
             alt="RIOUC"
-            width={540}
-            height={300}
+            width={500}
+            height={280}
           />
         </div>
         <p className="text-lg text-gray-800 mb-16 text-justify">

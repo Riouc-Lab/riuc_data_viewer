@@ -5,6 +5,6 @@ export const lista_proyectos = [
     to: "/proyectos/modelogeovisor",
     name: "Canasta Basica",
     description: "Visualiza y compara datos sobre las canastas básicas en diferentes regiones del país en tiempo real.",
-    date: "2021-10-01",
+    date: "2023-08-01",
   },
 ];

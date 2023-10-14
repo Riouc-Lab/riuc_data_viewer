@@ -35,9 +35,9 @@ export default function Proyectos() {
     : lista_proyectos.slice(startIndex, endIndex);
 
   return (
-    <main className="flex min-h-screen flex-col items-center p-7 mb-5">
+    <main className="flex min-h-screen flex-col items-center p-7 mb-5 font-serif">
       <div className="text-center mb-10">
-        <h5 className="text-base md:text-lg text-red-500 mb-1">GeoVisor</h5>
+        <h5 className="text-base md:text-lg text-red-500 mb-1">GEOVISOR</h5>
         <h1 className="text-4xl md:text-7xl font-semibold p-5 mb-12 bg-gradient-to-r from-black to-black bg-clip-text text-transparent border-b-2 border-red-400">
           PROYECTOS
         </h1>

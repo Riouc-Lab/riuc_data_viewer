@@ -12,8 +12,8 @@ export default function Equipo() {
   const [showInfo7, setShowInfo7] = useState(false);
 
   return (
-    <div className="bg-white p-6 mx-auto max-w-7xl font-serif">
-      <h1 className="text-4xl uppercase font-semibold text-red-500 mb-10 text-center mt-14">
+    <div className="bg-white p-4 mx-auto max-w-7xl font-serif">
+      <h1 className="text-4xl uppercase font-semibold text-red-600 mb-10 text-center mt-14">
         ¿Quiénes somos?
       </h1>
 
@@ -29,7 +29,7 @@ export default function Equipo() {
             className="mx-auto"
             src="/img/phd.png"
             alt="Imagen 1"
-            width={310}
+            width={300}
             height={160}
           />
           <h1 className="text-center font-semibold p-3 mb-2 bg-gradient-to-r from-black to-black bg-clip-text text-transparent border-b-2 border-red-400 w-2/4 mx-auto">
@@ -41,7 +41,7 @@ export default function Equipo() {
             className="mx-auto"
             src="/img/ing.png"
             alt="Imagen 2"
-            width={310}
+            width={300}
             height={160}
           />
           <h1 className="text-center font-semibold p-3 mb-2 bg-gradient-to-r from-black to-black bg-clip-text text-transparent border-b-2 border-red-400 w-2/4 mx-auto">
