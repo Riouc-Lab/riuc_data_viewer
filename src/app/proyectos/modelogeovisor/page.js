@@ -21,10 +21,62 @@ export default function modelogeovisor() {
   };
   const [selectedProvince, setSelectedProvince] = useState(null);
 
+  // Asociar datos de población con las capas GeoJSON
+  const provinciasConPoblacion = provincias.map((provinciaGeoJSON) => {
+    const idProvGeoJSON = provinciaGeoJSON.properties.id_prov;
+    const poblacionData = poblacion
+      ? poblacion.find((data) => data.id_provincia === idProvGeoJSON)
+      : null;
+  
+    return {
+      ...provinciaGeoJSON,
+      properties: {
+        ...provinciaGeoJSON.properties,
+        poblacion: poblacionData ? poblacionData.poblacion_prov : 0,
+      },
+    };
+  });
+  
   async function getPoblacion() {
-    var result = await axios.get("http://localhost:3000/api/poblacion");
-    return result.data;
+    try {
+      const response = await axios.get("http://localhost:3000/api/poblacion");
+      const poblacionData = response.data.data;
+  
+      if (Array.isArray(poblacionData) && poblacionData.length > 0) {
+        // Verifica que poblacionData sea un array no vacío
+        setPoblacion(poblacionData);
+      } else {
+        console.error("No se encontraron datos de población.");
+      }
+    } catch (error) {
+      console.error("Error al obtener datos de población:", error);
+    }
   }
+  
+  // ...
+  
+  async function fetchData() {
+    try {
+      const poblacionResponse = await axios.get("http://localhost:3000/api/poblacion");
+      const poblacionData = poblacionResponse.data.data;
+      
+      if (Array.isArray(poblacionData)) {
+        // Comprueba si poblacionData es un arreglo antes de usar length
+        if (poblacionData.length > 0) {
+          setPoblacion(poblacionData);
+        } else {
+          console.log("No se encontraron datos de población.");
+        }
+      } else {
+        console.log("La respuesta de la API no es un arreglo válido.");
+      }
+  
+      // Resto del código...
+    } catch (error) {
+      console.error("Error al obtener datos:", error);
+    }
+  }  
+  
 
   function proyect(to) {
     router.push(to);
@@ -46,17 +98,12 @@ export default function modelogeovisor() {
       console.log(prov);
     }
   });
+
   getPoblacion().then((res) => {
     let result = res;
     console.log(result);
-    if (poblacion.length == 0) {
-      setPoblacion(result);
-      //console.log(poblacion);
-    }
+    
   });
-
-  //llamar datos de provincia y poblacion
-  
 
   return (
     <main style={{ scrollBehavior: "smooth" }}>
@@ -176,8 +223,8 @@ export default function modelogeovisor() {
               <div className="leaflet-container h-full w-full">
                 <div className="">
                   <Map
-                  selectedProvince={selectedProvince}
-                  setSelectedProvince={setSelectedProvince}
+                    selectedProvince={selectedProvince}
+                    setSelectedProvince={setSelectedProvince}
                     className=" shadow-xl"
                     center={DEFAULT_CENTER}
                     zoom={6.5}
@@ -216,10 +263,10 @@ export default function modelogeovisor() {
 
                           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                         />
-                        
+
                         <GeoJSON
                           key="provincias"
-                          data={provincias}
+                          data={provinciasConPoblacion}
                           style={(feature) => ({
                             color:
                               selectedProvince === feature ? "blue" : "yellow",

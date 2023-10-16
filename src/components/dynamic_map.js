@@ -19,7 +19,6 @@ const InfoBox = ({ content }) => {
 };
 const Map = ({
   selectedProvince,
-  setSelectedProvince,
   children,
   className,
   width,
@@ -55,8 +54,10 @@ const Map = ({
           content={
             selectedProvince ? (
               <div>
-                {selectedProvince.properties.dpa_despro} <br />
-                Población: {selectedProvince.properties.total}
+                {selectedProvince ? selectedProvince.properties.dpa_despro : ""}{" "}
+                <br />
+                Provincia=
+                {selectedProvince ? selectedProvince.properties.poblacion : ""}
               </div>
             ) : (
               "Seleccione una provincia"
