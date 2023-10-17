@@ -53,14 +53,23 @@ const Map = ({
         <InfoBox
           content={
             selectedProvince ? (
-              <div>
-                {selectedProvince ? selectedProvince.properties.dpa_despro : ""}{" "}
-                <br />
-                Provincia=
-                {selectedProvince ? selectedProvince.properties.poblacion : ""}
+              <div className="">
+                <p className="text-lg font-semibold text-gray-500">
+                  {selectedProvince
+                    ? selectedProvince.properties.dpa_despro
+                    : ""}{" "}
+                </p>
+                <p className="text-sm text-gray-600">
+                  Provincia:{" "}
+                  {selectedProvince
+                    ? selectedProvince.properties.poblacion
+                    : ""}
+                </p>
               </div>
             ) : (
-              "Seleccione una provincia"
+              <p className="text-lg font-semibold text-red-600">
+                Seleccione una provincia
+              </p>
             )
           }
         />

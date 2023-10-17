@@ -1,11 +1,10 @@
 "use client";
-import Map from "../../../components/map";
-import styles from "../../globals.css";
 import React, { useState, useEffect } from "react";
-import SwitchButton from "../../../components/buttonswitch";
-import { usePathname, useRouter } from "next/navigation";
-import capas from "/src/components/capas_provincias_ec.js";
+import { useRouter } from "next/navigation";
 import axios from "axios";
+import Map from "../../../components/map";
+import SwitchButton from "../../../components/buttonswitch";
+
 const DEFAULT_CENTER = [-1.598653, -78.180479];
 
 export default function modelogeovisor() {
@@ -27,7 +26,7 @@ export default function modelogeovisor() {
     const poblacionData = poblacion
       ? poblacion.find((data) => data.id_provincia === idProvGeoJSON)
       : null;
-  
+
     return {
       ...provinciaGeoJSON,
       properties: {
@@ -36,12 +35,12 @@ export default function modelogeovisor() {
       },
     };
   });
-  
+
   async function getPoblacion() {
     try {
       const response = await axios.get("http://localhost:3000/api/poblacion");
       const poblacionData = response.data.data;
-  
+
       if (Array.isArray(poblacionData) && poblacionData.length > 0) {
         // Verifica que poblacionData sea un array no vacío
         setPoblacion(poblacionData);
@@ -52,31 +51,6 @@ export default function modelogeovisor() {
       console.error("Error al obtener datos de población:", error);
     }
   }
-  
-  // ...
-  
-  async function fetchData() {
-    try {
-      const poblacionResponse = await axios.get("http://localhost:3000/api/poblacion");
-      const poblacionData = poblacionResponse.data.data;
-      
-      if (Array.isArray(poblacionData)) {
-        // Comprueba si poblacionData es un arreglo antes de usar length
-        if (poblacionData.length > 0) {
-          setPoblacion(poblacionData);
-        } else {
-          console.log("No se encontraron datos de población.");
-        }
-      } else {
-        console.log("La respuesta de la API no es un arreglo válido.");
-      }
-  
-      // Resto del código...
-    } catch (error) {
-      console.error("Error al obtener datos:", error);
-    }
-  }  
-  
 
   function proyect(to) {
     router.push(to);
@@ -102,7 +76,6 @@ export default function modelogeovisor() {
   getPoblacion().then((res) => {
     let result = res;
     console.log(result);
-    
   });
 
   return (
@@ -269,14 +242,12 @@ export default function modelogeovisor() {
                           data={provinciasConPoblacion}
                           style={(feature) => ({
                             color:
-                              selectedProvince === feature ? "blue" : "yellow",
-                            weight: selectedProvince === feature ? 2 : 0.6,
+                              selectedProvince === feature ? "gray" : "red",
+                            weight: selectedProvince === feature ? 2 : 0.4,
                             fillColor:
-                              selectedProvince === feature
-                                ? "lightblue"
-                                : "red",
+                              selectedProvince === feature ? "red" : "yellow",
                             fillOpacity:
-                              selectedProvince === feature ? 0.7 : 0.1,
+                              selectedProvince === feature ? 0.6 : 0.2,
                           })}
                           onEachFeature={(feature, layer) => {
                             layer.on("click", () => {
@@ -287,29 +258,29 @@ export default function modelogeovisor() {
 
                         <Circle
                           center={[-2.898612, -79.000625]}
-                          radius={30000}
+                          radius={15000}
                           pathOptions={{
                             color: "red",
-                            fillOpacity: circle1Visible ? 0.3 : 0, // Ajusta la opacidad del relleno
-                            opacity: circle1Visible ? 1 : 0, // Ajusta la opacidad del borde
+                            fillOpacity: circle1Visible ? 0.3 : 0,
+                            opacity: circle1Visible ? 1 : 0,
                           }}
                         ></Circle>
                         <Circle
                           center={[-2.148725, -79.892557]}
-                          radius={30000}
+                          radius={15000}
                           pathOptions={{
                             color: "blue",
-                            fillOpacity: circle2Visible ? 0.3 : 0, // Ajusta la opacidad del relleno
-                            opacity: circle2Visible ? 1 : 0, // Ajusta la opacidad del borde
+                            fillOpacity: circle2Visible ? 0.3 : 0,
+                            opacity: circle2Visible ? 1 : 0,
                           }}
                         ></Circle>
                         <Circle
                           center={[-0.171487, -78.440852]}
-                          radius={30000}
+                          radius={15000}
                           pathOptions={{
                             color: "green",
-                            fillOpacity: circle3Visible ? 0.3 : 0, // Ajusta la opacidad del relleno
-                            opacity: circle3Visible ? 1 : 0, // Ajusta la opacidad del borde
+                            fillOpacity: circle3Visible ? 0.3 : 0,
+                            opacity: circle3Visible ? 1 : 0,
                           }}
                         ></Circle>
                       </>

@@ -87,7 +87,8 @@ svg{
   top: 10px;
   right: 10px;
   background: #fff;
-  border: 1px solid #ccc;
+  border: 1px solid #f1f1f1;
+  border-radius: 10px;
   padding: 10px;
   z-index: 1000;
   font-size: 20px;
