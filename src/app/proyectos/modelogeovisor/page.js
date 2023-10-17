@@ -21,6 +21,36 @@ export default function modelogeovisor() {
   const [selectedProvince, setSelectedProvince] = useState(null);
   const [dataLoaded, setDataLoaded] = useState(false);
 
+  function getColor(id) {
+    const colorMapping = {
+      1: "blue",
+      2: "green",
+      3: "red",
+      4: "yellow",
+      5: "purple",
+      6: "orange",
+      7: "brown",
+      8: "pink",
+      9: "gray",
+      10: "cyan",
+      11: "magenta",
+      12: "olive",
+      13: "lime",
+      14: "teal",
+      15: "indigo",
+      16: "maroon",
+      17: "navy",
+      18: "azure",
+      19: "aquamarine",
+      20: "beige",
+      21: "bisque",
+      22: "blanchedalmond",
+      23: "blueviolet",
+      24: "burlywood",
+    };
+    return colorMapping[id] || "gray";
+  }
+
   // Asociar datos de población con las capas GeoJSON
   const provinciasConPoblacion = provincias.map((provinciaGeoJSON) => {
     const idProvGeoJSON = provinciaGeoJSON.properties.id_prov;
@@ -262,14 +292,11 @@ export default function modelogeovisor() {
                           data={provinciasConPoblacion}
                           style={(feature) => ({
                             color:
-                              selectedProvince === feature ? "blue" : "gray",
-                            weight: selectedProvince === feature ? 2 : 0.6,
-                            fillColor:
-                              selectedProvince === feature
-                                ? "lightblue"
-                                : "yellow",
+                              selectedProvince === feature ? "red" : "gray",
+                            weight: selectedProvince === feature ? 1 : 0.6,
+                            fillColor: getColor(feature.properties.id_prov), // Asigna un color basado en el id
                             fillOpacity:
-                              selectedProvince === feature ? 0.8 : 0.2,
+                              selectedProvince === feature ? 0.8 : 0.4,
                           })}
                           onEachFeature={(feature, layer) => {
                             layer.on("click", () => {
