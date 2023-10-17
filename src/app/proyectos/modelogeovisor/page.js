@@ -19,6 +19,7 @@ export default function modelogeovisor() {
     setTextVisibility(!isTextVisible);
   };
   const [selectedProvince, setSelectedProvince] = useState(null);
+  const [dataLoaded, setDataLoaded] = useState(false);
 
   // Asociar datos de población con las capas GeoJSON
   const provinciasConPoblacion = provincias.map((provinciaGeoJSON) => {
@@ -77,6 +78,25 @@ export default function modelogeovisor() {
     let result = res;
     console.log(result);
   });
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        await Promise.all([getcapas(), getPoblacion()]);
+
+        // Cuando ambas solicitudes se completen, establecemos dataLoaded en true
+        setDataLoaded(true);
+      } catch (error) {
+        console.error("Error al obtener datos:", error);
+      }
+    }
+
+    fetchData();
+  }, []);
+
+  if (!dataLoaded) {
+    return <div>Cargando datos...</div>;
+  }
 
   return (
     <main style={{ scrollBehavior: "smooth" }}>
@@ -242,12 +262,14 @@ export default function modelogeovisor() {
                           data={provinciasConPoblacion}
                           style={(feature) => ({
                             color:
-                              selectedProvince === feature ? "gray" : "red",
-                            weight: selectedProvince === feature ? 2 : 0.4,
+                              selectedProvince === feature ? "blue" : "gray",
+                            weight: selectedProvince === feature ? 2 : 0.6,
                             fillColor:
-                              selectedProvince === feature ? "red" : "yellow",
+                              selectedProvince === feature
+                                ? "lightblue"
+                                : "yellow",
                             fillOpacity:
-                              selectedProvince === feature ? 0.6 : 0.2,
+                              selectedProvince === feature ? 0.8 : 0.2,
                           })}
                           onEachFeature={(feature, layer) => {
                             layer.on("click", () => {
