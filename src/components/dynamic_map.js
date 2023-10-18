@@ -60,7 +60,7 @@ const Map = ({
                     : ""}{" "}
                 </p>
                 <p className="text-sm text-gray-600">
-                  Provincia:{" "}
+                  Población:{" "}
                   {selectedProvince
                     ? selectedProvince.properties.poblacion
                     : ""}

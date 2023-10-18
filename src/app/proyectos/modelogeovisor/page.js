@@ -9,9 +9,9 @@ const DEFAULT_CENTER = [-1.598653, -78.180479];
 
 export default function modelogeovisor() {
   const router = useRouter();
-  const [circle1Visible, setCircle1Visible] = useState(false);
-  const [circle2Visible, setCircle2Visible] = useState(false);
-  const [circle3Visible, setCircle3Visible] = useState(false);
+  const [boton1Visible, setBoton1Visible] = useState(false);
+  const [boton2Visible, setBoton2Visible] = useState(false);
+  const [boton3Visible, setBoton3Visible] = useState(false);
   const [isTextVisible, setTextVisibility] = useState(false);
   const [provincias, setProvincias] = useState([]);
   const [poblacion, setPoblacion] = useState([]);
@@ -160,7 +160,7 @@ export default function modelogeovisor() {
 
                 <div className="border-b border-gray-300 pb-1">
                   <h2 className="text-base font-medium text-black mb-1">
-                    GeoVisor de Canasta Básica
+                    GeoVisor Población del Ecuador año 2020
                   </h2>
                   <button
                     className="text-red-400 hover:underline font-medium"
@@ -176,14 +176,14 @@ export default function modelogeovisor() {
                       Este proyecto consiste en una herramienta interactiva y
                       visualmente impactante que tiene como objetivo principal
                       proporcionar una perspectiva detallada y accesible sobre
-                      los datos relacionados con la canasta básica en el país de
-                      Ecuador a lo largo de diversos años. Este geovisor
-                      aprovecha las capacidades de la tecnología geoespacial y
-                      la visualización de datos para ofrecer a los usuarios una
-                      comprensión profunda de cómo los precios y la
-                      disponibilidad de los elementos esenciales en la canasta
-                      básica han evolucionado con el tiempo en diferentes
-                      regiones del país.
+                      los datos relacionados con la población en el país de
+                      Ecuador. Este geovisor aprovecha las capacidades de la
+                      tecnología geoespacial y la visualización de datos para
+                      ofrecer a los usuarios una comprensión profunda de a
+                      demografía ecuatoriana en el año 2020. A través de mapas
+                      interactivos y gráficos informativos, los usuarios podrán
+                      explorar de manera intuitiva la distribución geográfica de
+                      la población
                     </div>
                   )}
                 </div>
@@ -194,33 +194,33 @@ export default function modelogeovisor() {
 
                     <h1 className="text-2xl font-semibold mb-5">Capas</h1>
                     <p className="leading-relaxed mb-5">
-                      Marcador ciudad de Cuenca
+                      Mostrar Población Total del Ecuador
                     </p>
                     {/* Botón 1 */}
                     <div className="mb-4">
                       <SwitchButton
-                        isActive={circle1Visible}
-                        onClick={() => setCircle1Visible(!circle1Visible)}
+                        isActive={boton1Visible}
+                        onClick={() => setBoton1Visible(!boton1Visible)}
                       />
                     </div>
                     <p className="leading-relaxed mb-5">
-                      Marcador ciudad de Guayaquil
+                      Mostrar Población por cada provincia
                     </p>
                     {/* Botón 2 */}
                     <div className="mb-4">
                       <SwitchButton
-                        isActive={circle2Visible}
-                        onClick={() => setCircle2Visible(!circle2Visible)}
+                        isActive={boton2Visible}
+                        onClick={() => setBoton2Visible(!boton2Visible)}
                       />
                     </div>
                     <p className="leading-relaxed mb-5">
-                      Marcador ciudad de Quito
+                      Mostrar Población de Zona no delimitada
                     </p>
                     {/* Botón 3 */}
                     <div className="mb-4">
                       <SwitchButton
-                        isActive={circle3Visible}
-                        onClick={() => setCircle3Visible(!circle3Visible)}
+                        isActive={boton3Visible}
+                        onClick={() => setBoton3Visible(!boton3Visible)}
                       />
                     </div>
                     <p className="leading-relaxed mb-5">Capa 4</p>
@@ -304,34 +304,6 @@ export default function modelogeovisor() {
                             });
                           }}
                         />
-
-                        <Circle
-                          center={[-2.898612, -79.000625]}
-                          radius={15000}
-                          pathOptions={{
-                            color: "red",
-                            fillOpacity: circle1Visible ? 0.3 : 0,
-                            opacity: circle1Visible ? 1 : 0,
-                          }}
-                        ></Circle>
-                        <Circle
-                          center={[-2.148725, -79.892557]}
-                          radius={15000}
-                          pathOptions={{
-                            color: "blue",
-                            fillOpacity: circle2Visible ? 0.3 : 0,
-                            opacity: circle2Visible ? 1 : 0,
-                          }}
-                        ></Circle>
-                        <Circle
-                          center={[-0.171487, -78.440852]}
-                          radius={15000}
-                          pathOptions={{
-                            color: "green",
-                            fillOpacity: circle3Visible ? 0.3 : 0,
-                            opacity: circle3Visible ? 1 : 0,
-                          }}
-                        ></Circle>
                       </>
                     )}
                   </Map>
@@ -352,14 +324,17 @@ export default function modelogeovisor() {
           <div className="bg-white rounded-t-lg p-1 my-6 ">
             {/* Encabezado de la tabla 1 */}
             <div className="bg-red-500 text-white text-base font-medium p-2 rounded-t-lg ">
-              Población
+              Población Total del Ecuador
             </div>
             {/* Cuerpo de la tabla 1 */}
             <div className="bg-white rounded-b-lg p-5 border-gray-300 border">
               {/* Contenido de la tabla 1 */}
-              {circle1Visible && <p>Cuenca: 603.269 habitantes</p>}
-              {circle2Visible && <p>Guayaquil: 2,698 millones habitantes</p>}
-              {circle3Visible && <p>Quito: 2,011 millones habitantes</p>}
+              {boton1Visible && (
+                <p>
+                  En el país del Ecuador la población total es de 17510643
+                  habitantes.
+                </p>
+              )}
             </div>
           </div>
 
@@ -367,53 +342,56 @@ export default function modelogeovisor() {
           <div className="bg-white rounded-t-lg p-1 my-6">
             {/* Encabezado de la tabla 2 */}
             <div className="bg-red-500 text-white text-base font-medium p-2 rounded-t-lg">
-              Metros sobre el nivel del mar
+              Población por cada provincia
             </div>
             {/* Cuerpo de la tabla 2 */}
             <div className="bg-white rounded-b-lg p-5 border-gray-300 border">
               {/* Contenido de la tabla 2 */}
-              {circle1Visible && <p>Cuenca: 2.538 m.s.n.m </p>}
-              {circle2Visible && <p>Guayaquil: 4 m s. n. m.</p>}
-              {circle3Visible && <p>Quito: 2.850 m s. n. m.</p>}
+              {boton2Visible && (
+                <p>
+                  AZUAY: 881394 <br />
+                  BOLIVAR: 209933 <br />
+                  CAÑAR: 281396 <br />
+                  CARCHI: 186869 <br />
+                  COTOPAXI: 488716 <br />
+                  CHIMBORAZO: 524004 <br />
+                  EL ORO: 715751 <br />
+                  ESMERALDAS: 643654 <br />
+                  GUAYAS: 4387434 <br />
+                  IMBABURA: 476257 <br />
+                  LOJA: 521154 <br />
+                  LOS RIOS: 921763 <br />
+                  MANABI: 1562079 <br />
+                  MORONA SANTIAGO: 196535 <br />
+                  NAPO: 133705 <br />
+                  PASTAZA: 114202 <br />
+                  PICHINCHA: 3228233 <br />
+                  TUNGURAHUA: 590600 <br />
+                  ZAMORA CHINCHIPE: 120416 <br />
+                  GALAPAGOS: 33042 <br />
+                  SUCUMBIOS: 230503 <br />
+                  ORELLANA: 161338 <br />
+                  SANTO DOMINGO DE LOS TSACHILAS: 458580 <br />
+                  SANTA ELENA: 401178
+                </p>
+              )}
             </div>
           </div>
 
           {/* Tabla 3 */}
-          <div className="bg-white rounded-t-lg p-1 my-6">
-            {/* Encabezado de la tabla 3 */}
-            <div className="bg-red-500 text-white text-base font-medium p-2 rounded-t-lg">
-              Superficie en hectareas
+          <div className="bg-white rounded-t-lg p-1 my-6 ">
+            {/* Encabezado de la tabla 1 */}
+            <div className="bg-red-500 text-white text-base font-medium p-2 rounded-t-lg ">
+              Zona no delimitada
             </div>
-            {/* Cuerpo de la tabla 3 */}
+            {/* Cuerpo de la tabla 1 */}
             <div className="bg-white rounded-b-lg p-5 border-gray-300 border">
-              {/* Contenido de la tabla 3 */}
-              {circle1Visible && <p>Cuenca: Superficie de 15.730 ha </p>}
-              {circle2Visible && <p>Guayaquil:Superficie de 34.450 ha</p>}
-              {circle3Visible && <p>Quito:Superficie de 37.240 ha</p>}
-            </div>
-          </div>
-
-          {/* Tabla 4 */}
-          <div className="bg-white rounded-t-lg p-1 my-6">
-            {/* Encabezado de la tabla 4 */}
-            <div className="bg-red-500 text-white text-base font-medium p-2 rounded-t-lg">
-              Temperatura
-            </div>
-            {/* Cuerpo de la tabla 4 */}
-            <div className="bg-white rounded-b-lg p-5 border-gray-300 border">
-              {/* Contenido de la tabla 4 */}
-              {circle1Visible && (
+              {/* Contenido de la tabla 1 */}
+              {boton3Visible && (
                 <p>
-                  Cuenca: Temperaturas que oscilan entre los 14ºC y los 18ºC.
+                  En el país del Ecuador la población de ZONA NO DELIMITADA es
+                  de 41907 habitantes
                 </p>
-              )}
-              {circle2Visible && (
-                <p>
-                  Guayaquil: Temperaturas que oscilan entre los 23ºC y los 32ºC.
-                </p>
-              )}
-              {circle3Visible && (
-                <p>Quito: Temperaturas que oscilan entre los 8ºC y los 21ºC.</p>
               )}
             </div>
           </div>
