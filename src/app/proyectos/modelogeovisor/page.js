@@ -21,6 +21,35 @@ export default function modelogeovisor() {
   const [selectedProvince, setSelectedProvince] = useState(null);
   const [dataLoaded, setDataLoaded] = useState(false);
 
+  const handleDownloadClick = async () => {
+    try {
+      const response = await axios.get("http://localhost:3000/api/poblacion", {
+        responseType: "blob", // Esto configura la respuesta como un blob
+      });
+
+      if (response.status === 200) {
+        const blob = new Blob([response.data], { type: "text/csv" });
+
+        const url = window.URL.createObjectURL(blob);
+
+        const a = document.createElement("a");
+        a.style.display = "none";
+        a.href = url;
+        a.download = "poblacion.csv";
+
+        document.body.appendChild(a);
+        a.click();
+
+        window.URL.revokeObjectURL(url);
+        document.body.removeChild(a);
+      } else {
+        console.error("Error al descargar los datos. Respuesta no exitosa.");
+      }
+    } catch (error) {
+      console.error("Error al descargar los datos:", error);
+    }
+  };
+
   function getColor(id) {
     const colorMapping = {
       1: "blue",
@@ -163,7 +192,7 @@ export default function modelogeovisor() {
                     GeoVisor Población del Ecuador año 2020
                   </h2>
                   <button
-                    className="text-red-400 hover:underline font-medium"
+                    className="text-red-400 hover:underline font-medium mb-2"
                     onClick={toggleTextVisibility}
                   >
                     {isTextVisible
@@ -186,6 +215,14 @@ export default function modelogeovisor() {
                       la población
                     </div>
                   )}
+                  <div className="mb-2">
+                    <button
+                      className="bg-red-500 hover:bg-red-600 text-white font-semibold py-1 px-2 rounded-full focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50"
+                      onClick={handleDownloadClick}
+                    >
+                      Descargar
+                    </button>
+                  </div>
                 </div>
 
                 <div className="mt-4">
@@ -194,7 +231,7 @@ export default function modelogeovisor() {
 
                     <h1 className="text-2xl font-semibold mb-5">Capas</h1>
                     <p className="leading-relaxed mb-5">
-                      Mostrar Población Total del Ecuador
+                      Población Total del Ecuador
                     </p>
                     {/* Botón 1 */}
                     <div className="mb-4">
@@ -204,7 +241,7 @@ export default function modelogeovisor() {
                       />
                     </div>
                     <p className="leading-relaxed mb-5">
-                      Mostrar Población por cada provincia
+                      Población por cada provincia
                     </p>
                     {/* Botón 2 */}
                     <div className="mb-4">
@@ -214,7 +251,7 @@ export default function modelogeovisor() {
                       />
                     </div>
                     <p className="leading-relaxed mb-5">
-                      Mostrar Población de Zona no delimitada
+                      Población de Zona no delimitada
                     </p>
                     {/* Botón 3 */}
                     <div className="mb-4">
