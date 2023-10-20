@@ -8,7 +8,7 @@ export const routers_menu = [
   {
     id: 2,
     to: "/laboratorios",
-    name: "Laboratorios",
+    name: "Laboratorio",
     expanded: false,
   },
   {

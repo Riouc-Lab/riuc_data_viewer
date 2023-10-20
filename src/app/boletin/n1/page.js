@@ -15,10 +15,10 @@ export default function boletinn1() {
   }
 
   return (
-    <div className="bg-white p-6 mx-auto max-w-7xl font-serif ">
-      <div className="bg-white p-6 mx-auto max-w-7xl font-serif">
+    <div className="bg-white p-6 mx-auto max-w-7xl">
+      <div className="bg-white p-6 mx-auto max-w-7xl">
       <button
-                  className="p-1 text-gray-500 hover:underline mb-2 font-medium mb-2 flex items-center space-x-2 mt-4"
+                  className="p-1 text-gray-500 hover:underline mb-2 mb-2 flex items-center space-x-2 mt-4"
                   onClick={() => proyect("/boletin")}
                 >
                   <svg
@@ -38,13 +38,13 @@ export default function boletinn1() {
                     Regresar
                   </span>
                 </button>
-        <h1 className="text-6xl text-red-500 font-extrabold mb-5 mt-3">
+        <h1 className="text-6xl text-red-500 font-semibold mb-5 mt-3">
           BOLETIN
         </h1>
-        <h2 className="text-base font-medium text-gray-400">
+        <h2 className="text-base text-gray-400">
           Volumen 1 / N°1
         </h2>
-        <h2 className="text-base font-medium text-gray-400 mb-1">
+        <h2 className="text-base text-gray-400 mb-1">
           enero - abril 2023
         </h2>
       </div>
@@ -150,7 +150,7 @@ export default function boletinn1() {
 
       <div className="mb-12 text-center">
         <button
-          className="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-full focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50"
+          className="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-full focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50"
           onClick={abrirPDF}
         >
           Abrir Boletin

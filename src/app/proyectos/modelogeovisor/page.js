@@ -154,12 +154,51 @@ export default function modelogeovisor() {
   }, []);
 
   if (!dataLoaded) {
-    return <div>Cargando datos...</div>;
+    return (
+      <div
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          backgroundColor: "#f0f0f0", // Color de fondo
+          zIndex: 9999, // Asegura que se muestre encima de todo
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="32"
+            height="32"
+            fill="currentColor"
+            className="bi bi-arrow-clockwise mb-3"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fillRule="evenodd"
+              d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"
+            />
+            <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z" />
+          </svg>
+          <p>Cargando datos...</p>
+        </div>
+      </div>
+    );
   }
 
   return (
     <main style={{ scrollBehavior: "smooth" }}>
-      <div className="flex space-x-3 p-2 font-serif">
+      <div className="flex space-x-3 p-2">
         <div className="h-[calc(100vh-_80px)] w-[410px] overflow-hidden overflow-y-auto rounded-lg bg-white p-3 shadow-md">
           {/* Contenido de la primera columna */}
           <div className="flex">
@@ -188,7 +227,7 @@ export default function modelogeovisor() {
                 </button>
 
                 <div className="border-b border-gray-300 pb-1">
-                  <h2 className="text-base font-medium text-black mb-1">
+                  <h2 className="text-base font-semibold text-black mb-1">
                     GeoVisor Población del Ecuador año 2020
                   </h2>
                   <button
@@ -200,7 +239,7 @@ export default function modelogeovisor() {
                       : "Mostrar Descripcion"}
                   </button>
                   {isTextVisible && (
-                    <div className="mt-2 text-gray-700 text-justify">
+                    <div className="mt-2 text-gray-700">
                       {/* Aquí coloca el texto que deseas mostrar u ocultar */}
                       Este proyecto consiste en una herramienta interactiva y
                       visualmente impactante que tiene como objetivo principal
@@ -215,14 +254,6 @@ export default function modelogeovisor() {
                       la población
                     </div>
                   )}
-                  <div className="mb-2">
-                    <button
-                      className="bg-red-500 hover:bg-red-600 text-white font-semibold py-1 px-2 rounded-full focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50"
-                      onClick={handleDownloadClick}
-                    >
-                      Descargar
-                    </button>
-                  </div>
                 </div>
 
                 <div className="mt-4">
@@ -260,18 +291,15 @@ export default function modelogeovisor() {
                         onClick={() => setBoton3Visible(!boton3Visible)}
                       />
                     </div>
-                    <p className="leading-relaxed mb-5">Capa 4</p>
-                    {/* Botón 4 */}
-                    <div className="mb-4">
-                      <SwitchButton />
-                    </div>
-                    <p className="leading-relaxed mb-5">Capa 5</p>
-                    {/* Botón 5 */}
-                    <div className="mb-4">
-                      <SwitchButton />
-                    </div>
                   </ul>
                 </div>
+                {/* Botón de Descarga (Añadido al final de la primera columna de capas) */}
+                <button
+                  className="mt-10 bg-red-500 hover:bg-red-600 text-white font-semibold py-1 px-2 rounded-full focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50"
+                  onClick={handleDownloadClick}
+                >
+                  Descargar
+                </button>
               </div>
             </div>
           </div>
@@ -352,7 +380,7 @@ export default function modelogeovisor() {
         <div className="h-[calc(100vh-_80px)] w-[300px] overflow-hidden overflow-y-auto rounded-lg bg-white p-3 shadow-md">
           {/* Contenido de la tercera columna */}
           <div className="border-b border-gray-300 pb-1">
-            <h3 className="text-xl text-base font-medium text-black mb-1">
+            <h3 className="text-xl text-base font-semibold text-black mb-1">
               Tablas
             </h3>
           </div>
@@ -360,7 +388,7 @@ export default function modelogeovisor() {
           {/* Tabla 1 */}
           <div className="bg-white rounded-t-lg p-1 my-6 ">
             {/* Encabezado de la tabla 1 */}
-            <div className="bg-red-500 text-white text-base font-medium p-2 rounded-t-lg ">
+            <div className="bg-red-500 text-white text-base p-2 rounded-t-lg ">
               Población Total del Ecuador
             </div>
             {/* Cuerpo de la tabla 1 */}
@@ -368,8 +396,8 @@ export default function modelogeovisor() {
               {/* Contenido de la tabla 1 */}
               {boton1Visible && (
                 <p>
-                  En el país del Ecuador la población total es de 17510643
-                  habitantes.
+                  En el país del Ecuador la población <strong>TOTAL</strong> es
+                  de 17510643 habitantes.
                 </p>
               )}
             </div>
@@ -378,7 +406,7 @@ export default function modelogeovisor() {
           {/* Tabla 2 */}
           <div className="bg-white rounded-t-lg p-1 my-6">
             {/* Encabezado de la tabla 2 */}
-            <div className="bg-red-500 text-white text-base font-medium p-2 rounded-t-lg">
+            <div className="bg-red-500 text-white text-base p-2 rounded-t-lg">
               Población por cada provincia
             </div>
             {/* Cuerpo de la tabla 2 */}
@@ -386,30 +414,30 @@ export default function modelogeovisor() {
               {/* Contenido de la tabla 2 */}
               {boton2Visible && (
                 <p>
-                  AZUAY: 881394 <br />
-                  BOLIVAR: 209933 <br />
-                  CAÑAR: 281396 <br />
-                  CARCHI: 186869 <br />
-                  COTOPAXI: 488716 <br />
-                  CHIMBORAZO: 524004 <br />
-                  EL ORO: 715751 <br />
-                  ESMERALDAS: 643654 <br />
-                  GUAYAS: 4387434 <br />
-                  IMBABURA: 476257 <br />
-                  LOJA: 521154 <br />
-                  LOS RIOS: 921763 <br />
-                  MANABI: 1562079 <br />
-                  MORONA SANTIAGO: 196535 <br />
-                  NAPO: 133705 <br />
-                  PASTAZA: 114202 <br />
-                  PICHINCHA: 3228233 <br />
-                  TUNGURAHUA: 590600 <br />
-                  ZAMORA CHINCHIPE: 120416 <br />
-                  GALAPAGOS: 33042 <br />
-                  SUCUMBIOS: 230503 <br />
-                  ORELLANA: 161338 <br />
-                  SANTO DOMINGO DE LOS TSACHILAS: 458580 <br />
-                  SANTA ELENA: 401178
+                  <strong>AZUAY:</strong> 881394 <br />
+                  <strong>BOLIVAR:</strong> 209933 <br />
+                  <strong>CAÑAR:</strong> 281396 <br />
+                  <strong>CARCHI:</strong> 186869 <br />
+                  <strong>COTOPAXI:</strong> 488716 <br />
+                  <strong>CHIMBORAZO:</strong> 524004 <br />
+                  <strong>EL ORO:</strong> 715751 <br />
+                  <strong>ESMERALDAS:</strong> 643654 <br />
+                  <strong>GUAYAS:</strong> 4387434 <br />
+                  <strong>IMBABURA:</strong> 476257 <br />
+                  <strong>LOJA:</strong> 521154 <br />
+                  <strong>LOS RIOS:</strong> 921763 <br />
+                  <strong>MANABI:</strong> 1562079 <br />
+                  <strong>MORONA SANTIAGO:</strong> 196535 <br />
+                  <strong>NAPO:</strong> 133705 <br />
+                  <strong>PASTAZA:</strong> 114202 <br />
+                  <strong>PICHINCHA:</strong> 3228233 <br />
+                  <strong>TUNGURAHUA:</strong> 590600 <br />
+                  <strong>ZAMORA CHINCHIPE:</strong> 120416 <br />
+                  <strong>GALAPAGOS:</strong> 33042 <br />
+                  <strong>SUCUMBIOS:</strong> 230503 <br />
+                  <strong>ORELLANA:</strong> 161338 <br />
+                  <strong>SANTO DOMINGO DE LOS TSACHILAS:</strong> 458580 <br />
+                  <strong>SANTA ELENA:</strong> 401178
                 </p>
               )}
             </div>
@@ -418,7 +446,7 @@ export default function modelogeovisor() {
           {/* Tabla 3 */}
           <div className="bg-white rounded-t-lg p-1 my-6 ">
             {/* Encabezado de la tabla 1 */}
-            <div className="bg-red-500 text-white text-base font-medium p-2 rounded-t-lg ">
+            <div className="bg-red-500 text-white text-base p-2 rounded-t-lg ">
               Zona no delimitada
             </div>
             {/* Cuerpo de la tabla 1 */}
@@ -426,8 +454,8 @@ export default function modelogeovisor() {
               {/* Contenido de la tabla 1 */}
               {boton3Visible && (
                 <p>
-                  En el país del Ecuador la población de ZONA NO DELIMITADA es
-                  de 41907 habitantes
+                  En el país del Ecuador la población de{" "}
+                  <strong>ZONA NO DELIMITADA</strong> es de 41907 habitantes.
                 </p>
               )}
             </div>

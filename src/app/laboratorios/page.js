@@ -2,9 +2,9 @@ import Image from "next/image";
 
 export default function Laboratorios() {
   return (
-    <main className="container mx-auto p-4 text-justify font-serif">
-      <h1 className="text-5xl md:text-5xl font-extrabold p-5 mb-7 text-black border-b-2 border-red-400 mt-8">
-        LABORATORIOS
+    <main className="container mx-auto p-4 text-justify">
+      <h1 className="text-5xl md:text-2xl font-semibold p-2 mb-7 text-black border-b-2 border-red-400 mt-8">
+        LABORATORIO
       </h1>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-5">
@@ -125,7 +125,7 @@ export default function Laboratorios() {
           </div>
 
           <div className="mb-8">
-            <p className="text-gray-700 font-semibold text-lg mb-4">
+            <p className="ttext-gray-700 mb-4 font-semibold">
               En este espacio se trabaja en:
             </p>
             <ul className="list-disc ml-6 text-gray-700 mb-4 space-y-2">
@@ -254,217 +254,98 @@ export default function Laboratorios() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
-        {/* Laboratorio 2 */}
-        <div className="bg-white rounded-lg p-6">
-          <h2 className="text-xl font-semibold mb-2 text-red-500">C2MAD</h2>
-          <p className="text-sm text-gray-600 mb-4">
-            Laboratorio de Cálculo Computacional, Modelado y Analítica de Datos.
-          </p>
-          <p className="text-gray-700 mb-4">
-            Contribuye al avance científico y tecnológico de la institución, la
-            región y el país, produciendo, aplicando y difundiendo conocimiento
-            científico y tecnológico a través del desarrollo de programas y
-            proyectos de investigación, innovación y vinculación con la sociedad
-            que utilicen la computación científica, la simulación y la ciencia
-            de datos.
-          </p>
-          <p className="text-gray-700 font-semibold mb-4">
-            En este laboratorio se trabajan:
-          </p>
-          <ul className="list-disc ml-6 text-gray-700 mb-4 space-y-2">
-              <li className="flex items-start">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 text-red-500 mr-2"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M5 13l4 4L19 7"
-                  />
-                </svg>
-                Construcción de modelos matemáticos para resolver problemas
-              relacionados a fenómenos sociales, naturales y antrópicos.
-              </li>
-              <li className="flex items-start">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 text-red-500 mr-2"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M5 13l4 4L19 7"
-                  />
-                </svg>
-                Manejo y procesamiento de grandes volúmenes de datos a través del
-              “Data Mining” y técnicas de inteligencia artificial.
-              </li>
-              </ul>
-         
-          <p className="text-gray-700 font-semibold mb-4">
-            Equipos disponibles:
-          </p>
-          <div className="ml-6 text-gray-700 mb-4">
-            <div className="flex items-center mb-1">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 inline text-red-500 mr-2"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M5 13l4 4L19 7"
-                />
-              </svg>
-              Servidor DELL PowerEdge R6525.
-            </div>
-
-            <div className="flex items-center mb-1">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 inline text-red-500 mr-2"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M5 13l4 4L19 7"
-                />
-              </svg>
-              10 estaciones de trabajo thin client clear cube.
-            </div>
-            <div className="flex items-center mb-1">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 inline text-red-500 mr-2"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M5 13l4 4L19 7"
-                />
-              </svg>
-              Dell Power Vault ME5012.
-            </div>
-
-            <div className="flex items-center mb-1">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 inline text-red-500 mr-2"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M5 13l4 4L19 7"
-                />
-              </svg>
-              Drone Matrice 300 RTK.
-            </div>
-
-            <div className="flex items-center mb-1">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 inline text-red-500 mr-2"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M5 13l4 4L19 7"
-                />
-              </svg>
-              Cámara Multiespectral MicaSense Altum PT.
-            </div>
-          </div>
-        </div>
-
-        {/* Imagen para Laboratorio 2 */}
-        <div className="h-64 lg:h-auto">
-          <Image
-            src="/img/C2MAD.jpg"
-            alt="RIOUC Logo"
-            layout="responsive" //IMPORTANTE PARA MAP
-            width={705}
-            height={470} // Ajusta la altura según tus necesidades
-            objectFit="cover"
-            className="rounded-lg mt-14"
-          />
-        </div>
+      <div className="bg-white rounded-lg p-6 mb-5">
+        <h2 className="text-xl font-semibold mb-4 text-red-500">
+          Fenómeno a Observar (la problemática)
+        </h2>
+        <p className="text-gray-700 mb-4">
+          Dentro de la investigación que se realiza en la RIOUC, se parte de la
+          situación o fenómeno que atrae la atención a los investigadores para
+          ser observado y estudiado. Generalmente, se presenta desde lo general
+          a lo particular, y justifica las inquietudes de investigación. Este
+          apartado debe desarrollar la problemática de la forma más clara
+          posible, considerando el contexto en que se presenta el fenómeno, el
+          sustento teórico y los elementos de la metodología cruciales. Es
+          importante, precisar las inquietudes de investigación, los objetivos,
+          intencionalidades y la justificación del problema.
+        </p>
+        <p className="text-gray-700 mb-4">
+          De las inquietudes de investigación: Las inquietudes son las preguntas
+          que generan la investigación. No deben redactarse de forma que la
+          respuesta sea sí o no. En una investigación para la Red de
+          Observatorios se recomienda no más de cuatro preguntas investigativas.
+        </p>
+        <p className="text-gray-700 mb-4">
+          De los objetivos/intencionalidades: La denominación de objetivo o
+          intencionalidad depende del enfoque investigativo. En el tradicional,
+          se denominan objetivos porque parte de la posibilidad de que los
+          fenómenos sociales se pueden “objetivizar”, es decir describir desde
+          una posición externa, a través de indicadores. En el alternativo se
+          habla de intencionalidades, porque parte del supuesto de que el sujeto
+          investigador es parte de la investigación, por lo tanto, lo estudia
+          desde una posición interna y plantea propósito de la investigación.
+        </p>
+        <p className="text-gray-700 mb-4">
+          Ahora bien, los objetivos/ intencionalidades son las acciones
+          investigativas. Se presentan redactados en verbos infinitivos, se
+          relacionan con las preguntas de investigación y, no deben colocarse
+          más de un verbo por objetivo.
+        </p>
       </div>
 
-      {/* ... (otros laboratorios) */}
-
       <div className="bg-white rounded-lg p-6 mb-5">
-        <h2 className="text-xl font-semibold mb-4 text-red-500">Proyectos</h2>
+        <h2 className="text-xl font-semibold mb-4 text-red-500">
+          Portafolio de productos ofertados:
+        </h2>
         <ul className="list-disc ml-6 text-gray-700 mb-4">
           <li>
-            Delizamientos: Caracterización de sus variables morfológicas y
-            ambientales. Aprobado en la Convocatoria Institucional de Proyectos
-            CIITT 2019-2020.
+            Construcción de bases de datos para el seguimiento de variables
+            relevantes objeto de estudio.
           </li>
           <li>
-            Modelo de Gestión Académica en la Universidad desde la perspectiva
-            de las 4A bajo el enfoque de Redes Complejas y Sistemas Difusos.
-            Proyecto en colaboración con la Red de investigación y Observatorios
-            de la Universidad Católica de Cuenca (RIOUC).
+            Recopilación, análisis e interpretación de información relevante
+            para el conocimiento de un mercado.
           </li>
           <li>
-            Desarrollo y aplicaciones de recursos computacionales en
-            Sociofísica. Proyecto aprobado en el Concurso Ecuatoriano de
-            Proyectos CEPRA XVI, de la Corporación Ecuatoriana para el
-            Desarrollo de la Investigación y la Academia CEDIA.
+            Seguimiento a producto/servicio en un sector de actividad
+            determinado.
           </li>
           <li>
-            Efectos de los factores bióticos y abióticos en las redes de
-            polinización en los altos Andes del macizo del Cajas. Proyecto
-            aprobado en la Convocatoria Institucional de Proyectos CIITT
-            2019-2020.
+            Diseño sistemático de recogida de información, que garantice la
+            comparabilidad de los indicadores obtenidos en distintas épocas.
           </li>
           <li>
-            El plan de ordenamiento urbano 2014 en la ciudad de cuenca: impacto
-            en la morfología de las áreas periféricas de expansión urbana.
-            Aprobado en la Convocatoria Institucional de Proyectos CIITT
-            2019-2020.
+            Minería de datos para predecir resultados mediante el hallazgo de
+            patrones y correlaciones en grandes conjuntos de datos.
           </li>
           <li>
-            Estados quiméricos en dinámica neuronal. Proyecto en colaboración
-            con la Universidad de Yachay Tech. Aprobado por la Vicecancillería
-            de Investigación e Innovación de la Yachay Tech.
+            Seguimiento del comportamiento del consumidor para determinar la
+            aceptación de un producto o servicio.
           </li>
           <li>
-            Estudio de la estructura Espacio–Temporal de redes complejas: La
-            polinización y la dispersión de semillas fundamentales servicios
-            ecosistémicos. Aprobado en la Convocatoria Institucional de
-            Proyectos de Investigación de Fortalecimiento de los Objetivos de
-            Desarrollo Sostenible.
+            Seguimiento del mercado y sistematización de las variables más
+            relevantes.
+          </li>
+          <li>
+            Data mining para el tratamiento de grandes bases de datos que
+            permitan captar patrones de manera automática.
+          </li>
+          <li>
+            Modelos de fijación de precios dinámica, basada en la demanda y la
+            oferta de un producto/servicio que utilicen aprendizaje automático.
+          </li>
+          <li>
+            Modelos de seguimiento de comportamiento del consumidor, para
+            deteccion de ofertas de productos.
+          </li>
+          <li>Seguimiento al Indice de Precios al Consumidor.</li>
+          <li>Estudios de marcas y posicionamiento de productos.</li>
+          <li>
+            Algoritmos que utilizan la realidad aumentada para prueba nuevos
+            productos.
+          </li>
+          <li>
+            Estudios de selección de personal utilizando técnicas Fuzzy-logic.
           </li>
         </ul>
       </div>

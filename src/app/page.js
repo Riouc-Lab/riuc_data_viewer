@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-black text-white font-serif">
+    <div className="min-h-screen bg-black text-white font-semibold">
       <main className="container mx-auto py-10 flex flex-col items-center">
         <div className="w-full max-w-screen-lg rounded-lg shadow-lg overflow-hidden mt-5">
           <video

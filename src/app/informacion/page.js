@@ -20,13 +20,13 @@ export default function Informacion() {
   }, []);
 
   return (
-    <div className="bg-white p-4 mx-auto max-w-7xl font-serif">
-      <h1 className="text-5xl md:text-5xl font-extrabold p-5 text-black border-b-2 border-red-400 mt-8 ">
+    <div className="bg-white container mx-auto p-4">
+      <h1 className="md:text-2xl font-semibold p-2 text-black border-b-2 border-red-400 mt-8 ">
         INFORMACIÓN
       </h1>
-      <h1 className="text-5xl text-red-500 font-extrabold mb-6 mt-12">RIOUC</h1>
+      <h1 className="text-5xl text-red-500 font-semibold mb-6 mt-12">RIOUC</h1>
 
-      <p className="text-lg text-gray-800 mb-6 text-justify">
+      <p className="text-lg text-gray-800 mb-6">
         La idea de crear la Red de Investigación y Observatorios de la
         Universidad Católica de Cuenca nace por iniciativa del Sr. Rector Dr.
         Enrique Pozo Cabrera PhD a raíz de la consolidación del quehacer
@@ -47,7 +47,7 @@ export default function Informacion() {
           height={170}
         />
       </div>
-      <p className="text-lg text-gray-800 mb-10 text-justify">
+      <p className="text-lg text-gray-800 mb-10">
         En la visión del Sr. Rector, estaba la necesidad de creación de un
         Observatorio de Fenómenos Socioeconómicos, inquietud manifestada en
         conversación con el Coordinador del Centro de Investigación de Ciencias
@@ -75,28 +75,28 @@ export default function Informacion() {
         para escudriñar el universo, Prieto (2003).
       </p>
 
-      <p className="text-lg text-gray-800 mb-6 text-justify">
+      <p className="text-lg text-gray-800 mb-6">
         El primer paso del proceso investigativo es precisamente la observación,
         detectar un fenómeno que genera inquietud en el investigador, que se
         desea estudiarlo y en donde el investigador se plantea preguntas de tal
         manera que inicia el proceso de indagación acerca del tema.
       </p>
 
-      <p className="text-lg text-gray-800 mb-6 text-justify">
+      <p className="text-lg text-gray-800 mb-6">
         Como característica se puede decir que es fundamental realizar
         seguimiento a la información recolectada y explicar el fenómeno de
         estudio a través del análisis de datos son elementos que acompañan al
         Observatorio.
       </p>
 
-      <p className="text-lg text-gray-800 mb-6 text-justify">
+      <p className="text-lg text-gray-800 mb-6">
         Hoy en día existen herramientas que facilitan esa recolección de
         información, almacenarla y procesarla, para de esta manera poder
         realizar un monitoreo del comportamiento de las variables en
         observación.
       </p>
 
-      <p className="text-lg text-gray-800 mb-10 text-justify">
+      <p className="text-lg text-gray-800 mb-10">
         Dentro de las funciones de un observatorio, es precisamente la de
         presentar la información de manera clara, coherente y accesible, de tal
         manera que el usuario de la información pueda leerla y entenderla
@@ -124,7 +124,7 @@ export default function Informacion() {
         </video>
       </div>
 
-      <p className="text-lg text-gray-800 mb-6 text-justify">
+      <p className="text-lg text-gray-800 mb-6">
         Partiendo de que diversas instituciones y estudiosos del tema (Angulo,
         2009; Husillos, 2006;Urdapilleta, 2006) conciben al observatorio como un
         centro interdisciplinario, humanista, científico y cultural de
@@ -135,7 +135,7 @@ export default function Informacion() {
         a construir la visión de RIOUC.
       </p>
 
-      <p className="text-lg text-gray-800 mb-6 text-justify">
+      <p className="text-lg text-gray-800 mb-6">
         De ahí que la misión del observatorio trasciende no solo al propósito de
         recopilar información, ya que incorpora la intención de interpretar
         fenómenos actuales, analizar 4 Revista Boletín la información generada,
@@ -153,7 +153,7 @@ export default function Informacion() {
         (Husillos, 2006).
       </p>
 
-      <p className="text-lg text-gray-800 mb-6 text-justify">
+      <p className="text-lg text-gray-800 mb-6">
         En consecuencia, tomando en consideración la misión que cumplen las
         Redes de Investigación y los Observatorios como una herramienta de
         conocimiento, se propone en la Universidad Católica de Cuenca, la
@@ -171,7 +171,7 @@ export default function Informacion() {
         Investigación.
       </p>
 
-      <p className="text-lg text-gray-800 mb-10 text-justify">
+      <p className="text-lg text-gray-800 mb-10">
         Para el Gobierno Vasco (2008), la misión de un observatorio es vigilar y
         detectar lo que ocurre en su ámbito de actuación, y su valor agregado se
         sustenta en: 1) buscar la información, 2) discernir su relevancia, 3)
@@ -187,7 +187,7 @@ export default function Informacion() {
           ¿Cómo lo hacemos?
         </h2>
 
-        <div className="w-full md:w-2/4 mb-6 text-lg text-gray-800 text-justify pr-5">
+        <div className="w-full md:w-2/4 mb-6 text-lg text-gray-800 pr-5">
           Las redes académicas se posicionan cada vez más en la educación
           superior, articulando instituciones de diferente naturaleza, tanto del
           orden nacional como internacional para la producción del conocimiento.
@@ -214,7 +214,7 @@ export default function Informacion() {
             height={280}
           />
         </div>
-        <p className="text-lg text-gray-800 mb-16 text-justify">
+        <p className="text-lg text-gray-800 mb-16">
           Este es el caso del trabajo colaborativo entre entidades académicas,
           empresas/ industria y sociedad, para lograr soluciones ambientales, de
           salud, tecnológicas, comunicacionales, en fin, acciones que conlleven
