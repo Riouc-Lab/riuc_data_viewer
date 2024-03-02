@@ -38,7 +38,7 @@ export default function Boletin() {
     <main className="flex min-h-screen flex-col items-center p-7 mb-5">
       <div className="text-center mb-10">
         <h5 className="text-base md:text-lg text-red-500 mb-1 font-semibold">BOLETÍN</h5>
-        <h1 className="text-4xl md:text-7xl font-semibold p-5 mb-12 bg-gradient-to-r from-black to-black bg-clip-text text-transparent border-b-2 border-red-400">
+        <h1 className="text-4xl md:text-6xl font-semibold p-5 mb-12 bg-gradient-to-r from-black to-black bg-clip-text text-transparent border-b-2 border-red-400">
           LA RIOUC INFORMA 
         </h1>
         <Search onSearch={handleSearch} />

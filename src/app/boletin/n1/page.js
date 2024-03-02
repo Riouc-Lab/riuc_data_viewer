@@ -6,7 +6,7 @@ export default function boletinn1() {
   const router = useRouter();
   const abrirPDF = () => {
     // Reemplaza 'nombre-del-archivo.pdf' con el nombre real de tu archivo PDF
-    const pdfUrl = "/pdf/REVISTA.pdf";
+    const pdfUrl = "/pdf/REVISTA1.pdf";
     window.open(pdfUrl, "_blank");
   };
 
@@ -45,7 +45,7 @@ export default function boletinn1() {
           Volumen 1 / N°1
         </h2>
         <h2 className="text-base text-gray-400 mb-1">
-          enero - abril 2023
+          mayo - agosto 2023
         </h2>
       </div>
       <p className="text-lg text-gray-800 mb-5 text-justify">
@@ -119,9 +119,9 @@ export default function boletinn1() {
   <div className="flex-1">
     <Image
       className="mx-auto rounded-lg"
-      src="/img/phd_boletin.png"
+      src="/img/preview_boletin.png"
       alt="RIOUC"
-      width={400}
+      width={440}
       height={175}
     />
   </div>
