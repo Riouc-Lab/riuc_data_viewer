@@ -17,18 +17,17 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
+  /* color: rgb(var(--foreground-rgb)); */
   background: linear-gradient(
       to bottom,
       transparent,
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
-    z-index: 10;
+  z-index: 10;
 }
-.homeMap{
-width: 100%;
-
+.homeMap {
+  width: 100%;
 }
 
 /* Estilos para el contenedor del mapa */
@@ -36,7 +35,7 @@ width: 100%;
   border: 2px solid #ccc;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  z-index: 1; 
+  z-index: 1;
   /* Hacer que el mapa se ponga por detras de otros objetos y no por encima */
   position: relative;
   /* Hacer que el mapa se ponga por detras de otros objetos y no por encima */
@@ -46,8 +45,6 @@ width: 100%;
   /* Hacer que el mapa se ponga por detras de otros objetos y no por encima */
   height: 100%;
   /* Hacer que el mapa se ponga por detras de otros objetos y no por encima */
-  
-
 }
 /* Ejemplo de estilo personalizado para el control de zoom */
 .leaflet-control-zoom-in,
@@ -60,7 +57,11 @@ width: 100%;
 .leaflet-marker-icon {
   width: 15px; /* Cambiar el tamaño de los marcadores */
   height: 15px;
-  background-color: rgb(52, 201, 247); /* Cambiar el color de fondo de los marcadores */
+  background-color: rgb(
+    52,
+    201,
+    247
+  ); /* Cambiar el color de fondo de los marcadores */
   /* Personalizar el icono del marcador */
   background-size: contain;
   background-repeat: no-repeat;
@@ -70,9 +71,8 @@ width: 100%;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-svg{
+svg {
   display: inline !important;
-
 }
 @keyframes shine {
   0% {
@@ -97,9 +97,3 @@ svg{
 .info-content {
   padding: 10px;
 }
-
-
-
-
-
-

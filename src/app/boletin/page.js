@@ -53,7 +53,7 @@ export default function Boletin() {
             <div className="">
               <div className="border-2 border-black border-opacity-10 rounded-lg overflow-hidden">
                 <Image
-                  className="dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
+                  className=""
                   src={item.Image}
                   alt="Next.js Logo"
                   width={600}
