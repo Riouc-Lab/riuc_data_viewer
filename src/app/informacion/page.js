@@ -1,24 +1,7 @@
 "use client";
 import Image from "next/image";
-import { useEffect, useRef } from "react";
 
 export default function Informacion() {
-  const videoRef = useRef(null);
-
-  useEffect(() => {
-    const video = videoRef.current;
-
-    const restartVideo = () => {
-      if (video.currentTime >= 7) {
-        video.currentTime = 0;
-      }
-    };
-
-    const interval = setInterval(restartVideo, 100);
-
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <div className="bg-white container mx-auto p-4">
       <h1 className="md:text-2xl font-semibold p-2 text-black border-b-2 border-red-400 mt-8 ">
@@ -38,12 +21,12 @@ export default function Informacion() {
         de innovación, con conciencia social y empoderamiento por los problemas
         de su entorno.
       </p>
-      <div className="mb-10 text-center">
+      <div className="mb-8 text-center">
         <Image
           className="mx-auto"
-          src="/img/riouc_centro.png"
+          src="/img/FINAL_LOGO.jpg"
           alt="RIOUC"
-          width={310}
+          width={480}
           height={170}
         />
       </div>
@@ -106,24 +89,9 @@ export default function Informacion() {
 
       {/* Otras secciones de información aquí... */}
 
-      <h2 className="text-2xl font-semibold text-red-500 mb-2">
+      <h2 className="text-2xl font-semibold text-red-500 mb-6">
         ¿Qué hacemos en la RIOUC?
       </h2>
-      <div className="flex justify-center mb-2">
-        <video
-          autoPlay
-          loop
-          muted
-          controls={false}
-          style={{ maxWidth: "60%" }}
-          className="rounded-lg"
-          ref={videoRef}
-        >
-          <source src="/video/riouc.mp4" type="video/mp4" />
-          Tu navegador no admite la reproducción de video.
-        </video>
-      </div>
-
       <p className="text-lg text-gray-800 mb-6">
         Partiendo de que diversas instituciones y estudiosos del tema (Angulo,
         2009; Husillos, 2006;Urdapilleta, 2006) conciben al observatorio como un
@@ -205,12 +173,12 @@ export default function Informacion() {
           innovación entre instituciones de diversos sectores.
         </div>
 
-        <div className="w-full md:w-2/4 mt-5 p-2 text-center">
+        <div className="w-full md:w-2/4 mt-1 p-2 text-center">
           <Image
             className="mx-auto rounded-lg"
             src="/img/info_1.png"
             alt="RIOUC"
-            width={500}
+            width={480}
             height={280}
           />
         </div>

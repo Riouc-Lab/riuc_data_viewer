@@ -20,7 +20,7 @@ export const routers_menu = [
   {
     id: 4,
     to: "/boletin",
-    name: "Boletin",
+    name: "Boletines",
     expanded: false,
   },
   {
