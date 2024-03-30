@@ -16,8 +16,8 @@ export default function boletinn2() {
 
   return (
     <div className="bg-white p-6 mx-auto max-w-7xl">
-      <div className="bg-white p-6 mx-auto max-w-7xl">
-        <button
+      <div className="p-1 text-gray-500 hover:underline mb-2 flex items-center space-x-2 mt-4">
+      <button
           className="p-1 text-gray-500 hover:underline mb-2 mb-2 flex items-center space-x-2 mt-4"
           onClick={() => proyect("/boletin")}
         >
@@ -38,14 +38,14 @@ export default function boletinn2() {
             Regresar
           </span>
         </button>
-        <h1 className="text-6xl text-red-500 font-semibold mb-5 mt-3">
-          BOLETIN
-        </h1>
-        <h2 className="text-base text-gray-400">Volumen 1 / N°2</h2>
-        <h2 className="text-base text-gray-400 mb-1">
-          septiembre - diciembre 2023
-        </h2>
       </div>
+      <h1 className="text-6xl text-red-500 font-semibold mb-5 mt-3">
+        BOLETIN
+      </h1>
+      <h2 className="text-base text-gray-400">Volumen 1 / N°2</h2>
+      <h2 className="text-base text-gray-400 mb-1">
+        septiembre - diciembre 2023
+      </h2>
       <p className="text-lg text-gray-800 mb-5 text-justify">
         En la presente publicación, se presenta información acerca del
         Observatorio Natural en la sección En la Lupa de los Observatorio.
@@ -54,8 +54,8 @@ export default function boletinn2() {
         desarrolla investigación en el habitat de distintas zonas de humedales
         en el país.
       </p>
-      <div className="flex">
-        <div className="flex-1">
+      <div className="flex flex-col md:flex-row mb-5">
+        <div className="md:w-1/2 md:pr-4">
           <div className="text-lg text-gray-800 mb-5 text-justify">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -101,13 +101,13 @@ export default function boletinn2() {
             Socialización de los espacios)
           </div>
         </div>
-        <div className="flex-1">
+        <div className="md:w-1/2 md:pl-4">
           <Image
-            className="mx-auto rounded-lg"
             src="/img/preview_boletin2.png"
             alt="RIOUC"
             width={480}
             height={175}
+            className="mx-auto rounded-lg"
           />
         </div>
       </div>
@@ -183,7 +183,7 @@ export default function boletinn2() {
           className="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-full focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50"
           onClick={abrirPDF}
         >
-          Abrir Boletin
+          Abrir Boletín
         </button>
       </div>
     </div>

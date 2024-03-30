@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function Laboratorios() {
   return (
     <main className="container mx-auto p-4 text-justify">
-      <h1 className="text-5xl md:text-2xl font-semibold p-2 mb-7 text-black border-b-2 border-red-400 mt-8">
+      <h1 className="text-5xl md:text-2xl font-semibold p-2 mb-5 text-black border-b-2 border-red-400 mt-8">
         LABORATORIO
       </h1>
 
@@ -241,15 +241,15 @@ export default function Laboratorios() {
         </div>
 
         {/* Imagen para Laboratorio 1 */}
-        <div className="h-64 lg:h-auto">
+        <div className="h-64 lg:h-auto flex justify-center items-center">
           <Image
             src="/img/RIOUC.jpg"
             alt="RIOUC Logo"
-            layout="responsive" //IMPORTANTE PARA MAP
-            width={705}
+            layout="responsive"
+            width={605}
             height={470} // Ajusta la altura según tus necesidades
             objectFit="cover"
-            className="rounded-lg mt-16"
+            className="rounded-lg"
           />
         </div>
       </div>
