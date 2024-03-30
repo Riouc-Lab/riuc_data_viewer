@@ -247,8 +247,8 @@ export default function Footer() {
               className="mx-auto p-5"
               src="/img/RED-SIDEBAR.png"
               alt="RIOUC"
-              width={240}
-              height={120}
+              width={220}
+              height={100}
             />
           </div>
         </div>

@@ -97,3 +97,10 @@ svg {
 .info-content {
   padding: 10px;
 }
+
+.fixed-hamburger {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 0; /* Asegúrate de que el z-index sea mayor que el de otros elementos */
+}
