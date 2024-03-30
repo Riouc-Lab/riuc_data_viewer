@@ -198,7 +198,7 @@ export default function modelogeovisor() {
 
   return (
     <main style={{ scrollBehavior: "smooth" }}>
-      <div className="flex space-x-3 p-2">
+      <div className="flex flex-wrap justify-center p-2">
         <div className="h-[calc(100vh-_80px)] w-[410px] overflow-hidden overflow-y-auto rounded-lg bg-white p-3 shadow-md">
           {/* Contenido de la primera columna */}
           <div className="flex">
@@ -318,19 +318,9 @@ export default function modelogeovisor() {
                     zoom={6.5}
                     width="full"
                     height="800"
-                    //dragging={false} // Deshabilitar arrastrar
-                    //doubleClickZoom={false} // Deshabilitar zoom con doble clic
-                    //scrollWheelZoom={false} // Deshabilitar zoom con rueda de desplazamiento
-                    //touchZoom={false} // Deshabilitar zoom táctil
-                    //tap={false} // Deshabilitar toques
-                    //zoomControl={false} // Deshabilitar control de zoom
                   >
                     {({
                       TileLayer,
-                      Marker,
-                      Popup,
-                      Circle,
-                      Polygon,
                       GeoJSON,
                     }) => (
                       <>

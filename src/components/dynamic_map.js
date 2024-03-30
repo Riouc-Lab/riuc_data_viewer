@@ -3,11 +3,11 @@ import { useEffect } from "react";
 import Leaflet from "leaflet";
 import * as ReactLeaflet from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-
 import styles from "../assets/scss/Map.module.scss";
+import 'leaflet.fullscreen/Control.FullScreen';
+import 'leaflet.fullscreen/Control.FullScreen.css';
 
-const { MapContainer } = ReactLeaflet;
-const { LayersControl, LayerGroup, TileLayer, ScaleControl } = ReactLeaflet;
+const { MapContainer, LayersControl, LayerGroup, TileLayer, ScaleControl } = ReactLeaflet;
 const InfoBox = ({ content }) => {
   return (
     <div className="info-box">
@@ -48,6 +48,7 @@ const Map = ({
         className={"static-map"}
         style={{ width: 1160, height: 875 }}
         scrollWheelZoom={true} //habilita el zoom con la rueda del mouse
+        fullscreenControl={true} // Opciones adicionales: fullscreenControl={{ pseudoFullscreen: false }}
         {...rest}
       >
         <InfoBox
