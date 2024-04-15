@@ -29,6 +29,12 @@ export const routers_menu = [
     name: "Proyectos",
     expanded: true,
   },
+  {
+    id: 6,
+    to: "/tendenciaseducativas",
+    name: "Tendencias Educativas",
+    expanded: false,
+  },
   
 ];
 export const routers_submenu_proyects = [
