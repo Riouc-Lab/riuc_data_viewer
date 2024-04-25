@@ -46,206 +46,196 @@ export default function TendenciasEducativas() {
 
   return (
     <div className="bg-gray-100">
-      <div className="max-w-7xl mx-auto px-4 bg-white px-4 py-8">
-        <div className="flex justify-center items-center mb-8">
+      <div className="max-w-7xl mx-auto px-4 bg-white px-4 py-4">
+        <div className="flex justify-center items-center mb-2">
           <Image
             src="/img/FINAL_LOGO_GRANDE.jpg"
             alt="Next.js Logo"
-            width={450}
+            width={470}
             height={30}
             priority
           />
         </div>
-        <div className="bg-black text-center py-2 mb-5">
-          <h1 className="text-6xl font-bold text-white">
-            ¡Tendencias Educativas!
+
+        <div className="flex justify-between items-center space-x-4 mb-1">
+          <div className="ml-3">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="14"
+              height="14"
+              fill="currentColor"
+              class="bi bi-telephone"
+              viewBox="0 0 16 16"
+            >
+              <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.6 17.6 0 0 0 4.168 6.608 17.6 17.6 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z" />
+            </svg>
+            <span className="ml-2 text-sm">+593 (07) 4134-750</span>
+          </div>
+          <div className="flex justify-end border border-gray-300 rounded-full p-2">
+            <a
+              href="https://api.whatsapp.com/send/?phone=%2B593963095663&text=Hola+me+puede+ayudar+con+m%C3%A1s+informaci%C3%B3n.&type=phone_number&app_absent=0"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="ml-1 mr-2"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="green"
+                class="bi bi-whatsapp"
+                viewBox="0 0 16 16"
+              >
+                <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232" />
+              </svg>
+            </a>
+            <a
+              href="https://www.facebook.com/universidadcatolicacuenca"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mr-2"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="blue"
+                class="bi bi-facebook"
+                viewBox="0 0 16 16"
+              >
+                <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951" />
+              </svg>
+            </a>
+            <a
+              href="https://www.tiktok.com/@ucatocuenca?lang=es"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mr-2.5"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="21"
+                height="21"
+                fill="currentColor"
+                class="bi bi-tiktok"
+                viewBox="0 0 16 16"
+              >
+                <path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3z" />
+              </svg>
+            </a>
+            <a
+              href="https://twitter.com/UCatolicaCuenca"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mr-2"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="21"
+                height="21"
+                fill="currentColor"
+                class="bi bi-twitter-x"
+                viewBox="0 0 16 16"
+              >
+                <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z" />
+              </svg>
+            </a>
+            <a
+              href="https://www.instagram.com/ucatolicacuenca/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mr-1"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                x="0px"
+                y="0px"
+                width="31"
+                height="31"
+                viewBox="0 0 48 48"
+              >
+                <radialGradient
+                  id="yOrnnhliCrdS2gy~4tD8ma_Xy10Jcu1L2Su_gr1"
+                  cx="19.38"
+                  cy="42.035"
+                  r="44.899"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop offset="0" stop-color="#fd5"></stop>
+                  <stop offset=".328" stop-color="#ff543f"></stop>
+                  <stop offset=".348" stop-color="#fc5245"></stop>
+                  <stop offset=".504" stop-color="#e64771"></stop>
+                  <stop offset=".643" stop-color="#d53e91"></stop>
+                  <stop offset=".761" stop-color="#cc39a4"></stop>
+                  <stop offset=".841" stop-color="#c837ab"></stop>
+                </radialGradient>
+                <path
+                  fill="url(#yOrnnhliCrdS2gy~4tD8ma_Xy10Jcu1L2Su_gr1)"
+                  d="M34.017,41.99l-20,0.019c-4.4,0.004-8.003-3.592-8.008-7.992l-0.019-20	c-0.004-4.4,3.592-8.003,7.992-8.008l20-0.019c4.4-0.004,8.003,3.592,8.008,7.992l0.019,20	C42.014,38.383,38.417,41.986,34.017,41.99z"
+                ></path>
+                <radialGradient
+                  id="yOrnnhliCrdS2gy~4tD8mb_Xy10Jcu1L2Su_gr2"
+                  cx="11.786"
+                  cy="5.54"
+                  r="29.813"
+                  gradientTransform="matrix(1 0 0 .6663 0 1.849)"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop offset="0" stop-color="#4168c9"></stop>
+                  <stop
+                    offset=".999"
+                    stop-color="#4168c9"
+                    stop-opacity="0"
+                  ></stop>
+                </radialGradient>
+                <path
+                  fill="url(#yOrnnhliCrdS2gy~4tD8mb_Xy10Jcu1L2Su_gr2)"
+                  d="M34.017,41.99l-20,0.019c-4.4,0.004-8.003-3.592-8.008-7.992l-0.019-20	c-0.004-4.4,3.592-8.003,7.992-8.008l20-0.019c4.4-0.004,8.003,3.592,8.008,7.992l0.019,20	C42.014,38.383,38.417,41.986,34.017,41.99z"
+                ></path>
+                <path
+                  fill="#fff"
+                  d="M24,31c-3.859,0-7-3.14-7-7s3.141-7,7-7s7,3.14,7,7S27.859,31,24,31z M24,19c-2.757,0-5,2.243-5,5	s2.243,5,5,5s5-2.243,5-5S26.757,19,24,19z"
+                ></path>
+                <circle cx="31.5" cy="16.5" r="1.5" fill="#fff"></circle>
+                <path
+                  fill="#fff"
+                  d="M30,37H18c-3.859,0-7-3.14-7-7V18c0-3.86,3.141-7,7-7h12c3.859,0,7,3.14,7,7v12	C37,33.86,33.859,37,30,37z M18,13c-2.757,0-5,2.243-5,5v12c0,2.757,2.243,5,5,5h12c2.757,0,5-2.243,5-5V18c0-2.757-2.243-5-5-5H18z"
+                ></path>
+              </svg>
+            </a>
+            <a
+              href="https://www.youtube.com/@UCatolicaCuenca1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-1"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="red"
+                class="bi bi-youtube"
+                viewBox="0 0 16 16"
+              >
+                <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.01 2.01 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.01 2.01 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31 31 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.01 2.01 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A100 100 0 0 1 7.858 2zM6.4 5.209v4.818l4.157-2.408z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div className="bg-gray-800 text-center py-8 mb-5">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-200 leading-tight">
+            ¡<span className="text-red-600">T</span>
+            <span className="text-gray-200">endencias </span>
+            <span className="text-red-600">E</span>
+            <span className="text-gray-200">ducativas</span>!
           </h1>
-          <div className="h-1 w-50 bg-red-500 mx-auto mt-4 mb-2"></div>
+          <div className="h-1 w-24 bg-gray-500 mx-auto mt-6 mb-4"></div>
+          <p className="text-lg text-gray-300 mb-5">
+            Explora las últimas noticias de la UCACUE y mantente al tanto de
+            todo lo relacionado con nuestra Universidad.
+          </p>
         </div>
-        <p className="text-lg text-center mb-5 text-red-500">
-          Explora las últimas noticias de la UCACUE y mantente al tanto de las
-          tendecias educativas.
-        </p>
-        <div className="flex justify-center items-center space-x-4 mb-8">
-          <a
-            href="https://api.whatsapp.com/send/?phone=%2B593963095663&text=Hola+me+puede+ayudar+con+m%C3%A1s+informaci%C3%B3n.&type=phone_number&app_absent=0"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              x="0px"
-              y="0px"
-              width="40"
-              height="40"
-              viewBox="0 0 48 48"
-            >
-              <path
-                fill="#fff"
-                d="M4.868,43.303l2.694-9.835C5.9,30.59,5.026,27.324,5.027,23.979C5.032,13.514,13.548,5,24.014,5c5.079,0.002,9.845,1.979,13.43,5.566c3.584,3.588,5.558,8.356,5.556,13.428c-0.004,10.465-8.522,18.98-18.986,18.98c-0.001,0,0,0,0,0h-0.008c-3.177-0.001-6.3-0.798-9.073-2.311L4.868,43.303z"
-              ></path>
-              <path
-                fill="#fff"
-                d="M4.868,43.803c-0.132,0-0.26-0.052-0.355-0.148c-0.125-0.127-0.174-0.312-0.127-0.483l2.639-9.636c-1.636-2.906-2.499-6.206-2.497-9.556C4.532,13.238,13.273,4.5,24.014,4.5c5.21,0.002,10.105,2.031,13.784,5.713c3.679,3.683,5.704,8.577,5.702,13.781c-0.004,10.741-8.746,19.48-19.486,19.48c-3.189-0.001-6.344-0.788-9.144-2.277l-9.875,2.589C4.953,43.798,4.911,43.803,4.868,43.803z"
-              ></path>
-              <path
-                fill="#cfd8dc"
-                d="M24.014,5c5.079,0.002,9.845,1.979,13.43,5.566c3.584,3.588,5.558,8.356,5.556,13.428c-0.004,10.465-8.522,18.98-18.986,18.98h-0.008c-3.177-0.001-6.3-0.798-9.073-2.311L4.868,43.303l2.694-9.835C5.9,30.59,5.026,27.324,5.027,23.979C5.032,13.514,13.548,5,24.014,5 M24.014,42.974C24.014,42.974,24.014,42.974,24.014,42.974C24.014,42.974,24.014,42.974,24.014,42.974 M24.014,42.974C24.014,42.974,24.014,42.974,24.014,42.974C24.014,42.974,24.014,42.974,24.014,42.974 M24.014,4C24.014,4,24.014,4,24.014,4C12.998,4,4.032,12.962,4.027,23.979c-0.001,3.367,0.849,6.685,2.461,9.622l-2.585,9.439c-0.094,0.345,0.002,0.713,0.254,0.967c0.19,0.192,0.447,0.297,0.711,0.297c0.085,0,0.17-0.011,0.254-0.033l9.687-2.54c2.828,1.468,5.998,2.243,9.197,2.244c11.024,0,19.99-8.963,19.995-19.98c0.002-5.339-2.075-10.359-5.848-14.135C34.378,6.083,29.357,4.002,24.014,4L24.014,4z"
-              ></path>
-              <path
-                fill="#40c351"
-                d="M35.176,12.832c-2.98-2.982-6.941-4.625-11.157-4.626c-8.704,0-15.783,7.076-15.787,15.774c-0.001,2.981,0.833,5.883,2.413,8.396l0.376,0.597l-1.595,5.821l5.973-1.566l0.577,0.342c2.422,1.438,5.2,2.198,8.032,2.199h0.006c8.698,0,15.777-7.077,15.78-15.776C39.795,19.778,38.156,15.814,35.176,12.832z"
-              ></path>
-              <path
-                fill="#fff"
-                fill-rule="evenodd"
-                d="M19.268,16.045c-0.355-0.79-0.729-0.806-1.068-0.82c-0.277-0.012-0.593-0.011-0.909-0.011c-0.316,0-0.83,0.119-1.265,0.594c-0.435,0.475-1.661,1.622-1.661,3.956c0,2.334,1.7,4.59,1.937,4.906c0.237,0.316,3.282,5.259,8.104,7.161c4.007,1.58,4.823,1.266,5.693,1.187c0.87-0.079,2.807-1.147,3.202-2.255c0.395-1.108,0.395-2.057,0.277-2.255c-0.119-0.198-0.435-0.316-0.909-0.554s-2.807-1.385-3.242-1.543c-0.435-0.158-0.751-0.237-1.068,0.238c-0.316,0.474-1.225,1.543-1.502,1.859c-0.277,0.317-0.554,0.357-1.028,0.119c-0.474-0.238-2.002-0.738-3.815-2.354c-1.41-1.257-2.362-2.81-2.639-3.285c-0.277-0.474-0.03-0.731,0.208-0.968c0.213-0.213,0.474-0.554,0.712-0.831c0.237-0.277,0.316-0.475,0.474-0.791c0.158-0.317,0.079-0.594-0.04-0.831C20.612,19.329,19.69,16.983,19.268,16.045z"
-                clip-rule="evenodd"
-              ></path>
-            </svg>
-          </a>
-          <a
-            href="https://www.facebook.com/universidadcatolicacuenca"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              x="0px"
-              y="0px"
-              width="36"
-              height="36"
-              viewBox="0 0 48 48"
-            >
-              <linearGradient
-                id="CXanuwD9EGkBgTn76_1mxa_p62ASPK2Kpqp_gr1"
-                x1="9.993"
-                x2="40.615"
-                y1="-299.993"
-                y2="-330.615"
-                gradientTransform="matrix(1 0 0 -1 0 -290)"
-                gradientUnits="userSpaceOnUse"
-              >
-                <stop offset="0" stop-color="#2aa4f4"></stop>
-                <stop offset="1" stop-color="#007ad9"></stop>
-              </linearGradient>
-              <path
-                fill="url(#CXanuwD9EGkBgTn76_1mxa_p62ASPK2Kpqp_gr1)"
-                d="M24,4C12.954,4,4,12.954,4,24c0,10.028,7.379,18.331,17.004,19.777	C21.981,43.924,22.982,41,24,41c0.919,0,1.824,2.938,2.711,2.818C36.475,42.495,44,34.127,44,24C44,12.954,35.046,4,24,4z"
-              ></path>
-              <path
-                d="M27.707,21.169c0-1.424,0.305-3.121,1.757-3.121h4.283l-0.001-5.617l-0.05-0.852l-0.846-0.114	c-0.608-0.082-1.873-0.253-4.206-0.253c-5.569,0-8.636,3.315-8.636,9.334v2.498H15.06v7.258h4.948V43.6	C21.298,43.861,22.633,44,24,44c1.268,0,2.504-0.131,3.707-0.357V30.301h5.033l1.122-7.258h-6.155V21.169z"
-                opacity=".05"
-              ></path>
-              <path
-                d="M27.207,21.169c0-1.353,0.293-3.621,2.257-3.621h3.783V12.46l-0.026-0.44l-0.433-0.059	c-0.597-0.081-1.838-0.249-4.143-0.249c-5.323,0-8.136,3.055-8.136,8.834v2.998H15.56v6.258h4.948v13.874	C21.644,43.876,22.806,44,24,44c1.094,0,2.16-0.112,3.207-0.281V29.801h5.104l0.967-6.258h-6.072V21.169z"
-                opacity=".05"
-              ></path>
-              <path
-                fill="#fff"
-                d="M26.707,29.301h5.176l0.813-5.258h-5.989v-2.874c0-2.184,0.714-4.121,2.757-4.121h3.283V12.46	c-0.577-0.078-1.797-0.248-4.102-0.248c-4.814,0-7.636,2.542-7.636,8.334v3.498H16.06v5.258h4.948v14.475	C21.988,43.923,22.981,44,24,44c0.921,0,1.82-0.062,2.707-0.182V29.301z"
-              ></path>
-            </svg>
-          </a>
-          <a
-            href="https://twitter.com/UCatolicaCuenca"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              x="0px"
-              y="0px"
-              width="34"
-              height="34"
-              viewBox="0 0 30 30"
-            >
-              <path d="M26.37,26l-8.795-12.822l0.015,0.012L25.52,4h-2.65l-6.46,7.48L11.28,4H4.33l8.211,11.971L12.54,15.97L3.88,26h2.65 l7.182-8.322L19.42,26H26.37z M10.23,6l12.34,18h-2.1L8.12,6H10.23z"></path>
-            </svg>
-          </a>
-          <a
-            href="https://www.instagram.com/ucatolicacuenca/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              x="0px"
-              y="0px"
-              width="38"
-              height="38"
-              viewBox="0 0 48 48"
-            >
-              <radialGradient
-                id="yOrnnhliCrdS2gy~4tD8ma_Xy10Jcu1L2Su_gr1"
-                cx="19.38"
-                cy="42.035"
-                r="44.899"
-                gradientUnits="userSpaceOnUse"
-              >
-                <stop offset="0" stop-color="#fd5"></stop>
-                <stop offset=".328" stop-color="#ff543f"></stop>
-                <stop offset=".348" stop-color="#fc5245"></stop>
-                <stop offset=".504" stop-color="#e64771"></stop>
-                <stop offset=".643" stop-color="#d53e91"></stop>
-                <stop offset=".761" stop-color="#cc39a4"></stop>
-                <stop offset=".841" stop-color="#c837ab"></stop>
-              </radialGradient>
-              <path
-                fill="url(#yOrnnhliCrdS2gy~4tD8ma_Xy10Jcu1L2Su_gr1)"
-                d="M34.017,41.99l-20,0.019c-4.4,0.004-8.003-3.592-8.008-7.992l-0.019-20	c-0.004-4.4,3.592-8.003,7.992-8.008l20-0.019c4.4-0.004,8.003,3.592,8.008,7.992l0.019,20	C42.014,38.383,38.417,41.986,34.017,41.99z"
-              ></path>
-              <radialGradient
-                id="yOrnnhliCrdS2gy~4tD8mb_Xy10Jcu1L2Su_gr2"
-                cx="11.786"
-                cy="5.54"
-                r="29.813"
-                gradientTransform="matrix(1 0 0 .6663 0 1.849)"
-                gradientUnits="userSpaceOnUse"
-              >
-                <stop offset="0" stop-color="#4168c9"></stop>
-                <stop
-                  offset=".999"
-                  stop-color="#4168c9"
-                  stop-opacity="0"
-                ></stop>
-              </radialGradient>
-              <path
-                fill="url(#yOrnnhliCrdS2gy~4tD8mb_Xy10Jcu1L2Su_gr2)"
-                d="M34.017,41.99l-20,0.019c-4.4,0.004-8.003-3.592-8.008-7.992l-0.019-20	c-0.004-4.4,3.592-8.003,7.992-8.008l20-0.019c4.4-0.004,8.003,3.592,8.008,7.992l0.019,20	C42.014,38.383,38.417,41.986,34.017,41.99z"
-              ></path>
-              <path
-                fill="#fff"
-                d="M24,31c-3.859,0-7-3.14-7-7s3.141-7,7-7s7,3.14,7,7S27.859,31,24,31z M24,19c-2.757,0-5,2.243-5,5	s2.243,5,5,5s5-2.243,5-5S26.757,19,24,19z"
-              ></path>
-              <circle cx="31.5" cy="16.5" r="1.5" fill="#fff"></circle>
-              <path
-                fill="#fff"
-                d="M30,37H18c-3.859,0-7-3.14-7-7V18c0-3.86,3.141-7,7-7h12c3.859,0,7,3.14,7,7v12	C37,33.86,33.859,37,30,37z M18,13c-2.757,0-5,2.243-5,5v12c0,2.757,2.243,5,5,5h12c2.757,0,5-2.243,5-5V18c0-2.757-2.243-5-5-5H18z"
-              ></path>
-            </svg>
-          </a>
-          <a
-            href="https://www.youtube.com/@UCatolicaCuenca1"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              x="0px"
-              y="0px"
-              width="38"
-              height="38"
-              viewBox="0 0 48 48"
-            >
-              <path
-                fill="#FF3D00"
-                d="M43.2,33.9c-0.4,2.1-2.1,3.7-4.2,4c-3.3,0.5-8.8,1.1-15,1.1c-6.1,0-11.6-0.6-15-1.1c-2.1-0.3-3.8-1.9-4.2-4C4.4,31.6,4,28.2,4,24c0-4.2,0.4-7.6,0.8-9.9c0.4-2.1,2.1-3.7,4.2-4C12.3,9.6,17.8,9,24,9c6.2,0,11.6,0.6,15,1.1c2.1,0.3,3.8,1.9,4.2,4c0.4,2.3,0.9,5.7,0.9,9.9C44,28.2,43.6,31.6,43.2,33.9z"
-              ></path>
-              <path fill="#FFF" d="M20 31L20 17 32 24z"></path>
-            </svg>
-          </a>
-        </div>
+
         <div className="grid lg:grid-cols-1 gap-2">
           {/* Iterar sobre la lista de noticias */}
           {lista_noticias.map((item, index) => (
