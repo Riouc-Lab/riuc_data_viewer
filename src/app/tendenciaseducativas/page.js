@@ -1,77 +1,50 @@
 "use client";
 import Image from "next/image";
 import React, { useState } from "react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { lista_noticias } from "../../utils/modelo_noticias";
 
 export default function TendenciasEducativas() {
-  const [commentText, setCommentText] = useState("");
-  const [comments, setComments] = useState([]);
-
-  const handleComment = () => {
-    const comment = prompt("Escribe tu comentario:");
-    if (comment !== null) {
-      setComments([
-        ...comments,
-        { text: comment, likes: 0, dislikes: 0, replies: [] },
-      ]);
-    }
-  };
-
-  const handleLike = (index) => {
-    const updatedComments = [...comments];
-    updatedComments[index].likes += 1;
-    setComments(updatedComments);
-  };
-
-  const handleDislike = (index) => {
-    const updatedComments = [...comments];
-    updatedComments[index].dislikes += 1;
-    setComments(updatedComments);
-  };
-
-  const handleReply = (index) => {
-    const reply = prompt("Escribe tu respuesta:");
-    if (reply !== null) {
-      const updatedComments = [...comments];
-      updatedComments[index].replies = updatedComments[index].replies || [];
-      updatedComments[index].replies.push(reply);
-      setComments(updatedComments);
-    }
-  };
-
+  const router = useRouter();
+  const [activeItem, setActiveItem] = useState(null);
   const handleImageClick = (imageUrl) => {
     // Abrir una ventana emergente con la imagen en un tamaño más grande
     window.open(imageUrl, "_blank", "width=800,height=600");
   };
 
+  const handleSetActiveItem = (index) => {
+    setActiveItem(index);
+  };
+
   return (
     <div className="bg-gray-100">
-      <div className="max-w-7xl mx-auto px-4 bg-white px-4 py-4">
-        <div className="flex justify-center items-center mb-2">
-          <Image
-            src="/img/FINAL_LOGO_GRANDE.jpg"
-            alt="Next.js Logo"
-            width={470}
-            height={30}
-            priority
-          />
-        </div>
-
-        <div className="flex justify-between items-center space-x-4 mb-1">
-          <div className="ml-3">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="14"
-              height="14"
-              fill="currentColor"
-              class="bi bi-telephone"
-              viewBox="0 0 16 16"
-            >
-              <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.6 17.6 0 0 0 4.168 6.608 17.6 17.6 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z" />
-            </svg>
-            <span className="ml-2 text-sm">+593 (07) 4134-750</span>
+      <div className="max-w-7xl mx-auto px-4 bg-white px-4 py-5">
+        <div className="flex justify-between items-center space-x-4">
+          <div className="flex items-center">
+            <a href="https://www.instagram.com/explore/tags/ent%C3%A9ratecato">
+              <Image
+                className="ml-3 mr-5"
+                src="/img/enterate_cato.png"
+                alt="Next.js Logo"
+                width={80}
+                height={40}
+                priority
+              />
+            </a>
+            <a href="https://www.ucacue.edu.ec/contactos/">
+              <Image
+                className="ml-3"
+                src="/img/contactos_ucacue.png"
+                alt="Contactos ucacue"
+                width={110}
+                height={40}
+                priority
+              />
+            </a>
           </div>
-          <div className="flex justify-end border border-gray-300 rounded-full p-2">
+
+          <div className="flex items-center border border-gray-300 rounded-lg p-2 my-4">
             <a
               href="https://api.whatsapp.com/send/?phone=%2B593963095663&text=Hola+me+puede+ayudar+con+m%C3%A1s+informaci%C3%B3n.&type=phone_number&app_absent=0"
               target="_blank"
@@ -207,7 +180,7 @@ export default function TendenciasEducativas() {
               href="https://www.youtube.com/@UCatolicaCuenca1"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-1"
+              className="mr-1 my-1"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -222,7 +195,16 @@ export default function TendenciasEducativas() {
             </a>
           </div>
         </div>
-        <div className="bg-gray-800 text-center py-8 mb-5">
+
+        <div className="bg-gray-800 text-center py-8 mb-5 rounded-lg shadow-md">
+          <Image
+            src="/img/UC_TRS.png"
+            alt="Next.js Logo"
+            width={190}
+            height={30}
+            priority
+            className="mx-auto mb-6"
+          />
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-200 leading-tight">
             ¡<span className="text-red-600">T</span>
             <span className="text-gray-200">endencias </span>
@@ -259,58 +241,33 @@ export default function TendenciasEducativas() {
               </div>
               <div className="lg:w-2/3 flex flex-col p-3">
                 <h2 className="text-xl font-bold mb-2">{item.name}</h2>
-                <h2 className="text-base font-medium text-indigo-300 mb-2">
-                  {item.date}
+                <h2 className="text-base font-medium text-indigo-400 mb-2">
+                  {item.date} - {item.author}
                 </h2>
-                <p className="text-gray-600 flex-grow">{item.description}</p>
-                {/* Comments section */}
-                <div className="mt-5">
-                  <h2 className="text-1xl font-semibold mb-2">Comentarios</h2>
-                  <div className="space-y-4">
-                    {comments.map((comment, index) => (
-                      <div key={index} className="border p-1 rounded">
-                        <p className="text-lg mb-2">{comment.text}</p>
-                        <div className="flex items-center space-x-4">
-                          <button
-                            className="text-sm text-gray-500 hover:text-red-500"
-                            onClick={() => handleLike(index)}
-                          >
-                            👍 {comment.likes}
-                          </button>
-                          <button
-                            className="text-sm text-gray-500 hover:text-red-500"
-                            onClick={() => handleDislike(index)}
-                          >
-                            👎 {comment.dislikes}
-                          </button>
-                          <button
-                            className="text-sm text-gray-500 hover:text-blue-500"
-                            onClick={() => handleReply(index)}
-                          >
-                            Responder
-                          </button>
-                        </div>
-                        {comment.replies && (
-                          <div className="ml-8 mt-4 space-y-2">
-                            {comment.replies.map((reply, replyIndex) => (
-                              <p key={replyIndex} className="text-gray-600">
-                                {reply}
-                              </p>
-                            ))}
-                          </div>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                  <div className="mt-8">
-                    <button
-                      onClick={handleComment}
-                      className="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-500"
+                <p className="text-gray-600 flex-grow mb-3">
+                  {item.description}
+                </p>
+                
+                  {/* Debera tomarser el id de la lista_noticias de modelo_noticias */}
+                <Link href={`/tendenciaseducativas/${item.id}`}>
+                  <button className="mr-2 bg-gray-400 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded inline-flex items-center">
+                    <svg
+                      className="w-4 h-4 mr-2"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
                     >
-                      Añadir comentario
-                    </button>
-                  </div>
-                </div>
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M9 5l7 7-7 7"
+                      ></path>
+                    </svg>
+                    Saber más
+                  </button>
+                </Link>
               </div>
             </div>
           ))}

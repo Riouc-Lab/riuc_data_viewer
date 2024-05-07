@@ -263,7 +263,7 @@ export default function Footer() {
             <hr className="my-2 border-white" />
             <p className="text-gray-700 text-white">
               CIITT: "Vía a Biblín, Ricaurte, Cuenca, Ecuador" Teléfono: 593
-              (07) 2-834-037 / Ext 155, 156 Email: 
+              (07) 2-834-037 / Ext 155, 156 Email:
               <a
                 href="mailto:ciitt@ucacue.edu.ec"
                 target="_blank"
@@ -279,11 +279,14 @@ export default function Footer() {
               className="mx-auto p-5"
               src="/img/RED-SIDEBAR.png"
               alt="RIOUC"
-              width={215}
-              height={95}
+              width={200}
+              height={85}
             />
           </div>
         </div>
+        <h2 className="text-white text-sm text-center">
+          © 2023 | Universidad Católica de Cuenca
+        </h2>
       </div>
     </section>
   );

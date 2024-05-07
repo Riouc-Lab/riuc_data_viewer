@@ -1,94 +1,141 @@
 "use client";
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { lista_noticias } from '../..//utils/modelo_noticias.js';
 
-const NewsPage = () => {
-    const [news, setNews] = useState([]);
-    const [selectedImage, setSelectedImage] = useState(null);
-
-    const handleImageUpload = (event) => {
-        const file = event.target.files[0];
-        setSelectedImage(file);
+function AdminPage() {
+    const [newNews, setNewNews] = useState({
+      Image: "",
+      id: 0,
+      to: "",
+      name: "",
+      date: "",
+      description: "",
+    });
+  
+    const handleAddNews = () => {
+      // Agregar la nueva noticia a la lista
+      lista_noticias.push({
+        Image: newNews.Image,
+        id: newNews.id,
+        to: newNews.to,
+        name: newNews.name,
+        author: newNews.author,
+        date: new Date().toISOString().slice(0, 10),
+        description: newNews.description,
+      });
+      
+      // Limpiar los campos de entrada
+      setNewNews({
+        Image: "",
+        id: 0,
+        to: "",
+        name: "",
+        date: "",
+        description: "",
+        author: "",
+      });
+  
+      // Imprimir la lista actualizada en la consola
+      console.log("Lista de noticias después de agregar:");
+      console.log(lista_noticias);
     };
-
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        const description = event.target.elements.description.value;
-
-        if (!selectedImage) {
-            alert("Por favor selecciona una imagen.");
-            return;
-        }
-
-        if (!description) {
-            alert("Por favor ingresa la descripción de la imagen.");
-            return;
-        }
-
-        addNews(URL.createObjectURL(selectedImage), description);
-        setSelectedImage(null);
-
-        event.target.reset();
+  
+    const handleChange = (e) => {
+      const { name, value } = e.target;
+      setNewNews(prevState => ({
+        ...prevState,
+        [name]: value
+      }));
     };
-
-    const addNews = (image, description) => {
-        const newNews = [...news, { image, description, comments: [], shares: 0 }];
-        setNews(newNews);
-    };
-
-    const renderNews = () => {
-        return news.map((item, index) => (
-            <div key={index} className="bg-gray-900 rounded-lg p-6 mb-4">
-                <img src={item.image} alt="News" className="w-full rounded" />
-                <p className="text-white text-lg mt-4">{item.description}</p>
-                <div className="flex justify-between mt-4">
-                    <button className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 mr-2" onClick={() => handleComment(index)}>Comentar</button>
-                    <button className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600" onClick={() => handleShare(index)}>Compartir</button>
-                </div>
-                {item.comments.length > 0 && (
-                    <div className="mt-4">
-                        <h3 className="text-lg text-white font-bold">Comentarios:</h3>
-                        <ul>
-                            {item.comments.map((comment, commentIndex) => (
-                                <li key={commentIndex} className="text-black bg-white p-4 rounded mt-1">{comment}</li>
-                            ))}
-                        </ul>
-                    </div>
-                )}
-            </div>
-        ));
-    };
-
-    const handleComment = (index) => {
-        const comment = prompt("Escribe tu comentario:");
-        if (comment !== null) {
-            const newComments = [...news[index].comments, comment];
-            const updatedNews = [...news];
-            updatedNews[index].comments = newComments;
-            setNews(updatedNews);
-        }
-    };
-
-    const handleShare = (index) => {
-        const updatedNews = [...news];
-        updatedNews[index].shares += 1;
-        setNews(updatedNews);
-    };
-
+  
     return (
-        <div className="bg-gray-100 p-2">
-            <div className="max-w-7xl mx-auto bg-white px-4 py-8">
-                <h1 className="text-4xl font-bold mb-8">Blog de Noticias</h1>
-                <form onSubmit={handleSubmit} className="mb-8">
-                    <input type="file" name="image" accept="image/*" className="mb-2 mr-3" onChange={handleImageUpload} />
-                    <input type="text" name="description" placeholder="Descripción" className="bg-gray-800 text-white rounded px-4 py-2 mb-2 mr-3" />
-                    <button type="submit" className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Agregar Noticia</button>
-                </form>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {renderNews()}
-                </div>
+      <div className="container mx-auto mt-8">
+        <h1 className="text-2xl font-bold mb-4 p-5">Administración de Noticias</h1>
+        <form className="space-y-4">
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <label htmlFor="Image" className="block text-sm font-medium text-gray-700">URL de la Imagen</label>
+              <input 
+                type="text" 
+                name="Image"
+                id="Image"
+                value={newNews.Image} 
+                onChange={handleChange} 
+                className="mt-1 p-2 w-full border rounded focus:outline-none focus:ring focus:border-blue-300" 
+                placeholder="Ingrese la URL de la imagen" 
+              />
             </div>
-        </div>
+            <div>
+              <label htmlFor="id" className="block text-sm font-medium text-gray-700">ID de la Noticia</label>
+              <input 
+                type="number" 
+                name="id"
+                id="id"
+                value={newNews.id} 
+                onChange={handleChange} 
+                className="mt-1 p-2 w-full border rounded focus:outline-none focus:ring focus:border-blue-300" 
+                placeholder="Ingrese el ID de la noticia" 
+              />
+            </div>
+          </div>
+          {/* Otros campos de entrada para los demás atributos de la noticia */}
+          <div>
+            <label htmlFor="to" className="block text-sm font-medium text-gray-700">Destino de la Noticia</label>
+            <input 
+              type="text" 
+              name="to"
+              id="to"
+              value={newNews.to} 
+              onChange={handleChange} 
+              className="mt-1 p-2 w-full border rounded focus:outline-none focus:ring focus:border-blue-300" 
+              placeholder="Ingrese el destino de la noticia" 
+            />
+          </div>
+          <div>
+            <label htmlFor="name" className="block text-sm font-medium text-gray-700">Nombre de la Noticia</label>
+            <input 
+              type="text" 
+              name="name"
+              id="name"
+              value={newNews.name} 
+              onChange={handleChange} 
+              className="mt-1 p-2 w-full border rounded focus:outline-none focus:ring focus:border-blue-300" 
+              placeholder="Ingrese el nombre de la noticia" 
+            />
+          </div>
+          <div>
+            <label htmlFor="description" className="block text-sm font-medium text-gray-700">Descripción de la Noticia</label>
+            <textarea 
+              name="description"
+              id="description"
+              value={newNews.description} 
+              onChange={handleChange} 
+              className="mt-1 p-2 w-full border rounded focus:outline-none focus:ring focus:border-blue-300" 
+              placeholder="Ingrese la descripción de la noticia" 
+            />
+          </div>
+          <div>
+            <label htmlFor="name" className="block text-sm font-medium text-gray-700">Autor de la Noticia</label>
+            <input 
+              type="text" 
+              name="author"
+              id="author"
+              value={newNews.author} 
+              onChange={handleChange} 
+              className="mt-1 p-2 w-full border rounded focus:outline-none focus:ring focus:border-blue-300" 
+              placeholder="Ingrese el autor de la noticia" 
+            />
+          </div>
+          <button 
+            type="button" 
+            onClick={handleAddNews} 
+            className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
+          >
+            Agregar Noticia
+          </button>
+        </form>
+      </div>
     );
-};
-
-export default NewsPage;
+  }
+  
+  export default AdminPage;
