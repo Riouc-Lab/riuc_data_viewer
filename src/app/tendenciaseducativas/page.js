@@ -7,15 +7,12 @@ import { lista_noticias } from "../../utils/modelo_noticias";
 
 export default function TendenciasEducativas() {
   const router = useRouter();
-  const [activeItem, setActiveItem] = useState(null);
   const handleImageClick = (imageUrl) => {
     // Abrir una ventana emergente con la imagen en un tamaño más grande
     window.open(imageUrl, "_blank", "width=800,height=600");
   };
 
-  const handleSetActiveItem = (index) => {
-    setActiveItem(index);
-  };
+  console.log("Lista de noticias:", lista_noticias); // Nuevo log
 
   return (
     <div className="bg-gray-100">
@@ -220,9 +217,12 @@ export default function TendenciasEducativas() {
 
         <div className="grid lg:grid-cols-1 gap-2">
           {/* Iterar sobre la lista de noticias */}
-          {lista_noticias.map((item, index) => (
+          {lista_noticias.map((item) => {
+          console.log("Item:", item); // Loguear cada elemento
+          console.log("ID:", item.id); // Loguear el ID de cada elemento
+          return (
             <div
-              key={index}
+              key={item.id}
               className="bg-white rounded-lg shadow-md p-4 flex flex-col lg:flex-row mb-5"
             >
               <div className="lg:w-1/3 flex justify-center lg:justify-start">
@@ -247,8 +247,8 @@ export default function TendenciasEducativas() {
                 <p className="text-gray-600 flex-grow mb-3">
                   {item.description}
                 </p>
-                
-                  {/* Debera tomarser el id de la lista_noticias de modelo_noticias */}
+
+                {/* Debera tomarser el id de la lista_noticias de modelo_noticias */}
                 <Link href={`/tendenciaseducativas/${item.id}`}>
                   <button className="mr-2 bg-gray-400 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded inline-flex items-center">
                     <svg
@@ -270,7 +270,8 @@ export default function TendenciasEducativas() {
                 </Link>
               </div>
             </div>
-          ))}
+          );
+          })}
         </div>
       </div>
     </div>

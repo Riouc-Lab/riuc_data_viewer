@@ -1,11 +1,23 @@
 "use client";
-import React, { useState } from "react";
-import { useRouter } from "next/navigation";
-
+import React, { useState, useEffect } from "react";
+import { useParams } from "next/navigation";
+import { lista_noticias } from "../../../utils/modelo_noticias"; // Importar la lista de noticias
 
 export default function Noticia() {
-  const router = useRouter();
- // const { id } = router.query;
+  // Obtener el ID de la noticia de la URL
+  const { id } = useParams();
+  const [noticia, setNoticia] = useState(null);
+
+  console.log("id", id);
+  
+  useEffect(() => {
+    // Buscar la noticia correspondiente al ID en la lista de noticias
+    if (id) {
+      const noticiaEncontrada = lista_noticias.find((item) => item.id === parseInt(id));
+      setNoticia(noticiaEncontrada);
+    }
+  }, [id]);
+
   const [likes, setLikes] = useState(0);
   const [comments, setComments] = useState([]);
   const [showAllComments, setShowAllComments] = useState(false);
@@ -29,7 +41,7 @@ export default function Noticia() {
     <div className="container mx-auto px-4 py-8">
       <div className="max-w-2xl mx-auto">
         {/* Título de la noticia */}
-        <h1 className="text-3xl font-bold mb-4">Título de la Noticia</h1>
+        <h1 className="text-3xl font-bold mb-4">{noticia ? noticia.name : "Cargando..."}</h1>
 
         {/* Botón de like */}
         <div className="flex">
@@ -60,9 +72,7 @@ export default function Noticia() {
 
         {/* Contenido de la noticia */}
         <div className="text-lg leading-relaxed mb-6">
-          {/* Aquí va el contenido de la noticia */}
-          
-          Contenido de la noticia.
+          {noticia ? noticia.description : "Cargando..."}
         </div>
 
         {/* Sección de comentarios */}
@@ -109,10 +119,10 @@ export default function Noticia() {
         {/* Detalles de la noticia */}
         <div className="border-t border-gray-300 pt-4">
           <p className="text-gray-600">
-            <strong>Autor:</strong> Nombre del Autor
+            <strong>Autor:</strong> {noticia ? noticia.author : "Cargando..."}
           </p>
           <p className="text-gray-600">
-            <strong>Fecha:</strong> 25 de Abril, 2024
+            <strong>Fecha:</strong> {noticia ? noticia.date : "Cargando..."}
           </p>
         </div>
       </div>
