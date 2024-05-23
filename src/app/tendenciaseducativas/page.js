@@ -12,6 +12,17 @@ export default function TendenciasEducativas() {
     window.open(imageUrl, "_blank", "width=800,height=600");
   };
 
+  // Limitar el numero de caracteres a mostrar en item.description
+  const truncateDescription = (description, limit) => {
+    if (!description || typeof description !== "string") {
+      return "";
+    }
+    if (description.length <= limit) {
+      return description;
+    }
+    return description.slice(0, limit) + "...";
+  };
+
   console.log("Lista de noticias:", lista_noticias); // Nuevo log
 
   return (
@@ -46,7 +57,7 @@ export default function TendenciasEducativas() {
               href="https://api.whatsapp.com/send/?phone=%2B593963095663&text=Hola+me+puede+ayudar+con+m%C3%A1s+informaci%C3%B3n.&type=phone_number&app_absent=0"
               target="_blank"
               rel="noopener noreferrer"
-              className="ml-1 mr-2"
+              className="ml-1 mr-3"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -63,7 +74,7 @@ export default function TendenciasEducativas() {
               href="https://www.facebook.com/universidadcatolicacuenca"
               target="_blank"
               rel="noopener noreferrer"
-              className="mr-2"
+              className="mr-3"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -80,7 +91,7 @@ export default function TendenciasEducativas() {
               href="https://www.tiktok.com/@ucatocuenca?lang=es"
               target="_blank"
               rel="noopener noreferrer"
-              className="mr-2.5"
+              className="mr-3.5"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -97,7 +108,7 @@ export default function TendenciasEducativas() {
               href="https://twitter.com/UCatolicaCuenca"
               target="_blank"
               rel="noopener noreferrer"
-              className="mr-2"
+              className="mr-3"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -114,15 +125,15 @@ export default function TendenciasEducativas() {
               href="https://www.instagram.com/ucatolicacuenca/"
               target="_blank"
               rel="noopener noreferrer"
-              className="mr-1"
+              className="mr-3"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 x="0px"
                 y="0px"
-                width="31"
-                height="31"
-                viewBox="0 0 48 48"
+                width="32"
+                height="32"
+                viewBox="0 -3 50 50"
               >
                 <radialGradient
                   id="yOrnnhliCrdS2gy~4tD8ma_Xy10Jcu1L2Su_gr1"
@@ -177,15 +188,15 @@ export default function TendenciasEducativas() {
               href="https://www.youtube.com/@UCatolicaCuenca1"
               target="_blank"
               rel="noopener noreferrer"
-              className="mr-1 my-1"
+              className="mr-3 my-1"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
+                width="25"
+                height="25"
                 fill="red"
                 class="bi bi-youtube"
-                viewBox="0 0 16 16"
+                viewBox="0 -1 16 16"
               >
                 <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.01 2.01 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.01 2.01 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31 31 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.01 2.01 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A100 100 0 0 1 7.858 2zM6.4 5.209v4.818l4.157-2.408z" />
               </svg>
@@ -218,59 +229,59 @@ export default function TendenciasEducativas() {
         <div className="grid lg:grid-cols-1 gap-2">
           {/* Iterar sobre la lista de noticias */}
           {lista_noticias.map((item) => {
-          console.log("Item:", item); // Loguear cada elemento
-          console.log("ID:", item.id); // Loguear el ID de cada elemento
-          return (
-            <div
-              key={item.id}
-              className="bg-white rounded-lg shadow-md p-4 flex flex-col lg:flex-row mb-5"
-            >
-              <div className="lg:w-1/3 flex justify-center lg:justify-start">
-                <Image
-                  className="mb-2 rounded-lg cursor-pointer"
-                  src={item.Image}
-                  alt="Next.js Logo"
-                  width={450}
-                  height={250}
-                  priority
-                  style={{ maxHeight: "300px", maxWidth: "100%" }}
-                  onClick={() => {
-                    handleImageClick(item.Image);
-                  }}
-                />
-              </div>
-              <div className="lg:w-2/3 flex flex-col p-3">
-                <h2 className="text-xl font-bold mb-2">{item.name}</h2>
-                <h2 className="text-base font-medium text-indigo-400 mb-2">
-                  {item.date} - {item.author}
-                </h2>
-                <p className="text-gray-600 flex-grow mb-3">
-                  {item.description}
-                </p>
+            console.log("Item:", item); // Loguear cada elemento
+            console.log("ID:", item.id); // Loguear el ID de cada elemento
+            return (
+              <div
+                key={item.id}
+                className="bg-white rounded-lg shadow-md p-4 flex flex-col lg:flex-row mb-5"
+              >
+                <div className="lg:w-1/3 flex justify-center lg:justify-start">
+                  <Image
+                    className="mb-2 rounded-lg cursor-pointer"
+                    src={item.Image}
+                    alt="Next.js Logo"
+                    width={450}
+                    height={250}
+                    priority
+                    style={{ maxHeight: "300px", maxWidth: "100%" }}
+                    onClick={() => {
+                      handleImageClick(item.Image);
+                    }}
+                  />
+                </div>
+                <div className="lg:w-2/3 flex flex-col p-3">
+                  <h2 className="text-xl font-bold mb-2">{item.name}</h2>
+                  <h2 className="text-base font-medium text-indigo-400 mb-2">
+                    {item.date} - {item.author}
+                  </h2>
+                  <p className="mt-2 text-gray-700">
+                    {truncateDescription(item.description, 570)}
+                  </p>
 
-                {/* Debera tomarser el id de la lista_noticias de modelo_noticias */}
-                <Link href={`/tendenciaseducativas/${item.id}`}>
-                  <button className="mr-2 bg-gray-400 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded inline-flex items-center">
-                    <svg
-                      className="w-4 h-4 mr-2"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M9 5l7 7-7 7"
-                      ></path>
-                    </svg>
-                    Saber más
-                  </button>
-                </Link>
+                  {/* Debera tomarser el id de la lista_noticias de modelo_noticias */}
+                  <Link href={`/tendenciaseducativas/${item.id}`}>
+                    <button className="mt-4 bg-gray-400 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded inline-flex items-center">
+                      <svg
+                        className="w-4 h-4 mr-2"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M9 5l7 7-7 7"
+                        ></path>
+                      </svg>
+                      Saber más
+                    </button>
+                  </Link>
+                </div>
               </div>
-            </div>
-          );
+            );
           })}
         </div>
       </div>
