@@ -25,9 +25,10 @@ export default function Equipo() {
 
       <div className="flex justify-center mb-12">
         <div className="w-5/6 p-2">
+
           <Image
             className="mx-auto"
-            src="/img/phd.png"
+            src="/img/jaime.png"
             alt="Imagen 1"
             width={300}
             height={160}
@@ -39,7 +40,7 @@ export default function Equipo() {
         <div className="w-5/6 p-2">
           <Image
             className="mx-auto"
-            src="/img/ing.png"
+            src="/img/marcos.png"
             alt="Imagen 2"
             width={300}
             height={160}
@@ -97,7 +98,7 @@ export default function Equipo() {
           <div className="mb-10 text-center">
             <Image
               className="mx-auto rounded-lg"
-              src="/img/lic.png"
+              src="/img/mariaemilia.png"
               alt="RIOUC"
               width={450}
               height={225}
@@ -178,7 +179,7 @@ export default function Equipo() {
             <div className="w-5/6 p-2">
               <Image
                 className="mx-auto"
-                src="/img/ing_aura.png"
+                src="/img/ingeniera_aura.png"
                 alt="Imagen 1"
                 width={310}
                 height={160}
@@ -190,7 +191,7 @@ export default function Equipo() {
             <div className="w-5/6 p-2">
               <Image
                 className="mx-auto"
-                src="/img/pisc_elizabeth.png"
+                src="/img/pisc_elizabeth_leon.png"
                 alt="Imagen 2"
                 width={310}
                 height={160}
@@ -279,7 +280,7 @@ export default function Equipo() {
             <div className="w-5/6 p-2">
               <Image
                 className="mx-auto"
-                src="/img/od_ebingen.png"
+                src="/img/ebingen.png"
                 alt="Imagen 1"
                 width={310}
                 height={160}
@@ -291,7 +292,7 @@ export default function Equipo() {
             <div className="w-5/6 p-2">
               <Image
                 className="mx-auto"
-                src="/img/od_ana.png"
+                src="/img/ana.png"
                 alt="Imagen 2"
                 width={310}
                 height={160}
@@ -474,9 +475,9 @@ export default function Equipo() {
           <div className="mb-10 text-center">
             <Image
               className="mx-auto rounded-lg"
-              src="/img/ing_sandra.png"
+              src="/img/sandra.png"
               alt="RIOUC"
-              width={280}
+              width={300}
               height={155}
             />
             <h1 className="text-center font-semibold p-3 mb-2 bg-gradient-to-r from-black to-black bg-clip-text text-transparent border-b-2 border-red-400 w-2/4 mx-auto">
@@ -678,9 +679,9 @@ export default function Equipo() {
           <div className="mb-10 text-center">
             <Image
               className="mx-auto rounded-lg"
-              src="/img/ing_augusto.png"
+              src="/img/augusto.png"
               alt="RIOUC"
-              width={280}
+              width={300}
               height={155}
             />
             <h1 className="text-center font-semibold p-3 mb-2 bg-gradient-to-r from-black to-black bg-clip-text text-transparent border-b-2 border-red-400 w-2/4 mx-auto">
