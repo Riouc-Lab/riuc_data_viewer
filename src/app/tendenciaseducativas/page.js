@@ -30,7 +30,10 @@ export default function TendenciasEducativas() {
       <div className="max-w-7xl mx-auto px-4 bg-white px-4 py-5">
         <div className="flex justify-between items-center space-x-4">
           <div className="flex items-center">
-            <a href="https://www.instagram.com/explore/tags/ent%C3%A9ratecato">
+            <a href="https://www.instagram.com/explore/tags/ent%C3%A9ratecato"
+            target="_blank"
+            rel="noopener noreferrer"
+            >
               <Image
                 className="ml-3 mr-5"
                 src="/img/enterate_cato.png"
@@ -40,7 +43,9 @@ export default function TendenciasEducativas() {
                 priority
               />
             </a>
-            <a href="https://www.ucacue.edu.ec/contactos/">
+            <a href="https://www.ucacue.edu.ec/contactos/"
+            target="_blank"
+            rel="noopener noreferrer">
               <Image
                 className="ml-3"
                 src="/img/contactos_ucacue.png"

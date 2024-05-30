@@ -71,6 +71,20 @@ function AdminPage() {
     }));
   };
 
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      setNewNews(prevState => ({
+        ...prevState,
+        Image: reader.result
+      }));
+    };
+    if (file) {
+      reader.readAsDataURL(file);
+    }
+  };
+
   const handleEdit = (noticia) => {
     setNewNews(noticia);
     setEditing(true);
@@ -89,15 +103,14 @@ function AdminPage() {
       <form className="space-y-4">
         <div className="grid grid-cols-2 gap-4">
           <div>
-            <label htmlFor="Image" className="block text-sm font-medium text-gray-700">URL de la Imagen</label>
+            <label htmlFor="Image" className="block text-sm font-medium text-gray-700">Cargar Imagen</label>
             <input 
-              type="text" 
+              type="file" 
               name="Image"
               id="Image"
-              value={newNews.Image} 
-              onChange={handleChange} 
+              onChange={handleImageChange} 
               className="mt-1 p-2 w-full border rounded focus:outline-none focus:ring focus:border-blue-300" 
-              placeholder="Ingrese la URL de la imagen" 
+              placeholder="Cargar imagen" 
             />
           </div>
           <div>

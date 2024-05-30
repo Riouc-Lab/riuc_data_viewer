@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { useParams } from "next/navigation";
 import Image from "next/image";
 import { lista_noticias } from "../../../utils/modelo_noticias"; // Importar la lista de noticias
+import { signIn } from "next-auth/react";
 
 export default function Noticia() {
   // Obtener el ID de la noticia de la URL
@@ -70,6 +71,31 @@ export default function Noticia() {
             Regresar
           </span>
         </button>
+
+        {/* Boton SignIn */}
+        <button
+          className="p-1 text-gray-500 hover:underline mb-2 mb-2 flex items-center space-x-2 mt-4"
+          onClick={() => signIn()}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="indigo"
+            class="bi bi-person-circle"
+            viewBox="0 0 16 16"
+          >
+            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+            <path
+              fill-rule="evenodd"
+              d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"
+            />
+          </svg>
+          <span className="text-gray-500 hover:text-red-400 transition">
+            Iniciar Sesión
+          </span>
+        </button>
+
         {/* Título de la noticia */}
         <h1 className="text-4xl font-bold mb-4">
           {noticia ? noticia.name : "Cargando..."}
@@ -125,7 +151,9 @@ export default function Noticia() {
               <>
                 <span> {noticia.date}</span>
                 <br />
-                <span>Por <strong>{noticia.author}</strong></span>
+                <span>
+                  Por <strong>{noticia.author}</strong>
+                </span>
               </>
             ) : null}
           </div>

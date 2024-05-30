@@ -27,6 +27,7 @@
     "leaflet-fullscreen": "^1.0.2",
     "leaflet-minimap": "^3.6.1",
     "next": "13.4.13",
+    "next-auth": "^4.24.7",
     "pg-promise": "^11.5.4",
     "postcss": "8.4.27",
     "powerbi-client": "^2.22.3",
