@@ -5,6 +5,7 @@ import SideBar from "../components/SideBar";
 import { routers_menu } from "../utils/routers";
 import Footer from "../components/Footer";
 import { usePathname } from "next/navigation";
+import { Providers } from "./api/Providers";
 
 const HTML_TITLE = "RIOUC - UCACUE";
 
@@ -20,11 +21,13 @@ export default function RootLayout({ children}) {
     <html lang="es">
       <title>{HTML_TITLE}</title>
       <link rel="icon" href="/img/UC_ICONO.png" />
+      <Providers>
       <body className={inter.className}>
         <SideBar navLinks={routers_menu} />
         <main className="bg-white mt-16">{children}</main>
         {!pathname.includes("proyectos/")?<Footer />:<></>}
       </body>
+      </Providers>
     </html>
   );
 }

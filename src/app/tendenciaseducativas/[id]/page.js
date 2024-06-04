@@ -4,9 +4,12 @@ import { useRouter } from "next/navigation";
 import { useParams } from "next/navigation";
 import Image from "next/image";
 import { lista_noticias } from "../../../utils/modelo_noticias"; // Importar la lista de noticias
-import { signIn } from "next-auth/react";
+import { signIn, useSession, signOut } from "next-auth/react";
 
 export default function Noticia() {
+  const { data: session } = useSession();
+  console.log(session);
+
   // Obtener el ID de la noticia de la URL
   const { id } = useParams();
   const [noticia, setNoticia] = useState(null);
@@ -50,51 +53,90 @@ export default function Noticia() {
     <div className="container mx-auto px-4 py-8">
       {/* Boton regresar */}
       <div className="max-w-3xl mx-auto">
-        <button
-          className="p-1 text-gray-500 hover:underline mb-2 mb-2 flex items-center space-x-2 mt-4"
-          onClick={() => proyect("/tendenciaseducativas")}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            fill="currentColor"
-            className="bi bi-arrow-left-circle text-red-400"
-            viewBox="0 0 16 16"
+        <div className="flex justify-between space-x-2 mb-4">
+          <button
+            className="p-1 text-gray-500 hover:underline mb-2 mb-2 flex items-center space-x-2 mt-4"
+            onClick={() => proyect("/tendenciaseducativas")}
           >
-            <path
-              fillRule="evenodd"
-              d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"
-            />
-          </svg>
-          <span className="text-gray-500 hover:text-red-400 transition">
-            Regresar
-          </span>
-        </button>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              className="bi bi-arrow-left-circle text-red-400"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fillRule="evenodd"
+                d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"
+              />
+            </svg>
+            <span className="text-gray-500 hover:text-red-400 transition">
+              Regresar
+            </span>
+          </button>
 
-        {/* Boton SignIn */}
-        <button
-          className="p-1 text-gray-500 hover:underline mb-2 mb-2 flex items-center space-x-2 mt-4"
-          onClick={() => signIn()}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            fill="indigo"
-            class="bi bi-person-circle"
-            viewBox="0 0 16 16"
-          >
-            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
-            <path
-              fill-rule="evenodd"
-              d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"
-            />
-          </svg>
-          <span className="text-gray-500 hover:text-red-400 transition">
-            Iniciar Sesión
-          </span>
-        </button>
+          {/* Boton SignIn */}
+          {session ? (
+            <div className="flex items-center space-x-2 space-y-1">
+              <img
+                src={session.user.image}
+                alt="User Image"
+                className="w-6 h-6 rounded-full"
+              />
+              <span className="text-gray-600">{session.user.name}</span>
+              <button
+                className="p-1 text-gray-500 hover:underline mb-2 flex items-center space-x-2 mt-4"
+                onClick={() => signOut()}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  className="bi bi-arrow-left-circle text-red-400"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"
+                  />
+                </svg>
+
+                <span className="text-gray-500 hover:text-red-400 transition">
+                  
+                </span>
+              </button>
+            </div>
+          ) : (
+            <button
+              className="p-1 text-gray-500 hover:underline mb-2 flex items-center space-x-2 mt-4"
+              onClick={() => signIn()}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                className="bi bi-arrow-left-circle text-blue-400"
+                viewBox="0 0 16 16"
+              >
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+                <path
+                  fillRule="evenodd"
+                  d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"
+                />
+              </svg>
+              <span className="text-gray-500 hover:text-blue-400 transition">
+                Iniciar Sesión
+              </span>
+            </button>
+          )}
+        </div>
 
         {/* Título de la noticia */}
         <h1 className="text-4xl font-bold mb-4">
