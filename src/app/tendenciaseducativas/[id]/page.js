@@ -30,12 +30,38 @@ export default function Noticia() {
   const [comments, setComments] = useState([]);
   const [showAllComments, setShowAllComments] = useState(false);
 
+  useEffect(() => {
+    // Cargar comentarios desde localStorage al cargar la página
+    const storedComments = localStorage.getItem(`comments_${id}`);
+    if (storedComments) {
+      setComments(JSON.parse(storedComments));
+    }
+  }, [id]);
+
   const handleLike = () => {
     setLikes((prevLikes) => prevLikes + 1);
   };
 
   const handleCommentSubmit = (comment) => {
-    setComments((prevComments) => [comment, ...prevComments]);
+    const newComment = {
+      text: comment,
+      user: {
+        name: session.user.name,
+        image: session.user.image,
+      },
+    };
+    const updatedComments = [newComment, ...comments];
+    setComments(updatedComments);
+    // Guardar comentarios en localStorage
+    localStorage.setItem(`comments_${id}`, JSON.stringify(updatedComments));
+  };
+
+  const handleDeleteComment = (index) => {
+    const updatedComments = [...comments];
+    updatedComments.splice(index, 1);
+    setComments(updatedComments);
+    // Guardar comentarios actualizados en localStorage
+    localStorage.setItem(`comments_${id}`, JSON.stringify(updatedComments));
   };
 
   const handleShowAllComments = () => {
@@ -238,30 +264,72 @@ export default function Noticia() {
         <div className="border-t border-gray-300 pt-4">
           <h2 className="text-xl font-bold mb-2">Comentarios</h2>
           {/* Formulario de comentario */}
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              const commentInput = e.target.elements.comment;
-              handleCommentSubmit(commentInput.value);
-              commentInput.value = "";
-            }}
-          >
-            <textarea
-              name="comment"
-              placeholder="Escribe tu comentario..."
-              className="w-full p-2 mb-2 border border-gray-300 rounded"
-            ></textarea>
-            <button
-              type="submit"
-              className="bg-blue-500 text-white px-4 py-1 rounded"
+          {session ? (
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                const commentInput = e.target.elements.comment;
+                handleCommentSubmit(commentInput.value);
+                commentInput.value = "";
+              }}
             >
-              Enviar
-            </button>
-          </form>
+              <textarea
+                name="comment"
+                placeholder="Añade un comentario..."
+                className="w-full p-2 mb-2 border border-gray-300 rounded"
+              ></textarea>
+              <button
+                type="submit"
+                className="bg-blue-500 text-white px-4 py-1 rounded my-3 hover:bg-blue-600"
+              >
+                comentar
+              </button>
+            </form>
+          ) : (
+            <p className="text-gray-600 my-5">
+              Por favor,{" "}
+              <button
+                onClick={() => signIn()}
+                className="text-blue-500 hover:underline"
+              >
+                inicia sesión
+              </button>{" "}
+              para comentar.
+            </p>
+          )}
           {/* Mostrar comentarios */}
           {visibleComments.map((comment, index) => (
-            <div key={index} className="mb-2">
-              <p className="mb-1">{comment}</p>
+            <div key={index} className="mb-2 flex items-start space-x-2">
+              <img
+                src={comment.user.image}
+                alt={comment.user.name}
+                className="w-8 h-8 rounded-full"
+              />
+              <div>
+                <p className="mb-1 text-gray-600">
+                  <strong>{comment.user.name}</strong>
+                </p>
+                <p>{comment.text}</p>
+                {/* Botón para eliminar comentario */}
+                {session && session.user.name === comment.user.name && (
+                  <button
+                    onClick={() => handleDeleteComment(index)}
+                    className="text-red-500 hover:text-red-400"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      class="bi bi-trash"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z" />
+                      <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z" />
+                    </svg>
+                  </button>
+                )}
+              </div>
             </div>
           ))}
           {/* Botón Mostrar más */}
