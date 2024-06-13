@@ -27,8 +27,59 @@ export default function Noticia() {
   }, [id]);
 
   const [likes, setLikes] = useState(0);
+  const [likedByUser, setLikedByUser] = useState(false); // Estado para controlar si el usuario ha dado "Me gusta"
   const [comments, setComments] = useState([]);
   const [showAllComments, setShowAllComments] = useState(false);
+
+  useEffect(() => {
+    if (id) {
+      // Buscar la noticia correspondiente al ID en la lista de noticias
+      const noticiaEncontrada = lista_noticias.find(
+        (item) => item.id === parseInt(id)
+      );
+      setNoticia(noticiaEncontrada);
+
+      // Cargar el número de "Me gusta" desde el localStorage
+      const storedLikes = localStorage.getItem(`likes_${id}`);
+      if (storedLikes) {
+        setLikes(parseInt(storedLikes));
+      }
+
+      // Verificar si el usuario ya ha dado "Me gusta" a esta noticia
+      if (session) {
+        const likedByUser = localStorage.getItem(`liked_${id}_${session.user.id}`);
+        if (likedByUser) {
+          setLikedByUser(true);
+        }
+      }
+    }
+  }, [id, session]);
+
+  const handleLike = () => {
+    if (!session) {
+      // Si el usuario no está logueado, redirigir a la página de inicio de sesión
+      signIn();
+      return;
+    }
+
+    // Toggle del "Me gusta" del usuario
+    const newLikedByUser = !likedByUser;
+    setLikedByUser(newLikedByUser);
+
+    // Actualizar el número de "Me gusta"
+    const newLikes = newLikedByUser ? likes + 1 : likes - 1;
+    setLikes(newLikes);
+
+    // Guardar el nuevo número de "Me gusta" en localStorage
+    localStorage.setItem(`likes_${id}`, newLikes.toString());
+
+    // Actualizar el estado del "Me gusta" del usuario en localStorage
+    if (newLikedByUser) {
+      localStorage.setItem(`liked_${id}_${session.user.id}`, "true");
+    } else {
+      localStorage.removeItem(`liked_${id}_${session.user.id}`);
+    }
+  };
 
   useEffect(() => {
     // Cargar comentarios desde localStorage al cargar la página
@@ -38,9 +89,6 @@ export default function Noticia() {
     }
   }, [id]);
 
-  const handleLike = () => {
-    setLikes((prevLikes) => prevLikes + 1);
-  };
 
   const handleCommentSubmit = (comment) => {
     const newComment = {
