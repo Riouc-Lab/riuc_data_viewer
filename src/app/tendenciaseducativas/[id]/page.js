@@ -153,7 +153,9 @@ export default function Noticia() {
           {/* Boton SignIn */}
           {session ? (
             <div className="flex items-center space-x-2 space-y-1">
-              <img
+              <Image
+              width={32}
+              height={32}
                 src={session.user.image}
                 alt="User Image"
                 className="w-6 h-6 rounded-full"

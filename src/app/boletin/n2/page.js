@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-export default function boletinn2() {
+export default function Boletinn2() {
   const router = useRouter();
   const abrirPDF = () => {
     // Reemplaza 'nombre-del-archivo.pdf' con el nombre real de tu archivo PDF
@@ -10,7 +10,7 @@ export default function boletinn2() {
     window.open(pdfUrl, "_blank");
   };
 
-  function proyect(to) {
+  function Proyect(to) {
     router.push(to);
   }
 
@@ -19,7 +19,7 @@ export default function boletinn2() {
       <div className="p-1 text-gray-500 hover:underline mb-2 flex items-center space-x-2 mt-4">
       <button
           className="p-1 text-gray-500 hover:underline mb-2 mb-2 flex items-center space-x-2 mt-4"
-          onClick={() => proyect("/boletin")}
+          onClick={() => Proyect("/boletin")}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

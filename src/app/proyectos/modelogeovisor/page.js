@@ -7,7 +7,7 @@ import SwitchButton from "../../../components/buttonswitch";
 
 const DEFAULT_CENTER = [-1.598653, -78.180479];
 
-export default function modelogeovisor() {
+export default function Modelogeovisor() {
   const router = useRouter();
   const [boton1Visible, setBoton1Visible] = useState(false);
   const [boton2Visible, setBoton2Visible] = useState(false);

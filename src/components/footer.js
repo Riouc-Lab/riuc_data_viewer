@@ -262,7 +262,7 @@ export default function Footer() {
             </p>
             <hr className="my-2 border-white" />
             <p className="text-gray-700 text-white">
-              CIITT: "Vía a Biblín, Ricaurte, Cuenca, Ecuador" Teléfono: 593
+              CIITT: &ldquo;Vía a Biblín, Ricaurte, Cuenca, Ecuador&ldquo; Teléfono: 593
               (07) 2-834-037 / Ext 155, 156 Email:
               <a
                 href="mailto:ciitt@ucacue.edu.ec"

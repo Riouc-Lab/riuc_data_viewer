@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-export default function boletinn1() {
+export default function Boletinn1() {
   const router = useRouter();
   const abrirPDF = () => {
     // Reemplaza 'nombre-del-archivo.pdf' con el nombre real de tu archivo PDF
@@ -10,16 +10,16 @@ export default function boletinn1() {
     window.open(pdfUrl, "_blank");
   };
 
-  function proyect(to) {
+  function Proyect(to) {
     router.push(to);
   }
 
   return (
     <div className="bg-white p-6 mx-auto max-w-7xl">
       <div className="p-1 text-gray-500 hover:underline mb-2 flex items-center space-x-2 mt-4">
-      <button
+        <button
           className="p-1 text-gray-500 hover:underline mb-2 mb-2 flex items-center space-x-2 mt-4"
-          onClick={() => proyect("/boletin")}
+          onClick={() => Proyect("/boletin")}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -39,9 +39,7 @@ export default function boletinn1() {
           </span>
         </button>
       </div>
-      <h1 className="text-6xl text-red-500 font-semibold mb-5 mt-3">
-        BOLETIN
-      </h1>
+      <h1 className="text-6xl text-red-500 font-semibold mb-5 mt-3">BOLETIN</h1>
       <h2 className="text-base text-gray-400">Volumen 1 / N°1</h2>
       <h2 className="text-base text-gray-400 mb-3">mayo - agosto 2023</h2>
       <p className="text-lg text-gray-800 mb-5 text-justify">
@@ -108,9 +106,9 @@ export default function boletinn1() {
                 d="M5 13l4 4L19 7"
               />
             </svg>
-            Una tercera sección está enmarcada a visibilizar datos relevantes
-            de investigaciones, así como mostrar las bases de datos que se
-            manejan con información de calidad.
+            Una tercera sección está enmarcada a visibilizar datos relevantes de
+            investigaciones, así como mostrar las bases de datos que se manejan
+            con información de calidad.
           </div>
         </div>
         <div className="md:w-1/2 md:pl-4">
