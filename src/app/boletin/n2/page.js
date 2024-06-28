@@ -1,24 +1,27 @@
-"use client";
+"use client"; // Asegura que este archivo se ejecuta en el cliente
+
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 export default function Boletinn2() {
   const router = useRouter();
+
+  // Función para abrir el PDF en una nueva ventana
   const abrirPDF = () => {
-    // Reemplaza 'nombre-del-archivo.pdf' con el nombre real de tu archivo PDF
-    const pdfUrl = "/pdf/REVISTA2.pdf";
-    window.open(pdfUrl, "_blank");
+    const pdfUrl = "/pdf/REVISTA2.pdf"; // URL del PDF
+    window.open(pdfUrl, "_blank"); // Abre el PDF en una nueva pestaña del navegador
   };
 
-  function Proyect(to) {
+  // Función para navegar a una ruta específica
+  const Proyect = (to) => {
     router.push(to);
-  }
+  };
 
   return (
     <div className="bg-white p-6 mx-auto max-w-7xl">
       <div className="p-1 text-gray-500 hover:underline mb-2 flex items-center space-x-2 mt-4">
-      <button
-          className="p-1 text-gray-500 hover:underline mb-2 mb-2 flex items-center space-x-2 mt-4"
+        <button
+          className="p-1 text-gray-500 hover:underline mb-2 flex items-center space-x-2 mt-4"
           onClick={() => Proyect("/boletin")}
         >
           <svg
@@ -39,19 +42,15 @@ export default function Boletinn2() {
           </span>
         </button>
       </div>
-      <h1 className="text-6xl text-red-500 font-semibold mb-5 mt-3">
-        BOLETIN
-      </h1>
+      <h1 className="text-6xl text-red-500 font-semibold mb-5 mt-3">BOLETIN</h1>
       <h2 className="text-base text-gray-400">Volumen 1 / N°2</h2>
-      <h2 className="text-base text-gray-400 mb-1">
-        septiembre - diciembre 2023
-      </h2>
+      <h2 className="text-base text-gray-400 mb-1">septiembre - diciembre 2023</h2>
       <p className="text-lg text-gray-800 mb-5 text-justify">
         En la presente publicación, se presenta información acerca del
         Observatorio Natural en la sección En la Lupa de los Observatorio.
         Destaca la actividad que realiza nuestra Prof. Jazmín Salazar, docente
         investigadora quien conjuntamente con su equipo de investigación,
-        desarrolla investigación en el habitat de distintas zonas de humedales
+        desarrolla investigación en el hábitat de distintas zonas de humedales
         en el país.
       </p>
       <div className="flex flex-col md:flex-row mb-5">

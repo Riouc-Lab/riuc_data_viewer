@@ -1,18 +1,21 @@
-"use client";
+"use client";  // Asegura que este archivo es tratado como un componente de cliente
+
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 export default function Boletinn1() {
   const router = useRouter();
+  
+  // Función para abrir PDF
   const abrirPDF = () => {
-    // Reemplaza 'nombre-del-archivo.pdf' con el nombre real de tu archivo PDF
     const pdfUrl = "/pdf/REVISTA1.pdf";
-    window.open(pdfUrl, "_blank");
+    window.open(pdfUrl, "_blank"); // window es un objeto global del navegador, asegurate de que el entorno sea del cliente
   };
 
-  function Proyect(to) {
+  // Función para navegar a una ruta específica
+  const Proyect = (to) => {
     router.push(to);
-  }
+  };
 
   return (
     <div className="bg-white p-6 mx-auto max-w-7xl">
