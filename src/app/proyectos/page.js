@@ -12,12 +12,12 @@ export default function Proyectos() {
   const [currentPage, setCurrentPage] = useState(1);
   const projectsPerPage = 9; // Define el número de proyectos por página
 
-   // Agrega botones para navegar entre páginas
-   const totalPages = Math.ceil(lista_proyectos.length / projectsPerPage);
+  // Agrega botones para navegar entre páginas
+  const totalPages = Math.ceil(lista_proyectos.length / projectsPerPage);
 
-   const handlePageChange = (page) => {
-     setCurrentPage(page);
-   };
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
 
   const handleSearch = (query) => {
     const filteredProjects = lista_proyectos.filter((project) =>
@@ -30,14 +30,16 @@ export default function Proyectos() {
   const startIndex = (currentPage - 1) * projectsPerPage;
   const endIndex = startIndex + projectsPerPage;
   const projectsToDisplay =
-    searchResults.length > 0 
-    ? searchResults.slice(startIndex, endIndex)
-    : lista_proyectos.slice(startIndex, endIndex);
+    searchResults.length > 0
+      ? searchResults.slice(startIndex, endIndex)
+      : lista_proyectos.slice(startIndex, endIndex);
 
   return (
     <main className="flex min-h-screen flex-col items-center p-7 mb-5">
       <div className="text-center mb-10">
-        <h5 className="text-base md:text-lg text-red-500 mb-1 font-semibold">GEOVISOR</h5>
+        <h5 className="text-base md:text-lg text-red-500 mb-1 font-semibold">
+          GEOVISOR
+        </h5>
         <h1 className="text-4xl md:text-7xl font-semibold p-5 mb-12 bg-gradient-to-r from-black to-black bg-clip-text text-transparent border-b-2 border-red-400">
           PROYECTOS
         </h1>
@@ -51,7 +53,10 @@ export default function Proyectos() {
           return (
             // eslint-disable-next-line react/jsx-key
             <div className="">
-              <div className="border-2 border-black border-opacity-10 rounded-lg overflow-hidden">
+              <div
+                className="border-2 border-black border-opacity-10 rounded-lg overflow-hidden cursor-pointer"
+                onClick={() => router.push(item.to)}
+              >
                 <Image
                   className=""
                   src={item.Image}
@@ -69,17 +74,7 @@ export default function Proyectos() {
                   <p className="leading-relaxed mb-3"> {item.description}</p>
                   <div className="flex items-center flex-wrap ">
                     <a className="text-indigo-300 inline-flex items-center md:mb-2 lg:mb-0">
-                      <button
-                        className={
-                          isActive
-                            ? "ml-4 grid text-center text-text-red-700 text-xl text-red-700 py-3 mb-2"
-                            : "text-indigo-300 inline-flex items-center md:mb-2 lg:mb-0"
-                        }
-                        type="button"
-                        onClick={() => router.push(item.to)}
-                      >
-                        Saber mas
-                      </button>
+                      <span className="flex-grow flex flex-col">Saber mas</span>
 
                       <svg
                         className="w-4 h-4 ml-2"
@@ -94,8 +89,8 @@ export default function Proyectos() {
                         <path d="M12 5l7 7-7 7"></path>
                       </svg>
                     </a>
-                    <span className="text-gray-400 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
-                      RIOUC
+                    <span className="text-red-400 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
+                    {item.additionalDescription}
                     </span>
                   </div>
                 </div>
@@ -104,21 +99,35 @@ export default function Proyectos() {
           );
         })}
       </div>
-        
-        <nav aria-label="Page navigation example">
-          <ul class="flex items-center -space-x-px h-8 text-sm p-16">
-            <li>
-              <a href="#" class="flex items-center justify-center px-3 h-8 ml-0 leading-tight text-black bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-              onClick={() => handlePageChange(currentPage - 1)}>
-                <span class="sr-only">Previous</span>
-                <svg class="w-2.5 h-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
-                </svg>
-              </a>
-            </li>
 
+      <nav aria-label="Page navigation example">
+        <ul class="flex items-center -space-x-px h-8 text-sm p-16">
+          <li>
+            <a
+              href="#"
+              class="flex items-center justify-center px-3 h-8 ml-0 leading-tight text-black bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+              onClick={() => handlePageChange(currentPage - 1)}
+            >
+              <span class="sr-only">Previous</span>
+              <svg
+                class="w-2.5 h-2.5"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 6 10"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 1 1 5l4 4"
+                />
+              </svg>
+            </a>
+          </li>
 
-            {/* Mapea y muestra los números de página */}
+          {/* Mapea y muestra los números de página */}
           {Array.from({ length: totalPages }, (_, index) => (
             <li key={index}>
               <a
@@ -135,20 +144,32 @@ export default function Proyectos() {
             </li>
           ))}
 
-            <li>
+          <li>
             <a
               href="#"
               className="flex items-center justify-center px-3 h-8 leading-tight text-black bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
               onClick={() => handlePageChange(currentPage + 1)}
             >
               <span class="sr-only">Next</span>
-                <svg class="w-2.5 h-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
-                </svg>
+              <svg
+                class="w-2.5 h-2.5"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 6 10"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="m1 9 4-4-4-4"
+                />
+              </svg>
             </a>
           </li>
-          </ul>
-        </nav>
+        </ul>
+      </nav>
     </main>
   );
 }

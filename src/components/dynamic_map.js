@@ -46,7 +46,7 @@ const Map = ({
     <div className={mapClassName}>
       <MapContainer
         className={"static-map"}
-        style={{ width: 1160, height: 875 }}
+        style={{ width: '100%', height: 830 }}
         scrollWheelZoom={true} //habilita el zoom con la rueda del mouse
         fullscreenControl={true} // Opciones adicionales: fullscreenControl={{ pseudoFullscreen: false }}
         {...rest}

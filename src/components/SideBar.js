@@ -36,8 +36,8 @@ export default function SideBar({ navLinks }) {
 
   return (
     <>
-      <div className="z-20 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <div className="fixed left-0 top-0 w-full flex justify-left p-3 bg-gradient-to-b from-gray-900 to-black border-b border-gray-600">
+      <div className="w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex sidebar">
+        <div className="fixed left-0 top-0 w-full flex justify-left p-3 bg-gradient-to-b from-gray-900 to-black border-b border-gray-600 sidebar">
           <div className="font-mono font-bold">
             <a
               className="cursor-pointer flex items-center gap-4 p-2 lg:p-0"
@@ -67,7 +67,7 @@ export default function SideBar({ navLinks }) {
         </div>
       </div>
       <button
-        className="fixed-hamburger ml-4 right-3 p-5 border-b border-gray-50"
+        className="fixed-hamburger ml-4 right-3 p-5 border-b border-gray-50 sidebar"
         onClick={() => {
           setOpen(true);
           setShowHamburger(false); // Ocultar el botón de hamburguesa al abrir el menú
@@ -92,7 +92,7 @@ export default function SideBar({ navLinks }) {
       <div
         className={`${
           !open && "hidden"
-        } bg-gray-600/50 min-h-screen w-full fixed top-0 left-0 right-0 backdrop-blur-sm`}
+        } bg-gray-0/60 min-h-screen w-full fixed top-0 left-0 right-0 backdrop-blur-sm`}
         onClick={() => {
           setOpen(false);
           setShowHamburger(true); // Restablecer la visibilidad del botón de hamburguesa al cerrar el menú
@@ -102,7 +102,7 @@ export default function SideBar({ navLinks }) {
       <div
         className={`${
           open ? "h-screen" : "h-0"
-        } bg-black fixed top-0 left-0 right-0 transition-all duration-500 overflow-hidden`}
+        } bg-black fixed top-0 left-0 right-0 transition-all duration-500 overflow-hidden fixed-content`}
       >
         <div
           className={`${

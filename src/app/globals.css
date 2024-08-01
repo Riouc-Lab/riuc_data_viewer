@@ -53,22 +53,23 @@ body {
   color: red; /* Cambiar el color del texto */
 }
 
-/* Ejemplo de estilo personalizado para los marcadores */
+/* Estilo mejorado para los marcadores */
 .leaflet-marker-icon {
-  width: 15px; /* Cambiar el tamaño de los marcadores */
-  height: 15px;
-  background-color: rgb(
-    52,
-    201,
-    247
-  ); /* Cambiar el color de fondo de los marcadores */
-  /* Personalizar el icono del marcador */
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  border-radius: 50%;
-  border: 2px solid #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  width: 30px; /* Ajusta el tamaño del marcador */
+  height: 30px;
+  background-color: transparent; /* Fondo transparente */
+  background-image: url("https://img.icons8.com/color/48/marker--v1.png"); /* Icono del marcador */
+  background-size: contain; /* Asegura que la imagen se ajuste sin distorsión */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+  background-position: center; /* Centra la imagen en el marcador */
+  border: 0px solid transparent; /* Elimina el borde blanco que podría causar problemas */
+  transition: transform 0.2s ease-in-out; /* Transición suave al hacer hover */
+}
+
+/* Añadir un efecto de hover para los marcadores */
+.leaflet-marker-icon:hover {
+  transform: scale(1.2); /* Aumentar el tamaño del marcador al pasar el ratón */
+  box-shadow: 0 0 20px rgba(216, 25, 25, 0.5); /* Cambiar la sombra en hover */
 }
 
 svg {
@@ -103,4 +104,37 @@ svg {
   top: 0;
   right: 0;
   z-index: 0; /* Asegúrate de que el z-index sea mayor que el de otros elementos */
+}
+
+.fixed-content {
+  top: 0;
+  right: 0;
+  z-index: 9999; /* Asegúrate de que el z-index sea mayor que el de otros elementos */
+}
+
+.sidebar {
+  z-index: 9999; /* Asegúrate de que el z-index sea mayor que el de otros elementos */
+}
+/* Archivo CSS para manejar el comportamiento de la tercera columna */
+.custom-container {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 1024px) {
+  .custom-container {
+    flex-direction: row;
+  }
+
+  .custom-container .third-column {
+    width: 300px;
+  }
+}
+
+.custom-container .third-column.horizontal {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow-x: auto;
 }

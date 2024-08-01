@@ -47,7 +47,9 @@ export default function Noticia() {
 
       // Verificar si el usuario ya ha dado "Me gusta" a esta noticia
       if (session) {
-        const likedByUser = localStorage.getItem(`liked_${id}_${session.user.id}`);
+        const likedByUser = localStorage.getItem(
+          `liked_${id}_${session.user.id}`
+        );
         if (likedByUser) {
           setLikedByUser(true);
         }
@@ -88,7 +90,6 @@ export default function Noticia() {
       setComments(JSON.parse(storedComments));
     }
   }, [id]);
-
 
   const handleCommentSubmit = (comment) => {
     const newComment = {
@@ -154,8 +155,8 @@ export default function Noticia() {
           {session ? (
             <div className="flex items-center space-x-2 space-y-1">
               <Image
-              width={32}
-              height={32}
+                width={32}
+                height={32}
                 src={session.user.image}
                 alt="User Image"
                 className="w-6 h-6 rounded-full"
@@ -183,9 +184,7 @@ export default function Noticia() {
                   />
                 </svg>
 
-                <span className="text-gray-500 hover:text-red-400 transition">
-                  
-                </span>
+                <span className="text-gray-500 hover:text-red-400 transition"></span>
               </button>
             </div>
           ) : (
@@ -241,8 +240,9 @@ export default function Noticia() {
           </button>
           {/* Contador de likes */}
           <div className="ml-1 text-gray-600">
-            +{likes} {likes === 1 ? "persona" : "personas"}
-            {likes === 1 ? "" : " "}
+            {isNaN(likes)
+              ? "0"
+              : `+${likes} ${likes === 1 ? "persona" : "personas"}`}
           </div>
         </div>
 
