@@ -460,8 +460,8 @@ export default function Canar() {
   }
 
   return (
-    <div className="flex flex-col lg:flex-row">
-      <div className="w-full lg:w-1/3 xl:w-1/4 bg-gray-900">
+    <div className="flex flex-col lg:flex-row p-2 bg-black">
+      <div className="w-full lg:w-1/3 xl:w-1/4 bg-gray-900 overflow-hidden overflow-y-auto rounded-lg">
         <div className="flex flex-col h-full mt-2">
           <button
             className="p-2 text-gray-500 hover:underline mb-2 font-medium flex items-center space-x-2"
@@ -651,7 +651,7 @@ export default function Canar() {
         </div>
       </div>
       <div className="w-full lg:w-2/3 xl:w-3/4 flex-grow bg-gray-200">
-        <div className="relative w-full h-full">
+      <div className="h-[calc(100vh-80px)] w-full">
           <div className="leaflet-container">
             <Map
               className="shadow-xl"

@@ -69,7 +69,7 @@ const Map = ({
               </div>
             ) : (
               <p className="text-lg font-semibold text-red-600">
-                Seleccione una provincia
+                Interactúa con el mapa
               </p>
             )
           }

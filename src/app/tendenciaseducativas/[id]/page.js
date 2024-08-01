@@ -350,11 +350,13 @@ export default function Noticia() {
           {/* Mostrar comentarios */}
           {visibleComments.map((comment, index) => (
             <div key={index} className="mb-2 flex items-start space-x-2">
-              <img
-                src={comment.user.image}
-                alt={comment.user.name}
-                className="w-8 h-8 rounded-full"
-              />
+              <Image
+              src={comment.user.image}
+              alt={comment.user.name}
+              className="w-8 h-8 rounded-full"
+              width={40}
+              height={32}
+            />
               <div>
                 <p className="mb-1 text-gray-600">
                   <strong>{comment.user.name}</strong>
