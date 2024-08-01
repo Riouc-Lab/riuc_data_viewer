@@ -35,7 +35,7 @@ export default function Canar() {
 
   const handleDownloadClick = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/api/canarencuesta", {
+      const response = await axios.get("http://192.168.10.11:8484/api/canarencuesta", {
         responseType: "blob", // Esto configura la respuesta como un blob
       });
 
