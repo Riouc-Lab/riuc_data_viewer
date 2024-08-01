@@ -12,9 +12,9 @@ export const lista_proyectos = [
     Image: "/img/geovisor_mapa.png",
     id: 2,
     to: "/proyectos/canar",
-    name: "Potrotipo geovisor CAÑAR", 
+    name: "Empresas en Cañar", 
     description: "Visualiza y compara datos sobre la población general del país en tiempo real.",
-    date: "2024-07-25",
+    date: "2023-03-06",
     additionalDescription: "Observatorio de Fenómenos Socioeconómicos",
   },
 ];
