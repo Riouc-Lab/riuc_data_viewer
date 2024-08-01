@@ -99,10 +99,7 @@ export default function Modelogeovisor() {
   // Asociar datos de población con las capas GeoJSON
   const provinciasConPoblacion = provincias.map((provinciaGeoJSON) => {
     const idProvGeoJSON = provinciaGeoJSON.properties.id_prov;
-    const poblacionData = poblacion
-      ? poblacion.find((data) => data.id_provincia === idProvGeoJSON)
-      : null;
-
+    const poblacionData = poblacion.find((data) => data.id_provincia === idProvGeoJSON);
     return {
       ...provinciaGeoJSON,
       properties: {
@@ -112,13 +109,15 @@ export default function Modelogeovisor() {
     };
   });
 
-  async function getPoblacion() {
+  function proyect(to) {
+    router.push(to);
+  }
+
+  const fetchPoblacion = async () => {
     try {
       const response = await axios.get("http://localhost:3000/api/poblacion");
       const poblacionData = response.data.data;
-
       if (Array.isArray(poblacionData) && poblacionData.length > 0) {
-        // Verifica que poblacionData sea un array no vacío
         setPoblacion(poblacionData);
       } else {
         console.error("No se encontraron datos de población.");
@@ -126,45 +125,27 @@ export default function Modelogeovisor() {
     } catch (error) {
       console.error("Error al obtener datos de población:", error);
     }
-  }
+  };
 
-  function proyect(to) {
-    router.push(to);
-  }
-
-  async function getcapas() {
-    return await axios.get(
-      //GEOJSON CANTONES
-      //"https://s3.us-east-1.amazonaws.com/hdx-production-filestore/resources/6fa37b41-ad28-40a6-9641-3b4efd4dbe13/ecuador.geojson?AWSAccessKeyId=AKIAXYC32WNAS5V67V55&Signature=qZS93nRSiV9zACfUmIO0atkwdq0%3D&Expires=1696956756"
-      //GEOJSON PROVINCIAS
-      "https://raw.githubusercontent.com/jpmarindiaz/geo-collection/master/ecu/ecuador.geojson"
-    );
-  }
-
-  getcapas().then((res) => {
-    let prov = res.data.features;
-    if (provincias.length == 0) {
-      setProvincias(prov);
-      console.log(prov);
+  const fetchCapas = async () => {
+    try {
+      const response = await axios.get("https://raw.githubusercontent.com/jpmarindiaz/geo-collection/master/ecu/ecuador.geojson");
+      return response.data.features;
+    } catch (error) {
+      console.error("Error al obtener capas:", error);
     }
-  });
-
-  getPoblacion().then((res) => {
-    let result = res;
-    console.log(result);
-  });
+  };
 
   useEffect(() => {
-    async function fetchData() {
+    const fetchData = async () => {
       try {
-        await Promise.all([getcapas(), getPoblacion()]);
-
-        // Cuando ambas solicitudes se completen, establecemos dataLoaded en true
+        const [capas, poblacionData] = await Promise.all([fetchCapas(), fetchPoblacion()]);
+        setProvincias(capas);
         setDataLoaded(true);
       } catch (error) {
         console.error("Error al obtener datos:", error);
       }
-    }
+    };
 
     fetchData();
   }, []);

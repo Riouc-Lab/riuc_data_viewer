@@ -15,6 +15,6 @@ export const lista_proyectos = [
     name: "Potrotipo geovisor CAÑAR", 
     description: "Visualiza y compara datos sobre la población general del país en tiempo real.",
     date: "2024-07-25",
-    additionalDescription: "Observatorio de Comportamiento Humano",
+    additionalDescription: "Observatorio de Fenómenos Socioeconómicos",
   },
 ];

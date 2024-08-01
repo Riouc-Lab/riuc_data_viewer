@@ -19,8 +19,10 @@ export default function Canar() {
   const [isZoomed, setIsZoomed] = useState(false);
   const [geoData, setGeoData] = useState(null);
   const [showTable, setShowTable] = useState(false);
+  const [showTable2, setShowTable2] = useState(false);
   const [showDescription, setShowDescription] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
+
 
   const toggleTextVisibility = () => {
     setTextVisibility(!isTextVisible);
@@ -31,19 +33,10 @@ export default function Canar() {
     setIsZoomed(zoomLevel > 1);
   };
 
-  useEffect(() => {
-    window.addEventListener("resize", handleZoom);
-    handleZoom();
-
-    return () => {
-      window.removeEventListener("resize", handleZoom);
-    };
-  }, []);
-
   const handleDownloadClick = async () => {
     try {
-      const response = await axios.get("/api/data", {
-        responseType: "blob",
+      const response = await axios.get("http://localhost:3000/api/canarencuesta", {
+        responseType: "blob", // Esto configura la respuesta como un blob
       });
 
       if (response.status === 200) {
@@ -54,7 +47,7 @@ export default function Canar() {
         const a = document.createElement("a");
         a.style.display = "none";
         a.href = url;
-        a.download = "data.csv";
+        a.download = "encuesta_Cañar.csv";
 
         document.body.appendChild(a);
         a.click();
@@ -62,12 +55,21 @@ export default function Canar() {
         window.URL.revokeObjectURL(url);
         document.body.removeChild(a);
       } else {
-        console.error("Error downloading data.");
+        console.error("Error al descargar los datos. Respuesta no exitosa.");
       }
     } catch (error) {
-      console.error("Error downloading data:", error);
+      console.error("Error al descargar los datos:", error);
     }
   };
+
+  useEffect(() => {
+    window.addEventListener("resize", handleZoom);
+    handleZoom();
+
+    return () => {
+      window.removeEventListener("resize", handleZoom);
+    };
+  }, []);
 
   function getColor(id) {
     const colorMapping = {
@@ -148,8 +150,15 @@ export default function Canar() {
   }, []);
 
   const handleButtonClick = () => {
-    setShowTable(prev => !prev); // Alterna la visibilidad de la tabla
-    setShowPopup(prev => !prev); // Alterna la visibilidad del popup
+    setShowPopup((prev) => !prev); // Alterna la visibilidad del popup
+  };
+
+  const handleButtonClick1 = () => {
+    setShowTable((prev) => !prev); // Alterna la visibilidad de la tabla
+  };
+
+  const handleButtonClick2 = () => {
+    setShowTable2((prev) => !prev); // Alterna la visibilidad de la tabla
   };
 
   const handleDescriptionToggle = () => {
@@ -481,7 +490,7 @@ export default function Canar() {
             </h1>
             <button
               className="text-blue-500 hover:text-blue-700"
-              onClick={handleDownloadClick}
+             onClick={handleDownloadClick}
             >
               Descargar
             </button>
@@ -516,43 +525,120 @@ export default function Canar() {
             </div>
             {/* Botones */}
             <div className="flex flex-col space-y-2 text-white">
-              Mostrar Datos:
+              Mostrar Tabla de Datos:
             </div>
             <SwitchButton label="Botón 1" onClick={handleButtonClick} />
-            <SwitchButton
-              label="Botón 2"
-              onClick={() => setBoton2Visible(!boton2Visible)}
-            />
-            <SwitchButton
-              label="Botón 3"
-              onClick={() => setBoton3Visible(!boton3Visible)}
-            />
+            <div className="flex flex-col space-y-2 text-white">
+              Mostrar Numero total de empresas por Cantón:
+            </div>
+            <SwitchButton label="Botón 2" onClick={handleButtonClick1} />
+            <div className="flex flex-col space-y-2 text-white">
+              Mostrar Numero total de empresas por Parroquia:
+            </div>
+            <SwitchButton label="Botón 3" onClick={handleButtonClick2} />
           </div>
 
-          {/* Tabla */}
+          {/* Tabla 1 */}
           {showTable && (
             <div className="p-4 bg-gray-800 text-white shadow-md">
-              <h2 className="text-xl font-semibold mb-2">Tabla de Datos</h2>
+              <h2 className="text-xl font-semibold mb-2">
+                Empresas por Cantón
+              </h2>
               <table className="w-full">
                 <thead>
                   <tr>
-                    <th className="text-left">Nombre</th>
                     <th className="text-left">Canton</th>
-                    <th className="text-left">Parroquia</th>
+                    <th className="text-left">Total</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>Empresa 1</td>
-                    <td>Descripción de la empresa 1.</td>
-                    <td>Ubicación de la empresa 1.</td>
+                    <td>CAÑAR</td>
+                    <td>36</td>
                   </tr>
                   <tr>
-                    <td>Empresa 2</td>
-                    <td>Descripción de la empresa 2.</td>
-                    <td>Ubicación de la empresa 2.</td>
+                    <td>TAMBO</td>
+                    <td>3</td>
                   </tr>
-                  <tr></tr>
+                  <tr>
+                    <td>TRONCAL</td>
+                    <td>1</td>
+                  </tr>
+                  <tr>
+                    <td>SUSCAL</td>
+                    <td>2</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          )}
+
+          {/* Tabla 2 */}
+          {showTable2 && (
+            <div className="p-4 bg-gray-800 text-white shadow-md">
+              <h2 className="text-xl font-semibold mb-2">
+                Empresas por Parroquia
+              </h2>
+              <table className="w-full">
+                <thead>
+                  <tr>
+                    <th className="text-left">Parroquia</th>
+                    <th className="text-left">Total</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>CAÑAR</td>
+                    <td>9</td>
+                  </tr>
+                  <tr>
+                    <td>SAN ANTONIO</td>
+                    <td>2</td>
+                  </tr>
+                  <tr>
+                    <td>INGAPIRCA</td>
+                    <td>12</td>
+                  </tr>
+                  <tr>
+                    <td>DUCUR</td>
+                    <td>1</td>
+                  </tr>
+                  <tr>
+                    <td>GUALLETURO</td>
+                    <td>3</td>
+                  </tr>
+                  <tr>
+                    <td>TAMBO</td>
+                    <td>4</td>
+                  </tr>
+                  <tr>
+                    <td>SAN RAFAEL</td>
+                    <td>1</td>
+                  </tr>
+                  <tr>
+                    <td>YANALLPA</td>
+                    <td>1</td>
+                  </tr>
+                  <tr>
+                    <td>HONORATO VAZQUEZ</td>
+                    <td>2</td>
+                  </tr>
+                  <tr>
+                    <td>ZHUD</td>
+                    <td>2</td>
+                  </tr>
+                  <tr>
+                    <td>SUSCAL</td>
+                    <td>2</td>
+                  </tr>
+                  <tr>
+                    <td>ZHUCAY</td>
+                    <td>1</td>
+                  </tr>
+                  <tr>
+                    <td>JUNCAL</td>
+                    <td>2</td>
+                  </tr>
                 </tbody>
               </table>
             </div>
@@ -602,8 +688,8 @@ export default function Canar() {
                   >
                     <Popup>
                       <div>
-                        <h2 className="text-lg font-semibold">Empresa 1</h2>
-                        <p>Descripción de la empresa 1.</p>
+                        <h2 className="text-lg font-semibold">AGRO ZHUCAY</h2>
+                        <p>COMERCIO DE CACAO EN GRANO Y VIVERO</p>
                       </div>
                     </Popup>
                   </Circle>
@@ -615,8 +701,8 @@ export default function Canar() {
                   >
                     <Popup>
                       <div>
-                        <h2 className="text-lg font-semibold">Empresa 2</h2>
-                        <p>Descripción de la empresa 1.</p>
+                        <h2 className="text-lg font-semibold">ASO PROAFUG</h2>
+                        <p>ANIMALES MENORES</p>
                       </div>
                     </Popup>
                   </Circle>
@@ -628,8 +714,8 @@ export default function Canar() {
                   >
                     <Popup>
                       <div>
-                        <h2 className="text-lg font-semibold">Empresa 3</h2>
-                        <p>Descripción de la empresa 1.</p>
+                        <h2 className="text-lg font-semibold">ASORIC</h2>
+                        <p>RECICLAJE</p>
                       </div>
                     </Popup>
                   </Circle>
@@ -641,8 +727,8 @@ export default function Canar() {
                   >
                     <Popup>
                       <div>
-                        <h2 className="text-lg font-semibold">Empresa 4</h2>
-                        <p>Descripción de la empresa 1.</p>
+                        <h2 className="text-lg font-semibold">COOPERATIVA DE PRODUCCIÓN AGROPECUARIA VIRGEN DE LA NUBE	</h2>
+                        <p>NO PRODUCE</p>
                       </div>
                     </Popup>
                   </Circle>
@@ -654,8 +740,8 @@ export default function Canar() {
                   >
                     <Popup>
                       <div>
-                        <h2 className="text-lg font-semibold">Empresa 5</h2>
-                        <p>Descripción de la empresa 1.</p>
+                        <h2 className="text-lg font-semibold">COOPERATIVA AGROPECUARIA SAN ISIDRO DE VENDELECHE	</h2>
+                        <p>PAPAS, MELLOCO</p>
                       </div>
                     </Popup>
                   </Circle>
@@ -667,8 +753,8 @@ export default function Canar() {
                   >
                     <Popup>
                       <div>
-                        <h2 className="text-lg font-semibold">Empresa 6</h2>
-                        <p>Descripción de la empresa 1.</p>
+                        <h2 className="text-lg font-semibold">ASOCIACION DE CAÑACULTORES DE LA PROVINCIA DEL CAÑAR	</h2>
+                        <p>BIOCOMBUSTIBLE</p>
                       </div>
                     </Popup>
                   </Circle>
@@ -680,8 +766,8 @@ export default function Canar() {
                   >
                     <Popup>
                       <div>
-                        <h2 className="text-lg font-semibold">Empresa 7</h2>
-                        <p>Descripción de la empresa 1.</p>
+                        <h2 className="text-lg font-semibold">ASOCIACIÓN COMUNITARIA PROGRESISTA	</h2>
+                        <p>DERIVADOS DE CACAO</p>
                       </div>
                     </Popup>
                   </Circle>
@@ -693,8 +779,8 @@ export default function Canar() {
                   >
                     <Popup>
                       <div>
-                        <h2 className="text-lg font-semibold">Empresa 8</h2>
-                        <p>Descripción de la empresa 1.</p>
+                        <h2 className="text-lg font-semibold">COOPERATIVA DE PRODUCCIÓN AGRÍCOLA	</h2>
+                        <p>TRIGO, CEBADA, MAIZ</p>
                       </div>
                     </Popup>
                   </Circle>
@@ -706,8 +792,8 @@ export default function Canar() {
                   >
                     <Popup>
                       <div>
-                        <h2 className="text-lg font-semibold">Empresa 9</h2>
-                        <p>Descripción de la empresa 1.</p>
+                        <h2 className="text-lg font-semibold">SANTA TERESITA HUAIRA	</h2>
+                        <p>LECHE</p>
                       </div>
                     </Popup>
                   </Circle>
@@ -719,8 +805,8 @@ export default function Canar() {
                   >
                     <Popup>
                       <div>
-                        <h2 className="text-lg font-semibold">Empresa 10</h2>
-                        <p>Descripción de la empresa 1.</p>
+                        <h2 className="text-lg font-semibold">ASOCIACION SUMAK MIKUNA</h2>
+                        <p>AGROECOLÓGICOS</p>
                       </div>
                     </Popup>
                   </Circle>
@@ -732,8 +818,8 @@ export default function Canar() {
                   >
                     <Popup>
                       <div>
-                        <h2 className="text-lg font-semibold">Empresa 11</h2>
-                        <p>Descripción de la empresa 1.</p>
+                        <h2 className="text-lg font-semibold">ASOCIACION CHUQUIRAHURA	</h2>
+                        <p>LECHE CRUDA</p>
                       </div>
                     </Popup>
                   </Circle>
@@ -745,8 +831,8 @@ export default function Canar() {
                   >
                     <Popup>
                       <div>
-                        <h2 className="text-lg font-semibold">Empresa 12</h2>
-                        <p>Descripción de la empresa 1.</p>
+                        <h2 className="text-lg font-semibold">COOPERATIVA DE PRODUCCIÓN AGROPECUARIA SAN ANDRÉS DE MALAL	</h2>
+                        <p>PRODUCCIÓN AGROPECUARIA Y GANADERÍA</p>
                       </div>
                     </Popup>
                   </Circle>
@@ -758,8 +844,8 @@ export default function Canar() {
                   >
                     <Popup>
                       <div>
-                        <h2 className="text-lg font-semibold">Empresa 13</h2>
-                        <p>Descripción de la empresa 1.</p>
+                        <h2 className="text-lg font-semibold">ASOCIACIÓN EL CISNE	</h2>
+                        <p>VENTA DE LECHE CRUDA</p>
                       </div>
                     </Popup>
                   </Circle>
@@ -771,8 +857,8 @@ export default function Canar() {
                   >
                     <Popup>
                       <div>
-                        <h2 className="text-lg font-semibold">Empresa 14</h2>
-                        <p>Descripción de la empresa 1.</p>
+                        <h2 className="text-lg font-semibold">ASOCIACIÓN DE PRODUCCIÓN GANADERA TOMAHUAYCO Y SIYACOCHA	</h2>
+                        <p>GANADOS</p>
                       </div>
                     </Popup>
                   </Circle>
@@ -784,21 +870,8 @@ export default function Canar() {
                   >
                     <Popup>
                       <div>
-                        <h2 className="text-lg font-semibold">Empresa 15</h2>
-                        <p>Descripción de la empresa 1.</p>
-                      </div>
-                    </Popup>
-                  </Circle>
-
-                  <Circle
-                    center={[-2.55161, -78.936559]}
-                    pathOptions={{ color: "#50C878", fillColor: "#72FE9F" }}
-                    radius={300}
-                  >
-                    <Popup>
-                      <div>
-                        <h2 className="text-lg font-semibold">Empresa 16</h2>
-                        <p>Descripción de la empresa 1.</p>
+                        <h2 className="text-lg font-semibold">ASOCIACIÓN DE PRODUCCIÓN GANADERA SISID	</h2>
+                        <p>TRANSPORTE DE LECHE CRUDA</p>
                       </div>
                     </Popup>
                   </Circle>
@@ -810,8 +883,8 @@ export default function Canar() {
                   >
                     <Popup>
                       <div>
-                        <h2 className="text-lg font-semibold">Empresa 17</h2>
-                        <p>Descripción de la empresa 1.</p>
+                        <h2 className="text-lg font-semibold">ASOCIACIÓN MUSHUK YUYAY	</h2>
+                        <p>DERIVADOS DE QUINUA, CEBADA, AMARANTO, TRIGO, HABA</p>
                       </div>
                     </Popup>
                   </Circle>
@@ -823,8 +896,8 @@ export default function Canar() {
                   >
                     <Popup>
                       <div>
-                        <h2 className="text-lg font-semibold">Empresa 18</h2>
-                        <p>Descripción de la empresa 1.</p>
+                        <h2 className="text-lg font-semibold">ASOCIACION DE GANADEROS DE PRODUCCION CULEBRILLAS	</h2>
+                        <p>PRODUCCION DE LECHE</p>
                       </div>
                     </Popup>
                   </Circle>
@@ -836,8 +909,8 @@ export default function Canar() {
                   >
                     <Popup>
                       <div>
-                        <h2 className="text-lg font-semibold">Empresa 19</h2>
-                        <p>Descripción de la empresa 1.</p>
+                        <h2 className="text-lg font-semibold">AGROACAGUA	</h2>
+                        <p>LECHE CRUDA</p>
                       </div>
                     </Popup>
                   </Circle>
@@ -849,8 +922,8 @@ export default function Canar() {
                   >
                     <Popup>
                       <div>
-                        <h2 className="text-lg font-semibold">Empresa 20</h2>
-                        <p>Descripción de la empresa 1.</p>
+                        <h2 className="text-lg font-semibold">ASOCIACION DE AGRONOMOS DEL CAÑAR	</h2>
+                        <p>PLANTAS EXOTICAS FORESTALES NATIVAS</p>
                       </div>
                     </Popup>
                   </Circle>
@@ -862,8 +935,8 @@ export default function Canar() {
                   >
                     <Popup>
                       <div>
-                        <h2 className="text-lg font-semibold">Empresa 21</h2>
-                        <p>Descripción de la empresa 1.</p>
+                        <h2 className="text-lg font-semibold">TEJIDOS Y ARTESANIAS ATAHUALPA	</h2>
+                        <p>ARTESANIAS</p>
                       </div>
                     </Popup>
                   </Circle>
@@ -875,8 +948,21 @@ export default function Canar() {
                   >
                     <Popup>
                       <div>
-                        <h2 className="text-lg font-semibold">Empresa 22</h2>
-                        <p>Descripción de la empresa 1.</p>
+                        <h2 className="text-lg font-semibold">LUM	</h2>
+                        <p>AGRICULTURA Y GANADERIA</p>
+                      </div>
+                    </Popup>
+                  </Circle>
+
+                  <Circle
+                    center={[-2.55161, -78.936559]}
+                    pathOptions={{ color: "#50C878", fillColor: "#72FE9F" }}
+                    radius={300}
+                  >
+                    <Popup>
+                      <div>
+                        <h2 className="text-lg font-semibold">ASOCIACIÓN DE PRODUCCIÓN AGROPECUARIA JUNCAL	</h2>
+                        <p>frutos, cultivos, herbaceos</p>
                       </div>
                     </Popup>
                   </Circle>
@@ -888,8 +974,8 @@ export default function Canar() {
                   >
                     <Popup>
                       <div>
-                        <h2 className="text-lg font-semibold">Empresa 23</h2>
-                        <p>Descripción de la empresa 1.</p>
+                        <h2 className="text-lg font-semibold">COOPERATIVA 	</h2>
+                        <p>Cultivos </p>
                       </div>
                     </Popup>
                   </Circle>
@@ -901,8 +987,8 @@ export default function Canar() {
                   >
                     <Popup>
                       <div>
-                        <h2 className="text-lg font-semibold">Empresa 24</h2>
-                        <p>Descripción de la empresa 1.</p>
+                        <h2 className="text-lg font-semibold">ASORIC 	 </h2>
+                        <p>Procesamiento de desechos</p>
                       </div>
                     </Popup>
                   </Circle>
@@ -914,8 +1000,8 @@ export default function Canar() {
                   >
                     <Popup>
                       <div>
-                        <h2 className="text-lg font-semibold">Empresa 25</h2>
-                        <p>Descripción de la empresa 1.</p>
+                        <h2 className="text-lg font-semibold">ASOCIACIÓN DE PRODUCCIÓN GANADERA DE COLMENA ASOPROGALACOL 	 </h2>
+                        <p>Lácteos</p>
                       </div>
                     </Popup>
                   </Circle>
@@ -927,8 +1013,8 @@ export default function Canar() {
                   >
                     <Popup>
                       <div>
-                        <h2 className="text-lg font-semibold">Empresa 26</h2>
-                        <p>Descripción de la empresa 1.</p>
+                        <h2 className="text-lg font-semibold">ASOCIACIÓN DE TRABAJADORES AGRÍCOLAS AUTÓNOMOS  “MANUEL FIDER”	 </h2>
+                        <p>Leche, queso, productos agrícolas</p>
                       </div>
                     </Popup>
                   </Circle>
@@ -940,8 +1026,8 @@ export default function Canar() {
                   >
                     <Popup>
                       <div>
-                        <h2 className="text-lg font-semibold">Empresa 27</h2>
-                        <p>Descripción de la empresa 1.</p>
+                        <h2 className="text-lg font-semibold">ASOPROGASI 	</h2>
+                        <p>Recolección y venta de leche cruda</p>
                       </div>
                     </Popup>
                   </Circle>
@@ -953,8 +1039,8 @@ export default function Canar() {
                   >
                     <Popup>
                       <div>
-                        <h2 className="text-lg font-semibold">Empresa 28</h2>
-                        <p>Descripción de la empresa 1.</p>
+                        <h2 className="text-lg font-semibold">ASOPROGASICHI 	</h2>
+                        <p>Recolección de leche cruda</p>
                       </div>
                     </Popup>
                   </Circle>
@@ -966,8 +1052,8 @@ export default function Canar() {
                   >
                     <Popup>
                       <div>
-                        <h2 className="text-lg font-semibold">Empresa 29</h2>
-                        <p>Descripción de la empresa 1.</p>
+                        <h2 className="text-lg font-semibold"> COOPERATIVA JAIME ROLDOS AGUILERA </h2>
+                        <p>	Producción agropecuaria </p>
                       </div>
                     </Popup>
                   </Circle>
@@ -979,8 +1065,8 @@ export default function Canar() {
                   >
                     <Popup>
                       <div>
-                        <h2 className="text-lg font-semibold">Empresa 30</h2>
-                        <p>Descripción de la empresa 1.</p>
+                        <h2 className="text-lg font-semibold">ASOCIACIÓN DE PRODUCCIÓN ARTESANAL ÑUKA ALLPA </h2>
+                        <p>Tejidos.</p>
                       </div>
                     </Popup>
                   </Circle>
@@ -992,8 +1078,8 @@ export default function Canar() {
                   >
                     <Popup>
                       <div>
-                        <h2 className="text-lg font-semibold">Empresa 31</h2>
-                        <p>Descripción de la empresa 1.</p>
+                        <h2 className="text-lg font-semibold">CHOCOZHU 	 </h2>
+                        <p>Chocolate</p>
                       </div>
                     </Popup>
                   </Circle>
@@ -1005,8 +1091,8 @@ export default function Canar() {
                   >
                     <Popup>
                       <div>
-                        <h2 className="text-lg font-semibold">Empresa 32</h2>
-                        <p>Descripción de la empresa 1.</p>
+                        <h2 className="text-lg font-semibold">ASOCIACIÓN DE TRABAJADORES AGRÍCOLAS CUNGAPIE	 </h2>
+                        <p>Alimentos- bebidas</p>
                       </div>
                     </Popup>
                   </Circle>
@@ -1018,8 +1104,8 @@ export default function Canar() {
                   >
                     <Popup>
                       <div>
-                        <h2 className="text-lg font-semibold">Empresa 33</h2>
-                        <p>Descripción de la empresa 1.</p>
+                        <h2 className="text-lg font-semibold">ASOCIACIÓN PRODUCCIÓN GANADERA “ SAN JOSÉ DE MAZANQUI”	 </h2>
+                        <p>Leche</p>
                       </div>
                     </Popup>
                   </Circle>
@@ -1031,8 +1117,8 @@ export default function Canar() {
                   >
                     <Popup>
                       <div>
-                        <h2 className="text-lg font-semibold">Empresa 34</h2>
-                        <p>Descripción de la empresa 1.</p>
+                        <h2 className="text-lg font-semibold">SAN LUIS DE CHOCAR	</h2>
+                        <p>Enfriamiento de leche </p>
                       </div>
                     </Popup>
                   </Circle>
@@ -1044,8 +1130,8 @@ export default function Canar() {
                   >
                     <Popup>
                       <div>
-                        <h2 className="text-lg font-semibold">Empresa 35</h2>
-                        <p>Descripción de la empresa 1.</p>
+                        <h2 className="text-lg font-semibold">ASOCIACIÓN VIRGEN DE PILAGATOS 	</h2>
+                        <p>Criaderos de pollos </p>
                       </div>
                     </Popup>
                   </Circle>
@@ -1057,8 +1143,8 @@ export default function Canar() {
                   >
                     <Popup>
                       <div>
-                        <h2 className="text-lg font-semibold">Empresa 36</h2>
-                        <p>Descripción de la empresa 1.</p>
+                        <h2 className="text-lg font-semibold">LA DOLOROSA DE LLACTAHUAYCO 	</h2>
+                        <p>Enfriadora de leche </p>
                       </div>
                     </Popup>
                   </Circle>
@@ -1070,8 +1156,8 @@ export default function Canar() {
                   >
                     <Popup>
                       <div>
-                        <h2 className="text-lg font-semibold">Empresa 37</h2>
-                        <p>Descripción de la empresa 1.</p>
+                        <h2 className="text-lg font-semibold">ASOCIACIÓN CAMPESINA DE PEQUEÑOS PRODUCTORES CHUYA MIKUNA 	 </h2>
+                        <p>Productos agroecológicos</p>
                       </div>
                     </Popup>
                   </Circle>
@@ -1083,8 +1169,8 @@ export default function Canar() {
                   >
                     <Popup>
                       <div>
-                        <h2 className="text-lg font-semibold">Empresa 38</h2>
-                        <p>Descripción de la empresa 1.</p>
+                        <h2 className="text-lg font-semibold">ASOCIACIÓN DE SERVICIOS DE RECICLAJE ARRAYAN ASOSEREA	 </h2>
+                        <p>Reciclaje de botellas</p>
                       </div>
                     </Popup>
                   </Circle>
@@ -1096,8 +1182,8 @@ export default function Canar() {
                   >
                     <Popup>
                       <div>
-                        <h2 className="text-lg font-semibold">Empresa 39</h2>
-                        <p>Descripción de la empresa 1.</p>
+                        <h2 className="text-lg font-semibold">ASOCIACIÓN DE PRODUCTORES AGROECOLÓGICOS QUAPAQ ÑAN 	</h2>
+                        <p>Cultivo de hortalizas agroecológicas y fideos Pallarina</p>
                       </div>
                     </Popup>
                   </Circle>
@@ -1109,8 +1195,8 @@ export default function Canar() {
                   >
                     <Popup>
                       <div>
-                        <h2 className="text-lg font-semibold">Empresa 40</h2>
-                        <p>Descripción de la empresa 1.</p>
+                        <h2 className="text-lg font-semibold">ASOCIACIÓN DE PRODUCCIÓN GANADERA CHUGUIN LAC	</h2>
+                        <p>Enfriadora de leche</p>
                       </div>
                     </Popup>
                   </Circle>
@@ -1122,8 +1208,8 @@ export default function Canar() {
                   >
                     <Popup>
                       <div>
-                        <h2 className="text-lg font-semibold">Empresa 41</h2>
-                        <p>Descripción de la empresa 1.</p>
+                        <h2 className="text-lg font-semibold">ASOCIACIÓN DE ARTESANAS MUSHUK PAKARY	</h2>
+                        <p>vestimenta típica cañari </p>
                       </div>
                     </Popup>
                   </Circle>
@@ -1135,8 +1221,8 @@ export default function Canar() {
                   >
                     <Popup>
                       <div>
-                        <h2 className="text-lg font-semibold">Empresa 42</h2>
-                        <p>Descripción de la empresa 1.</p>
+                        <h2 className="text-lg font-semibold">ASOCIACIÓN DE SERVICIOS DE LIMPIEZA DEL CAÑAR ASOSERLICAR	Servicio de lavado y accesorios para vehículos </h2>
+                        <p>Servicio de lavado y accesorios para vehículos</p>
                       </div>
                     </Popup>
                   </Circle>
@@ -1144,9 +1230,11 @@ export default function Canar() {
                   {/* Popup con la tabla de datos */}
                   {showPopup && (
                     <Popup position={[-2.633278, -79.026542]}>
-                    <div className="p-2 bg-gray-800 text-white shadow-md max-w-xs">
-                      <h2 className="text-lg font-semibold mb-2">Tabla de Datos</h2>
-                      <table className="w-full text-sm">
+                      <div className="p-2 bg-gray-800 text-white shadow-md max-w-xs">
+                        <h2 className="text-lg font-semibold mb-2">
+                          Tabla de Datos
+                        </h2>
+                        <table className="w-full text-sm">
                           <thead>
                             <tr>
                               <th className="text-left">Nombre</th>
@@ -1155,8 +1243,11 @@ export default function Canar() {
                             </tr>
                           </thead>
                           <tbody>
-                            {provincias.map((provincia) => (
-                              <tr key={provincia.id}>
+                            {provincias.map((provincia, index) => (
+                              <tr
+                                key={index}
+                                className="border-b border-gray-500"
+                              >
                                 <td>{provincia.nombre}</td>
                                 <td>{provincia.canton}</td>
                                 <td>{provincia.parroquia}</td>
