@@ -9,6 +9,9 @@ const DEFAULT_CENTER = [-2.518898, -79.086898];
 
 export default function Canar() {
   const router = useRouter();
+  const [isActive, setIsActive] = useState(false);
+  const [isActive1, setIsActive1] = useState(false);
+  const [isActive2, setIsActive2] = useState(false);
   const [isTextVisible, setTextVisibility] = useState(false);
   const [provincias, setProvincias] = useState([]);
   const [dataLoaded, setDataLoaded] = useState(false);
@@ -149,14 +152,17 @@ export default function Canar() {
 
   const handleButtonClick = () => {
     setShowPopup((prev) => !prev); // Alterna la visibilidad del popup
+    setIsActive(prevState => !prevState);
   };
 
   const handleButtonClick1 = () => {
     setShowTable((prev) => !prev); // Alterna la visibilidad de la tabla
+    setIsActive1(prevState => !prevState);
   };
 
   const handleButtonClick2 = () => {
     setShowTable2((prev) => !prev); // Alterna la visibilidad de la tabla
+    setIsActive2(prevState => !prevState);
   };
 
   const handleDescriptionToggle = () => {
@@ -526,11 +532,11 @@ export default function Canar() {
               <div className="flex flex-col space-y-2 text-white">
                 Mostrar Tabla de Datos:
               </div>
-              <SwitchButton label="Botón 1" onClick={handleButtonClick} />
+              <SwitchButton isActive={isActive} onClick={handleButtonClick} />
               <div className="flex flex-col space-y-2 text-white">
                 Mostrar Numero total de empresas por Cantón:
               </div>
-              <SwitchButton label="Botón 2" onClick={handleButtonClick1} />
+              <SwitchButton  isActive={isActive1} onClick={handleButtonClick1} />
               {/* Tabla 1 */}
               {showTable && (
                 <div className="p-4 bg-gray-800 text-white shadow-md">
@@ -568,7 +574,7 @@ export default function Canar() {
               <div className="flex flex-col space-y-2 text-white">
                 Mostrar Numero total de empresas por Parroquia:
               </div>
-              <SwitchButton label="Botón 3" onClick={handleButtonClick2} />
+              <SwitchButton  isActive={isActive2} onClick={handleButtonClick2} />
               {/* Tabla 2 */}
               {showTable2 && (
                 <div className="p-4 bg-gray-800 text-white shadow-md">

@@ -13,7 +13,7 @@ export const lista_proyectos = [
     id: 2,
     to: "/proyectos/canar",
     name: "Empresas en Cañar", 
-    description: "Visualiza y compara datos sobre la población general del país en tiempo real.",
+    description: "Visualiza y compara datos sobre las empresas en la provincia de Cañar.",
     date: "2023-03-06",
     additionalDescription: "Observatorio de Fenómenos Socioeconómicos",
   },
