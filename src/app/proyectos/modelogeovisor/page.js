@@ -39,7 +39,7 @@ export default function Modelogeovisor() {
 
   const handleDownloadClick = async () => {
     try {
-      const response = await axios.get("http://192.168.10.11:8484/api/poblacion", {
+      const response = await axios.get("http://192.168.10.11/api/poblacion", {
         responseType: "blob", // Esto configura la respuesta como un blob
       });
 
@@ -115,7 +115,7 @@ export default function Modelogeovisor() {
 
   const fetchPoblacion = async () => {
     try {
-      const response = await axios.get("http://192.168.10.11:8484/api/poblacion");
+      const response = await axios.get("http://192.168.10.11/api/poblacion");
       const poblacionData = response.data.data;
       if (Array.isArray(poblacionData) && poblacionData.length > 0) {
         setPoblacion(poblacionData);
