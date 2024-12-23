@@ -1,0 +1,82 @@
+.gallery {
+  display: grid;
+  flex-wrap: wrap; /* Permite que los elementos pasen a la siguiente fila si no caben */
+  justify-content: center;
+  gap: 20px; /* Espaciado entre miniaturas */
+  padding: 50px;
+}
+
+.card {
+  display: flex; /* Flexbox para contenido en fila dentro de cada tarjeta */
+  flex-direction: row; /* Miniatura a la izquierda, texto a la derecha */
+  align-items: stretch; /* Centra verticalmente miniatura y texto */
+  gap: 100px; /* Espaciado entre miniatura y texto */
+  padding: 100px; /* Espaciado interno de la tarjeta */
+  max-width: 4000px; /* Ancho máximo de cada tarjeta */
+  align-items:  left; /* Centra verticalmente las tarjetas */
+  margin: auto;  /* Centra la tarjeta en el contenedor */
+   
+}
+
+
+.card:hover {
+  transform: scale(1.02); /* Agranda ligeramente la miniatura al pasar el mouse */
+}
+
+.card:active {
+  animation: bounce 2.5s; /* Efecto de rebote al hacer clic */
+}
+
+@keyframes bounce {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.thumbnail {
+  width: 900px; /* Ajusta el tamaño de las miniaturas */
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  align-items:  left; /* Centra verticalmente las tarjetas */
+  margin: auto;  /* Centra la tarjeta en el contenedor */
+}
+
+.title {
+  font-size: 3rem; /* Título el doble de grande que la descripción */
+  font-weight: bold;
+  color: rgb(29, 29, 29);
+  font-family: "Roboto";
+  margin: 5px 0;
+}
+
+.titlemaster {
+  display: flex;
+  flex-wrap: wrap; /* Permite que los elementos pasen a la siguiente fila si no caben */
+  justify-content: center;
+  gap: 20px; /* Espaciado entre miniaturas */
+  padding: 0px;
+  font-size: 4rem; /* Título el doble de grande que la descripción */
+  font-weight: bold;
+  color: rgb(201, 5, 5);
+  font-family: "Roboto";
+  margin: 5px 0;
+}
+
+.description {
+  font-size: 1.5rem; /* Descripción más pequeña */
+  color: gray;
+  font-family: "Roboto";
+  margin-top: 5px;
+}
+
+.test {
+  background-color: red;
+  color: white;
+}

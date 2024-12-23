@@ -57,6 +57,30 @@ export default function Home() {
               />
               <span className="text-white font-bold mt-2">Proyectos</span>
             </div>
+            </Link>
+          <Link href="/Novedades" passHref>
+            <div className="w-48 h-48 sm:w-60 sm:h-60 bg-gradient-to-r from-gray-500 rounded-xl flex flex-col items-center justify-center shadow-2xl cursor-pointer hover:shadow-xl transition-shadow duration-300">
+              <Image
+                className="mx-auto"
+                src="/img/infografia.png"
+                alt="Infografias"
+                width={100}
+                height={100}
+              />
+              <span className="text-white font-bold mt-2">Infografías</span>
+            </div>
+          </Link>
+          <Link href="/vdos" passHref>
+            <div className="w-48 h-48 sm:w-60 sm:h-60 bg-gradient-to-r from-gray-500 rounded-xl flex flex-col items-center justify-center shadow-2xl cursor-pointer hover:shadow-xl transition-shadow duration-300">
+              <Image
+                className="mx-auto"
+                src="/img/videos.png"
+                alt="Videos"
+                width={100}
+                height={100}
+              />
+              <span className="text-white font-bold mt-2">Videos</span>
+            </div>
           </Link>
           <Link href="/tendenciaseducativas" passHref>
             <div className="w-48 h-48 sm:w-60 sm:h-60 bg-gradient-to-r from-gray-500 rounded-xl flex flex-col items-center justify-center shadow-2xl cursor-pointer hover:shadow-xl transition-shadow duration-300">

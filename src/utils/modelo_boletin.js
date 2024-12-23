@@ -15,5 +15,13 @@ export const lista_boletin = [
       description: "En la presente publicación, se presenta información acerca del Observatorio Natural en la sección En la Lupa de los Observatorio. Destaca la actividad que realiza nuestra Prof. Jazmín Salazar, docente investigadora quien conjuntamente con su equipo de ....",
       date: "septiembre - diciembre 2023",
     },
+    {
+      Image: "/img/boletin3.1p.png",
+      id: 1,
+      to: "/boletin/n3",
+      name: "Boletin Volumen 1 / N°3",
+      description: "En la presente publicación, se presenta información acerca del Observatorio ....",
+      date: "enero - noviembre 2024",
+    },
   ];
   
