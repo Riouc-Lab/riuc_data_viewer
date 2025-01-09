@@ -17,7 +17,6 @@
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@mui/material": "^5.14.7",
     "@react-leaflet/core": "^2.1.0",
-    "autoprefixer": "10.4.14",
     "axios": "^1.5.1",
     "eslint": "8.46.0",
     "eslint-config-next": "13.4.13",
@@ -29,18 +28,19 @@
     "next": "^13.5.7",
     "next-auth": "^4.24.7",
     "pg-promise": "^11.5.4",
-    "postcss": "8.4.27",
     "powerbi-client": "^2.22.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-leaflet": "^4.2.1",
     "react-leaflet-fullscreen": "^4.1.1",
     "sass": "^1.64.2",
-    "sqlite3": "^5.1.6",
-    "tailwindcss": "3.3.3"
+    "sqlite3": "^5.1.6"
   },
   "devDependencies": {
     "@types/node": "20.8.4",
-    "eslint-plugin-react-hooks": "^5.0.0-canary-7118f5dd7-20230705"
+    "autoprefixer": "^10.4.20",
+    "eslint-plugin-react-hooks": "^5.0.0-canary-7118f5dd7-20230705",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17"
   }
 }

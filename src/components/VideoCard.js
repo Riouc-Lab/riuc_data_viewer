@@ -11,7 +11,7 @@ export default function VideoCard({ video }) {
           className={styles.thumbnail}
         />
         <div>
-          <h2 className={styles.title}>{video.title}</h2>
+          <h2 className="text-2xl font-bold text-gray-900">{video.title}</h2>
           <p className={styles.description}>{video.description}</p>
         </div>
       </div>

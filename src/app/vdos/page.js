@@ -3,8 +3,8 @@ import styles from '../../styles/Home.module.css';
 import VideoCard from '../../components/VideoCard';
 
 const videos = [
-  { id: '1', thumbnail: 'mujerespioneras.png', title: 'Mujeres Pioneras video', description: 'mujeres pioneras sobre todos...' },
-  { id: '2', thumbnail: 'vdo1_socioec.png', title: 'Raquel y Champi video', description: 'La hisotria de Raquel y Champi...' },
+  { id: '1', thumbnail: 'portada_mujpioneras.png', title: 'Mujeres Pioneras video', description: 'mujeres pioneras sobre todos...' },
+  { id: '2', thumbnail: 'portada_raquel.jpg', title: 'Raquel y Champi video', description: 'La hisotria de Raquel y Champi...' },
   { id: '3', thumbnail: 'vdo1_socioec.png', title: 'Raquel y Champi video', description: 'La hisotria de Raquel y Champi...' },
 ];
 
