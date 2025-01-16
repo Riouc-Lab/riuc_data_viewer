@@ -59,7 +59,7 @@ export default function violmuj2024() {
         
         <div className="md:w-1/2 md:pl-4">
           <Image
-            src="/img/violmuj2024.png"
+            src="/img/violmujer2024.png"
             alt="RIOUC"
             width={440}
             height={175}
@@ -73,35 +73,7 @@ export default function violmuj2024() {
           onClick={abrirPDF}
         >
           Observar Infografía de Cerca
-        </button>
-        
-      </div>
-      <div className="flex flex-col md:flex-row mb-5">
-        <div className="md:w-1/4 md:pr-4">
-          <div className="text-lg text-gray-800 mb-5 text-justify">
-          </div>
-          <div className="text-lg text-gray-800 mb-5 text-justify">
-          </div>
-        </div>
-        
-        <div className="md:w-1/2 md:pl-4">
-          <Image
-            src="/img/violmuj2024.png"
-            alt="RIOUC"
-            width={440}
-            height={175}
-            className="mx-auto rounded-lg"
-          />
-        </div>
-      </div>
-      <div className="mb-12 text-center">
-        <button
-          className="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-full focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50"
-          onClick={abrirPDF}
-        >
-          Observar Infografía de Cerca
-        </button>
-        
+        </button>               
       </div>
     </div>
   );

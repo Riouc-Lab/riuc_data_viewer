@@ -7,9 +7,9 @@ export default function VideoPage({ params }) {
 
 
 const videos = [
-    { id: '1', video: 'mujerespioneras.mp4', title: 'Amazing Video 1', description: 'Mujeres Pioneras' },
-    { id: '2', video: 'raquelychampi.mp4', title: 'Amazing Video 1', description: 'Raquel y Champi' },
-    { id: '3', video: 'raquelychampi.mp4', title: 'Amazing Video 1', description: 'Raquel y Champi' },
+    { id: '1', video: 'mujerespioneras.mp4', title: 'Mujeres Pioneras', description: 'En el Ecuador' },
+    { id: '2', video: 'raquelychampi.mp4', title: 'Raquel y Champi', description: 'Cuento científico' },
+
   ];
   
   const video = videos.find((v) => v.id === id); // Buscar el video correspondiente
