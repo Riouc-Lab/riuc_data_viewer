@@ -44,13 +44,9 @@ export default function Boletinn3() {
       </div>
       <h1 className="text-6xl text-red-500 font-semibold mb-5 mt-3">BOLETIN</h1>
       <h2 className="text-base text-gray-400">Volumen 1 / N°3</h2>
-      <h2 className="text-base text-gray-400 mb-3">mayo - noviembre 2024</h2>
+      <h2 className="text-base text-gray-400 mb-1">septiembre - diciembre 2024</h2>
       <p className="text-lg text-gray-800 mb-5 text-justify">
-        El presente boletín “La RIOUC Informa” es una publicación semestral en
-        la que presentamos las principales estadísticas de datos producto de
-        nuestras investigaciones, conformadas por siete observatorios que hacen
-        vida en la Universidad Católica de Cuenca. Este boletín está conformado
-        por cuatro secciones:
+      En el presente boletín ”RIOUC Informa”, tendremos en la Lupa de los Observatorios, el Observatorio de Fenómenos Socioeconómicos abordando el tema: La dinámica en la vulnerabilidad de los derechos de los trabaja-dores migrantes, conformados por migrantes extranjeros, migrantes internos, familiares de migrantes y los migrantes retornados, informa-ción reflejada en un proyecto de investigación, en conjunto con la UA de Ciencias Económicas y Empresariales, el Lab. de Cálculo Computacional y la Fundación Childfund. 
       </p>
       <div className="flex flex-col md:flex-row mb-5">
         <div className="md:w-1/2 md:pr-4">
@@ -69,10 +65,7 @@ export default function Boletinn3() {
                 d="M5 13l4 4L19 7"
               />
             </svg>
-            La primera denominada, Bajo la lupa de los observatorios, presenta
-            en qué consiste cada observatorio, quienes son los responsables, qué
-            servicios ofrecen y cuáles son los proyectos actuales que llevan
-            adelante.
+            También, la Prof. Johana Reyes habla sobre: Matilde Hidalgo, la impulsora referente del voto de la mujer en Ecuador.
           </div>
           <div className="text-lg text-gray-800 mb-5 text-justify">
             <svg
@@ -89,10 +82,7 @@ export default function Boletinn3() {
                 d="M5 13l4 4L19 7"
               />
             </svg>
-            La segunda sección, denominada “hablando con expertos”, pretende
-            presentar la opinión de investigadores en diferentes áreas de la
-            ciencia haciendo énfasis en sus respectivas especialidades de
-            investigación.
+            En Hablando con Expertos, se entrevistó a la Soc. Andrea Sánchez, quien es experta en el tema de Movilidad Humana.
           </div>
           <div className="text-lg text-gray-800 mb-5 text-justify">
             <svg
@@ -109,23 +99,38 @@ export default function Boletinn3() {
                 d="M5 13l4 4L19 7"
               />
             </svg>
-            Una tercera sección está enmarcada a visibilizar datos relevantes de
-            investigaciones, así como mostrar las bases de datos que se manejan
-            con información de calidad.
+            En hablemos de Observatorios, tenemos la entrevista al Observa-torio de DDHH de la Universidad de Los Andes de Venezuela, con la Dra. Mayda Hocevar.
+          </div>
+          <div className="text-lg text-gray-800 mb-5 text-justify">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5 inline text-red-500 mr-2"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M5 13l4 4L19 7"
+              />
+            </svg>
+            Abordaremos el tema, acerca del voluntariado en el mundo, a través de la Prof. Aura Guerrero. 
           </div>
         </div>
         <div className="md:w-1/2 md:pl-4">
           <Image
-            src="/img/boletin3.1.png"
+            src="/img/preview_boletin2.png"
             alt="RIOUC"
-            width={440}
+            width={480}
             height={175}
             className="mx-auto rounded-lg"
           />
         </div>
       </div>
-
-      <div className="text-lg text-gray-800 mb-10 text-justify">
+      
+      <div className="text-lg text-gray-800 mb-5 text-justify">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-5 w-5 inline text-red-500 mr-2"
@@ -140,12 +145,26 @@ export default function Boletinn3() {
             d="M5 13l4 4L19 7"
           />
         </svg>
-        Por último, una cuarta sección, donde se exponen las actividades
-        realizadas en la Red de Investigación y Observatorios en el último
-        semestre y los eventos próximos a realizarse donde participarán miembros
-        de nuestra red.
+        El Prof. Juan Solís, nos deleita con un escrito en donde se resalta a las mujeres que marcan historia, en la provincia del Cañar
       </div>
 
+      <div className="text-lg text-gray-800 mb-5 text-justify">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-5 w-5 inline text-red-500 mr-2"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M5 13l4 4L19 7"
+          />
+        </svg>
+        Destacamos la participación de nuestra Jazmín Salazar, en un concurso de cuentos organizado por OEI, que tenía como objetivo, promover la ciencia desde el punto de vista del científico durante su proceso de investigación. 
+      </div>
       <div className="mb-12 text-center">
         <button
           className="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-full focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50"

@@ -20,7 +20,7 @@ export const lista_boletin = [
       id: 1,
       to: "/boletin/n3",
       name: "Boletin Volumen 1 / N°3",
-      description: "En la presente publicación, se presenta información acerca del Observatorio ....",
+      description: "En el presente boletín” RIOUC Informa”, tendremos una mirada en el fenómeno de la migración, abordando el tema: La dinámica en la vulnerabilidad de los derechos de los trabajadores migrantes, conformados por migrantes extranjeros, migrantes internos ....",
       date: "enero - noviembre 2024",
     },
   ];
