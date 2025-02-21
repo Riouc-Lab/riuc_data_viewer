@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-export default function violmuj2024() {
+export default function Novedades() {
   const router = useRouter();
   
   // Función para abrir PDF
