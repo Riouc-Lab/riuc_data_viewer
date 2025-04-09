@@ -1,8 +1,10 @@
 "use client";
 import Image from "next/image";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Equipo() {
+  const router = useRouter();  // Inicializa el router aquí
   const [showInfo1, setShowInfo1] = useState(false);
   const [showInfo2, setShowInfo2] = useState(false);
   const [showInfo3, setShowInfo3] = useState(false);
@@ -28,25 +30,25 @@ export default function Equipo() {
 
           <Image
             className="mx-auto"
-            src="/img/jaime.png"
+            src="/img/"
             alt="Imagen 1"
             width={300}
             height={160}
           />
           <h1 className="text-center font-semibold p-3 mb-2 bg-gradient-to-r from-black to-black bg-clip-text text-transparent border-b-2 border-red-400 w-2/4 mx-auto">
-            Jaime Tinto Arandes Ph.D
+            Lic. María Emilia Molina de Tinto
           </h1>
         </div>
         <div className="w-5/6 p-2">
           <Image
             className="mx-auto"
-            src="/img/marcos.png"
+            src="/img/"
             alt="Imagen 2"
             width={300}
             height={160}
           />
           <h1 className="text-center font-semibold p-3 mb-2 bg-gradient-to-r from-black to-black bg-clip-text text-transparent border-b-2 border-red-400 w-2/4 mx-auto">
-            Ing. Marcos Lenín Villarreal
+            NUEVO TÉCNIC@
           </h1>
         </div>
       </div>
@@ -54,11 +56,13 @@ export default function Equipo() {
       <p className="text-lg text-gray-800 mb-6"></p>
 
       <p className="text-lg text-gray-800 mb-6">
-        El Coordinador de la RIOUC es Jaime Tinto Arandes Ph.D; quien es
-        Economista Universidad de Los Andes-Venezuela, Especialista en Técnicas
-        de Muestreo CIENES-Chile, Postgrado en Ciencias Empresariales
-        Universitat de Barcelona-España, Doctor en Ciencias Económicas y
-        Empresariales Universitat de Barcelona España.
+        La Coordinadora de la <strong>Red de Investigación y Observatorios de la Universidad Católica de Cuenca-RIOUC</strong> es la <strong>Lic. María Emilia Molina de Tinto</strong>;
+        Lic. en Administración de Empresas–Universidad de Los Andes,
+        Venezuela. Especialista en Gestión de Proyectos Barcelona Activa-
+        España y Logística Integral Universitat Politécnica de
+        Catalunya-España, MSc en Ciencia Contable Universidad de Los
+        Andes-Venezuela, MSc. en Gestión del Bienestar Organizacional-
+        Universidad Nebrija-España.
       </p>
 
       <p className="text-lg text-gray-800 mb-6">
@@ -67,18 +71,29 @@ export default function Equipo() {
       </p>
 
       <p className="text-lg text-gray-800 mb-6">
-        Forma parte del equipo el Ing. Marcos Lenín Villarreal Esquivel,
+        Forma parte del equipo la <strong>....</strong>,
         responsable del diseño y estructuración de las bases de datos e
         información recolectada dentro de la RIOUC.
       </p>
 
-      <p className="text-lg text-gray-800 mb-12">
-        La RIOUC cuenta con el apoyo permanente del Laboratorio de Calculo
-        Computacional y Analítica de Datos ubicado en el CIITT, coordinado por
-        Orlando Álvarez Llamoza PhD, quienes contribuyen en el análisis y
-        almacenamiento de la información.
-      </p>
-      
+
+
+      <div className="flex justify-start items-center mb-6">
+        <Image
+          className="rounded-full mr-4"
+          src="/img/blgo_TORRACCHI.jpg" 
+          alt="Coordinador"
+          width={55}
+          height={55}
+        />
+        <p className="text-lg text-gray-800">
+
+          La RIOUC cuenta con el apoyo permanente del <strong>Laboratorio de Cálculo Computacional, Modelado y Analítica de Datos C2MAD - CIITT</strong>, coordinado por el
+          <strong> Blgo. José Esteban Torracchi Carrasco Ph.D</strong>, quienes contribuyen en el análisis y almacenamiento de la información.
+
+        </p>
+      </div>
+
       {/* Primer observatorio */}
       <h2
         className="text-2xl font-semibold text-red-500 mb-8 cursor-pointer border-b-2 border-red-300 w-full"
@@ -148,12 +163,21 @@ export default function Equipo() {
             Verde”. Universidad Politécnica Salesiana: Estructuración de
             plataforma tecnológica para las necesidades MiPymes.
           </p>{" "}
+          {/* Botón para redirigir al respectivo observatorio*/}
+          <div className="text-center mt-8"> {/* Añadí mt-8 para espacio superior */}
+            <button
+              className="inline-block px-8 py-4 bg-gradient-to-r from-red-600 to-red-500 text-white font-bold rounded-lg shadow-lg hover:scale-105 transform transition duration-300 hover:bg-red-700 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-red-300"
+              onClick={() => router.push('/quienes_somos/o1')}
+            >
+              Más detalles sobre este Observatorio
+            </button>
+          </div>
         </>
       )}
 
       {/* Segundo observatorio */}
       <h2
-        className="text-2xl font-semibold text-red-500 mb-8 cursor-pointer border-b-2 border-red-300 w-full"
+        className="text-2xl font-semibold text-red-500 mb-8 cursor-pointer border-b-2 border-red-300 w-full mt-12"
         onClick={() => setShowInfo2(!showInfo2)}
       >
         Observatorio Desarrollo Social
@@ -254,12 +278,21 @@ export default function Equipo() {
             Percepción de la violencia en la población universitaria. ¿La
             reconocen?
           </li>
+          {/* Botón para redirigir al respectivo observatorio*/}
+          <div className="text-center mt-8"> {/* Añadí mt-8 para espacio superior */}
+            <button
+              className="inline-block px-8 py-4 bg-gradient-to-r from-red-600 to-red-500 text-white font-bold rounded-lg shadow-lg hover:scale-105 transform transition duration-300 hover:bg-red-700 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-red-300"
+              onClick={() => router.push('/quienes_somos/o2')}
+            >
+              Más detalles sobre este Observatorio
+            </button>
+          </div>
         </>
       )}
 
       {/* Tercer observatorio */}
       <h2
-        className="text-2xl font-semibold text-red-500 mb-8 cursor-pointer border-b-2 border-red-300 w-full"
+        className="text-2xl font-semibold text-red-500 mb-8 cursor-pointer border-b-2 border-red-300 w-full mt-12"
         onClick={() => setShowInfo3(!showInfo3)}
       >
         Observatorio Salud Pública
@@ -396,12 +429,21 @@ export default function Equipo() {
           <li className="text-lg text-gray-800 mb-6 ">
             Cuidados de la Salud Bucal.
           </li>
+          {/* Botón para redirigir al respectivo observatorio*/}
+          <div className="text-center mt-8"> {/* Añadí mt-8 para espacio superior */}
+            <button
+              className="inline-block px-8 py-4 bg-gradient-to-r from-red-600 to-red-500 text-white font-bold rounded-lg shadow-lg hover:scale-105 transform transition duration-300 hover:bg-red-700 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-red-300"
+              onClick={() => router.push('/quienes_somos/o3')}
+            >
+              Más detalles sobre este Observatorio
+            </button>
+          </div>
         </>
       )}
 
       {/* Cuarto observatorio */}
       <h2
-        className="text-2xl font-semibold text-red-500 mb-8 cursor-pointer border-b-2 border-red-300 w-full"
+        className="text-2xl font-semibold text-red-500 mb-8 cursor-pointer border-b-2 border-red-300 w-full mt-12"
         onClick={() => setShowInfo4(!showInfo4)}
       >
         Observatorio Comportamiento Urbano
@@ -453,12 +495,21 @@ export default function Equipo() {
             Proyecto Latinoamericano: “Imaginarios urbanos”. Liderado por la
             FLACSO Argentina.
           </li>
+          {/* Botón para redirigir al respectivo observatorio*/}
+          <div className="text-center mt-8"> {/* Añadí mt-8 para espacio superior */}
+            <button
+              className="inline-block px-8 py-4 bg-gradient-to-r from-red-600 to-red-500 text-white font-bold rounded-lg shadow-lg hover:scale-105 transform transition duration-300 hover:bg-red-700 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-red-300"
+              onClick={() => router.push('/quienes_somos/o4')}
+            >
+              Más detalles sobre este Observatorio
+            </button>
+          </div>
         </>
       )}
 
       {/* Quinto observatorio */}
       <h2
-        className="text-2xl font-semibold text-red-500 mb-8 cursor-pointer border-b-2 border-red-300 w-full"
+        className="text-2xl font-semibold text-red-500 mb-8 cursor-pointer border-b-2 border-red-300 w-full mt-12"
         onClick={() => setShowInfo5(!showInfo5)}
       >
         Observatorio Ambiental
@@ -555,12 +606,21 @@ export default function Equipo() {
             Ministerio de Producción, Comercio Exterior e Inversiones, Consejo
             Cantonal de Derechos Humanos Cuenca.
           </p>
+          {/* Botón para redirigir al respectivo observatorio*/}
+          <div className="text-center mt-8"> {/* Añadí mt-8 para espacio superior */}
+            <button
+              className="inline-block px-8 py-4 bg-gradient-to-r from-red-600 to-red-500 text-white font-bold rounded-lg shadow-lg hover:scale-105 transform transition duration-300 hover:bg-red-700 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-red-300"
+              onClick={() => router.push('/quienes_somos/o5')}
+            >
+              Más detalles sobre este Observatorio
+            </button>
+          </div>
         </>
       )}
 
       {/* Sexto observatorio */}
       <h2
-        className="text-2xl font-semibold text-red-500 mb-8 cursor-pointer border-b-2 border-red-300 w-full"
+        className="text-2xl font-semibold text-red-500 mb-8 cursor-pointer border-b-2 border-red-300 w-full mt-12"
         onClick={() => setShowInfo6(!showInfo6)}
       >
         Observatorio Natural
@@ -656,12 +716,21 @@ export default function Equipo() {
             en macroinvertebrados acuáticos con isótopos estables en la
             subcuenca del Machángara
           </p>
+          {/* Botón para redirigir al respectivo observatorio*/}
+          <div className="text-center mt-8"> {/* Añadí mt-8 para espacio superior */}
+            <button
+              className="inline-block px-8 py-4 bg-gradient-to-r from-red-600 to-red-500 text-white font-bold rounded-lg shadow-lg hover:scale-105 transform transition duration-300 hover:bg-red-700 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-red-300"
+              onClick={() => router.push('/quienes_somos/o6')}
+            >
+              Más detalles sobre este Observatorio
+            </button>
+          </div>
         </>
       )}
 
       {/* Septimo observatorio */}
       <h2
-        className="text-2xl font-semibold text-red-500 mb-8 cursor-pointer border-b-2 border-red-300 w-full"
+        className="text-2xl font-semibold text-red-500 mb-8 cursor-pointer border-b-2 border-red-300 w-full mt-12"
         onClick={() => setShowInfo7(!showInfo7)}
       >
         Observatorio Innovación Educativa
@@ -742,6 +811,15 @@ export default function Equipo() {
             simulación, modelado y lógica difusa para de esta manera contribuir
             en el desarrollo de los proyectos de investigación.
           </p>
+          {/* Botón para redirigir al respectivo observatorio*/}
+          <div className="text-center mt-8"> {/* Añadí mt-8 para espacio superior */}
+            <button
+              className="inline-block px-8 py-4 bg-gradient-to-r from-red-600 to-red-500 text-white font-bold rounded-lg shadow-lg hover:scale-105 transform transition duration-300 hover:bg-red-700 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-red-300 mb-7"
+              onClick={() => router.push('/quienes_somos/o7')}
+            >
+              Más detalles sobre este Observatorio
+            </button>
+          </div>
         </>
       )}
     </div>

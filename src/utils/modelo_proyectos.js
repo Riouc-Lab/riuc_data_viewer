@@ -17,4 +17,13 @@ export const lista_proyectos = [
     date: "2023-03-06",
     additionalDescription: "Observatorio de Fenómenos Socioeconómicos",
   },
+  {
+    Image: "/img/geovisor_mapa.png",
+    id: 3,
+    to: "/proyectos/saludbucal",
+    name: "Geovisor Salud Bucal",
+    description: "Visualiza y compara datos sobre la salud bucal en la provincia del Azuay-Ecuador, parroquia Bellavista.", 
+    date: "2025-01-01",
+    additionalDescription: "Observatorio de Salud Pública",
+  },
 ];

@@ -9,7 +9,7 @@ export default function VideoPage({ params }) {
 const videos = [
     { id: '1', video: 'mujerespioneras.mp4', title: 'Mujeres Pioneras', description: 'En el Ecuador' },
     { id: '2', video: 'raquelychampi.mp4', title: 'Raquel y Champi', description: 'Cuento científico' },
-
+    { id: '3', video: 'vdo1_socioec.mp4', title: 'SOCIOECONÓMICA', description: 'Estadísticas del observatorio' },
   ];
   
   const video = videos.find((v) => v.id === id); // Buscar el video correspondiente
@@ -25,6 +25,7 @@ const videos = [
       <video
         controls
         src={`/vdo/${video.video}`}
+        className={styles.videoPlayer}
         style={{ width: '100%', maxWidth: '800px', margin: '0 auto' }}
       />
     </div>

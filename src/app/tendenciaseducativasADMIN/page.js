@@ -104,68 +104,80 @@ function AdminPage() {
         <div className="grid grid-cols-2 gap-4">
           <div>
             <label htmlFor="Image" className="block text-sm font-medium text-gray-700">Cargar Imagen</label>
-            <input 
-              type="file" 
+            <input
+              type="file"
               name="Image"
               id="Image"
-              onChange={handleImageChange} 
-              className="mt-1 p-2 w-full border rounded focus:outline-none focus:ring focus:border-blue-300" 
-              placeholder="Cargar imagen" 
+              onChange={handleImageChange}
+              className="mt-1 p-2 w-full border rounded focus:outline-none focus:ring focus:border-blue-300"
+              placeholder="Cargar imagen"
             />
           </div>
           <div>
             <label htmlFor="id" className="block text-sm font-medium text-gray-700">ID de la Noticia</label>
-            <input 
-              type="number" 
+            <input
+              type="number"
               name="id"
               id="id"
-              value={newNews.id} 
-              onChange={handleChange} 
+              value={newNews.id}
+              onChange={handleChange}
               disabled
-              className="mt-1 p-2 w-full border rounded bg-gray-100 focus:outline-none focus:ring focus:border-blue-300" 
-              placeholder="ID de la noticia" 
+              className="mt-1 p-2 w-full border rounded bg-gray-100 focus:outline-none focus:ring focus:border-blue-300"
+              placeholder="ID de la noticia"
             />
           </div>
         </div>
         {/* Otros campos de entrada para los demás atributos de la noticia */}
         <div>
           <label htmlFor="name" className="block text-sm font-medium text-gray-700">Nombre de la Noticia</label>
-          <input 
-            type="text" 
+          <input
+            type="text"
             name="name"
             id="name"
-            value={newNews.name} 
-            onChange={handleChange} 
-            className="mt-1 p-2 w-full border rounded focus:outline-none focus:ring focus:border-blue-300" 
-            placeholder="Ingrese el nombre de la noticia" 
+            value={newNews.name}
+            onChange={handleChange}
+            className="mt-1 p-2 w-full border rounded focus:outline-none focus:ring focus:border-blue-300"
+            placeholder="Ingrese el nombre de la noticia"
           />
         </div>
         <div>
           <label htmlFor="description" className="block text-sm font-medium text-gray-700">Descripción de la Noticia</label>
-          <textarea 
+          <textarea
             name="description"
             id="description"
-            value={newNews.description} 
-            onChange={handleChange} 
-            className="mt-1 p-2 w-full border rounded focus:outline-none focus:ring focus:border-blue-300" 
-            placeholder="Ingrese la descripción de la noticia" 
+            value={newNews.description}
+            onChange={handleChange}
+            className="mt-1 p-2 w-full border rounded focus:outline-none focus:ring focus:border-blue-300"
+            placeholder="Ingrese la descripción de la noticia"
           />
         </div>
         <div>
           <label htmlFor="author" className="block text-sm font-medium text-gray-700">Autor de la Noticia</label>
-          <input 
-            type="text" 
+          <input
+            type="text"
             name="author"
             id="author"
-            value={newNews.author} 
-            onChange={handleChange} 
-            className="mt-1 p-2 w-full border rounded focus:outline-none focus:ring focus:border-blue-300" 
-            placeholder="Ingrese el autor de la noticia" 
+            value={newNews.author}
+            onChange={handleChange}
+            className="mt-1 p-2 w-full border rounded focus:outline-none focus:ring focus:border-blue-300"
+            placeholder="Ingrese el autor de la noticia"
           />
         </div>
-        <button 
-          type="button" 
-          onClick={handleAddNews} 
+        <div>
+          <label htmlFor="date" className="block text-sm font-medium text-gray-700">Fecha de la Noticia</label>
+          <input
+            type="date"
+            name="date"
+            id="date"
+            value={newNews.date}
+            onChange={handleChange}
+            className="mt-1 p-2 w-full border rounded focus:outline-none focus:ring focus:border-blue-300"
+            placeholder="Ingrese la fecha de la noticia"
+          />
+        </div>
+        <button
+          type="button"
+          onClick={handleAddNews}
           className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
         >
           {editing ? "Editar Noticia" : "Agregar Noticia"}
@@ -182,14 +194,14 @@ function AdminPage() {
                 <p>{noticia.description}</p>
                 <p>{noticia.author}</p>
                 <p>{noticia.date}</p>
-                <button 
-                  onClick={() => handleEdit(noticia)} 
+                <button
+                  onClick={() => handleEdit(noticia)}
                   className="bg-yellow-500 text-white py-1 px-2 rounded hover:bg-yellow-600 mr-2"
                 >
                   Editar
                 </button>
-                <button 
-                  onClick={() => handleDelete(noticia.id)} 
+                <button
+                  onClick={() => handleDelete(noticia.id)}
                   className="bg-red-500 text-white py-1 px-2 rounded hover:bg-red-600"
                 >
                   Eliminar

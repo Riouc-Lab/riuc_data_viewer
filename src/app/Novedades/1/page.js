@@ -26,7 +26,7 @@ export default function Novedades() {
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="16"
+            width="16" 
             height="16"
             fill="currentColor"
             className="bi bi-arrow-left-circle text-red-400"
@@ -47,7 +47,6 @@ export default function Novedades() {
       <h2 className="text-base text-gray-400 mb-3">Noviembre 2024</h2>
       <p className="text-lg text-gray-800 mb-5 text-justify">
       
-
       </p>
       <div className="flex flex-col md:flex-row mb-5">
         <div className="md:w-1/4 md:pr-4">
@@ -72,7 +71,7 @@ export default function Novedades() {
           className="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-full focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50"
           onClick={abrirPDF}
         >
-          Observar Infografía de Cerca
+          Ver Infrografía de Cerca
         </button>               
       </div>
     </div>

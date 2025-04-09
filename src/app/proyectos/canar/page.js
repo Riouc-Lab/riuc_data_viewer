@@ -5,7 +5,7 @@ import axios from "axios";
 import dynamic from "next/dynamic";
 import SwitchButton from "../../../components/buttonswitch";
 const Map = dynamic(() => import("../../../components/map"), { ssr: false });
-const DEFAULT_CENTER = [-2.518898, -79.086898];
+const DEFAULT_CENTER = [-2.506314, -79.024609];
 
 export default function Canar() {
   const router = useRouter();
@@ -34,7 +34,7 @@ export default function Canar() {
   const handleDownloadClick = async () => {
     try {
       const response = await axios.get(
-        "http://192.168.10.11/api/canarencuesta",
+        "https://riouc.ucacue.edu.ec/api/canarencuesta",
         {
           responseType: "blob", // Esto configura la respuesta como un blob
         }
@@ -467,7 +467,7 @@ export default function Canar() {
     <main style={{ scrollBehavior: "smooth" }}>
       <div className="flex flex-col lg:flex-row p-2 bg-black">
         <div className="h-[calc(100vh-80px)] w-full sm:w-[410px] bg-gray-900 rounded-lg">
-          <div className="flex flex-col h-full mt-2">
+          <div className="flex flex-col h-full">
             <button
               className="p-2 text-gray-500 hover:underline mb-2 font-medium flex items-center space-x-2"
               onClick={() => proyect("/proyectos")}
@@ -489,54 +489,44 @@ export default function Canar() {
                 Regresar
               </span>
             </button>
-            <div className="p-4 bg-gray-800 text-white shadow-md flex justify-between items-center">
-              <h1 className="text-lg font-semibold">
+            
+            <div className="p-4 text-white shadow-md flex justify-between items-center">
+              <h2 className="text-base font-semibold text-white mb-1">
                 Geovisor Interactivo Empresarial de la Provincia de Cañar
-              </h1>
-              <button
-                className="text-blue-500 hover:text-blue-700"
-                onClick={handleDownloadClick}
-              >
-                Descargar
-              </button>
+              </h2>
+
             </div>
             <div className="overflow-auto p-4 space-y-4">
               {/* Información general */}
               <div className="text-white">
                 <button
                   onClick={handleDescriptionToggle}
-                  className="bg-green-500 text-white py-2 px-4 rounded mb-4"
+                  className="bg-red-600 text-white py-1 px-3 rounded mb-4 mr-4"
                 >
-                  {showDescription
-                    ? "Ocultar Descripción"
-                    : "Mostrar Descripción"}
+                  {showDescription ? "Ocultar Descripción" : "Mostrar Descripción"}
                 </button>
-
+                <button
+                  className="bg-red-600 text-white py-1 px-3 rounded mb-4"
+                  onClick={handleDownloadClick}
+                >
+                  Descargar
+                </button>
                 {showDescription && (
-                  <div>
+                  <div className="text-justify">
                     <p>
-                      Este geovisor interactivo de la provincia de Cañar permite
-                      visualizar información geográfica y estadística detallada
-                      sobre diversas empresas presentes en la región. La
-                      herramienta ofrece datos precisos sobre sectores clave
-                      como agricultura, comercio, mano de obra, agropecuaria,
-                      biocombustibles, y producción forestal, entre otros. Este
-                      recurso es ideal para investigadores, planificadores y
-                      tomadores de decisiones que buscan comprender mejor el
-                      panorama económico y empresarial de la provincia.
+                      Este geovisor interactivo de la provincia de Cañar permite visualizar información geográfica y estadística detallada sobre diversas empresas presentes en la región. La herramienta ofrece datos precisos sobre sectores clave como agricultura, comercio, mano de obra, agropecuaria, biocombustibles, y producción forestal, entre otros. Este recurso es ideal para investigadores, planificadores y tomadores de decisiones que buscan comprender mejor el panorama económico y empresarial de la provincia.
                     </p>
                   </div>
                 )}
+                <hr className="mt-6 border-t border-gray-300" />
               </div>
+
+
               {/* Botones */}
-              <div className="flex flex-col space-y-2 text-white">
-                Mostrar Tabla de Datos:
-              </div>
-              <SwitchButton isActive={isActive} onClick={handleButtonClick} />
               <div className="flex flex-col space-y-2 text-white">
                 Mostrar Numero total de empresas por Cantón:
               </div>
-              <SwitchButton  isActive={isActive1} onClick={handleButtonClick1} />
+              <SwitchButton isActive={isActive1} onClick={handleButtonClick1} />
               {/* Tabla 1 */}
               {showTable && (
                 <div className="p-4 bg-gray-800 text-white shadow-md">
@@ -574,7 +564,7 @@ export default function Canar() {
               <div className="flex flex-col space-y-2 text-white">
                 Mostrar Numero total de empresas por Parroquia:
               </div>
-              <SwitchButton  isActive={isActive2} onClick={handleButtonClick2} />
+              <SwitchButton isActive={isActive2} onClick={handleButtonClick2} />
               {/* Tabla 2 */}
               {showTable2 && (
                 <div className="p-4 bg-gray-800 text-white shadow-md">
@@ -645,6 +635,10 @@ export default function Canar() {
                   </table>
                 </div>
               )}
+              <div className="flex flex-col space-y-2 text-white">
+                Mostrar Tabla de Datos:
+              </div>
+              <SwitchButton isActive={isActive} onClick={handleButtonClick} />
             </div>
 
             {/* Pie de página */}
@@ -657,9 +651,9 @@ export default function Canar() {
           <div className="h-[calc(100vh-80px)] w-full">
             <div className="leaflet-container">
               <Map
-                className="shadow-xl"
+                className="shadow-xl rounded-lg"
                 center={DEFAULT_CENTER}
-                zoom={11.5}
+                zoom={12.5}
                 width="full"
                 height="800"
               >

@@ -31,8 +31,8 @@ export default function TendenciasEducativas() {
         <div className="flex justify-between items-center space-x-4">
           <div className="flex items-center">
             <a href="https://www.instagram.com/explore/tags/ent%C3%A9ratecato"
-            target="_blank"
-            rel="noopener noreferrer"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <Image
                 className="ml-3 mr-5"
@@ -44,8 +44,8 @@ export default function TendenciasEducativas() {
               />
             </a>
             <a href="https://www.ucacue.edu.ec/contactos/"
-            target="_blank"
-            rel="noopener noreferrer">
+              target="_blank"
+              rel="noopener noreferrer">
               <Image
                 className="ml-3"
                 src="/img/contactos_ucacue.png"
@@ -209,27 +209,27 @@ export default function TendenciasEducativas() {
           </div>
         </div>
 
-        <div className="bg-gray-800 text-center py-8 mb-5 rounded-lg shadow-md">
+        <div className="bg-gradient-to-r from-gray-800 via-gray-700 to-gray-600 text-center py-10 mb-6 rounded-lg shadow-xl">
           <Image
             src="/img/UC_TRS.png"
-            alt="Next.js Logo"
+            alt="Logo UCACUE"
             width={190}
             height={30}
             priority
             className="mx-auto mb-6"
           />
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-200 leading-tight">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight">
             ¡<span className="text-red-600">T</span>
-            <span className="text-gray-200">endencias </span>
+            <span className="text-white">endencias </span>
             <span className="text-red-600">E</span>
-            <span className="text-gray-200">ducativas</span>!
+            <span className="text-white">ducativas</span>!
           </h1>
-          <div className="h-1 w-24 bg-gray-500 mx-auto mt-6 mb-4"></div>
-          <p className="text-lg text-gray-300 mb-5">
-            Explora las últimas noticias de la UCACUE y mantente al tanto de
-            todo lo relacionado con nuestra Universidad.
+          <div className="h-1 w-28 bg-gray-300 mx-auto mt-6 mb-6"></div>
+          <p className="text-lg text-gray-300 mb-6">
+            Explora las últimas noticias de la UCACUE y mantente al tanto de todo lo relacionado con nuestra Universidad.
           </p>
         </div>
+
 
         <div className="grid lg:grid-cols-1 gap-2">
           {/* Iterar sobre la lista de noticias */}

@@ -39,7 +39,7 @@ export default function Modelogeovisor() {
 
   const handleDownloadClick = async () => {
     try {
-      const response = await axios.get("http://192.168.10.11/api/poblacion", {
+      const response = await axios.get("https://riouc.ucacue.edu.ec/api/poblacion", {
         responseType: "blob", // Esto configura la respuesta como un blob
       });
 
@@ -115,7 +115,7 @@ export default function Modelogeovisor() {
 
   const fetchPoblacion = async () => {
     try {
-      const response = await axios.get("http://192.168.10.11/api/poblacion");
+      const response = await axios.get("https://riouc.ucacue.edu.ec/api/poblacion");
       const poblacionData = response.data.data;
       if (Array.isArray(poblacionData) && poblacionData.length > 0) {
         setPoblacion(poblacionData);
@@ -446,9 +446,9 @@ export default function Modelogeovisor() {
 
   return (
     <main style={{ scrollBehavior: "smooth" }}>
-      <div className={`flex flex-wrap justify-center p-2 custom-container ${isZoomed ? 'zoomed' : ''}`}>
-      <div className="h-[calc(100vh-80px)] w-full sm:w-[410px] overflow-hidden overflow-y-auto rounded-lg bg-white p-3 shadow-md mb-2">
-      {/* Contenido de la primera columna */}
+      <div className="flex flex-col lg:flex-row p-2 bg-black">
+        <div className="h-[calc(100vh-80px)] w-full sm:w-[410px] overflow-hidden overflow-y-auto rounded-lg bg-gray-900 p-3 shadow-md mb-2">
+          {/* Contenido de la primera columna */}
           <button
             className="p-2 text-gray-500 hover:underline mb-2 font-medium mb-2 flex items-center space-x-2"
             onClick={() => proyect("/proyectos")}
@@ -471,18 +471,25 @@ export default function Modelogeovisor() {
             </span>
           </button>
 
-          <div className="border-b border-gray-300 pb-1">
-            <h2 className="text-base font-semibold text-black mb-1">
+          <div className="">
+            <h2 className="text-base font-semibold text-white mb-1">
               GeoVisor Población del Ecuador año 2020
             </h2>
             <button
-              className="text-red-400 hover:underline font-medium mb-2"
               onClick={toggleTextVisibility}
+              className="bg-red-600 text-white py-1 px-3 rounded mb-4 mr-4 mt-2"
             >
               {isTextVisible ? "Ocultar Descripcion" : "Mostrar Descripcion"}
             </button>
+            {/* Botón de Descarga (Añadido al final de la primera columna de capas) */}
+            <button
+              className="bg-red-600 text-white py-1 px-3 rounded mb-4"
+              onClick={handleDownloadClick}
+            >
+              Descargar
+            </button>
             {isTextVisible && (
-              <div className="mt-2 text-gray-700">
+              <div className="mt-1 text-white text-justify">
                 {/* Aquí coloca el texto que deseas mostrar u ocultar */}
                 Este proyecto consiste en una herramienta interactiva y
                 visualmente impactante que tiene como objetivo principal
@@ -496,188 +503,144 @@ export default function Modelogeovisor() {
                 geográfica de la población
               </div>
             )}
+            <hr className="mt-6 border-t border-gray-300" />
           </div>
           <div className="mt-4">
             <ul className="space-y-3">
-              {/* Capas */}
-
-              <h1 className="text-2xl font-semibold mb-5">Capas</h1>
-              <p className="leading-relaxed mb-5">
-                Población Total del Ecuador
-              </p>
+              {/* TABLAS Y BOTONES*/}
+              <h1 className="text-2xl text-white font-semibold mb-5">Tablas</h1>
+              <p className="leading-relaxed mb-5 text-white">Población Total del Ecuador</p>
               {/* Botón 1 */}
               <div className="mb-4">
-                <SwitchButton
-                  isActive={boton1Visible}
-                  onClick={() => setBoton1Visible(!boton1Visible)}
-                />
+                <SwitchButton isActive={boton1Visible} onClick={() => setBoton1Visible(!boton1Visible)} />
+                {boton1Visible && (
+                  <div className="bg-gray-900 rounded-t-lg p-1 my-6">
+                    <div className="bg-red-500 text-white text-base p-2 rounded-t-lg">Población Total del Ecuador</div>
+                    <div className="bg-gray-900 rounded-b-lg p-5 border-gray-500 border text-white">
+                      <p>
+                        En el país del Ecuador la población <strong>TOTAL</strong> es de 17,510,643 habitantes.
+                      </p>
+                    </div>
+                  </div>
+                )}
               </div>
-              <p className="leading-relaxed mb-5">
-                Población por cada provincia
-              </p>
+
+              <p className="leading-relaxed mb-5 text-white">Población de Zona no delimitada</p>
               {/* Botón 2 */}
               <div className="mb-4">
-                <SwitchButton
-                  isActive={boton2Visible}
-                  onClick={() => setBoton2Visible(!boton2Visible)}
-                />
+                <SwitchButton isActive={boton3Visible} onClick={() => setBoton3Visible(!boton3Visible)} />
+                {boton3Visible && (
+                  <div className="bg-gray-900 rounded-t-lg p-1 my-6">
+                    <div className="bg-red-500 text-white text-base p-2 rounded-t-lg">Zona no delimitada</div>
+                    <div className="bg-gray-900 rounded-b-lg p-5 border-gray-500 border text-white">
+                      <p>
+                        En el país del Ecuador la población de <strong>ZONA NO DELIMITADA</strong> es de 41,907 habitantes.
+                      </p>
+                    </div>
+                  </div>
+                )}
               </div>
-              <p className="leading-relaxed mb-5">
-                Población de Zona no delimitada
-              </p>
+
+              <p className="leading-relaxed mb-5 text-white">Población por cada provincia</p>
               {/* Botón 3 */}
               <div className="mb-4">
-                <SwitchButton
-                  isActive={boton3Visible}
-                  onClick={() => setBoton3Visible(!boton3Visible)}
-                />
+                <SwitchButton isActive={boton2Visible} onClick={() => setBoton2Visible(!boton2Visible)} />
+                {boton2Visible && (
+                  <div className="bg-gray-900 rounded-t-lg p-1 my-6">
+                    <div className="bg-red-500 text-white text-base p-2 rounded-t-lg">Población por cada provincia</div>
+                    <div className="bg-gray-900 rounded-b-lg p-5 border-gray-500 border text-white">
+                      <p>
+                        <strong>AZUAY:</strong> 881394 <br />
+                        <strong>BOLIVAR:</strong> 209933 <br />
+                        <strong>CAÑAR:</strong> 281396 <br />
+                        <strong>CARCHI:</strong> 186869 <br />
+                        <strong>COTOPAXI:</strong> 488716 <br />
+                        <strong>CHIMBORAZO:</strong> 524004 <br />
+                        <strong>EL ORO:</strong> 715751 <br />
+                        <strong>ESMERALDAS:</strong> 643654 <br />
+                        <strong>GUAYAS:</strong> 4387434 <br />
+                        <strong>IMBABURA:</strong> 476257 <br />
+                        <strong>LOJA:</strong> 521154 <br />
+                        <strong>LOS RIOS:</strong> 921763 <br />
+                        <strong>MANABI:</strong> 1562079 <br />
+                        <strong>MORONA SANTIAGO:</strong> 196535 <br />
+                        <strong>NAPO:</strong> 133705 <br />
+                        <strong>PASTAZA:</strong> 114202 <br />
+                        <strong>PICHINCHA:</strong> 3228233 <br />
+                        <strong>TUNGURAHUA:</strong> 590600 <br />
+                        <strong>ZAMORA CHINCHIPE:</strong> 120416 <br />
+                        <strong>GALAPAGOS:</strong> 33042 <br />
+                        <strong>SUCUMBIOS:</strong> 230503 <br />
+                        <strong>ORELLANA:</strong> 161338 <br />
+                        <strong>SANTO DOMINGO DE LOS TSACHILAS:</strong> 458580 <br />
+                        <strong>SANTA ELENA:</strong> 401178
+                      </p>
+                    </div>
+                  </div>
+                )}
               </div>
             </ul>
           </div>
-          {/* Botón de Descarga (Añadido al final de la primera columna de capas) */}
-          <button
-            className="mt-10 bg-red-500 hover:bg-red-600 text-white font-semibold py-1 px-2 rounded-full focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50"
-            onClick={handleDownloadClick}
-          >
-            Descargar
-          </button>
+          {/* Pie de página */}
+          <div className="mt-2 bg-gray-800 text-white p-4 text-center text-sm">
+            <p>&copy; 2024 Geovisor. Todos los derechos reservados.</p>
+          </div>
+
         </div>
-          {/* Contenido de la segunda columna */}
-          <div className="h-[calc(100vh-80px)] w-full sm:w-[600px] md:w-[1150px] overflow-hidden rounded-lg bg-white shadow-md mb-2">
-            <div className="leaflet-container">
-              <Map
-                selectedProvince={selectedProvince}
-                setSelectedProvince={setSelectedProvince}
-                className=" shadow-xl"
-                center={DEFAULT_CENTER}
-                zoom={6.5}
-                width="full"
-                height="800"
-              >
-                {({ TileLayer, GeoJSON }) => (
-                  <>
-                    <TileLayer
-                      //url='https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png'
-                      url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
-                      //url="https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png"
-                      //url="https://stamen-tiles.a.ssl.fastly.net/terrain/{z}/{x}/{y}.png"
-                      //url="https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png"  // Mapa claro
-                      //url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}" // Mapa satelital
-                      //url="https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png"  // Mapa topográfico
-                      //url="https://stamen-tiles.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.jpg" // Mapa acuarela
-                      //url="https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png" // Mapa wikimedia
-                      //url="https://basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png" // Mapa carto
-                      //url="https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png" // Mapa oscuro
-                      //url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}" // Mapa callejero
-                      //url="https://stamen-tiles.a.ssl.fastly.net/toner/{z}/{x}/{y}.png" // Mapa toner
+        {/* Contenido de la segunda columna */}
+        <div className="h-[calc(100vh-80px)] w-full sm:w-[600px] md:w-full overflow-hidden rounded-lg bg-white shadow-md mb-2">
+          <div className="leaflet-container">
+            <Map
+              selectedProvince={selectedProvince}
+              setSelectedProvince={setSelectedProvince}
+              className=" shadow-xl"
+              center={DEFAULT_CENTER}
+              zoom={6.5}
+              width="full"
+              height="800"
+            >
+              {({ TileLayer, GeoJSON }) => (
+                <>
+                  <TileLayer
+                    //url='https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png'
+                    url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    //url="https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png"
+                    //url="https://stamen-tiles.a.ssl.fastly.net/terrain/{z}/{x}/{y}.png"
+                    //url="https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png"  // Mapa claro
+                    //url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}" // Mapa satelital
+                    //url="https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png"  // Mapa topográfico
+                    //url="https://stamen-tiles.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.jpg" // Mapa acuarela
+                    //url="https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png" // Mapa wikimedia
+                    //url="https://basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png" // Mapa carto
+                    //url="https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png" // Mapa oscuro
+                    //url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}" // Mapa callejero
+                    //url="https://stamen-tiles.a.ssl.fastly.net/toner/{z}/{x}/{y}.png" // Mapa toner
 
-                      attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                    />
+                    attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                  />
 
-                    <GeoJSON
-                      key="provincias"
-                      data={provinciasConPoblacion}
-                      style={(feature) => ({
-                        color: selectedProvince === feature ? "red" : "gray",
-                        weight: selectedProvince === feature ? 1 : 0.6,
-                        fillColor: getColor(feature.properties.id_prov), // Asigna un color basado en el id
-                        fillOpacity: selectedProvince === feature ? 0.8 : 0.4,
-                      })}
-                      onEachFeature={(feature, layer) => {
-                        layer.on("click", () => {
-                          setSelectedProvince(feature);
-                        });
-                      }}
-                    />
-                  </>
-                )}
-              </Map>
-            </div>
-          
+                  <GeoJSON
+                    key="provincias"
+                    data={provinciasConPoblacion}
+                    style={(feature) => ({
+                      color: selectedProvince === feature ? "red" : "gray",
+                      weight: selectedProvince === feature ? 1 : 0.6,
+                      fillColor: getColor(feature.properties.id_prov), // Asigna un color basado en el id
+                      fillOpacity: selectedProvince === feature ? 0.8 : 0.4,
+                    })}
+                    onEachFeature={(feature, layer) => {
+                      layer.on("click", () => {
+                        setSelectedProvince(feature);
+                      });
+                    }}
+                  />
+                </>
+              )}
+            </Map>
+          </div>
+
         </div>
-          {/* Contenido de la tercera columna */}
-        <div className={`h-[calc(100vh-_80px)] w-[300px] overflow-hidden overflow-y-auto rounded-lg bg-white p-3 shadow-md third-column ${isZoomed ? 'horizontal' : ''}`}>
-          <div className="border-b border-gray-300 pb-1">
-            <h3 className="text-xl text-base font-semibold text-black mb-1">
-              Tablas
-            </h3>
-          </div>
-          {/* Tabla 1 */}
-          <div className="bg-white rounded-t-lg p-1 my-6 ">
-            {/* Encabezado de la tabla 1 */}
-            <div className="bg-red-500 text-white text-base p-2 rounded-t-lg ">
-              Población Total del Ecuador
-            </div>
-            {/* Cuerpo de la tabla 1 */}
-            <div className="bg-white rounded-b-lg p-5 border-gray-300 border">
-              {/* Contenido de la tabla 1 */}
-              {boton1Visible && (
-                <p>
-                  En el país del Ecuador la población <strong>TOTAL</strong> es
-                  de 17510643 habitantes.
-                </p>
-              )}
-            </div>
-          </div>
 
-          {/* Tabla 2 */}
-          <div className="bg-white rounded-t-lg p-1 my-6">
-            {/* Encabezado de la tabla 2 */}
-            <div className="bg-red-500 text-white text-base p-2 rounded-t-lg">
-              Población por cada provincia
-            </div>
-            {/* Cuerpo de la tabla 2 */}
-            <div className="bg-white rounded-b-lg p-5 border-gray-300 border">
-              {/* Contenido de la tabla 2 */}
-              {boton2Visible && (
-                <p>
-                  <strong>AZUAY:</strong> 881394 <br />
-                  <strong>BOLIVAR:</strong> 209933 <br />
-                  <strong>CAÑAR:</strong> 281396 <br />
-                  <strong>CARCHI:</strong> 186869 <br />
-                  <strong>COTOPAXI:</strong> 488716 <br />
-                  <strong>CHIMBORAZO:</strong> 524004 <br />
-                  <strong>EL ORO:</strong> 715751 <br />
-                  <strong>ESMERALDAS:</strong> 643654 <br />
-                  <strong>GUAYAS:</strong> 4387434 <br />
-                  <strong>IMBABURA:</strong> 476257 <br />
-                  <strong>LOJA:</strong> 521154 <br />
-                  <strong>LOS RIOS:</strong> 921763 <br />
-                  <strong>MANABI:</strong> 1562079 <br />
-                  <strong>MORONA SANTIAGO:</strong> 196535 <br />
-                  <strong>NAPO:</strong> 133705 <br />
-                  <strong>PASTAZA:</strong> 114202 <br />
-                  <strong>PICHINCHA:</strong> 3228233 <br />
-                  <strong>TUNGURAHUA:</strong> 590600 <br />
-                  <strong>ZAMORA CHINCHIPE:</strong> 120416 <br />
-                  <strong>GALAPAGOS:</strong> 33042 <br />
-                  <strong>SUCUMBIOS:</strong> 230503 <br />
-                  <strong>ORELLANA:</strong> 161338 <br />
-                  <strong>SANTO DOMINGO DE LOS TSACHILAS:</strong> 458580 <br />
-                  <strong>SANTA ELENA:</strong> 401178
-                </p>
-              )}
-            </div>
-          </div>
-
-          {/* Tabla 3 */}
-          <div className="bg-white rounded-t-lg p-1 my-6 ">
-            {/* Encabezado de la tabla 1 */}
-            <div className="bg-red-500 text-white text-base p-2 rounded-t-lg ">
-              Zona no delimitada
-            </div>
-            {/* Cuerpo de la tabla 1 */}
-            <div className="bg-white rounded-b-lg p-5 border-gray-300 border">
-              {/* Contenido de la tabla 1 */}
-              {boton3Visible && (
-                <p>
-                  En el país del Ecuador la población de{" "}
-                  <strong>ZONA NO DELIMITADA</strong> es de 41907 habitantes.
-                </p>
-              )}
-            </div>
-          </div>
-        </div>
       </div>
     </main>
   );
