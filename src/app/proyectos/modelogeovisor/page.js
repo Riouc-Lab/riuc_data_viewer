@@ -477,7 +477,7 @@ export default function Modelogeovisor() {
             </h2>
             <button
               onClick={toggleTextVisibility}
-              className="bg-red-600 text-white py-1 px-3 rounded mb-4 mr-4 mt-2"
+              className="bg-red-600 text-white py-1 px-3 rounded mb-4 mr-4"
             >
               {isTextVisible ? "Ocultar Descripcion" : "Mostrar Descripcion"}
             </button>
@@ -505,6 +505,7 @@ export default function Modelogeovisor() {
             )}
             <hr className="mt-6 border-t border-gray-300" />
           </div>
+          
           <div className="mt-4">
             <ul className="space-y-3">
               {/* TABLAS Y BOTONES*/}
@@ -588,7 +589,7 @@ export default function Modelogeovisor() {
 
         </div>
         {/* Contenido de la segunda columna */}
-        <div className="h-[calc(100vh-80px)] w-full sm:w-[600px] md:w-full overflow-hidden rounded-lg bg-white shadow-md mb-2">
+        <div className="w-full lg:w-2/3 xl:w-3/4 flex-grow bg-gray-200">
           <div className="leaflet-container">
             <Map
               selectedProvince={selectedProvince}

@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 
 export default function Boletinn3() {
   const router = useRouter();
-  
+
   // Función para abrir PDF
   const abrirPDF = () => {
     const pdfUrl = "/pdf/REVISTA3.pdf";
@@ -46,10 +46,19 @@ export default function Boletinn3() {
       <h2 className="text-base text-gray-400">Volumen 1 / N°3</h2>
       <h2 className="text-base text-gray-400 mb-1">septiembre - diciembre 2024</h2>
       <p className="text-lg text-gray-800 mb-5 text-justify">
-      En el presente boletín ”RIOUC Informa”, tendremos en la Lupa de los Observatorios, el Observatorio de Fenómenos Socioeconómicos abordando el tema: La dinámica en la vulnerabilidad de los derechos de los trabaja-dores migrantes, conformados por migrantes extranjeros, migrantes internos, familiares de migrantes y los migrantes retornados, informa-ción reflejada en un proyecto de investigación, en conjunto con la UA de Ciencias Económicas y Empresariales, el Lab. de Cálculo Computacional y la Fundación Childfund. 
+        En el presente boletín ”RIOUC Informa”, tendremos en la Lupa de los Observatorios, el Observatorio de Fenómenos Socioeconómicos abordando el tema: La dinámica en la vulnerabilidad de los derechos de los trabaja-dores migrantes, conformados por migrantes extranjeros, migrantes internos, familiares de migrantes y los migrantes retornados, informa-ción reflejada en un proyecto de investigación, en conjunto con la UA de Ciencias Económicas y Empresariales, el Lab. de Cálculo Computacional y la Fundación Childfund.
       </p>
       <div className="flex flex-col md:flex-row mb-5">
-        <div className="md:w-1/2 md:pr-4">
+        <div className="md:w-1/2 md:pr-4 mt-2">
+          <Image
+            src="/img/preview_boletin2.png"
+            alt="RIOUC"
+            width={480}
+            height={175}
+            className="mx-auto rounded-lg"
+          />
+        </div>
+        <div className="md:w-1/2 md:pl-4 mt-3">
           <div className="text-lg text-gray-800 mb-5 text-justify">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -116,20 +125,11 @@ export default function Boletinn3() {
                 d="M5 13l4 4L19 7"
               />
             </svg>
-            Abordaremos el tema, acerca del voluntariado en el mundo, a través de la Prof. Aura Guerrero. 
+            Abordaremos el tema, acerca del voluntariado en el mundo, a través de la Prof. Aura Guerrero.
           </div>
         </div>
-        <div className="md:w-1/2 md:pl-4">
-          <Image
-            src="/img/preview_boletin2.png"
-            alt="RIOUC"
-            width={480}
-            height={175}
-            className="mx-auto rounded-lg"
-          />
-        </div>
       </div>
-      
+
       <div className="text-lg text-gray-800 mb-5 text-justify">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -163,7 +163,7 @@ export default function Boletinn3() {
             d="M5 13l4 4L19 7"
           />
         </svg>
-        Destacamos la participación de nuestra Jazmín Salazar, en un concurso de cuentos organizado por OEI, que tenía como objetivo, promover la ciencia desde el punto de vista del científico durante su proceso de investigación. 
+        Destacamos la participación de nuestra Jazmín Salazar, en un concurso de cuentos organizado por OEI, que tenía como objetivo, promover la ciencia desde el punto de vista del científico durante su proceso de investigación.
       </div>
       <div className="mb-12 text-center">
         <button

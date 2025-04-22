@@ -466,187 +466,181 @@ export default function Canar() {
   return (
     <main style={{ scrollBehavior: "smooth" }}>
       <div className="flex flex-col lg:flex-row p-2 bg-black">
-        <div className="h-[calc(100vh-80px)] w-full sm:w-[410px] bg-gray-900 rounded-lg">
-          <div className="flex flex-col h-full">
-            <button
-              className="p-2 text-gray-500 hover:underline mb-2 font-medium flex items-center space-x-2"
-              onClick={() => proyect("/proyectos")}
+        <div className="h-[calc(100vh-80px)] w-full sm:w-[410px] overflow-hidden overflow-y-auto rounded-lg bg-gray-900 p-3 shadow-md mb-2">
+
+          <button
+            className="p-2 text-gray-500 hover:underline mb-2 font-medium mb-2 flex items-center space-x-2"
+            onClick={() => proyect("/proyectos")}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              className="bi bi-arrow-left-circle text-red-400"
+              viewBox="0 0 16 16"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                className="bi bi-arrow-left-circle text-red-400"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"
-                />
-              </svg>
-              <span className="text-gray-500 hover:text-red-400 transition">
-                Regresar
-              </span>
+              <path
+                fillRule="evenodd"
+                d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"
+              />
+            </svg>
+            <span className="text-gray-500 hover:text-red-400 transition">
+              Regresar
+            </span>
+          </button>
+
+          <div className="">
+            <h2 className="text-base font-semibold text-white mb-1">
+              Geovisor Interactivo Empresarial de la Provincia de Cañar
+            </h2>
+            <button
+              onClick={handleDescriptionToggle}
+              className="bg-red-600 text-white py-1 px-3 rounded mb-4 mr-4"
+            >
+              {showDescription ? "Ocultar Descripción" : "Mostrar Descripción"}
             </button>
-            
-            <div className="p-4 text-white shadow-md flex justify-between items-center">
-              <h2 className="text-base font-semibold text-white mb-1">
-                Geovisor Interactivo Empresarial de la Provincia de Cañar
-              </h2>
-
+            <button
+              className="bg-red-600 text-white py-1 px-3 rounded mb-4"
+              onClick={handleDownloadClick}
+            >
+              Descargar
+            </button>
+            {showDescription && (
+              <div className="mt-1 text-white text-justify">
+                <p>
+                  Este geovisor interactivo de la provincia de Cañar permite visualizar información geográfica y estadística detallada sobre diversas empresas presentes en la región. La herramienta ofrece datos precisos sobre sectores clave como agricultura, comercio, mano de obra, agropecuaria, biocombustibles, y producción forestal, entre otros. Este recurso es ideal para investigadores, planificadores y tomadores de decisiones que buscan comprender mejor el panorama económico y empresarial de la provincia.
+                </p>
+              </div>
+            )}
+            <hr className="mt-6 border-t border-gray-300" />
+          </div>
+          <div className="overflow-auto p-4 space-y-4">
+            {/* Botones */}
+            <div className="flex flex-col space-y-2 text-white">
+              Mostrar Numero total de empresas por Cantón:
             </div>
-            <div className="overflow-auto p-4 space-y-4">
-              {/* Información general */}
-              <div className="text-white">
-                <button
-                  onClick={handleDescriptionToggle}
-                  className="bg-red-600 text-white py-1 px-3 rounded mb-4 mr-4"
-                >
-                  {showDescription ? "Ocultar Descripción" : "Mostrar Descripción"}
-                </button>
-                <button
-                  className="bg-red-600 text-white py-1 px-3 rounded mb-4"
-                  onClick={handleDownloadClick}
-                >
-                  Descargar
-                </button>
-                {showDescription && (
-                  <div className="text-justify">
-                    <p>
-                      Este geovisor interactivo de la provincia de Cañar permite visualizar información geográfica y estadística detallada sobre diversas empresas presentes en la región. La herramienta ofrece datos precisos sobre sectores clave como agricultura, comercio, mano de obra, agropecuaria, biocombustibles, y producción forestal, entre otros. Este recurso es ideal para investigadores, planificadores y tomadores de decisiones que buscan comprender mejor el panorama económico y empresarial de la provincia.
-                    </p>
-                  </div>
-                )}
-                <hr className="mt-6 border-t border-gray-300" />
+            <SwitchButton isActive={isActive1} onClick={handleButtonClick1} />
+            {/* Tabla 1 */}
+            {showTable && (
+              <div className="p-4 bg-gray-800 text-white shadow-md">
+                <h2 className="text-xl font-semibold mb-2">
+                  Empresas por Cantón
+                </h2>
+                <table className="w-full">
+                  <thead>
+                    <tr>
+                      <th className="text-left">Canton</th>
+                      <th className="text-left">Total</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>CAÑAR</td>
+                      <td>36</td>
+                    </tr>
+                    <tr>
+                      <td>TAMBO</td>
+                      <td>3</td>
+                    </tr>
+                    <tr>
+                      <td>TRONCAL</td>
+                      <td>1</td>
+                    </tr>
+                    <tr>
+                      <td>SUSCAL</td>
+                      <td>2</td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
-
-
-              {/* Botones */}
-              <div className="flex flex-col space-y-2 text-white">
-                Mostrar Numero total de empresas por Cantón:
-              </div>
-              <SwitchButton isActive={isActive1} onClick={handleButtonClick1} />
-              {/* Tabla 1 */}
-              {showTable && (
-                <div className="p-4 bg-gray-800 text-white shadow-md">
-                  <h2 className="text-xl font-semibold mb-2">
-                    Empresas por Cantón
-                  </h2>
-                  <table className="w-full">
-                    <thead>
-                      <tr>
-                        <th className="text-left">Canton</th>
-                        <th className="text-left">Total</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>CAÑAR</td>
-                        <td>36</td>
-                      </tr>
-                      <tr>
-                        <td>TAMBO</td>
-                        <td>3</td>
-                      </tr>
-                      <tr>
-                        <td>TRONCAL</td>
-                        <td>1</td>
-                      </tr>
-                      <tr>
-                        <td>SUSCAL</td>
-                        <td>2</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              )}
-              <div className="flex flex-col space-y-2 text-white">
-                Mostrar Numero total de empresas por Parroquia:
-              </div>
-              <SwitchButton isActive={isActive2} onClick={handleButtonClick2} />
-              {/* Tabla 2 */}
-              {showTable2 && (
-                <div className="p-4 bg-gray-800 text-white shadow-md">
-                  <h2 className="text-xl font-semibold mb-2">
-                    Empresas por Parroquia
-                  </h2>
-                  <table className="w-full">
-                    <thead>
-                      <tr>
-                        <th className="text-left">Parroquia</th>
-                        <th className="text-left">Total</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>CAÑAR</td>
-                        <td>9</td>
-                      </tr>
-                      <tr>
-                        <td>SAN ANTONIO</td>
-                        <td>2</td>
-                      </tr>
-                      <tr>
-                        <td>INGAPIRCA</td>
-                        <td>12</td>
-                      </tr>
-                      <tr>
-                        <td>DUCUR</td>
-                        <td>1</td>
-                      </tr>
-                      <tr>
-                        <td>GUALLETURO</td>
-                        <td>3</td>
-                      </tr>
-                      <tr>
-                        <td>TAMBO</td>
-                        <td>4</td>
-                      </tr>
-                      <tr>
-                        <td>SAN RAFAEL</td>
-                        <td>1</td>
-                      </tr>
-                      <tr>
-                        <td>YANALLPA</td>
-                        <td>1</td>
-                      </tr>
-                      <tr>
-                        <td>HONORATO VAZQUEZ</td>
-                        <td>2</td>
-                      </tr>
-                      <tr>
-                        <td>ZHUD</td>
-                        <td>2</td>
-                      </tr>
-                      <tr>
-                        <td>SUSCAL</td>
-                        <td>2</td>
-                      </tr>
-                      <tr>
-                        <td>ZHUCAY</td>
-                        <td>1</td>
-                      </tr>
-                      <tr>
-                        <td>JUNCAL</td>
-                        <td>2</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              )}
-              <div className="flex flex-col space-y-2 text-white">
-                Mostrar Tabla de Datos:
-              </div>
-              <SwitchButton isActive={isActive} onClick={handleButtonClick} />
+            )}
+            <div className="flex flex-col space-y-2 text-white">
+              Mostrar Numero total de empresas por Parroquia:
             </div>
-
-            {/* Pie de página */}
-            <div className="bg-gray-800 text-white p-4 text-center text-sm">
-              <p>&copy; 2024 Geovisor. Todos los derechos reservados.</p>
+            <SwitchButton isActive={isActive2} onClick={handleButtonClick2} />
+            {/* Tabla 2 */}
+            {showTable2 && (
+              <div className="p-4 bg-gray-800 text-white shadow-md">
+                <h2 className="text-xl font-semibold mb-2">
+                  Empresas por Parroquia
+                </h2>
+                <table className="w-full">
+                  <thead>
+                    <tr>
+                      <th className="text-left">Parroquia</th>
+                      <th className="text-left">Total</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>CAÑAR</td>
+                      <td>9</td>
+                    </tr>
+                    <tr>
+                      <td>SAN ANTONIO</td>
+                      <td>2</td>
+                    </tr>
+                    <tr>
+                      <td>INGAPIRCA</td>
+                      <td>12</td>
+                    </tr>
+                    <tr>
+                      <td>DUCUR</td>
+                      <td>1</td>
+                    </tr>
+                    <tr>
+                      <td>GUALLETURO</td>
+                      <td>3</td>
+                    </tr>
+                    <tr>
+                      <td>TAMBO</td>
+                      <td>4</td>
+                    </tr>
+                    <tr>
+                      <td>SAN RAFAEL</td>
+                      <td>1</td>
+                    </tr>
+                    <tr>
+                      <td>YANALLPA</td>
+                      <td>1</td>
+                    </tr>
+                    <tr>
+                      <td>HONORATO VAZQUEZ</td>
+                      <td>2</td>
+                    </tr>
+                    <tr>
+                      <td>ZHUD</td>
+                      <td>2</td>
+                    </tr>
+                    <tr>
+                      <td>SUSCAL</td>
+                      <td>2</td>
+                    </tr>
+                    <tr>
+                      <td>ZHUCAY</td>
+                      <td>1</td>
+                    </tr>
+                    <tr>
+                      <td>JUNCAL</td>
+                      <td>2</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            )}
+            <div className="flex flex-col space-y-2 text-white">
+              Mostrar Tabla de Datos:
             </div>
+            <SwitchButton isActive={isActive} onClick={handleButtonClick} />
+          </div>
+
+          {/* Pie de página */}
+          <div className="bg-gray-800 text-white p-4 text-center text-sm">
+            <p>&copy; 2024 Geovisor. Todos los derechos reservados.</p>
           </div>
         </div>
+
         <div className="w-full lg:w-2/3 xl:w-3/4 flex-grow bg-gray-200">
           <div className="h-[calc(100vh-80px)] w-full">
             <div className="leaflet-container">
