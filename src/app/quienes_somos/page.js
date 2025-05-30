@@ -55,8 +55,8 @@ export default function Equipo() {
 
       <p className="text-lg text-gray-800 mb-6"></p>
 
-      <p className="text-lg text-gray-800 mb-6">
-        La Coordinadora de la <strong>Red de Investigación y Observatorios de la Universidad Católica de Cuenca-RIOUC</strong> es la <strong>Lic. María Emilia Molina de Tinto</strong>;
+      <p className="text-lg text-gray-800 mb-6 text-justify">
+        La Coordinadora de la Red de Investigación y Observatorios de la Universidad Católica de Cuenca-RIOUC es la <strong>Lic. María Emilia Molina de Tinto</strong>;
         Lic. en Administración de Empresas–Universidad de Los Andes,
         Venezuela. Especialista en Gestión de Proyectos Barcelona Activa-
         España y Logística Integral Universitat Politécnica de
@@ -65,12 +65,12 @@ export default function Equipo() {
         Universidad Nebrija-España.
       </p>
 
-      <p className="text-lg text-gray-800 mb-6">
+      <p className="text-lg text-gray-800 mb-6 text-justify">
         Tiene una amplia trayectoria en el ámbito universitario, en docencia,
         investigación y gestión, destacándose en todos esos ámbitos.
       </p>
 
-      <p className="text-lg text-gray-800 mb-6">
+      <p className="text-lg text-gray-800 mb-6 text-justify">
         Forma parte del equipo la <strong>....</strong>,
         responsable del diseño y estructuración de las bases de datos e
         información recolectada dentro de la RIOUC.
@@ -78,21 +78,23 @@ export default function Equipo() {
 
 
 
-      <div className="flex justify-start items-center mb-6">
+      <div className="flex items-start mb-6">
+        {/* Foto del coordinador al inicio */}
         <Image
-          className="rounded-full mr-4"
-          src="/img/blgo_TORRACCHI.jpg" 
+          className="rounded-full mr-4 mt-1"
+          src="/img/BLOGO.TORRACCHI.jpg"
           alt="Coordinador"
           width={55}
           height={55}
         />
-        <p className="text-lg text-gray-800">
 
-          La RIOUC cuenta con el apoyo permanente del <strong>Laboratorio de Cálculo Computacional, Modelado y Analítica de Datos C2MAD - CIITT</strong>, coordinado por el
-          <strong> Blgo. José Esteban Torracchi Carrasco Ph.D</strong>, quienes contribuyen en el análisis y almacenamiento de la información.
-
-        </p>
+        {/* Texto con ambos mencionados */}
+        <div className="flex-1 text-lg text-gray-800 text-justify">
+          La RIOUC cuenta con el apoyo permanente del Laboratorio de Cálculo Computacional, Modelado y Analítica de Datos C2MAD - CIITT, coordinado por el
+          <strong> Blgo. José Esteban Torracchi Carrasco Ph.D</strong>, junto con su respectivo técnico laboratorista <strong>Ing. Gustavo Alexánder Lozada Castro</strong>, quienes contribuyen activamente en el análisis, procesamiento y almacenamiento de la información.
+        </div>
       </div>
+
 
       {/* Primer observatorio */}
       <h2

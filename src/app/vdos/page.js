@@ -5,7 +5,6 @@ import VideoCard from '../../components/VideoCard';
 const videos = [
   { id: '1', thumbnail: 'portada_mujpioneras.png', title: 'Mujeres Pioneras', description: 'Mujeres pioneras en el Ecuador.' },
   { id: '2', thumbnail: 'portada_raquel.jpg', title: 'Raquel y Champi', description: 'La historia de Raquel y Champi.' },
-  { id: '3', thumbnail: 'vdo1_socioec.png', title: 'SOCIOECONÓMICA', description: 'Estadísticas del observatorio' },
 ];
 
 export default function VideosPage() {

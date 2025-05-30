@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { lista_noticias, lista_novedades } from "../../utils/modelo_novedades";
 
-export default function TendenciasEducativas() {
+export default function Infografía() {
   const router = useRouter();
 
   // Limitar el numero de caracteres a mostrar en item.description
@@ -31,10 +31,9 @@ export default function TendenciasEducativas() {
             height={85}
           />
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight">
-            ¡<span className="text-red-600">I</span>
-            <span className="text-white">NFOGRAFÍAS </span>
-            <span className="text-red-600">R</span>
-            <span className="text-white">IOUC</span>!
+            
+            <span className="text-white">INFOGRAFÍAS </span>
+            <span className="text-red-600">RIOUC</span>
           </h1>
           <div className="h-1 w-24 bg-red-600 mx-auto mt-4 mb-6"></div>
           <p className="text-lg text-gray-300 mb-4">

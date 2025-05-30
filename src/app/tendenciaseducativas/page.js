@@ -233,7 +233,7 @@ export default function TendenciasEducativas() {
 
         <div className="grid lg:grid-cols-1 gap-2">
           {/* Iterar sobre la lista de noticias */}
-          {lista_noticias.map((item) => {
+          {lista_noticias.slice().reverse().map((item) => {
             console.log("Item:", item); // Loguear cada elemento
             console.log("ID:", item.id); // Loguear el ID de cada elemento
             return (

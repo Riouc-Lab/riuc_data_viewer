@@ -193,7 +193,7 @@ export default function Footer() {
               className="text-white hover:text-red-600"
             >
               {" "}
-              Intestigación
+              Investigación
             </a>
             <hr className="my-2 border-white" />
             <p>
