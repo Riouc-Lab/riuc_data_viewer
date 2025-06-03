@@ -8,7 +8,7 @@ export default function Boletinn3() {
   
   // Función para abrir PDF
   const abrirPDF = () => {
-    const pdfUrl = "/pdf/migracion2023.pdf";
+    const pdfUrl = "/pdf/INFLACIÓN EN ECUADOR-2.pdf";
     window.open(pdfUrl, "_blank"); // window es un objeto global del navegador, asegurate de que el entorno sea del cliente
   };
 
@@ -42,9 +42,9 @@ export default function Boletinn3() {
           </span>
         </button>
       </div>
-      <h1 className="text-6xl text-red-500 font-semibold mb-5 mt-3">Observatorio Desarrollo Social</h1>
+      <h1 className="text-6xl text-red-500 font-semibold mb-5 mt-3">Inflación en Ecuador del primer trimestre del año 2025</h1>
       <h2 className="text-base text-gray-400">Version 1.0.0</h2>
-      <h2 className="text-base text-gray-400 mb-3">Diciembre 2024</h2>
+      <h2 className="text-base text-gray-400 mb-3">Mayo 2025</h2>
       <p className="text-lg text-gray-800 mb-5 text-justify">
         
       </p>
@@ -53,7 +53,7 @@ export default function Boletinn3() {
         </div>
         <div className="md:w-1/8 md:pl-4">
           <Image
-            src="/img/migracion2023.png"
+            src="/img/inf2.png"
             alt="RIOUC"
             width={440}
             height={175}

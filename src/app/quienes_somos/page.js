@@ -30,25 +30,25 @@ export default function Equipo() {
 
           <Image
             className="mx-auto"
-            src="/img/"
+            src="/img/DESCONOCIDO.jpg"
             alt="Imagen 1"
             width={300}
             height={160}
           />
           <h1 className="text-center font-semibold p-3 mb-2 bg-gradient-to-r from-black to-black bg-clip-text text-transparent border-b-2 border-red-400 w-2/4 mx-auto">
-            Lic. María Emilia Molina de Tinto
+            María Emilia Molina de Tinto
           </h1>
         </div>
         <div className="w-5/6 p-2">
           <Image
             className="mx-auto"
-            src="/img/"
+            src="/img/DESCONOCIDO.jpg"
             alt="Imagen 2"
             width={300}
             height={160}
           />
           <h1 className="text-center font-semibold p-3 mb-2 bg-gradient-to-r from-black to-black bg-clip-text text-transparent border-b-2 border-red-400 w-2/4 mx-auto">
-            NUEVO TÉCNIC@
+            Claudia Emilia Calderón Cordero
           </h1>
         </div>
       </div>
@@ -56,8 +56,8 @@ export default function Equipo() {
       <p className="text-lg text-gray-800 mb-6"></p>
 
       <p className="text-lg text-gray-800 mb-6 text-justify">
-        La Coordinadora de la Red de Investigación y Observatorios de la Universidad Católica de Cuenca-RIOUC es la <strong>Lic. María Emilia Molina de Tinto</strong>;
-        Lic. en Administración de Empresas–Universidad de Los Andes,
+        La Coordinadora de la <strong>Red de Investigación y Observatorios de la Universidad Católica de Cuenca - RIOUC</strong> es la <strong>Lic. María Emilia Molina de Tinto</strong>;
+        licenciada en Administración de Empresas por la Universidad de Los Andes,
         Venezuela. Especialista en Gestión de Proyectos Barcelona Activa-
         España y Logística Integral Universitat Politécnica de
         Catalunya-España, MSc en Ciencia Contable Universidad de Los
@@ -71,7 +71,7 @@ export default function Equipo() {
       </p>
 
       <p className="text-lg text-gray-800 mb-6 text-justify">
-        Forma parte del equipo la <strong>....</strong>,
+        Forma parte del equipo la <strong>Fís. Claudia Emilia Calderón Cordero</strong>,
         responsable del diseño y estructuración de las bases de datos e
         información recolectada dentro de la RIOUC.
       </p>
@@ -90,7 +90,7 @@ export default function Equipo() {
 
         {/* Texto con ambos mencionados */}
         <div className="flex-1 text-lg text-gray-800 text-justify">
-          La RIOUC cuenta con el apoyo permanente del Laboratorio de Cálculo Computacional, Modelado y Analítica de Datos C2MAD - CIITT, coordinado por el
+          La RIOUC cuenta con el apoyo permanente del <strong>Laboratorio de Cálculo Computacional, Modelado y Analítica de Datos - C2MAD</strong>, coordinado por el
           <strong> Blgo. José Esteban Torracchi Carrasco Ph.D</strong>, junto con su respectivo técnico laboratorista <strong>Ing. Gustavo Alexánder Lozada Castro</strong>, quienes contribuyen activamente en el análisis, procesamiento y almacenamiento de la información.
         </div>
       </div>

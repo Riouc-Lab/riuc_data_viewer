@@ -4,7 +4,7 @@ import VideoCard from '../../components/VideoCard';
 
 const videos = [
   { id: '1', thumbnail: 'portada_mujpioneras.png', title: 'Mujeres Pioneras', description: 'Mujeres pioneras en el Ecuador.' },
-  { id: '2', thumbnail: 'portada_raquel.jpg', title: 'Raquel y Champi', description: 'La historia de Raquel y Champi.' },
+  //{ id: '2', thumbnail: 'portada_raquel.jpg', title: 'Raquel y Champi', description: 'La historia de Raquel y Champi.' },
 ];
 
 export default function VideosPage() {
@@ -13,7 +13,7 @@ export default function VideosPage() {
       <div className="container mx-auto px-4 text-center">
         <h1 className="text-4xl font-extrabold text-red-600 mb-4 uppercase">Videos RIOUC</h1>
         <p className="text-lg text-gray-700 mb-12">Explora los videos relacionados con nuestros observatorios e investigaciones.</p>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {videos.map((video) => (
             <Link key={video.id} href={`/vdos/${video.id}`} className="block">

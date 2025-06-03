@@ -14,7 +14,7 @@ export const routers_menu = [
   {
     id: 3,
     to: "/quienes_somos",
-    name: "Quienes Somos",
+    name: "Quiénes Somos",
     expanded: false,
   },
   {
@@ -31,6 +31,18 @@ export const routers_menu = [
   },
   {
     id: 6,
+    to: "/Novedades",
+    name: "Infografías",
+    expanded: false,
+  },
+  {
+    id: 7,
+    to: "/vdos",
+    name: "Videos",
+    expanded: false,
+  },
+  {
+    id: 8,
     to: "/tendenciaseducativas",
     name: "Tendencias Educativas",
     expanded: false,

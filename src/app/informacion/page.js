@@ -149,7 +149,7 @@ export default function Informacion() {
         observan. (Phelan, 2007).
       </p>
 
-      <div className="bg-white mx-auto max-w-8xl font-serif flex flex-wrap">
+      <div className="bg-white mx-auto max-w-8xl flex flex-wrap">
         <h2 className="text-2xl font-semibold text-red-500 mb-6 w-full">
           ¿Cómo lo hacemos?
         </h2>
