@@ -465,7 +465,7 @@ export default function Canar() {
 
   return (
     <main style={{ scrollBehavior: "smooth" }}>
-      <div className="flex flex-col lg:flex-row p-2 bg-black">
+      <div className="flex flex-col lg:flex-row bg-black">
         <div className="h-[calc(100vh-80px)] w-full sm:w-[410px] overflow-hidden overflow-y-auto rounded-lg bg-gray-900 p-3 shadow-md mb-2">
 
           <button
@@ -500,12 +500,14 @@ export default function Canar() {
             >
               {showDescription ? "Ocultar Descripción" : "Mostrar Descripción"}
             </button>
+            {/* 
             <button
               className="bg-red-600 text-white py-1 px-3 rounded mb-4"
               onClick={handleDownloadClick}
             >
               Descargar
             </button>
+            */}
             {showDescription && (
               <div className="mt-1 text-white text-justify">
                 <p>
@@ -637,7 +639,7 @@ export default function Canar() {
 
           {/* Pie de página */}
           <div className="bg-gray-800 text-white p-4 text-center text-sm">
-            <p>&copy; 2024 Geovisor. Todos los derechos reservados.</p>
+            <p>&copy; 2025 Geovisor. Todos los derechos reservados.</p>
           </div>
         </div>
 

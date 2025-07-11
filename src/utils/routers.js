@@ -23,26 +23,34 @@ export const routers_menu = [
     name: "Boletines",
     expanded: false,
   },
+  /*
   {
     id: 5,
+    to: "/articulos",
+    name: "Artículos científicos",
+    expanded: false,
+  },
+  */
+  {
+    id: 6,
     to: "/proyectos",
-    name: "Proyectos",
+    name: "Geovisores",
     expanded: true,
   },
   {
-    id: 6,
+    id: 7,
     to: "/Novedades",
     name: "Infografías",
     expanded: false,
   },
   {
-    id: 7,
+    id: 8,
     to: "/vdos",
     name: "Videos",
     expanded: false,
   },
   {
-    id: 8,
+    id: 9,
     to: "/tendenciaseducativas",
     name: "Tendencias Educativas",
     expanded: false,

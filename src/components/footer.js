@@ -285,7 +285,7 @@ export default function Footer() {
           </div>
         </div>
         <h2 className="text-white text-sm text-center">
-          © 2023 | Universidad Católica de Cuenca
+          © 2025 | Centro de Investigación, Innovación y Transferencia de Tecnología.
         </h2>
       </div>
     </section>

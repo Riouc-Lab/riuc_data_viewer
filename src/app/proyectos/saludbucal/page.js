@@ -6,14 +6,23 @@ import dynamic from "next/dynamic";
 import SwitchButton from "../../../components/buttonswitch";
 const Map = dynamic(() => import("../../../components/map"), { ssr: false });
 const DEFAULT_CENTER = [-2.891565, -79.005958];
+const coloresPorNivel = {
+  1: "#FF0000", // rojo (75-100)
+  2: "#FF8000", // naranja (101-500)
+  3: "#FFFF00", // amarillo (501-750)
+  4: "#80FF00", // verde limón (751-1000)
+  5: "#00CC00",  // verde (1001-2000)
+  6: "#FBFCF8",   // blanco (2001-3000)
+};
 
 const cuadras = [
   {
     nombre: "Cuadra 1",
+    color: 2,
     descripcion: [
       "Esta es la primera cuadra.",
-      "Tiene un nivel económico alto.",
-      "Hay 62 habitantes."
+      "Tiene un ingreso promedio de 495,833333333333.",
+      "Nivel económico medio-bajo.",
     ],
     coordenadas: [
       [-2.892710, -79.000136],
@@ -24,10 +33,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 2",
+    color: 3,
     descripcion: [
       "Esta es la segunda cuadra.",
+      "Tiene un ingreso promedio de 695.",
       "Nivel económico medio.",
-      "Hay 48 habitantes."
     ],
     coordenadas: [
       [-2.892536, -79.001048],
@@ -38,10 +48,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 3",
+    color: 2,
     descripcion: [
       "Esta es la tercera cuadra.",
-      "Nivel económico medio.",
-      "Hay 35 habitantes."
+      "Tiene un ingreso promedio de 500.",
+      "Nivel económico medio-bajo.",
     ],
     coordenadas: [
       [-2.892326, -79.002063],
@@ -52,10 +63,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 4",
+    color: 3,
     descripcion: [
       "Esta es la cuarta cuadra.",
-      "Nivel económico bajo.",
-      "Hay 20 habitantes."
+      "Tiene un ingreso promedio de 650.",
+      "Nivel económico medio.",
     ],
     coordenadas: [
       [-2.892135, -79.003020],
@@ -66,10 +78,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 5",
+    color: 3,
     descripcion: [
       "Esta es la quinta cuadra.",
-      "Nivel económico bajo.",
-      "Hay 36 habitantes."
+      "Tiene un ingreso promedio de 535,714285714286.",
+      "Nivel económico medio.",
     ],
     coordenadas: [
       [-2.891870, -79.003920],
@@ -82,10 +95,11 @@ const cuadras = [
 
   {
     nombre: "Cuadra 6",
+    color: 3,
     descripcion: [
       "Esta es la sexta cuadra.",
-      "Nivel económico alto.",
-      "Hay 50 habitantes."
+      "Tiene un ingreso promedio de 716,666666666667",
+      "Nivel económico medio.",
     ],
     coordenadas: [
       [-2.891600, -79.004880],
@@ -96,10 +110,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 7",
+    color: 4,
     descripcion: [
       "Esta es la séptima cuadra.",
-      "Nivel económico medio.",
-      "Hay 45 habitantes."
+      "Tiene un ingreso promedio de 900.",
+      "Nivel económico medio-alto.",
     ],
     coordenadas: [
       [-2.891340, -79.005875],
@@ -110,10 +125,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 8",
+    color: 3,
     descripcion: [
       "Esta es la octava cuadra.",
-      "Nivel económico bajo.",
-      "Hay 30 habitantes."
+      "Tiene un ingreso promedio de 616,6666667.",
+      "Nivel económico medio.",
     ],
     coordenadas: [
       [-2.891050, -79.006930],
@@ -124,10 +140,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 9",
+    color: 4,
     descripcion: [
       "Esta es la novena cuadra.",
-      "Nivel económico bajo.",
-      "Hay 25 habitantes."
+      "Tiene un ingreso promedio de 1000.",
+      "Nivel económico medio-alto.",
     ],
     coordenadas: [
       [-2.890800, -79.007900],
@@ -138,10 +155,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 10",
+    color: 2,
     descripcion: [
       "Esta es la décima cuadra.",
-      "Nivel económico alto.",
-      "Hay 55 habitantes."
+      "Tiene un ingreso promedio de 500.",
+      "Nivel económico medio-bajo.",
     ],
     coordenadas: [
       [-2.890530, -79.008880],
@@ -152,10 +170,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 11",
+    color: 2,
     descripcion: [
       "Esta es la undécima cuadra.",
-      "Nivel económico medio.",
-      "Hay 40 habitantes."
+      "Tiene un ingreso promedio de 266,666666666667.",
+      "Nivel económico medio-bajo.",
     ],
     coordenadas: [
       [-2.890449, -79.009924],
@@ -166,10 +185,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 12",
+    color: 4,
     descripcion: [
       "Esta es la duodécima cuadra.",
-      "Nivel económico bajo.",
-      "Hay 28 habitantes."
+      "Tiene un ingreso promedio de 768,75.",
+      "Nivel económico medio-alto.",
     ],
     coordenadas: [
       [-2.889545, -79.011006],
@@ -182,9 +202,7 @@ const cuadras = [
   {
     nombre: "Cuadra 13",
     descripcion: [
-      "Esta es la decimotercera cuadra.",
-      "Nivel económico medio.",
-      "Hay 38 habitantes."
+      "Datos inconclusos.",
     ],
     coordenadas: [
       [-2.889797, -79.011899],
@@ -196,9 +214,7 @@ const cuadras = [
   {
     nombre: "Cuadra 14",
     descripcion: [
-      "Esta es la decimoquinta cuadra.",
-      "Nivel económico bajo.",
-      "Hay 22 habitantes."
+      "Datos inconclusos.",
     ],
     coordenadas: [
       [-2.889159, -79.012850],
@@ -213,9 +229,7 @@ const cuadras = [
   {
     nombre: "Cuadra 15",
     descripcion: [
-      "Esta es la decimocuarta cuadra.",
-      "Nivel económico alto.",
-      "Hay 60 habitantes."
+      "Datos inconclusos.",
     ],
     coordenadas: [
       [-2.890065, -79.012925],
@@ -225,10 +239,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 16",
+    color: 2,
     descripcion: [
       "Esta es la decimosexta cuadra.",
-      "Nivel económico medio.",
-      "Hay 42 habitantes."
+      "Tiene un ingreso promedio de 140.",
+      "Nivel económico medio-bajo.",
     ],
     coordenadas: [
       [-2.888910, -79.011750],
@@ -241,9 +256,7 @@ const cuadras = [
   {
     nombre: "Cuadra 17",
     descripcion: [
-      "Esta es la decimoséptima cuadra.",
-      "Nivel económico bajo.",
-      "Hay 29 habitantes."
+      "Datos inconclusos.",
     ],
     coordenadas: [
       [-2.888715, -79.011370],
@@ -254,10 +267,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 18",
+    color: 2,
     descripcion: [
-      "Esta es la decimoctava cuadra.",
-      "Nivel económico alto.",
-      "Hay 70 habitantes."
+      "Esta es la decimoséptima cuadra.",
+      "Tiene un ingreso promedio de 400.",
+      "Nivel económico medio-bajo.",
     ],
     coordenadas: [
       [-2.888735, -79.010275],
@@ -270,10 +284,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 19",
+    color: 3,
     descripcion: [
       "Esta es la decimoctava cuadra.",
-      "Nivel económico alto.",
-      "Hay 95 habitantes."
+      "Tiene un ingreso promedio de 600.",
+      "Nivel económico medio.",
     ],
     coordenadas: [
       [-2.889533, -79.009820],
@@ -286,10 +301,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 20",
+    color: 5,
     descripcion: [
       "Esta es la vigésima cuadra.",
-      "Nivel económico medio.",
-      "Hay 50 habitantes."
+      "Tiene un ingreso promedio de 1250 dólares.",
+      "Nivel económico alto.",
     ],
     coordenadas: [
       [-2.888825, -79.009865],
@@ -300,10 +316,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 21",
+    color: 4,
     descripcion: [
       "Esta es la vigésima primera cuadra.",
-      "Nivel económico bajo.",
-      "Hay 30 habitantes."
+      "Tiene un ingreso promedio de 879,166666666667.",
+      "Nivel económico medio-alto.",
     ],
     coordenadas: [
       [-2.888600, -79.008775],
@@ -315,10 +332,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 22",
+    color: 1,
     descripcion: [
       "Esta es la vigésima segunda cuadra.",
-      "Nivel económico medio.",
-      "Hay 40 habitantes."
+      "Tiene un ingreso promedio de 100.",
+      "Nivel económico bajo.",
     ],
     coordenadas: [
       [-2.889127, -79.008666],
@@ -329,10 +347,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 23",
+    color: 2,
     descripcion: [
       "Esta es la vigésima tercera cuadra.",
-      "Nivel económico alto.",
-      "Hay 80 habitantes."
+      "Tiene un ingreso promedio de 216,666666666667.",
+      "Nivel económico medio-bajo.",
     ],
     coordenadas: [
       [-2.889808, -79.008768],
@@ -344,10 +363,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 24",
+    color: 1,
     descripcion: [
       "Esta es la vigésima cuarta cuadra.",
+      "Tiene un ingreso promedio de 0.",
       "Nivel económico bajo.",
-      "Hay 20 habitantes."
     ],
     coordenadas: [
       [-2.890101, -79.007770],
@@ -359,9 +379,7 @@ const cuadras = [
   {
     nombre: "Cuadra 25",
     descripcion: [
-      "Esta es la vigésima quinta cuadra.",
-      "Nivel económico medio.",
-      "Hay 45 habitantes."
+      "Datos inconclusos.",
     ],
     coordenadas: [
       [-2.889106, -79.007585],
@@ -373,10 +391,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 26",
+    color: 2,
     descripcion: [
       "Esta es la vigésima sexta cuadra.",
-      "Nivel económico alto.",
-      "Hay 65 habitantes."
+      "Tiene un ingreso promedio de 357,14.",
+      "Nivel económico medio-bajo.",
     ],
     coordenadas: [
       [-2.888550, -79.007470],
@@ -388,10 +407,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 27",
+    color: 1,
     descripcion: [
       "Esta es la vigésima séptima cuadra.",
-      "Nivel económico medio.",
-      "Hay 55 habitantes."
+      "Tiene un ingreso promedio de 0.",
+      "Nivel económico bajo.",
     ],
     coordenadas: [
       [-2.888030, -79.006430],
@@ -401,10 +421,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 28",
+    color: 1,
     descripcion: [
       "Esta es la vigésima octava cuadra.",
+      "Tiene un ingreso promedio de 0.",
       "Nivel económico bajo.",
-      "Hay 25 habitantes."
     ],
     coordenadas: [
       [-2.889095, -79.006570],
@@ -416,9 +437,7 @@ const cuadras = [
   {
     nombre: "Cuadra 29",
     descripcion: [
-      "Esta es la vigésima novena cuadra.",
-      "Nivel económico alto.",
-      "Hay 75 habitantes."
+      "Datos inconclusos.",
     ],
     coordenadas: [
       [-2.889261, -79.006585],
@@ -430,9 +449,7 @@ const cuadras = [
   {
     nombre: "Cuadra 30",
     descripcion: [
-      "Esta es la trigésima cuadra.",
-      "Nivel económico medio.",
-      "Hay 50 habitantes."
+      "Datos inconclusos.",
     ],
     coordenadas: [
       [-2.890280, -79.006790],
@@ -443,10 +460,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 31",
+    color: 2,
     descripcion: [
       "Esta es la trigésima primera cuadra.",
-      "Nivel económico bajo.",
-      "Hay 30 habitantes."
+      "Tiene un ingreso promedio de 286.",
+      "Nivel económico medio-bajo.",
     ],
     coordenadas: [
       [-2.890450, -79.005755],
@@ -457,10 +475,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 32",
+    color: 2,
     descripcion: [
       "Esta es la trigésima segunda cuadra.",
-      "Nivel económico alto.",
-      "Hay 85 habitantes."
+      "Tiene un ingreso promedio de 295.",
+      "Nivel económico medio-bajo.",
     ],
     coordenadas: [
       [-2.889928, -79.005691],
@@ -471,10 +490,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 33",
+    color: 2,
     descripcion: [
       "Esta es la trigésima tercera cuadra.",
-      "Nivel económico medio.",
-      "Hay 60 habitantes."
+      "Tiene un ingreso promedio de 212.",
+      "Nivel económico medio-bajo.",
     ],
     coordenadas: [
       [-2.889420, -79.005626],
@@ -485,10 +505,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 34",
+    color: 2,
     descripcion: [
       "Esta es la trigésima cuarta cuadra.",
-      "Nivel económico bajo.",
-      "Hay 40 habitantes."
+      "Tiene un ingreso promedio de 305,443333333333.",
+      "Nivel económico medio-bajo.",
     ],
     coordenadas: [
       [-2.888715, -79.005998],
@@ -499,10 +520,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 35",
+    color: 2,
     descripcion: [
       "Esta es la trigésima quinta cuadra.",
-      "Nivel económico alto.",
-      "Hay 90 habitantes."
+      "Tiene un ingreso promedio de 275.",
+      "Nivel económico medio-bajo.",
     ],
     coordenadas: [
       [-2.888794, -79.005525],
@@ -513,10 +535,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 36",
+    color: 2,
     descripcion: [
       "Esta es la trigésima sexta cuadra.",
-      "Nivel económico medio.",
-      "Hay 55 habitantes."
+      "Tiene un ingreso promedio de 324,833333333333.",
+      "Nivel económico medio-bajo.",
     ],
     coordenadas: [
       [-2.888115, -79.005895],
@@ -527,10 +550,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 37",
+    color: 2,
     descripcion: [
       "Esta es la trigésima séptima cuadra.",
-      "Nivel económico bajo.",
-      "Hay 20 habitantes."
+      "Tiene un ingreso promedio de 249,5.",
+      "Nivel económico medio-bajo.",
     ],
     coordenadas: [
       [-2.888190, -79.005430],
@@ -541,10 +565,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 38",
+    color: 2,
     descripcion: [
       "Esta es la trigésima octava cuadra.",
-      "Nivel económico alto.",
-      "Hay 100 habitantes."
+      "Tiene un ingreso promedio de 245,75.",
+      "Nivel económico medio.",
     ],
     coordenadas: [
       [-2.888340, -79.004705],
@@ -555,10 +580,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 39",
+    color: 2,
     descripcion: [
-      "Esta es la trigésima novena cuadra.",
-      "Nivel económico medio.",
-      "Hay 70 habitantes."
+      "Esta es la cuadragésima cuadra.",
+      "Tiene un ingreso promedio de 338,2.",
+      "Nivel económico medio-bajo.",
     ],
     coordenadas: [
       [-2.889555, -79.004795],
@@ -570,10 +596,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 40",
+    color: 2,
     descripcion: [
-      "Esta es la cuadragésima cuadra.",
-      "Nivel económico bajo.",
-      "Hay 30 habitantes."
+      "Esta es la cuadragésima primera cuadra.",
+      "Tiene un ingreso promedio de 398,333333333333.",
+      "Nivel económico medio-bajo.",
     ],
     coordenadas: [
       [-2.890220, -79.004640],
@@ -584,10 +611,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 41",
+    color: 2,
     descripcion: [
       "Esta es la cuadragésima primera cuadra.",
-      "Nivel económico alto.",
-      "Hay 95 habitantes."
+      "Tiene un ingreso promedio de 400.",
+      "Nivel económico medio-bajo.",
     ],
     coordenadas: [
       [-2.890550, -79.005210],
@@ -598,10 +626,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 42",
+    color: 2,
     descripcion: [
       "Esta es la cuadragésima segunda cuadra.",
-      "Nivel económico medio.",
-      "Hay 60 habitantes."
+      "Tiene un ingreso promedio de 487,5.",
+      "Nivel económico medio-bajo.",
     ],
     coordenadas: [
       [-2.890645, -79.004715],
@@ -612,10 +641,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 43",
+    color: 2,
     descripcion: [
       "Esta es la cuadragésima tercera cuadra.",
-      "Nivel económico bajo.",
-      "Hay 25 habitantes."
+      "Tiene un ingreso promedio de 425.",
+      "Nivel económico medio-bajo.",
     ],
     coordenadas: [
       [-2.890800, -79.003730],
@@ -627,9 +657,7 @@ const cuadras = [
   {
     nombre: "Cuadra 44",
     descripcion: [
-      "Esta es la cuadragésima cuarta cuadra.",
-      "Nivel económico alto.",
-      "Hay 85 habitantes."
+      "Datos inconclusos.",
     ],
     coordenadas: [
       [-2.890920, -79.002822],
@@ -640,10 +668,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 45",
+    color: 2,
     descripcion: [
       "Esta es la cuadragésima quinta cuadra.",
-      "Nivel económico medio.",
-      "Hay 50 habitantes."
+      "Tiene un ingreso promedio de 400.",
+      "Nivel económico medio-bajo.",
     ],
     coordenadas: [
       [-2.891050, -79.001849],
@@ -655,10 +684,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 46",
+    color: 2,
     descripcion: [
       "Esta es la cuadragésima sexta cuadra.",
-      "Nivel económico bajo.",
-      "Hay 20 habitantes."
+      "Tiene un ingreso promedio de 200.",
+      "Nivel económico medio-bajo.",
     ],
     coordenadas: [
       [-2.891320, -79.000826],
@@ -669,10 +699,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 47",
+    color: 3,
     descripcion: [
       "Esta es la cuadragésima séptima cuadra.",
-      "Nivel económico alto.",
-      "Hay 90 habitantes."
+      "Tiene un ingreso promedio de 516,666666666667.",
+      "Nivel económico medio.",
     ],
     coordenadas: [
       [-2.891575, -78.999925],
@@ -683,10 +714,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 48",
+    color: 2,
     descripcion: [
       "Esta es la cuadragésima octava cuadra.",
-      "Nivel económico medio.",
-      "Hay 65 habitantes."
+      "Tiene un ingreso promedio de 366,666666666667.",
+      "Nivel económico medio-bajo.",
     ],
     coordenadas: [
       [-2.890750, -78.999783],
@@ -699,10 +731,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 49",
+    color: 3,
     descripcion: [
       "Esta es la cuadragésima novena cuadra.",
-      "Nivel económico bajo.",
-      "Hay 30 habitantes."
+      "Tiene un ingreso promedio de 550.",
+      "Nivel económico medio.",
     ],
     coordenadas: [
       [-2.890890, -79.000815],
@@ -714,10 +747,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 50",
+    color: 2,
     descripcion: [
       "Esta es la quincuagésima cuadra.",
-      "Nivel económico alto.",
-      "Hay 100 habitantes."
+      "Tiene un ingreso promedio de 428.",
+      "Nivel económico medio-bajo.",
     ],
     coordenadas: [
       [-2.890000, -79.001700],
@@ -729,10 +763,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 51",
+    color: 2,
     descripcion: [
       "Esta es la quincuagésima primera cuadra.",
-      "Nivel económico medio.",
-      "Hay 55 habitantes."
+      "Tiene un ingreso promedio de 488,2.",
+      "Nivel económico medio-bajo.",
     ],
     coordenadas: [
       [-2.888925, -79.001520],
@@ -744,9 +779,7 @@ const cuadras = [
   {
     nombre: "Cuadra 52",
     descripcion: [
-      "Esta es la quincuagésima segunda cuadra.",
-      "Nivel económico bajo.",
-      "Hay 40 habitantes."
+      "Datos inconclusos.",
     ],
     coordenadas: [
       [-2.888055, -79.001372],
@@ -757,10 +790,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 53",
+    color: 2,
     descripcion: [
       "Esta es la quincuagésima tercera cuadra.",
-      "Nivel económico alto.",
-      "Hay 80 habitantes."
+      "Tiene un ingreso promedio de 250.",
+      "Nivel económico medio-bajo.",
     ],
     coordenadas: [
       [-2.887640, -79.000220],
@@ -772,9 +806,7 @@ const cuadras = [
   {
     nombre: "Cuadra 54",
     descripcion: [
-      "Esta es la quincuagésima cuarta cuadra.",
-      "Nivel económico medio.",
-      "Hay 45 habitantes."
+      "Datos inconclusos.",
     ],
     coordenadas: [
       [-2.887650, -78.999850],
@@ -785,10 +817,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 55",
+    color: 4,
     descripcion: [
       "Esta es la quincuagésima quinta cuadra.",
-      "Nivel económico bajo.",
-      "Hay 25 habitantes."
+      "Tiene un ingreso promedio de 900.",
+      "Nivel económico medio-alto.",
     ],
     coordenadas: [
       [-2.887665, -78.999310],
@@ -800,9 +833,7 @@ const cuadras = [
   {
     nombre: "Cuadra 56",
     descripcion: [
-      "Esta es la quincuagésima sexta cuadra.",
-      "Nivel económico alto.",
-      "Hay 95 habitantes."
+      "Datos inconclusos.",
     ],
     coordenadas: [
       [-2.887640, -79.000650],
@@ -814,9 +845,7 @@ const cuadras = [
   {
     nombre: "Cuadra 57",
     descripcion: [
-      "Esta es la quincuagésima séptima cuadra.",
-      "Nivel económico medio.",
-      "Hay 60 habitantes."
+      "Datos inconclusos.",
     ],
     coordenadas: [
       [-2.886595, -79.001195],
@@ -827,10 +856,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 58",
+    color: 1,
     descripcion: [
       "Esta es la quincuagésima octava cuadra.",
+      "Tiene un ingreso promedio de 0.",
       "Nivel económico bajo.",
-      "Hay 35 habitantes."
     ],
     coordenadas: [
       [-2.886590, -79.000740],
@@ -841,10 +871,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 59",
+    color: 3,
     descripcion: [
       "Esta es la quincuagésima novena cuadra.",
-      "Nivel económico alto.",
-      "Hay 85 habitantes."
+      "Tiene un ingreso promedio de 550.",
+      "Nivel económico medio.",
     ],
     coordenadas: [
       [-2.887000, -78.999195],
@@ -855,10 +886,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 60",
+    color: 2,
     descripcion: [
       "Esta es la sexagésima cuadra.",
-      "Nivel económico medio.",
-      "Hay 50 habitantes."
+      "Tiene un ingreso promedio de 300.",
+      "Nivel económico medio-bajo.",
     ],
     coordenadas: [
       [-2.886100, -79.000150],
@@ -869,10 +901,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 61",
+    color: 2,
     descripcion: [
       "Esta es la sexagésima primera cuadra.",
-      "Nivel económico bajo.",
-      "Hay 20 habitantes."
+      "Tiene un ingreso promedio de 291,25.",
+      "Nivel económico medio-bajo.",
     ],
     coordenadas: [
       [-2.886508, -78.999093],
@@ -885,10 +918,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 62",
+    color: 2,
     descripcion: [
       "Esta es la sexagésima segunda cuadra.",
-      "Nivel económico alto.",
-      "Hay 75 habitantes."
+      "Tiene un ingreso promedio de 110.",
+      "Nivel económico medio-bajo.",
     ],
     coordenadas: [
       [-2.885720, -78.999005],
@@ -899,10 +933,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 63",
+    color: 2,
     descripcion: [
       "Esta es la sexagésima tercera cuadra.",
-      "Nivel económico medio.",
-      "Hay 55 habitantes."
+      "Tiene un ingreso promedio de 106,285714285714.",
+      "Nivel económico medio-bajo.",
     ],
     coordenadas: [
       [-2.885550, -78.999494],
@@ -913,24 +948,23 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 64",
+    color: 2,
     descripcion: [
       "Esta es la sexagésima cuarta cuadra.",
-      "Nivel económico bajo.",
-      "Hay 30 habitantes."
+      "Tiene un ingreso promedio de 330.",
+      "Nivel económico medio-bajo.",
     ],
     coordenadas: [
       [-2.885350, -79.000055],
       [-2.885960, -79.000240],
       [-2.885740, -79.000759],
-      [-2.885100, -79.000795],
+      [-2.885080, -79.000815],
     ]
   },
   {
     nombre: "Cuadra 65",
     descripcion: [
-      "Esta es la sexagésima quinta cuadra.",
-      "Nivel económico alto.",
-      "Hay 90 habitantes."
+      "Datos inconclusos.",
     ],
     coordenadas: [
       [-2.885180, -78.998430],
@@ -944,9 +978,7 @@ const cuadras = [
   {
     nombre: "Cuadra 66",
     descripcion: [
-      "Esta es la sexagésima sexta cuadra.",
-      "Nivel económico medio.",
-      "Hay 65 habitantes."
+      "Datos inconclusos.",
     ],
     coordenadas: [
       [-2.884785, -78.998435],
@@ -958,9 +990,7 @@ const cuadras = [
   {
     nombre: "Cuadra 67",
     descripcion: [
-      "Esta es la sexagésima séptima cuadra.",
-      "Nivel económico bajo.",
-      "Hay 40 habitantes."
+      "Datos inconclusos.",
     ],
     coordenadas: [
       [-2.884485, -78.998465],
@@ -971,10 +1001,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 68",
+    color: 1,
     descripcion: [
       "Esta es la sexagésima octava cuadra.",
-      "Nivel económico alto.",
-      "Hay 100 habitantes."
+      "Tiene un ingreso promedio de 0.",
+      "Nivel económico bajo.",
     ],
     coordenadas: [
       [-2.884360, -78.998885],
@@ -986,9 +1017,7 @@ const cuadras = [
   {
     nombre: "Cuadra 69",
     descripcion: [
-      "Esta es la sexagésima novena cuadra.",
-      "Nivel económico medio.",
-      "Hay 55 habitantes."
+      "Datos inconclusos.",
     ],
     coordenadas: [
       [-2.884260, -78.999215],
@@ -999,10 +1028,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 70",
+    color: 4,
     descripcion: [
-      "Esta es la septuagésima cuadra.",
-      "Nivel económico bajo.",
-      "Hay 30 habitantes."
+      "Esta es la sexagésima novena cuadra.",
+      "Tiene un ingreso promedio de 1000.",
+      "Nivel económico medio-alto.",
     ],
     coordenadas: [
       [-2.884110, -78.999625],
@@ -1014,10 +1044,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 71",
+    color: 2,
     descripcion: [
-      "Esta es la septuagésima primera cuadra.",
-      "Nivel económico alto.",
-      "Hay 95 habitantes."
+      "Esta es la septuagésima cuadra.",
+      "Tiene un ingreso promedio de 250.",
+      "Nivel económico medio-bajo.",
     ],
     coordenadas: [
       [-2.884000, -79.000035],
@@ -1030,10 +1061,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 72",
+    color: 2,
     descripcion: [
-      "Esta es la septuagésima segunda cuadra.",
-      "Nivel económico medio.",
-      "Hay 60 habitantes."
+      "Esta es la septuagésima primera cuadra.",
+      "Tiene un ingreso promedio de 433,333333333333.",
+      "Nivel económico medio-bajo.",
     ],
     coordenadas: [
       [-2.884431, -79.000927],
@@ -1046,9 +1078,7 @@ const cuadras = [
   {
     nombre: "Cuadra 73",
     descripcion: [
-      "Esta es la septuagésima tercera cuadra.",
-      "Nivel económico bajo.",
-      "Hay 25 habitantes."
+      "Datos inconclusos.",
     ],
     coordenadas: [
       [-2.883275, -79.000145],
@@ -1061,9 +1091,7 @@ const cuadras = [
   {
     nombre: "Cuadra 74",
     descripcion: [
-      "Esta es la septuagésima cuarta cuadra.",
-      "Nivel económico alto.",
-      "Hay 85 habitantes."
+      "Datos inconclusos.",
     ],
     coordenadas: [
       [-2.883137, -78.999700],
@@ -1075,9 +1103,7 @@ const cuadras = [
   {
     nombre: "Cuadra 75",
     descripcion: [
-      "Esta es la septuagésima quinta cuadra.",
-      "Nivel económico medio.",
-      "Hay 50 habitantes."
+      "Datos inconclusos.",
     ],
     coordenadas: [
       [-2.883525, -78.999315],
@@ -1089,9 +1115,7 @@ const cuadras = [
   {
     nombre: "Cuadra 76",
     descripcion: [
-      "Esta es la septuagésima sexta cuadra.",
-      "Nivel económico bajo.",
-      "Hay 20 habitantes."
+      "Datos inconclusos.",
     ],
     coordenadas: [
       [-2.883637, -78.998715],
@@ -1102,10 +1126,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 77",
+    color: 2,
     descripcion: [
       "Esta es la septuagésima séptima cuadra.",
-      "Nivel económico alto.",
-      "Hay 70 habitantes."
+      "Tiene un ingreso promedio de 310.",
+      "Nivel económico medio-bajo.",
     ],
     coordenadas: [
       [-2.883010, -79.000730],
@@ -1118,10 +1143,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 78",
+    color: 1,
     descripcion: [
       "Esta es la septuagésima octava cuadra.",
-      "Nivel económico medio.",
-      "Hay 45 habitantes."
+      "Tiene un ingreso promedio de 0.",
+      "Nivel económico bajo.",
     ],
     coordenadas: [
       [-2.882350, -79.000827],
@@ -1134,9 +1160,7 @@ const cuadras = [
   {
     nombre: "Cuadra 79",
     descripcion: [
-      "Esta es la septuagésima novena cuadra.",
-      "Nivel económico bajo.",
-      "Hay 15 habitantes."
+      "Datos inconclusos.",
     ],
     coordenadas: [
       [-2.882145, -78.999625],
@@ -1150,10 +1174,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 80",
+    color: 1,
     descripcion: [
-      "Esta es la octogésima cuadra.",
-      "Nivel económico alto.",
-      "Hay 80 habitantes."
+      "Esta es la septuagésima novena cuadra.",
+      "Tiene un ingreso promedio de 37,5.",
+      "Nivel económico bajo.",
     ],
     coordenadas: [
       [-2.882538, -78.999445],
@@ -1168,9 +1193,7 @@ const cuadras = [
   {
     nombre: "Cuadra 81",
     descripcion: [
-      "Esta es la octogésima primera cuadra.",
-      "Nivel económico medio.",
-      "Hay 50 habitantes."
+      "Datos inconclusos.",
     ],
     coordenadas: [
       [-2.882105, -78.998545],
@@ -1180,10 +1203,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 82",
+    color: 4,
     descripcion: [
       "Esta es la octogésima segunda cuadra.",
-      "Nivel económico medio.",
-      "Hay 55 habitantes."
+      "Tiene un ingreso promedio de 800.",
+      "Nivel económico medio-alto.",
     ],
     coordenadas: [
       [-2.881750, -78.998265],
@@ -1197,9 +1221,7 @@ const cuadras = [
   {
     nombre: "Cuadra 83",
     descripcion: [
-      "Esta es la octogésima tercera cuadra.",
-      "Nivel económico alto.",
-      "Hay 90 habitantes."
+      "Datos inconclusos.",
     ],
     coordenadas: [
       [-2.881735, -78.999675],
@@ -1213,9 +1235,7 @@ const cuadras = [
   {
     nombre: "Cuadra 84",
     descripcion: [
-      "Esta es la octogésima cuarta cuadra.",
-      "Nivel económico medio.",
-      "Hay 65 habitantes."
+      "Datos inconclusos.",
     ],
     coordenadas: [
       [-2.881740, -79.000221],
@@ -1229,9 +1249,7 @@ const cuadras = [
   {
     nombre: "Cuadra 85",
     descripcion: [
-      "Esta es la octogésima quinta cuadra.",
-      "Nivel económico bajo.",
-      "Hay 30 habitantes."
+      "Datos inconclusos.",
     ],
     coordenadas: [
       [-2.881740, -79.000915],
@@ -1245,9 +1263,7 @@ const cuadras = [
   {
     nombre: "Cuadra 86",
     descripcion: [
-      "Esta es la octogésima sexta cuadra.",
-      "Nivel económico alto.",
-      "Hay 100 habitantes."
+      "Datos inconclusos.",
     ],
     coordenadas: [
       [-2.882024, -79.002195],
@@ -1259,10 +1275,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 87",
+    color: 2,
     descripcion: [
       "Esta es la octogésima séptima cuadra.",
-      "Nivel económico medio.",
-      "Hay 55 habitantes."
+      "Tiene un ingreso promedio de 300.",
+      "Nivel económico medio-bajo.",
     ],
     coordenadas: [
       [-2.881740, -79.002190],
@@ -1274,9 +1291,7 @@ const cuadras = [
   {
     nombre: "Cuadra 88",
     descripcion: [
-      "Esta es la octogésima octava cuadra.",
-      "Nivel económico bajo.",
-      "Hay 20 habitantes."
+      "Datos inconclusos.",
     ],
     coordenadas: [
       [-2.881910, -79.003185],
@@ -1291,9 +1306,7 @@ const cuadras = [
   {
     nombre: "Cuadra 89",
     descripcion: [
-      "Esta es la octogésima novena cuadra.",
-      "Nivel económico alto.",
-      "Hay 95 habitantes."
+      "Datos inconclusos.",
     ],
     coordenadas: [
       [-2.882205, -79.004430],
@@ -1305,10 +1318,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 90",
+    color: 1,
     descripcion: [
       "Esta es la nonagésima cuadra.",
-      "Nivel económico medio.",
-      "Hay 60 habitantes."
+      "Tiene un ingreso promedio de 0.",
+      "Nivel económico bajo.",
     ],
     coordenadas: [
       [-2.882225, -79.003805],
@@ -1326,10 +1340,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 91",
+    color: 1,
     descripcion: [
       "Esta es la nonagésima primera cuadra.",
+      "Tiene un ingreso promedio de 0.",
       "Nivel económico bajo.",
-      "Hay 35 habitantes."
     ],
     coordenadas: [
       [-2.882695, -79.005630],
@@ -1345,10 +1360,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 92",
+    color: 2,
     descripcion: [
       "Esta es la nonagésima segunda cuadra.",
-      "Nivel económico alto.",
-      "Hay 80 habitantes."
+      "Tiene un ingreso promedio de 109,333333333333.",
+      "Nivel económico medio-bajo.",
     ],
     coordenadas: [
       [-2.883205, -79.007250],
@@ -1362,10 +1378,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 93",
+    color: 2,
     descripcion: [
       "Esta es la nonagésima tercera cuadra.",
-      "Nivel económico medio.",
-      "Hay 55 habitantes."
+      "Tiene un ingreso promedio de 276,5.",
+      "Nivel económico medio-bajo.",
     ],
     coordenadas: [
       [-2.883413, -79.008765],
@@ -1376,10 +1393,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 94",
+    color: 2,
     descripcion: [
       "Esta es la nonagésima cuarta cuadra.",
-      "Nivel económico bajo.",
-      "Hay 25 habitantes."
+      "Tiene un ingreso promedio de 266,5.",
+      "Nivel económico medio-bajo.",
     ],
     coordenadas: [
       [-2.883831, -79.009682],
@@ -1391,10 +1409,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 95",
+    color: 2,
     descripcion: [
       "Esta es la nonagésima quinta cuadra.",
-      "Nivel económico alto.",
-      "Hay 90 habitantes."
+      "Tiene un ingreso promedio de 196,666666666667.",
+      "Nivel económico medio-bajo.",
     ],
     coordenadas: [
       [-2.884150, -79.010727],
@@ -1405,10 +1424,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 96",
+    color: 2,
     descripcion: [
       "Esta es la nonagésima sexta cuadra.",
-      "Nivel económico medio.",
-      "Hay 65 habitantes."
+      "Tiene un ingreso promedio de 291,571428571429.",
+      "Nivel económico medio-bajo.",
     ],
     coordenadas: [
       [-2.884575, -79.012106],
@@ -1419,10 +1439,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 97",
+    color: 2,
     descripcion: [
       "Esta es la nonagésima séptima cuadra.",
-      "Nivel económico bajo.",
-      "Hay 40 habitantes."
+      "Tiene un ingreso promedio de 134,2.",
+      "Nivel económico medio-bajo.",
     ],
     coordenadas: [
       [-2.884607, -79.012895],
@@ -1433,10 +1454,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 98",
+    color: 2,
     descripcion: [
       "Esta es la nonagésima octava cuadra.",
-      "Nivel económico alto.",
-      "Hay 100 habitantes."
+      "Tiene un ingreso promedio de 243,75.",
+      "Nivel económico medio-bajo.",
     ],
     coordenadas: [
       [-2.884305, -79.013715],
@@ -1452,9 +1474,7 @@ const cuadras = [
   {
     nombre: "Cuadra 99",
     descripcion: [
-      "Esta es la nonagésima novena cuadra.",
-      "Nivel económico medio.",
-      "Hay 55 habitantes."
+      "Datos inconclusos.",
     ],
     coordenadas: [
       [-2.883550, -79.014775],
@@ -1465,10 +1485,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 100",
+    color: 2,
     descripcion: [
       "Esta es la centésima cuadra.",
-      "Nivel económico bajo.",
-      "Hay 30 habitantes."
+      "Tiene un ingreso promedio de 421,909090909091.",
+      "Nivel económico medio-bajo.",
     ],
     coordenadas: [
       [-2.885215, -79.008025],
@@ -1485,10 +1506,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 101",
+    color: 2,
     descripcion: [
       "Esta es la centésima primera cuadra.",
-      "Nivel económico alto.",
-      "Hay 95 habitantes."
+      "Tiene un ingreso promedio de 187.",
+      "Nivel económico medio-bajo",
     ],
     coordenadas: [
       [-2.884200, -79.009106],
@@ -1500,14 +1522,15 @@ const cuadras = [
       [-2.884530, -79.009905],
     ]
   },
-  
-        // Cuadra 102 pendiente
-        {
+
+  // Cuadra 102 pendiente
+  {
     nombre: "Cuadra 102",
+    color: 1,
     descripcion: [
       "Esta es la centésima tercera cuadra.",
+      "Tiene un ingreso promedio de 78,3333333333333.",
       "Nivel económico bajo.",
-      "Hay 25 habitantes."
     ],
     coordenadas: [
       [-2.885321, -79.010167],
@@ -1520,10 +1543,11 @@ const cuadras = [
 
   {
     nombre: "Cuadra 103",
+    color: 3,
     descripcion: [
       "Esta es la centésima tercera cuadra.",
-      "Nivel económico bajo.",
-      "Hay 25 habitantes."
+      "Tiene un ingreso promedio de 666.",
+      "Nivel económico medio.",
     ],
     coordenadas: [
       [-2.884840, -79.010910],
@@ -1539,10 +1563,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 104",
+    color: 2,
     descripcion: [
       "Esta es la centésima cuarta cuadra.",
-      "Nivel económico alto.",
-      "Hay 90 habitantes."
+      "Tiene un ingreso promedio de 233.",
+      "Nivel económico medio-bajo.",
     ],
     coordenadas: [
       [-2.884985, -79.011615],
@@ -1554,10 +1579,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 105",
+    color: 2,
     descripcion: [
       "Esta es la centésima quinta cuadra.",
-      "Nivel económico medio.",
-      "Hay 60 habitantes."
+      "Tiene un ingreso promedio de 188,8.",
+      "Nivel económico medio-bajo.",
     ],
     coordenadas: [
       [-2.885110, -79.012100],
@@ -1565,13 +1591,14 @@ const cuadras = [
       [-2.885790, -79.012730],
       [-2.885145, -79.012800],
     ]
-  }, 
+  },
   {
     nombre: "Cuadra 106",
+    color: 2,
     descripcion: [
       "Esta es la centésima sexta cuadra.",
-      "Nivel económico bajo.",
-      "Hay 35 habitantes."
+      "Tiene un ingreso promedio de 253,9.",
+      "Nivel económico medio-bajo.",
     ],
     coordenadas: [
       [-2.885115, -79.012865],
@@ -1583,10 +1610,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 107",
+    color: 2,
     descripcion: [
       "Esta es la centésima séptima cuadra.",
-      "Nivel económico alto.",
-      "Hay 85 habitantes."
+      "Tiene un ingreso promedio de 106,666666666667.",
+      "Nivel económico medio-bajo.",
     ],
     coordenadas: [
       [-2.884985, -79.014070],
@@ -1599,10 +1627,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 108",
+    color: 3,
     descripcion: [
       "Esta es la centésima octava cuadra.",
+      "Tiene un ingreso promedio de 506,65.",
       "Nivel económico medio.",
-      "Hay 50 habitantes."
     ],
     coordenadas: [
       [-2.884625, -79.015060],
@@ -1615,10 +1644,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 109",
+    color: 2,
     descripcion: [
       "Esta es la centésima novena cuadra.",
-      "Nivel económico bajo.",
-      "Hay 20 habitantes."
+      "Tiene un ingreso promedio de 500.",
+      "Nivel económico medio-bajo.",
     ],
     coordenadas: [
       [-2.885885, -79.013989],
@@ -1633,10 +1663,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 110",
+    color: 2,
     descripcion: [
       "Esta es la centésima décima cuadra.",
-      "Nivel económico alto.",
-      "Hay 95 habitantes."
+      "Tiene un ingreso promedio de 206,571428571429.",
+      "Nivel económico medio-bajo.",
     ],
     coordenadas: [
       [-2.886600, -79.012200],
@@ -1660,10 +1691,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 111",
+    color: 2,
     descripcion: [
       "Esta es la centésima undécima cuadra.",
-      "Nivel económico medio.",
-      "Hay 60 habitantes."
+      "Tiene un ingreso promedio de 466,666666666667.",
+      "Nivel económico medio-bajo.",
     ],
     coordenadas: [
       [-2.886130, -79.010890],
@@ -1681,10 +1713,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 112",
+    color: 2,
     descripcion: [
       "Esta es la centésima duodécima cuadra.",
-      "Nivel económico bajo.",
-      "Hay 25 habitantes."
+      "Tiene un ingreso promedio de 369,8.",
+      "Nivel económico medio-bajo.",
     ],
     coordenadas: [
       [-2.887445, -79.011845],
@@ -1709,10 +1742,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 113",
+    color: 2,
     descripcion: [
       "Esta es la centésima decimotercera cuadra.",
-      "Nivel económico alto.",
-      "Hay 90 habitantes."
+      "Tiene un ingreso promedio de 317.",
+      "Nivel económico medio-bajo.",
     ],
     coordenadas: [
       [-2.886605, -79.010415],
@@ -1728,10 +1762,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 114",
+    color: 2,
     descripcion: [
       "Esta es la centésima decimocuarta cuadra.",
-      "Nivel económico medio.",
-      "Hay 55 habitantes."
+      "Tiene un ingreso promedio de 300.",
+      "Nivel económico medio-bajo.",
     ],
     coordenadas: [
       [-2.885550, -79.009395],
@@ -1744,10 +1779,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 115",
+    color: 2,
     descripcion: [
       "Esta es la centésima decimoquinta cuadra.",
-      "Nivel económico bajo.",
-      "Hay 30 habitantes."
+      "Tiene un ingreso promedio de 282.",
+      "Nivel económico medio-bajo.",
     ],
     coordenadas: [
       [-2.886405, -79.009015],
@@ -1761,10 +1797,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 116",
+    color: 2,
     descripcion: [
       "Esta es la centésima decimosexta cuadra.",
-      "Nivel económico alto.",
-      "Hay 95 habitantes."
+      "Tiene un ingreso promedio de 220,571428571429.",
+      "Nivel económico medio-bajo.",
     ],
     coordenadas: [
       [-2.887790, -79.011770],
@@ -1780,10 +1817,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 117",
+    color: 2,
     descripcion: [
       "Esta es la centésima decimoséptima cuadra.",
-      "Nivel económico medio.",
-      "Hay 60 habitantes."
+      "Tiene un ingreso promedio de 150.",
+      "Nivel económico medio-bajo.",
     ],
     coordenadas: [
       [-2.882366, -79.014202],
@@ -1796,10 +1834,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 118",
+    color: 2,
     descripcion: [
       "Esta es la centésima decimoctava cuadra.",
-      "Nivel económico bajo.",
-      "Hay 25 habitantes."
+      "Tiene un ingreso promedio de 150.",
+      "Nivel económico medio-bajo.",
     ],
     coordenadas: [
       [-2.882215, -79.015190],
@@ -1817,12 +1856,13 @@ const cuadras = [
       [-2.882400, -79.015460],
     ]
   },
-   {
+  {
     nombre: "Cuadra 119",
+    color: 2,
     descripcion: [
       "Esta es la centésima decimonovena cuadra.",
-      "Nivel económico bajo.",
-      "Hay 39 habitantes."
+      "Tiene un ingreso promedio de 212,6.",
+      "Nivel económico medio-bajo.",
     ],
     coordenadas: [
       [-2.882275, -79.015890],
@@ -1839,10 +1879,11 @@ const cuadras = [
   },
   {
     nombre: "Cuadra 120",
+    color: 2,
     descripcion: [
-      "Esta es la centésima veinteava cuadra.",
-      "Nivel económico bajo.",
-      "Hay 65 habitantes."
+      "Esta es la centésima vigésima cuadra.",
+      "Tiene un ingreso promedio de 342,6.",
+      "Nivel económico medio-bajo.",
     ],
     coordenadas: [
       [-2.882995, -79.014185],
@@ -1853,12 +1894,10 @@ const cuadras = [
       [-2.883515, -79.014700],
     ]
   },
-    {
+  {
     nombre: "Cuadra 121",
     descripcion: [
-      "Esta es la centésima veinteava primera cuadra.",
-      "Nivel económico bajo.",
-      "Hay 29 habitantes."
+      "Datos inconclusos.",
     ],
     coordenadas: [
       [-2.883375, -79.013430],
@@ -1872,9 +1911,7 @@ const cuadras = [
   {
     nombre: "Cuadra 122",
     descripcion: [
-      "Esta es la centésima veinteava segunda cuadra.",
-      "Nivel económico bajo.",
-      "Hay 25 habitantes."
+      "Datos inconclusos.",
     ],
     coordenadas: [
       [-2.882765, -79.013985],
@@ -1884,8 +1921,574 @@ const cuadras = [
       [-2.882910, -79.014100],
     ]
   },
+  {
+    nombre: "Cuadra 123",
+    color: 2,
+    descripcion: [
+      "Esta es la centésima vigésima tercera cuadra.",
+      "Tiene un ingreso promedio de 329,090909090909.",
+      "Nivel económico medio-bajo.",
+    ],
+    coordenadas: [
+      [-2.887055, -79.009250],
+      [-2.887565, -79.009090],
+      [-2.887630, -79.009725],
+    ]
+  },
+  {
+    nombre: "Cuadra 124",
+    color: 2,
+    descripcion: [
+      "Esta es la centésima vigésima cuarta cuadra.",
+      "Tiene un ingreso promedio de 156,333333333333.",
+      "Nivel económico medio-bajo.",
+    ],
+    coordenadas: [
+      [-2.887770, -79.009027],
+      [-2.888520, -79.008797],
+      [-2.888535, -79.009620],
+      [-2.887996, -79.009895],
+      [-2.887925, -79.010015],
+      [-2.887800, -79.009900],
+      [-2.887850, -79.009810],
+    ]
+  },
+  {
+    nombre: "Cuadra 125",
+    color: 2,
+    descripcion: [
+      "Esta es la centésima vigésima quinta cuadra.",
+      "Tiene un ingreso promedio de 143,090909090909.",
+      "Nivel económico medio-bajo.",
+    ],
+    coordenadas: [
+      [-2.887855, -79.007510],
+      [-2.888040, -79.007370],
+      [-2.888470, -79.007454],
+      [-2.888515, -79.008715],
+      [-2.887735, -79.008945],
+      [-2.887720, -79.008630],
+    ]
+  },
+  {
+    nombre: "Cuadra 126",
+    color: 4,
+    descripcion: [
+      "Esta es la centésima vigésima sexta cuadra.",
+      "Tiene un ingreso promedio de 883.",
+      "Nivel económico medio-alto.",
+    ],
+    coordenadas: [
+      [-2.886380, -79.008650],
+      [-2.887630, -79.007695],
+      [-2.887520, -79.008670],
+      [-2.887550, -79.009020],
+      [-2.886985, -79.009185],
+    ]
+  },
+  {
+    nombre: "Cuadra 127",
+    color: 2,
+    descripcion: [
+      "Esta es la centésima vigésima séptima cuadra.",
+      "Tiene un ingreso promedio de 300.",
+      "Nivel económico medio-bajo.",
+    ],
+    coordenadas: [
+      [-2.885205, -79.006710],
+      [-2.885750, -79.006415],
+      [-2.886360, -79.008025],
+      [-2.887005, -79.008070],
+      [-2.886330, -79.008600],
+      [-2.885840, -79.008144],
+      [-2.885350, -79.007340],
+    ]
+  },
+  {
+    nombre: "Cuadra 128",
+    color: 2,
+    descripcion: [
+      "Esta es la centésima vigésima octava cuadra.",
+      "Tiene un ingreso promedio de 333.",
+      "Nivel económico medio-bajo.",
+    ],
+    coordenadas: [
+      [-2.885800, -79.006390],
+      [-2.886295, -79.006205],
+      [-2.886505, -79.006225],
+      [-2.886365, -79.007865],
+    ]
+  },
+  {
+    nombre: "Cuadra 129",
+    color: 4,
+    descripcion: [
+      "Esta es la centésima vigésima novena cuadra.",
+      "Tiene un ingreso promedio de 959,666666666667.",
+      "Nivel económico medio-alto.",
+    ],
+    coordenadas: [
+      [-2.886570, -79.006240],
+      [-2.887356, -79.006339],
+      [-2.887375, -79.006723],
+      [-2.886530, -79.006660],
+    ]
+  },
+  {
+    nombre: "Cuadra 130",
+    color: 4,
+    descripcion: [
+      "Esta es la centésima trigésima cuadra.",
+      "Tiene un ingreso promedio de 841,666666666667.",
+      "Nivel económico medio-alto.",
+    ],
+    coordenadas: [
+      [-2.887420, -79.006350],
+      [-2.887815, -79.006405],
+      [-2.887650, -79.007590],
+      [-2.887500, -79.007700],
+    ]
+  },
+  {
+    nombre: "Cuadra 131",
+    color: 4,
+    descripcion: [
+      "Esta es la centésima trigésima primera cuadra.",
+      "Tiene un ingreso promedio de 761.",
+      "Nivel económico medio-alto.",
+    ],
+    coordenadas: [
+      [-2.887495, -79.005589],
+      [-2.887980, -79.005435],
+      [-2.887840, -79.006340],
+      [-2.887405, -79.006276],
+      [-2.887490, -79.005710],
+    ]
+  },
+  {
+    nombre: "Cuadra 132",
+    color: 3,
+    descripcion: [
+      "Esta es la centésima trigésima segunda cuadra.",
+      "Tiene un ingreso promedio de 654,714285714286.",
+      "Nivel económico medio.",
+    ],
+    coordenadas: [
+      [-2.886622, -79.005838],
+      [-2.887429, -79.005609],
+      [-2.887430, -79.005725],
+      [-2.887340, -79.006200],
+      [-2.887355, -79.006266],
+      [-2.886580, -79.006165],
+    ]
+  },
+  {
+    nombre: "Cuadra 133",
+    color: 2,
+    descripcion: [
+      "Esta es la centésima trigésima tercera cuadra.",
+      "Tiene un ingreso promedio de 490.",
+      "Nivel económico medio-bajo.",
+    ],
+    coordenadas: [
+      [-2.885110, -79.006085],
+      [-2.885830, -79.005730],
+      [-2.886450, -79.005705],
+      [-2.886435, -79.006145],
+      [-2.886295, -79.006125],
+      [-2.886010, -79.006205],
+      [-2.885200, -79.006640],
+    ]
+  },
+  {
+    nombre: "Cuadra 134",
+    color: 3,
+    descripcion: [
+      "Esta es la centésima trigésima cuarta cuadra.",
+      "Tiene un ingreso promedio de 658,25.",
+      "Nivel económico medio.",
+    ],
+    coordenadas: [
+      [-2.885720, -79.004815],
+      [-2.886280, -79.004725],
+      [-2.886385, -79.004810],
+      [-2.886440, -79.005625],
+      [-2.885840, -79.005655],
+    ]
+  },
+  {
+    nombre: "Cuadra 135",
+    color: 3,
+    descripcion: [
+      "Esta es la centésima trigésima quinta cuadra.",
+      "Tiene un ingreso promedio de 566,181818181818.",
+      "Nivel económico medio.",
+    ],
+    coordenadas: [
+      [-2.886670, -79.004830],
+      [-2.887225, -79.004775],
+      [-2.887400, -79.005545],
+      [-2.886610, -79.005760],
+      [-2.886575, -79.005010],
+    ]
+  },
+  {
+    nombre: "Cuadra 136",
+    color: 2,
+    descripcion: [
+      "Esta es la centésima trigésima sexta cuadra.",
+      "Tiene un ingreso promedio de 415,222222222222.",
+      "Nivel económico medio-bajo.",
+    ],
+    coordenadas: [
+      [-2.887285, -79.004765],
+      [-2.888120, -79.004670],
+      [-2.887990, -79.005365],
+      [-2.887480, -79.005520],
+    ]
+  },
+  {
+    nombre: "Cuadra 137",
+    color: 3,
+    descripcion: [
+      "Esta es la centésima trigésima séptima cuadra.",
+      "Tiene un ingreso promedio de 688,888888888889.",
+      "Nivel económico medio.",
+    ],
+    coordenadas: [
+      [-2.887170, -79.003290],
+      [-2.888385, -79.003585],
+      [-2.888155, -79.004590],
+      [-2.886940, -79.004720],
+      [-2.886880, -79.004530],
+    ]
+  },
+  {
+    nombre: "Cuadra 138",
+    color: 2,
+    descripcion: [
+      "Esta es la centésima trigésima octava cuadra.",
+      "Tiene un ingreso promedio de 366,5.",
+      "Nivel económico medio-bajo.",
+    ],
+    coordenadas: [
+      [-2.886505, -79.003780],
+      [-2.886970, -79.003870],
+      [-2.886880, -79.004255],
+      [-2.886425, -79.004200],
+    ]
+  },
+  {
+    nombre: "Cuadra 139",
+    color: 2,
+    descripcion: [
+      "Esta es la centésima trigésima novena cuadra.",
+      "Tiene un ingreso promedio de 344,333333333333.",
+      "Nivel económico medio-bajo.",
+    ],
+    coordenadas: [
+      [-2.886615, -79.003145],
+      [-2.887105, -79.003260],
+      [-2.886980, -79.003795],
+      [-2.886505, -79.003710],
+    ]
+  },
+  {
+    nombre: "Cuadra 140",
+    color: 3,
+    descripcion: [
+      "Esta es la centésima cuadragésima cuadra.",
+      "Tiene un ingreso promedio de 695,555555555556.",
+      "Nivel económico medio.",
+    ],
+    coordenadas: [
+      [-2.886145, -79.003135],
+      [-2.886445, -79.003115],
+      [-2.886535, -79.003170],
+      [-2.886270, -79.004665],
+      [-2.885950, -79.004695],
+    ]
+  },
+  {
+    nombre: "Cuadra 141",
+    color: 3,
+    descripcion: [
+      "Esta es la centésima cuadragésima primera cuadra.",
+      "Tiene un ingreso promedio de 722.",
+      "Nivel económico medio.",
+    ],
+    coordenadas: [
+      [-2.885605, -79.003890],
+      [-2.885980, -79.003920],
+      [-2.885885, -79.004715],
+      [-2.885560, -79.004750],
+    ]
+  },
+  {
+    nombre: "Cuadra 142",
+    color: 2,
+    descripcion: [
+      "Esta es la centésima cuadragésima segunda cuadra.",
+      "Tiene un ingreso promedio de 308.",
+      "Nivel económico medio-bajo.",
+    ],
+    coordenadas: [
+      [-2.885630, -79.003220],
+      [-2.886065, -79.003135],
+      [-2.886000, -79.003845],
+      [-2.885605, -79.003830],
+    ]
+  },
+  {
+    nombre: "Cuadra 143",
+    color: 4,
+    descripcion: [
+      "Esta es la centésima cuadragésima tercera cuadra.",
+      "Tiene un ingreso promedio de 838,5.",
+      "Nivel económico medio-alto.",
+    ],
+    coordenadas: [
+      [-2.884605, -79.003420],
+      [-2.885580, -79.003235],
+      [-2.885490, -79.004770],
+      [-2.885225, -79.004798],
+      [-2.885076, -79.004745],
+      [-2.884800, -79.004540],
+    ]
+  },
+  {
+    nombre: "Cuadra 144",
+    color: 5,
+    descripcion: [
+      "Esta es la centésima cuadragésima cuarta cuadra.",
+      "Tiene un ingreso promedio de 1250.",
+      "Nivel económico alto.",
+    ],
+    coordenadas: [
+      [-2.884520, -79.002405],
+      [-2.885610, -79.002410],
+      [-2.885590, -79.003165],
+      [-2.884590, -79.003355],
+      [-2.884500, -79.002895],
+      [-2.884490, -79.002620],
+    ]
+  },
+  {
+    nombre: "Cuadra 145",
+    color: 2,
+    descripcion: [
+      "Esta es la centésima cuadragésima quinta cuadra.",
+      "Tiene un ingreso promedio de 300.",
+      "Nivel económico medio-bajo.",
+    ],
+    coordenadas: [
+      [-2.885690, -79.002410],
+      [-2.886447, -79.002405],
+      [-2.886415, -79.003025],
+      [-2.885650, -79.003150],
+    ]
+  },
+  {
+    nombre: "Cuadra 146",
+    color: 2,
+    descripcion: [
+      "Esta es la centésima cuadragésima sexta cuadra.",
+      "Tiene un ingreso promedio de 275.",
+      "Nivel económico medio-bajo.",
+    ],
+    coordenadas: [
+      [-2.887475, -79.002395],
+      [-2.888635, -79.002390],
+      [-2.888400, -79.003525],
+      [-2.887185, -79.003230],
+    ]
+  },
+  {
+    nombre: "Cuadra 147",
+    color: 2,
+    descripcion: [
+      "Esta es la centésima cuadragésima séptima cuadra.",
+      "Tiene un ingreso promedio de 248,48.",
+      "Nivel económico medio-bajo.",
+    ],
+    coordenadas: [
+      [-2.885040, -79.000890],
+      [-2.885705, -79.000825],
+      [-2.885630, -79.002325],
+      [-2.884545, -79.002320],
+      [-2.884638, -79.001950],
+    ]
+  },
+  {
+    nombre: "Cuadra 148",
+    color: 2,
+    descripcion: [
+      "Esta es la centésima cuadragésima octava cuadra.",
+      "Tiene un ingreso promedio de 243,571428571429.",
+      "Nivel económico medio-bajo.",
+    ],
+    coordenadas: [
+      [-2.885780, -79.000815],
+      [-2.886511, -79.000755],
+      [-2.886570, -79.002330],
+      [-2.885700, -79.002330],
+    ]
+  },
+  {
+    nombre: "Cuadra 149",
+    color: 2,
+    descripcion: [
+      "Esta es la centésima cuadragésima novena cuadra.",
+      "Tiene un ingreso promedio de 500.",
+      "Nivel económico medio-bajo.",
+    ],
+    coordenadas: [
+      [-2.888840, -79.002405],
+      [-2.889775, -79.002575],
+      [-2.889440, -79.004795],
+      [-2.888365, -79.004615],
+    ]
+  },
+  {
+    nombre: "Cuadra 150",
+    color: 2,
+    descripcion: [
+      "Esta es la centésima quincuagésima cuadra.",
+      "Tiene un ingreso promedio de 475.",
+      "Nivel económico medio-bajo.",
+    ],
+    coordenadas: [
+      [-2.889705, -79.003535],
+      [-2.890733, -79.003715],
+      [-2.890590, -79.004625],
+      [-2.889575, -79.004420],
+    ]
+  },
+  {
+    nombre: "Cuadra 151",
+    color: 5,
+    descripcion: [
+      "Esta es la centésima quincuagésima primera cuadra.",
+      "Tiene un ingreso promedio de 1750.",
+      "Nivel económico alto.",
+    ],
+    coordenadas: [
+      [-2.889745, -79.003175],
+      [-2.890772, -79.003350],
+      [-2.890737, -79.003655],
+      [-2.889710, -79.003465],
+    ]
+  },
+  {
+    nombre: "Cuadra 152",
+    color: 3,
+    descripcion: [
+      "Esta es la centésima quincuagésima segunda cuadra.",
+      "Tiene un ingreso promedio de 650.",
+      "Nivel económico medio.",
+    ],
+    coordenadas: [
+      [-2.889855, -79.002590],
+      [-2.890845, -79.002810],
+      [-2.890780, -79.003285],
+      [-2.889770, -79.003110],
+    ]
+  },
+  {
+    nombre: "Cuadra 153",
+    color: 2,
+    descripcion: [
+      "Esta es la centésima quincuagésima tercera cuadra.",
+      "Tiene un ingreso promedio de 104.",
+      "Nivel económico medio-bajo.",
+    ],
+    coordenadas: [
+      [-2.882505, -79.002190],
+      [-2.882975, -79.002195],
+      [-2.883060, -79.002553],
+      [-2.883260, -79.002910],
+      [-2.883400, -79.003225],
+      [-2.883455, -79.003580],
+      [-2.883200, -79.003635],
+    ]
+  },
+  {
+    nombre: "Cuadra 154",
+    color: 2,
+    descripcion: [
+      "Esta es la centésima quincuagésima cuarta cuadra.",
+      "Tiene un ingreso promedio de 104,285714285714.",
+      "Nivel económico medio-bajo.",
+    ],
+    coordenadas: [
+      [-2.883040, -79.002175],
+      [-2.883930, -79.001815],
+      [-2.883975, -79.001735],
+      [-2.883985, -79.001225],
+      [-2.884295, -79.001080],
+      [-2.884320, -79.001490],
+      [-2.884535, -79.001495],
+      [-2.884260, -79.002405],
+      [-2.883800, -79.002925],
+      [-2.883520, -79.003435],
+      [-2.883325, -79.002875],
+      [-2.883125, -79.002542],
+    ]
+  },
+  {
+    nombre: "Cuadra 155",
+    color: 2,
+    descripcion: [
+      "Esta es la centésima quincuagésima quinta cuadra.",
+      "Tiene un ingreso promedio de 169,615384615385.",
+      "Nivel económico medio-bajo.",
+    ],
+    coordenadas: [
+      [-2.883570, -79.003560],
+      [-2.883900, -79.002930],
+      [-2.884250, -79.002550],
+      [-2.884345, -79.003410],
+    ]
+  },
+  {
+    nombre: "UCACUE",
+    color: 6,
+    descripcion: [
+      "Universidad Católica de Cuenca (Casa Administrativa)",
+    ],
+    coordenadas: [
+      [-2.883535, -79.003644],
+      [-2.884365, -79.003475],
+      [-2.884990, -79.006780],
+      [-2.885125, -79.007400],
+      [-2.885495, -79.008115],
+      [-2.885195, -79.007940],
+      [-2.885090, -79.008535],
+      [-2.885260, -79.008808],
+      [-2.885135, -79.008945],
+      [-2.884855, -79.008632],
+      [-2.884615, -79.008390],
+      [-2.884090, -79.006900],
+      [-2.883540, -79.007030],
+      [-2.883670, -79.005080],
+      [-2.883485, -79.003785],
+    ]
+  },
+  {
+    nombre: "UCACUE",
+    color: 6,
+    descripcion: [
+      "Facultad De Ingeniería Civil Ucacue",
+    ],
+    coordenadas: [
+      [-2.884820, -79.004655],
+      [-2.885200, -79.004860],
+      [-2.885675, -79.004810],
+      [-2.885776, -79.005670],
+      [-2.885090, -79.006020],
+    ]
+  },
 ];
-
 
 export default function Mapa() {
   const router = useRouter();
@@ -1902,12 +2505,12 @@ export default function Mapa() {
   // Utilidad para asignar color por nombre de parroquia
   const getColorByName = (name) => {
     const colors = {
-      Bellavista: "#ff9b9b",
+      Bellavista: "#00000000",
       // Añade más parroquias aquí
     };
 
     // Color por defecto si no se encuentra el nombre
-    return colors[name] || "#bfbfbf";
+    return colors[name] || "#00000000";
   };
 
 
@@ -1956,7 +2559,7 @@ export default function Mapa() {
 
   return (
     <main style={{ scrollBehavior: "smooth" }}>
-      <div className="flex flex-col lg:flex-row p-2 bg-black">
+      <div className="flex flex-col lg:flex-row bg-black">
         <div className="h-[calc(100vh-80px)] w-full sm:w-[410px] overflow-hidden overflow-y-auto rounded-lg bg-gray-900 p-3 shadow-md mb-2">
 
           <button
@@ -1983,7 +2586,7 @@ export default function Mapa() {
 
           <div className="">
             <h2 className="text-base font-semibold text-white mb-1">
-              Geovisor Interactivo de Salud Bucal
+              Geovisor Interactivo de Ingresos - Parroquia de Bellavista
             </h2>
             <button
               onClick={handleDescriptionToggle}
@@ -2000,10 +2603,9 @@ export default function Mapa() {
             {showDescription && (
               <div className="mt-1 text-white text-justify">
                 <p>
-                  Este geovisor interactivo permite visualizar información sobre
-                  la salud bucal en la parroquia de Bellavista. Los datos se
-                  mostrara dividido por cuadras y categorizado en dos grupos
-                  correspondientes a distintas clases socioeconómicas.
+                  Este geovisor interactivo permite visualizar información del ingreso promedio
+                  en la parroquia de Bellavista. Los datos se mostrarán divididos por cuadras y
+                  categorizados en 5 clases correspondientes a distintos grupos de ingresos.
                 </p>
               </div>
             )}
@@ -2026,18 +2628,18 @@ export default function Mapa() {
               isActive={mostrarCuadras}
               onClick={() => setMostrarCuadras(!mostrarCuadras)}
             />
-            <SwitchButton
+            {/* <SwitchButton
               label="Botón 2"
               onClick={() => setBoton2Visible(!boton2Visible)}
-            />
-            <SwitchButton
+            /> */}
+            {/*<SwitchButton
               label="Botón 3"
               onClick={() => setBoton3Visible(!boton3Visible)}
-            />
+            /> */}
           </div>
           {/* Pie de página */}
           <div className="bg-gray-800 text-white p-4 text-center">
-            <p>&copy; 2024 Geovisor. Todos los derechos reservados.</p>
+            <p>&copy; 2025 Geovisor. Todos los derechos reservados.</p>
           </div>
 
         </div>
@@ -2047,15 +2649,15 @@ export default function Mapa() {
               <Map
                 className="shadow-xl"
                 center={DEFAULT_CENTER}
-                zoom={14}
+                zoom={15}
                 width="full"
                 height="800"
               >
-                {({ TileLayer, GeoJSON, Polygon, Popup, Tooltip }) => (
+                {({ TileLayer, GeoJSON, Polygon, Popup, Tooltip, Marker }) => (
                   <>
                     <TileLayer
-                      url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
-                      attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                      url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
+                      attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/">CARTO</a>'
                     />
                     {geoData && (
                       <GeoJSON
@@ -2064,33 +2666,73 @@ export default function Mapa() {
                           fillColor: getColorByName(feature.properties.DESCRIP),
                           weight: 1,
                           opacity: 1,
-                          color: "white",
+                          color: "gray",
                           fillOpacity: 0.7,
                         })}
                       />
                     )}
                     {mostrarCuadras &&
                       cuadras.map((cuadra, index) => (
-                        <Polygon
-                          key={index}
-                          positions={cuadra.coordenadas}
-                          pathOptions={{ color: "red", weight: 2 }}
-                        >
-                          <Popup>
-                            <strong>{cuadra.nombre}:</strong><br />
-                            {cuadra.descripcion.map((linea, i) => (
-                              <span key={i}>{linea}<br /></span>
-                            ))}
-                          </Popup>
-                          <Tooltip
-                            direction="center"
-                            permanent
-                            opacity={0.5}
-                            className="bg-transparent text-white font-bold text-xs shadow-none"
+                        <>
+                          <Polygon
+                            key={index}
+                            positions={cuadra.coordenadas}
+                            pathOptions={{
+                              color: coloresPorNivel[cuadra.color] || "#999999",
+                              weight: 2,
+                            }}
                           >
-                            {index + 1}
-                          </Tooltip>
-                        </Polygon>
+                            <Popup>
+                              <strong>{cuadra.nombre}:</strong><br />
+                              {cuadra.descripcion.map((linea, i) => (
+                                <span key={i}>{linea}<br /></span>
+                              ))}
+                            </Popup>
+                            <Tooltip
+                              direction="center"
+                              permanent
+                              opacity={0.5}
+                              className="bg-transparent text-white font-bold text-xs shadow-none"
+                            >
+                              {index + 1}
+                            </Tooltip>
+                          </Polygon>
+                          {/* Marcador con imagen solo para UCACUE */}
+
+                          {cuadra.nombre === "UCACUE" && (
+                            <>
+                              <Marker
+                                position={[-2.884445, -79.005800]} // Primer punto
+                                icon={L.icon({
+                                  iconUrl: "https://muchomejorecuador.org.ec/wp-content/uploads/2024/04/Universidad-Catolica_de_Cuenca.jpg",
+                                  iconSize: [30, 30],
+                                  iconAnchor: [15, 30],
+                                  popupAnchor: [0, -30],
+                                })}
+                              >
+                                <Popup>
+                                  <strong>{cuadra.nombre}</strong><br />
+                                  Universidad Católica de Cuenca (Casa Administrativa).
+                                </Popup>
+                              </Marker>
+
+                              <Marker
+                                position={[-2.885450, -79.005120]} // Segundo punto
+                                icon={L.icon({
+                                  iconUrl: "https://muchomejorecuador.org.ec/wp-content/uploads/2024/04/Universidad-Catolica_de_Cuenca.jpg",
+                                  iconSize: [30, 30],
+                                  iconAnchor: [15, 30],
+                                  popupAnchor: [0, -30],
+                                })}
+                              >
+                                <Popup>
+                                  <strong>{cuadra.nombre}</strong><br />
+                                  Facultad De Ingeniería Civil Ucacue.
+                                </Popup>
+                              </Marker>
+                            </>
+                          )}
+                        </>
                       ))}
 
                   </>

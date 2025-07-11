@@ -219,10 +219,10 @@ export default function TendenciasEducativas() {
             className="mx-auto mb-6"
           />
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight">
-            ¡<span className="text-red-600">T</span>
+            <span className="text-red-600">T</span>
             <span className="text-white">endencias </span>
             <span className="text-red-600">E</span>
-            <span className="text-white">ducativas</span>!
+            <span className="text-white">ducativas</span>
           </h1>
           <div className="h-1 w-28 bg-gray-300 mx-auto mt-6 mb-6"></div>
           <p className="text-lg text-gray-300 mb-6">

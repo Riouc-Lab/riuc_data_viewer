@@ -8,17 +8,17 @@ export default function Home() {
         <div className="w-full max-w-screen-lg rounded-lg shadow-lg overflow-hidden mt-5">
           <iframe
             title="Video"
-            width="590"
+            width="100%"
             height="575"
-            src="https://www.youtube.com/embed/EkX00rNBbFw?autoplay=1&mute=1&loop=1&playlist=EkX00rNBbFw"
+            src="https://www.youtube.com/embed/EkX00rNBbFw?autoplay=1&mute=1&loop=1&playlist=EkX00rNBbFw&vq=hd1080&rel=0&modestbranding=1"
             frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
-            className="w-full"
+            className="w-full aspect-video"
             playsInline
-            quality="high"
           ></iframe>
         </div>
+
 
         <h1 className="text-3xl font-extrabold text-center mt-10">
           La Red de Investigación y Observatorios de la Universidad Católica de
@@ -33,19 +33,32 @@ export default function Home() {
           ¡Explora el futuro de la innovación con nosotros!
         </p>
         {/* Sección de Botones */}
-        <div className="flex flex-wrap justify-center space-x-0 space-y-6 sm:space-y-0 sm:space-x-6 mt-10">
+        <div className="flex flex-wrap justify-center space-x-0 space-y-2 sm:space-y-0 sm:space-x-2 mt-10">
           <Link href="/boletin" passHref>
             <div className="w-48 h-48 sm:w-60 sm:h-60 bg-gradient-to-r from-gray-500 rounded-xl flex flex-col items-center justify-center shadow-2xl cursor-pointer hover:shadow-xl transition-shadow duration-300">
               <Image
                 className="mx-auto"
                 src="/img/revista.png"
                 alt="Boletines"
-                width={100}
-                height={100}
+                width={95}
+                height={95}
               />
               <span className="text-white font-bold mt-2">Boletines</span>
             </div>
           </Link>
+          {/* 
+          <Link href="/articulos" passHref>
+            <div className="w-48 h-48 sm:w-60 sm:h-60 bg-gradient-to-r from-gray-500 rounded-xl flex flex-col items-center justify-center shadow-2xl cursor-pointer hover:shadow-xl transition-shadow duration-300">
+              <Image
+                className="mx-auto"
+                src="/img/articulos.png"
+                alt="Artículos Científicos"
+                width={97}
+                height={97}
+              />
+              <span className="text-white font-bold mt-2">Artículos Científicos</span>
+            </div>
+          </Link> */}
           <Link href="/proyectos" passHref>
             <div className="w-48 h-48 sm:w-60 sm:h-60 bg-gradient-to-r from-gray-500 rounded-xl flex flex-col items-center justify-center shadow-2xl cursor-pointer hover:shadow-xl transition-shadow duration-300">
               <Image
@@ -55,17 +68,17 @@ export default function Home() {
                 width={100}
                 height={100}
               />
-              <span className="text-white font-bold mt-2">Proyectos</span>
+              <span className="text-white font-bold mt-2">Geovisores</span>
             </div>
-            </Link>
+          </Link>
           <Link href="/Novedades" passHref>
             <div className="w-48 h-48 sm:w-60 sm:h-60 bg-gradient-to-r from-gray-500 rounded-xl flex flex-col items-center justify-center shadow-2xl cursor-pointer hover:shadow-xl transition-shadow duration-300">
               <Image
                 className="mx-auto"
                 src="/img/infografia.png"
                 alt="Infografias"
-                width={100}
-                height={100}
+                width={78}
+                height={78}
               />
               <span className="text-white font-bold mt-2">Infografías</span>
             </div>
@@ -76,8 +89,8 @@ export default function Home() {
                 className="mx-auto"
                 src="/img/videos.png"
                 alt="Videos"
-                width={100}
-                height={100}
+                width={85}
+                height={85}
               />
               <span className="text-white font-bold mt-2">Videos</span>
             </div>
@@ -88,8 +101,8 @@ export default function Home() {
                 className="mx-auto"
                 src="/img/blog.png"
                 alt="Tendencias Educativas"
-                width={100}
-                height={100}
+                width={90}
+                height={90}
               />
               <span className="text-white font-bold mt-2">
                 Tendencias Educativas

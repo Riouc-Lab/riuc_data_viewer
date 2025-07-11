@@ -68,30 +68,7 @@ export default function Modelogeovisor() {
 
   function getColor(id) {
     const colorMapping = {
-      1: "blue",
-      2: "green",
-      3: "red",
-      4: "yellow",
-      5: "purple",
-      6: "orange",
-      7: "brown",
-      8: "pink",
-      9: "gray",
-      10: "cyan",
-      11: "magenta",
-      12: "olive",
-      13: "lime",
-      14: "teal",
-      15: "indigo",
-      16: "maroon",
-      17: "navy",
-      18: "azure",
-      19: "aquamarine",
-      20: "beige",
-      21: "bisque",
-      22: "blanchedalmond",
-      23: "blueviolet",
-      24: "burlywood",
+      1: "blue", 2: "green", 3: "red", 4: "yellow", 5: "purple", 6: "orange", 7: "brown", 8: "pink", 9: "gray", 10: "cyan", 11: "magenta", 12: "olive", 13: "lime", 14: "teal", 15: "indigo", 16: "maroon", 17: "navy", 18: "azure", 19: "aquamarine", 20: "beige", 21: "bisque", 22: "blanchedalmond", 23: "blueviolet", 24: "burlywood",
     };
     return colorMapping[id] || "gray";
   }
@@ -146,7 +123,6 @@ export default function Modelogeovisor() {
         console.error("Error al obtener datos:", error);
       }
     };
-
     fetchData();
   }, []);
 
@@ -446,7 +422,7 @@ export default function Modelogeovisor() {
 
   return (
     <main style={{ scrollBehavior: "smooth" }}>
-      <div className="flex flex-col lg:flex-row p-2 bg-black">
+      <div className="flex flex-col lg:flex-row bg-black">
         <div className="h-[calc(100vh-80px)] w-full sm:w-[410px] overflow-hidden overflow-y-auto rounded-lg bg-gray-900 p-3 shadow-md mb-2">
           {/* Contenido de la primera columna */}
           <button
@@ -470,7 +446,6 @@ export default function Modelogeovisor() {
               Regresar
             </span>
           </button>
-
           <div className="">
             <h2 className="text-base font-semibold text-white mb-1">
               GeoVisor Población del Ecuador año 2020
@@ -482,12 +457,14 @@ export default function Modelogeovisor() {
               {isTextVisible ? "Ocultar Descripcion" : "Mostrar Descripcion"}
             </button>
             {/* Botón de Descarga (Añadido al final de la primera columna de capas) */}
+            {/* 
             <button
               className="bg-red-600 text-white py-1 px-3 rounded mb-4"
               onClick={handleDownloadClick}
             >
               Descargar
             </button>
+            */}
             {isTextVisible && (
               <div className="mt-1 text-white text-justify">
                 {/* Aquí coloca el texto que deseas mostrar u ocultar */}
@@ -498,14 +475,10 @@ export default function Modelogeovisor() {
                 geovisor aprovecha las capacidades de la tecnología geoespacial
                 y la visualización de datos para ofrecer a los usuarios una
                 comprensión profunda de a demografía ecuatoriana en el año 2020.
-                A través de mapas interactivos y gráficos informativos, los
-                usuarios podrán explorar de manera intuitiva la distribución
-                geográfica de la población
               </div>
             )}
             <hr className="mt-6 border-t border-gray-300" />
           </div>
-          
           <div className="mt-4">
             <ul className="space-y-3">
               {/* TABLAS Y BOTONES*/}
@@ -525,7 +498,6 @@ export default function Modelogeovisor() {
                   </div>
                 )}
               </div>
-
               <p className="leading-relaxed mb-5 text-white">Población de Zona no delimitada</p>
               {/* Botón 2 */}
               <div className="mb-4">
@@ -541,7 +513,6 @@ export default function Modelogeovisor() {
                   </div>
                 )}
               </div>
-
               <p className="leading-relaxed mb-5 text-white">Población por cada provincia</p>
               {/* Botón 3 */}
               <div className="mb-4">
@@ -584,9 +555,8 @@ export default function Modelogeovisor() {
           </div>
           {/* Pie de página */}
           <div className="mt-2 bg-gray-800 text-white p-4 text-center text-sm">
-            <p>&copy; 2024 Geovisor. Todos los derechos reservados.</p>
+            <p>&copy; 2025 Geovisor. Todos los derechos reservados.</p>
           </div>
-
         </div>
         {/* Contenido de la segunda columna */}
         <div className="w-full lg:w-2/3 xl:w-3/4 flex-grow bg-gray-200">
@@ -603,23 +573,9 @@ export default function Modelogeovisor() {
               {({ TileLayer, GeoJSON }) => (
                 <>
                   <TileLayer
-                    //url='https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png'
                     url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
-                    //url="https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png"
-                    //url="https://stamen-tiles.a.ssl.fastly.net/terrain/{z}/{x}/{y}.png"
-                    //url="https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png"  // Mapa claro
-                    //url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}" // Mapa satelital
-                    //url="https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png"  // Mapa topográfico
-                    //url="https://stamen-tiles.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.jpg" // Mapa acuarela
-                    //url="https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png" // Mapa wikimedia
-                    //url="https://basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png" // Mapa carto
-                    //url="https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png" // Mapa oscuro
-                    //url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}" // Mapa callejero
-                    //url="https://stamen-tiles.a.ssl.fastly.net/toner/{z}/{x}/{y}.png" // Mapa toner
-
                     attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                   />
-
                   <GeoJSON
                     key="provincias"
                     data={provinciasConPoblacion}

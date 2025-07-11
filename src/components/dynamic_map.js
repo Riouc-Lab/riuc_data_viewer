@@ -46,7 +46,7 @@ const Map = ({
     <div className={mapClassName}>
       <MapContainer
         className={"static-map"}
-        style={{ width: '100%', height: 985 }}
+        style={{ width: '100%', height: 995 }} // Ajusta el alto del mapa (height: 995)
         scrollWheelZoom={true} //habilita el zoom con la rueda del mouse
         fullscreenControl={true} // Opciones adicionales: fullscreenControl={{ pseudoFullscreen: false }}
         {...rest}
