@@ -11,22 +11,8 @@ const EventosRiouc = () => {
     (a, b) => new Date(b.fecha).getTime() - new Date(a.fecha).getTime()
   );
 
-<<<<<<< HEAD
   return (
     <main className="">
-=======
-  const eventosDelDia = (eventos.concat(eventos_futuros)).filter(evento => {
-    const fechaEvento = new Date(evento.fecha);
-    return (
-      fechaEvento.getDate() === fechaSeleccionada.getDate() &&
-      fechaEvento.getMonth() === fechaSeleccionada.getMonth() &&
-      fechaEvento.getFullYear() === fechaSeleccionada.getFullYear()
-    );
-  });
-
-  return (
-    <main>
->>>>>>> afd0485 (Subida inicial: todas las secciones, boletines y PDF comprimido)
       {/* Banner imagen con texto */}
       <div
         className="w-full h-96 bg-cover bg-center relative"
@@ -44,11 +30,6 @@ const EventosRiouc = () => {
           </div>
         </div>
       </div>
-<<<<<<< HEAD
-
-=======
-      
->>>>>>> afd0485 (Subida inicial: todas las secciones, boletines y PDF comprimido)
       <div className="max-w-7xl mx-auto px-4 py-8 flex flex-col md:flex-row gap-8">
         {/* Eventos */}
         <div className="flex-1 space-y-12">
@@ -62,11 +43,7 @@ const EventosRiouc = () => {
                   className="bg-white border border-gray-200 rounded-lg shadow-md p-4 flex gap-4 items-start hover:shadow-lg transition"
                 >
                   <div className="min-w-[110px] text-center">
-<<<<<<< HEAD
                     <div className="text-4xl font-bold text-red-600 mt-2">
-=======
-                    <div className="text-4xl font-bold text-red-600 mt-5">
->>>>>>> afd0485 (Subida inicial: todas las secciones, boletines y PDF comprimido)
                       {new Date(evento.fecha).getDate()}
                     </div>
                     <div className="text-sm text-gray-600 uppercase tracking-wide">
@@ -80,10 +57,6 @@ const EventosRiouc = () => {
                     <h4 className="text-lg font-semibold text-gray-800 mb-1">
                       {evento.titulo}
                     </h4>
-<<<<<<< HEAD
-=======
-                    <p className="text-gray-700 mb-1">🕒 Hora | {evento.hora}</p>
->>>>>>> afd0485 (Subida inicial: todas las secciones, boletines y PDF comprimido)
                     <p className="text-gray-700 mb-1">📍Ubicación | {evento.ubi}</p>
                     <p className="text-gray-700">{evento.descripcion}</p>
                   </div>
@@ -91,10 +64,6 @@ const EventosRiouc = () => {
               ))}
             </div>
           </section>
-<<<<<<< HEAD
-
-=======
->>>>>>> afd0485 (Subida inicial: todas las secciones, boletines y PDF comprimido)
           {/* Recientes */}
           <section>
             <h3 className="text-xl font-bold mb-4">📑 Recientes</h3>
@@ -105,11 +74,7 @@ const EventosRiouc = () => {
                   className="bg-white border border-gray-200 rounded-lg shadow-md p-4 flex gap-4 items-start hover:shadow-lg transition"
                 >
                   <div className="min-w-[110px] text-center">
-<<<<<<< HEAD
                     <div className="text-4xl font-bold text-red-600 mt-2">
-=======
-                    <div className="text-4xl font-bold text-red-600 mt-5">
->>>>>>> afd0485 (Subida inicial: todas las secciones, boletines y PDF comprimido)
                       {new Date(evento.fecha).getDate()}
                     </div>
                     <div className="text-sm text-gray-600 uppercase tracking-wide">
@@ -123,10 +88,6 @@ const EventosRiouc = () => {
                     <h4 className="text-lg font-semibold text-gray-800 mb-1">
                       {evento.titulo}
                     </h4>
-<<<<<<< HEAD
-=======
-                    <p className="text-gray-700 mb-1">🕒 Hora | {evento.hora}</p>
->>>>>>> afd0485 (Subida inicial: todas las secciones, boletines y PDF comprimido)
                     <p className="text-gray-700 mb-1">📍Ubicación | {evento.ubi}</p>
                     <p className="text-gray-700">{evento.descripcion}</p>
                   </div>
@@ -134,28 +95,15 @@ const EventosRiouc = () => {
               ))}
             </div>
           </section>
-<<<<<<< HEAD
-
-=======
->>>>>>> afd0485 (Subida inicial: todas las secciones, boletines y PDF comprimido)
         </div>
 
         {/* Calendario pequeño */}
         <aside className="w-full md:w-64 bg-white p-5 rounded-xl shadow-lg h-fit self-start border border-gray-200">
           <h3 className="text-xl font-semibold mb-4 text-gray-800 flex items-center gap-2">
-<<<<<<< HEAD
              <span>📆 Calendario</span>
           </h3>
           <Calendar
             className="w-full text-sm"
-=======
-            <span>📆 Calendario</span>
-          </h3>
-          <Calendar
-            className="w-full text-sm"
-            onChange={setFechaSeleccionada}
-            value={fechaSeleccionada}
->>>>>>> afd0485 (Subida inicial: todas las secciones, boletines y PDF comprimido)
             tileClassName={({ date }) => {
               const hoy = new Date();
               const mismoDia =
@@ -170,49 +118,14 @@ const EventosRiouc = () => {
             tileContent={({ date, view }) =>
               view === "month" ? (
                 <div className="text-[10px] text-center text-gray-400 mt-1">
-<<<<<<< HEAD
                   {/* Aquí puedes mostrar un punto o ícono si hay eventos */}
-=======
-                  {(eventos.concat(eventos_futuros)).some((evento) => {
-                    const fechaEvento = new Date(evento.fecha);
-                    return (
-                      fechaEvento.getDate() === date.getDate() &&
-                      fechaEvento.getMonth() === date.getMonth() &&
-                      fechaEvento.getFullYear() === date.getFullYear()
-                    );
-                  }) && <span className="text-red-500">●</span>}
->>>>>>> afd0485 (Subida inicial: todas las secciones, boletines y PDF comprimido)
                 </div>
               ) : null
             }
           />
-<<<<<<< HEAD
         </aside>
       </div>
 
-=======
-
-          {/* Eventos del día seleccionado */}
-          {eventosDelDia.length > 0 && (
-            <div className="mt-4">
-              <h4 className="text-sm font-semibold text-gray-700 mb-2">
-                Eventos del {fechaSeleccionada.toLocaleDateString('es-EC')}
-              </h4>
-              <ul className="space-y-2 text-sm text-gray-700">
-                {eventosDelDia.map((evento) => (
-                  <li key={evento.id} className="border-l-4 border-red-500 pl-2">
-                    <strong>{evento.titulo}</strong><br />
-                    🕒 {evento.hora}<br />
-                    📍 {evento.ubi}<br />
-                    📝 {evento.descripcion}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-        </aside>
-      </div>
->>>>>>> afd0485 (Subida inicial: todas las secciones, boletines y PDF comprimido)
     </main>
   );
 };

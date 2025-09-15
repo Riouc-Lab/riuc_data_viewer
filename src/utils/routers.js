@@ -23,20 +23,12 @@ export const routers_menu = [
     name: "Boletines",
     expanded: false,
   },
-<<<<<<< HEAD
-  /*
-=======
->>>>>>> afd0485 (Subida inicial: todas las secciones, boletines y PDF comprimido)
   {
     id: 5,
     to: "/articulos",
     name: "Artículos científicos",
     expanded: false,
   },
-<<<<<<< HEAD
-  */
-=======
->>>>>>> afd0485 (Subida inicial: todas las secciones, boletines y PDF comprimido)
   {
     id: 6,
     to: "/proyectos",
@@ -61,19 +53,19 @@ export const routers_menu = [
     name: "Tendencias Educativas",
     expanded: false,
   },
-  
 ];
+
 export const routers_submenu_proyects = [
   {
     id: 1,
-    parent:3,
+    parent: 3,
     to: "/proyectos/map",
     name: "Mapa",
   },
   {
     id: 2,
-    parent:3,
+    parent: 3,
     to: "/proyectos/canastabasica",
-    name: "Canasta  Básica",
+    name: "Canasta Básica",
   },  
 ];

@@ -42,11 +42,7 @@ export default function Boletinn3() {
           </span>
         </button>
       </div>
-<<<<<<< HEAD
       <h1 className="text-6xl text-red-500 font-semibold mb-5 mt-3">BOLETIN</h1>
-=======
-      <h1 className="text-6xl text-red-500 font-semibold mb-5 mt-3">BOLETÍN</h1>
->>>>>>> afd0485 (Subida inicial: todas las secciones, boletines y PDF comprimido)
       <h2 className="text-base text-gray-400">Volumen 1 / N°3</h2>
       <h2 className="text-base text-gray-400 mb-1">septiembre - diciembre 2024</h2>
       <p className="text-lg text-gray-800 mb-5 text-justify">
