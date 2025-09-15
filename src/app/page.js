@@ -46,19 +46,30 @@ export default function Home() {
               <span className="text-white font-bold mt-2">Boletines</span>
             </div>
           </Link>
+<<<<<<< HEAD
           {/* 
+=======
+>>>>>>> afd0485 (Subida inicial: todas las secciones, boletines y PDF comprimido)
           <Link href="/articulos" passHref>
             <div className="w-48 h-48 sm:w-60 sm:h-60 bg-gradient-to-r from-gray-500 rounded-xl flex flex-col items-center justify-center shadow-2xl cursor-pointer hover:shadow-xl transition-shadow duration-300">
               <Image
                 className="mx-auto"
+<<<<<<< HEAD
                 src="/img/articulos.png"
+=======
+                src="/img/articulo.png"
+>>>>>>> afd0485 (Subida inicial: todas las secciones, boletines y PDF comprimido)
                 alt="Artículos Científicos"
                 width={97}
                 height={97}
               />
               <span className="text-white font-bold mt-2">Artículos Científicos</span>
             </div>
+<<<<<<< HEAD
           </Link> */}
+=======
+          </Link> 
+>>>>>>> afd0485 (Subida inicial: todas las secciones, boletines y PDF comprimido)
           <Link href="/proyectos" passHref>
             <div className="w-48 h-48 sm:w-60 sm:h-60 bg-gradient-to-r from-gray-500 rounded-xl flex flex-col items-center justify-center shadow-2xl cursor-pointer hover:shadow-xl transition-shadow duration-300">
               <Image

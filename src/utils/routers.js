@@ -23,14 +23,20 @@ export const routers_menu = [
     name: "Boletines",
     expanded: false,
   },
+<<<<<<< HEAD
   /*
+=======
+>>>>>>> afd0485 (Subida inicial: todas las secciones, boletines y PDF comprimido)
   {
     id: 5,
     to: "/articulos",
     name: "Artículos científicos",
     expanded: false,
   },
+<<<<<<< HEAD
   */
+=======
+>>>>>>> afd0485 (Subida inicial: todas las secciones, boletines y PDF comprimido)
   {
     id: 6,
     to: "/proyectos",

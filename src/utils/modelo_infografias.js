@@ -1,0 +1,49 @@
+export const lista_infografia = [
+  {
+    Image: "/img/femicidios2024.jpg",
+    id: 1,
+    name: "Femicidios y la violencia de Género hacia la Mujer en el Ecuador 2024",
+    date: "2024-11-28",
+    author: "María Emilia Molina de Tinto",
+    description: "Informe estadístico que visibiliza los casos de femicidio en Ecuador, enfatizando en la urgencia de políticas públicas y protección de derechos.",
+    pdfUrl: "/pdf/violmuj2024.pdf",
+
+  },
+  {
+    Image: "/img/migraciones_ecuador_2023.png",
+    id: 2,
+    name: "Migración en el Ecuador 2023",
+    date: "2024-12-28",
+    author: "María Emilia Molina de Tinto",
+    description: "Análisis de los flujos migratorios del 2023: salidas, entradas y el impacto sociopolítico de la migración ecuatoriana.",
+    pdfUrl: "/pdf/migracion2023.pdf",
+  },
+  {
+    Image: "/img/inf1.png",
+    id: 3,
+    name: "Inflación en Ecuador del último trimestre del año 2024",
+    date: "2025-05-28",
+    author: "María Emilia Molina de Tinto",
+    description: "Resumen visual sobre el comportamiento inflacionario del cierre del 2024, afectando a la canasta básica y sectores económicos clave.",
+    pdfUrl: "/pdf/INFLACIÓN EN ECUADOR-1.pdf",
+  },
+  {
+    Image: "/img/inf2.png",
+    id: 4,
+    name: "Inflación en Ecuador del primer trimestre del año 2025",
+    date: "2025-05-28",
+    author: "María Emilia Molina de Tinto",
+    description: "Reporte gráfico de la evolución de precios al consumidor durante los primeros meses del 2025, con énfasis en alimentos.",
+    pdfUrl: "/pdf/INFLACIÓN EN ECUADOR-2.pdf",
+
+  },
+  {
+    Image: "/img/info_alim_sal.jpg",
+    id: 5,
+    name: "Alimentación saludable",
+    date: "2025-05-30",
+    author: "Md. Carlos Carangui Vázquez",
+    description: "Infografía educativa sobre hábitos alimenticios, hidratación y consejos nutricionales para una vida más saludable.",
+    pdfUrl: "/pdf/info_alim_sal.pdf",
+  },
+];

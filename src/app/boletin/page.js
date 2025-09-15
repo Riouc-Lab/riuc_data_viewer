@@ -1,13 +1,20 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
+<<<<<<< HEAD
 import Search from "../../components/search";
 import { usePathname, useRouter } from "next/navigation";
 import { lista_boletin } from "../../utils/modelo_boletin";
+=======
+import { usePathname, useRouter } from "next/navigation";
+import { lista_boletin } from "../../utils/modelo_boletin";
+import Pagination from "../../components/pagination";
+>>>>>>> afd0485 (Subida inicial: todas las secciones, boletines y PDF comprimido)
 
 export default function Boletin() {
   const router = useRouter();
   const pathname = usePathname();
+<<<<<<< HEAD
   const [searchResults, setSearchResults] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const projectsPerPage = 6; // Define el número de proyectos por página
@@ -33,6 +40,26 @@ export default function Boletin() {
     searchResults.length > 0
       ? searchResults.slice(startIndex, endIndex)
       : lista_boletin.slice(startIndex, endIndex);
+=======
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const boletinesPorPagina = 6;
+
+  // Ordenar por fecha (más nuevos primero)
+  const boletinesOrdenados = [...lista_boletin].sort((a, b) => {
+    const fechaA = new Date(a.date);
+    const fechaB = new Date(b.date);
+    return fechaB - fechaA;
+  });
+
+  // Paginación
+  const totalPages = Math.ceil(boletinesOrdenados.length / boletinesPorPagina);
+  const startIndex = (currentPage - 1) * boletinesPorPagina;
+  const boletinesPaginados = boletinesOrdenados.slice(
+    startIndex,
+    startIndex + boletinesPorPagina
+  );
+>>>>>>> afd0485 (Subida inicial: todas las secciones, boletines y PDF comprimido)
 
   return (
     <main className="flex min-h-screen flex-col items-center p-7 mb-5">
@@ -40,6 +67,7 @@ export default function Boletin() {
         <h5 className="text-base md:text-lg text-red-500 mb-1 font-semibold">
           BOLETINES
         </h5>
+<<<<<<< HEAD
         <h1 className="text-4xl md:text-6xl font-semibold p-5 mb-12 bg-gradient-to-r from-black to-black bg-clip-text text-transparent border-b-2 border-red-400">
           LA RIOUC INFORMA
         </h1>
@@ -173,3 +201,70 @@ export default function Boletin() {
   );
 }
 
+=======
+        <h1 className="text-4xl md:text-6xl font-semibold p-5 mb-7 bg-gradient-to-r from-black to-black bg-clip-text text-transparent border-b-2 border-red-400">
+          LA RIOUC INFORMA
+        </h1>
+        <p className="text-xs sm:text-sm text-gray-400 mt-4 max-w-sm sm:max-w-xl mx-auto px-2 text-center">
+            Explora los boletines informativos de la RIOUC y mantente al día con las últimas novedades.
+          </p>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16">
+        {boletinesPaginados.map((item, index) => (
+          <div key={`${item.to}-${index}`}>
+            <div
+              className="border-2 border-black border-opacity-10 rounded-lg overflow-hidden cursor-pointer"
+              onClick={() => router.push(item.to)}
+            >
+              <Image
+                src={item.Image}
+                alt="Boletín"
+                width={600}
+                height={30}
+                priority
+              />
+              <div className="p-6 hover:bg-black hover:text-white transition duration-270 ease-in">
+                <h2 className="text-base font-medium text-indigo-300 mb-1">
+                  {item.date}
+                </h2>
+                <h1 className="text-2xl font-semibold mb-3">{item.name}</h1>
+                <p className="leading-relaxed mb-3">{item.description}</p>
+                <div className="flex items-center flex-wrap">
+                  <a className="text-indigo-300 inline-flex items-center md:mb-2 lg:mb-0">
+                    <span className="flex-grow flex flex-col">Saber más</span>
+                    <svg
+                      className="w-4 h-4 ml-2"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      fill="none"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M5 12h14"></path>
+                      <path d="M12 5l7 7-7 7"></path>
+                    </svg>
+                  </a>
+                  <span className="text-gray-400 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
+                    RIOUC
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Paginación */}
+      <div className="mt-12 w-full max-w-4xl">
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={setCurrentPage}
+        />
+      </div>
+    </main>
+  );
+}
+>>>>>>> afd0485 (Subida inicial: todas las secciones, boletines y PDF comprimido)

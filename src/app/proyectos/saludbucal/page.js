@@ -4,6 +4,13 @@ import { useRouter } from "next/navigation";
 import axios from "axios";
 import dynamic from "next/dynamic";
 import SwitchButton from "../../../components/buttonswitch";
+<<<<<<< HEAD
+=======
+import HeatMapBellavista from "../../../components/HeatMapBellavista";
+import HeatMapBellavista2 from "../../../components/HeatMapBellavista2"
+import HeatMapBellavista3 from "../../../components/HeatMapBellavista3"
+
+>>>>>>> afd0485 (Subida inicial: todas las secciones, boletines y PDF comprimido)
 const Map = dynamic(() => import("../../../components/map"), { ssr: false });
 const DEFAULT_CENTER = [-2.891565, -79.005958];
 const coloresPorNivel = {
@@ -2492,15 +2499,27 @@ const cuadras = [
 
 export default function Mapa() {
   const router = useRouter();
+<<<<<<< HEAD
   const [boton1Visible, setBoton1Visible] = useState(false);
   const [boton2Visible, setBoton2Visible] = useState(false);
   const [boton3Visible, setBoton3Visible] = useState(false);
+=======
+>>>>>>> afd0485 (Subida inicial: todas las secciones, boletines y PDF comprimido)
   const [isTextVisible, setTextVisibility] = useState(false);
   const [isZoomed, setIsZoomed] = useState(false);
   const [geoData, setGeoData] = useState(null);
   const [showDescription, setShowDescription] = useState(false);
   const [isActive, setIsActive] = useState(false);
+<<<<<<< HEAD
   const [mostrarCuadras, setMostrarCuadras] = useState(false);
+=======
+  const [capaActiva, setCapaActiva] = useState(null); // valores: 'cuadras', 'heat1', 'heat2', 'heat3'
+
+  const cambiarCapa = (nuevaCapa) => {
+    setCapaActiva(null); // desactiva la actual
+    setTimeout(() => setCapaActiva(nuevaCapa), 50); // activa la nueva tras un pequeño delay
+  };
+>>>>>>> afd0485 (Subida inicial: todas las secciones, boletines y PDF comprimido)
 
   // Utilidad para asignar color por nombre de parroquia
   const getColorByName = (name) => {
@@ -2508,12 +2527,18 @@ export default function Mapa() {
       Bellavista: "#00000000",
       // Añade más parroquias aquí
     };
+<<<<<<< HEAD
 
+=======
+>>>>>>> afd0485 (Subida inicial: todas las secciones, boletines y PDF comprimido)
     // Color por defecto si no se encuentra el nombre
     return colors[name] || "#00000000";
   };
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> afd0485 (Subida inicial: todas las secciones, boletines y PDF comprimido)
   const toggleTextVisibility = () => {
     setTextVisibility(!isTextVisible);
   };
@@ -2556,7 +2581,10 @@ export default function Mapa() {
     fetchGeoJson();
   }, []);
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> afd0485 (Subida inicial: todas las secciones, boletines y PDF comprimido)
   return (
     <main style={{ scrollBehavior: "smooth" }}>
       <div className="flex flex-col lg:flex-row bg-black">
@@ -2583,7 +2611,10 @@ export default function Mapa() {
               Regresar
             </span>
           </button>
+<<<<<<< HEAD
 
+=======
+>>>>>>> afd0485 (Subida inicial: todas las secciones, boletines y PDF comprimido)
           <div className="">
             <h2 className="text-base font-semibold text-white mb-1">
               Geovisor Interactivo de Ingresos - Parroquia de Bellavista
@@ -2621,6 +2652,7 @@ export default function Mapa() {
               </p>
             </div>
             {/* Botones */}
+<<<<<<< HEAD
             <div className="flex flex-col space-y-2 text-white">
               Mostrar Capas por cuadras.
             </div>
@@ -2636,12 +2668,42 @@ export default function Mapa() {
               label="Botón 3"
               onClick={() => setBoton3Visible(!boton3Visible)}
             /> */}
+=======
+            <div className="text-base font-semibold text-white mb-1">
+              Mostrar Capas por cuadras.
+            </div>
+            <SwitchButton
+              isActive={capaActiva === 'cuadras'}
+              onClick={() => cambiarCapa(capaActiva === 'cuadras' ? null : 'cuadras')}
+            />
+            <h2 className="text-base font-semibold text-white mb-1">Mapa de Calor Ingresos Económicos</h2>
+            <SwitchButton
+              isActive={capaActiva === 'heat1'}
+              label="Botón 2"
+              onClick={() => cambiarCapa(capaActiva === 'heat1' ? null : 'heat1')}
+            />
+            <h2 className="text-base font-semibold text-white mb-1">Mapa de Calor variable indpond</h2>
+            <SwitchButton
+              isActive={capaActiva === 'heat2'}
+              label="Botón 3"
+              onClick={() => cambiarCapa(capaActiva === 'heat2' ? null : 'heat2')}
+            />
+            <h2 className="text-base font-semibold text-white mb-1">Mapa de Calor variable indmult</h2>
+            <SwitchButton
+              isActive={capaActiva === 'heat3'}
+              label="Botón 4"
+              onClick={() => cambiarCapa(capaActiva === 'heat3' ? null : 'heat3')}
+            />
+>>>>>>> afd0485 (Subida inicial: todas las secciones, boletines y PDF comprimido)
           </div>
           {/* Pie de página */}
           <div className="bg-gray-800 text-white p-4 text-center">
             <p>&copy; 2025 Geovisor. Todos los derechos reservados.</p>
           </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> afd0485 (Subida inicial: todas las secciones, boletines y PDF comprimido)
         </div>
         <div className="w-full lg:w-2/3 xl:w-3/4 flex-grow bg-gray-200">
           <div className="relative w-full h-full">
@@ -2657,8 +2719,14 @@ export default function Mapa() {
                   <>
                     <TileLayer
                       url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
+<<<<<<< HEAD
                       attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/">CARTO</a>'
                     />
+=======
+                      attribution='&copy; https://www.openstreetmap.org/copyright contributors &copy; https://carto.com/'
+                    />
+
+>>>>>>> afd0485 (Subida inicial: todas las secciones, boletines y PDF comprimido)
                     {geoData && (
                       <GeoJSON
                         data={geoData}
@@ -2671,7 +2739,14 @@ export default function Mapa() {
                         })}
                       />
                     )}
+<<<<<<< HEAD
                     {mostrarCuadras &&
+=======
+                    {capaActiva === 'heat1' && <HeatMapBellavista visible />}
+                    {capaActiva === 'heat2' && <HeatMapBellavista2 visible />}
+                    {capaActiva === 'heat3' && <HeatMapBellavista3 visible />}
+                    {capaActiva === 'cuadras' &&
+>>>>>>> afd0485 (Subida inicial: todas las secciones, boletines y PDF comprimido)
                       cuadras.map((cuadra, index) => (
                         <>
                           <Polygon
@@ -2683,9 +2758,19 @@ export default function Mapa() {
                             }}
                           >
                             <Popup>
+<<<<<<< HEAD
                               <strong>{cuadra.nombre}:</strong><br />
                               {cuadra.descripcion.map((linea, i) => (
                                 <span key={i}>{linea}<br /></span>
+=======
+                              <strong>{cuadra.nombre}:</strong>
+                              <br />
+                              {cuadra.descripcion.map((linea, i) => (
+                                <span key={i}>
+                                  {linea}
+                                  <br />
+                                </span>
+>>>>>>> afd0485 (Subida inicial: todas las secciones, boletines y PDF comprimido)
                               ))}
                             </Popup>
                             <Tooltip
@@ -2697,6 +2782,7 @@ export default function Mapa() {
                               {index + 1}
                             </Tooltip>
                           </Polygon>
+<<<<<<< HEAD
                           {/* Marcador con imagen solo para UCACUE */}
 
                           {cuadra.nombre === "UCACUE" && (
@@ -2705,12 +2791,22 @@ export default function Mapa() {
                                 position={[-2.884445, -79.005800]} // Primer punto
                                 icon={L.icon({
                                   iconUrl: "https://muchomejorecuador.org.ec/wp-content/uploads/2024/04/Universidad-Catolica_de_Cuenca.jpg",
+=======
+                          {cuadra.nombre === "UCACUE" && (
+                            <>
+                              <Marker
+                                position={[-2.884445, -79.005800]}
+                                icon={L.icon({
+                                  iconUrl:
+                                    "https://muchomejorecuador.org.ec/wp-content/uploads/2024/04/Universidad-Catolica_de_Cuenca.jpg",
+>>>>>>> afd0485 (Subida inicial: todas las secciones, boletines y PDF comprimido)
                                   iconSize: [30, 30],
                                   iconAnchor: [15, 30],
                                   popupAnchor: [0, -30],
                                 })}
                               >
                                 <Popup>
+<<<<<<< HEAD
                                   <strong>{cuadra.nombre}</strong><br />
                                   Universidad Católica de Cuenca (Casa Administrativa).
                                 </Popup>
@@ -2720,13 +2816,30 @@ export default function Mapa() {
                                 position={[-2.885450, -79.005120]} // Segundo punto
                                 icon={L.icon({
                                   iconUrl: "https://muchomejorecuador.org.ec/wp-content/uploads/2024/04/Universidad-Catolica_de_Cuenca.jpg",
+=======
+                                  <strong>{cuadra.nombre}</strong>
+                                  <br />
+                                  Universidad Católica de Cuenca (Casa Administrativa).
+                                </Popup>
+                              </Marker>
+                              <Marker
+                                position={[-2.885450, -79.005120]}
+                                icon={L.icon({
+                                  iconUrl:
+                                    "https://muchomejorecuador.org.ec/wp-content/uploads/2024/04/Universidad-Catolica_de_Cuenca.jpg",
+>>>>>>> afd0485 (Subida inicial: todas las secciones, boletines y PDF comprimido)
                                   iconSize: [30, 30],
                                   iconAnchor: [15, 30],
                                   popupAnchor: [0, -30],
                                 })}
                               >
                                 <Popup>
+<<<<<<< HEAD
                                   <strong>{cuadra.nombre}</strong><br />
+=======
+                                  <strong>{cuadra.nombre}</strong>
+                                  <br />
+>>>>>>> afd0485 (Subida inicial: todas las secciones, boletines y PDF comprimido)
                                   Facultad De Ingeniería Civil Ucacue.
                                 </Popup>
                               </Marker>
@@ -2734,7 +2847,10 @@ export default function Mapa() {
                           )}
                         </>
                       ))}
+<<<<<<< HEAD
 
+=======
+>>>>>>> afd0485 (Subida inicial: todas las secciones, boletines y PDF comprimido)
                   </>
                 )}
               </Map>

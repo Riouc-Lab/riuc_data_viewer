@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 "use client";  // Asegura que este archivo es tratado como un componente de cliente
 
 import Image from "next/image";
@@ -77,3 +78,25 @@ export default function Novedades() {
     </div>
   );
 }
+=======
+"use client";
+
+import InfographicCard from "../../../components/InfographicCard";
+import { lista_infografia } from "../../../utils/modelo_infografias";
+
+export default function Boletinn1() {
+  const info = lista_infografia.find((item) => item.id === 1);
+
+  return (
+    <InfographicCard
+      title={info.name}
+      author={info.author}
+      date={info.date}
+      imgSrc={info.Image}
+      imgAlt={info.name}
+      pdfUrl={info.pdfUrl}
+      description={info.description}
+    />
+  );
+}
+>>>>>>> afd0485 (Subida inicial: todas las secciones, boletines y PDF comprimido)

@@ -9,7 +9,11 @@ export const lista_videos = [
     },
     {
       Image: "/img/vdo2_desasocial.png",
+<<<<<<< HEAD
       id: 1,
+=======
+      id: 2,
+>>>>>>> afd0485 (Subida inicial: todas las secciones, boletines y PDF comprimido)
       to: "/videos/n2",
       name: "Desarrollo Social",
       description: "Basados en la Organización Mundial de la Salud (OMS) que define los determinantes sociales de la salud como «las circunstancias en que las personas nacen, crecen, trabajan, viven y envejecen», así como el conjunto de condiciones que pueden modificar el modo de vida de la población (OMS, 2015).",
@@ -17,7 +21,11 @@ export const lista_videos = [
     },
     {
       Image: "/img/vdo3_salud.png",
+<<<<<<< HEAD
       id: 1,
+=======
+      id: 3,
+>>>>>>> afd0485 (Subida inicial: todas las secciones, boletines y PDF comprimido)
       to: "/videos/n3",
       name: "Salud Pública",
       description: "La salud pública es un conjunto de acciones organizadas por los actores del sistema de salud, con la finalidad de prevenir las enfermedades y también de dar solución a las patologías en los tres niveles de organización del sistema.",
@@ -25,7 +33,11 @@ export const lista_videos = [
     },
     {
         Image: "/img/vdo4_urbano.png",
+<<<<<<< HEAD
         id: 1,
+=======
+        id: 4,
+>>>>>>> afd0485 (Subida inicial: todas las secciones, boletines y PDF comprimido)
         to: "/videos/n4",
         name: "Comportamiento Urbano",
         description: "El observatorio comportamiento urbano hace una mirada al comportamiento en el uso de los espacios públicos y en las políticas públicas para uso de los mismos.",
@@ -33,7 +45,11 @@ export const lista_videos = [
     },
     {
         Image: "/img/vdo5_ambient.png",
+<<<<<<< HEAD
         id: 1,
+=======
+        id: 5,
+>>>>>>> afd0485 (Subida inicial: todas las secciones, boletines y PDF comprimido)
         to: "/videos/n5",
         name: "Observatorio Ambiental",
         description: "El seguimiento de variables que afectan el medio ambiente constituye el objetivo del observatorio ambiental con el fin de prevenir, reducir y restaurar los daños.",
@@ -41,7 +57,11 @@ export const lista_videos = [
     },
     {
         Image: "/img/vdo6_natur.png",
+<<<<<<< HEAD
         id: 1,
+=======
+        id: 6,
+>>>>>>> afd0485 (Subida inicial: todas las secciones, boletines y PDF comprimido)
         to: "/videos/n6",
         name: "Observatorio Natural",
         description: "El observatorio natural tiene por objeto entender los procesos biogeoquímicos, hidrológicos y microbiológicos del ecosistema altoandino del sur del Ecuador.",
@@ -49,7 +69,11 @@ export const lista_videos = [
     },
     {
         Image: "/img/vdo7_edu.png",
+<<<<<<< HEAD
         id: 1,
+=======
+        id: 7,
+>>>>>>> afd0485 (Subida inicial: todas las secciones, boletines y PDF comprimido)
         to: "/videos/n7",
         name: "Innovación Educativa",
         description: "La innovación es un recurso que se utiliza dentro de distintas áreas para renovar o impulsar las nuevas formas en que se pueden desarrollar los procesos con puntos de vistas más novedosos.",
