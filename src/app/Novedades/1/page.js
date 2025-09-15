@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 
 export default function Novedades() {
   const router = useRouter();
-  
+
   // Función para abrir PDF
   const abrirPDF = () => {
     const pdfUrl = "/pdf/violmuj2024.pdf";
@@ -26,7 +26,7 @@ export default function Novedades() {
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="16" 
+            width="16"
             height="16"
             fill="currentColor"
             className="bi bi-arrow-left-circle text-red-400"
@@ -46,7 +46,6 @@ export default function Novedades() {
       <h2 className="text-base text-gray-400">Version 1.0.0</h2>
       <h2 className="text-base text-gray-400 mb-3">Noviembre 2024</h2>
       <p className="text-lg text-gray-800 mb-5 text-justify">
-      
       </p>
       <div className="flex flex-col md:flex-row mb-5">
         <div className="md:w-1/4 md:pr-4">
@@ -55,7 +54,7 @@ export default function Novedades() {
           <div className="text-lg text-gray-800 mb-5 text-justify">
           </div>
         </div>
-        
+
         <div className="md:w-1/2 md:pl-4">
           <Image
             src="/img/violmujer2024.png"
@@ -72,7 +71,7 @@ export default function Novedades() {
           onClick={abrirPDF}
         >
           Ver Infrografía de Cerca
-        </button>               
+        </button>
       </div>
     </div>
   );

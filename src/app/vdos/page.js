@@ -9,10 +9,19 @@ const videos = [
 
 export default function VideosPage() {
   return (
-    <div className="bg-gray-100 py-12">
+    <div className="bg-gray-100 py-12 flex min-h-screen flex-col items-center p-7 mb-5">
+      <div className="text-center mb-10">
+        <h5 className="text-base md:text-lg text-red-500 mb-1 font-semibold">
+          RIOUC
+        </h5>
+        <h1 className="text-4xl md:text-6xl font-semibold p-5 mb-3 bg-gradient-to-r from-black to-black bg-clip-text text-transparent border-b-2 border-red-400">
+          VIDEOTECA
+        </h1>
+        <p className="text-base sm:text-lg text-gray-400 mt-4 mb-1 max-w-sm sm:max-w-xl mx-auto px-2 text-center">
+          Explora los videos relacionados con nuestros observatorios e investigaciones.
+        </p>
+      </div>
       <div className="container mx-auto px-4 text-center">
-        <h1 className="text-4xl font-extrabold text-red-600 mb-4 uppercase">Videos RIOUC</h1>
-        <p className="text-lg text-gray-700 mb-12">Explora los videos relacionados con nuestros observatorios e investigaciones.</p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {videos.map((video) => (

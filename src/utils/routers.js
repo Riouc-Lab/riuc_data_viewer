@@ -31,15 +31,15 @@ export const routers_menu = [
   },
   {
     id: 6,
-    to: "/proyectos",
-    name: "Geovisores",
-    expanded: true,
-  },
-  {
-    id: 7,
     to: "/Novedades",
     name: "Infografías",
     expanded: false,
+  },
+  {
+    id: 7,
+    to: "/proyectos",
+    name: "Geovisores",
+    expanded: true,
   },
   {
     id: 8,

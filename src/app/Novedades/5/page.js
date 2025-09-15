@@ -45,13 +45,16 @@ export default function Boletinn3() {
       <h1 className="text-6xl text-red-500 font-semibold mb-5 mt-3">Alimentación saludable</h1>
       <h2 className="text-base text-gray-400">Version 1.0.0</h2>
       <h2 className="text-base text-gray-400 mb-3">Mayo 2025</h2>
-      <p className="text-lg text-gray-800 mb-5 text-justify">
-        
+      <p className="text-lg text-gray-800 mb-5 text-justify"> 
       </p>
-      <div className="flex flex-col md:flex-row mb-5">
-        <div className="md:w-1/8 md:pr-4">
+<div className="flex flex-col md:flex-row mb-5">
+        <div className="md:w-1/4 md:pr-4">
+          <div className="text-lg text-gray-800 mb-5 text-justify">
+          </div>
+          <div className="text-lg text-gray-800 mb-5 text-justify">
+          </div>
         </div>
-        <div className="md:w-1/8 md:pl-4">
+        <div className="md:w-1/2 md:pl-4">
           <Image
             src="/img/info_alim_sal.jpg"
             alt="RIOUC"

@@ -1,174 +1,97 @@
 "use client";
-import React, { useState } from "react";
-import Image from "next/image";
-import { lista_proyectos } from "../../utils/modelo_proyectos";
+
+import { useState } from "react";
+import ArticleCard from "../../components/articlecard";
+import Pagination from "../../components/pagination";
 import Search from "../../components/search";
-import { usePathname, useRouter } from "next/navigation";
+import FilterBurger from "../../components/FilterBurger";
+import { lista_articulos } from "../../utils/modelo_articulos";
 
-export default function articulos() {
-  const router = useRouter();
-  const pathname = usePathname();
-  const [searchResults, setSearchResults] = useState([]);
+export default function ArticulosCientificos() {
+  // ----------------- estado -----------------
+  const [query, setQuery] = useState("");
+  const [campo, setCampo] = useState("titulo");
   const [currentPage, setCurrentPage] = useState(1);
-  const projectsPerPage = 9; // Define el número de proyectos por página
+  const articulosPorPagina = 6;
 
-  // Agrega botones para navegar entre páginas
-  const totalPages = Math.ceil(lista_proyectos.length / projectsPerPage);
-
-  const handlePageChange = (page) => {
-    setCurrentPage(page);
+  // ----------------- búsqueda -----------------
+  const handleSearch = (texto, campoBusqueda) => {
+    setQuery(texto);
+    setCampo(campoBusqueda || campo);
+    setCurrentPage(1);
   };
 
-  const handleSearch = (query) => {
-    const filteredProjects = lista_proyectos.filter((project) =>
-      project.name.toLowerCase().includes(query.toLowerCase())
-    );
-    setSearchResults(filteredProjects);
-    setCurrentPage(1); // Resetea la página actual al buscar
-  };
+  const normalizar = (str = "") =>
+    str
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "");
 
-  const startIndex = (currentPage - 1) * projectsPerPage;
-  const endIndex = startIndex + projectsPerPage;
-  const projectsToDisplay =
-    searchResults.length > 0
-      ? searchResults.slice(startIndex, endIndex)
-      : lista_proyectos.slice(startIndex, endIndex);
+  // --- Filtrado según campo seleccionado ---
+  const filtrados = lista_articulos.filter((item) => {
+    if (!query.trim()) return true;
+    const q = normalizar(query);
+    if (campo === "titulo") return normalizar(item.titulo).includes(q);
+    if (campo === "autor") return normalizar(item.autor).includes(q);
+    if (campo === "anio") return item.fecha.startsWith(q);
+    return true;
+  });
 
+  // ----------------- paginación -----------------
+  const totalPages = Math.ceil(filtrados.length / articulosPorPagina);
+  const startIndex = (currentPage - 1) * articulosPorPagina;
+  const listaPaginada = [...filtrados]
+    .sort((a, b) => new Date(b.fecha) - new Date(a.fecha))
+    .slice(startIndex, startIndex + articulosPorPagina);
+
+  // ----------------- render -----------------
   return (
-    <main className="flex min-h-screen flex-col items-center p-7 mb-5">
-      <div className="text-center mb-10">
+    <main className="relative min-h-screen bg-gray-100 px-4 py-10">
+      {/* Header */}
+      <div className="text-center mt-8 mb-6">
         <h5 className="text-base md:text-lg text-red-500 mb-1 font-semibold">
-          RIOUC
-        </h5>
-        <h1 className="text-4xl md:text-7xl font-semibold p-5 mb-12 bg-gradient-to-r from-black to-black bg-clip-text text-transparent border-b-2 border-red-400">
           ARTÍCULOS CIENTÍFICOS
+        </h5>
+        <h1 className="text-4xl md:text-6xl font-semibold p-5 bg-gradient-to-r from-black to-black bg-clip-text text-transparent border-b-2 border-red-400 inline-block">
+          PUBLICACIONES RIOUC
         </h1>
-        <Search onSearch={handleSearch} />
+        <p className="text-sm sm:text-base text-gray-400 mt-3 mb-1 max-w-sm sm:max-w-xl mx-auto px-2 text-center">
+          Explora las publicaciones científicas desarrolladas por nuestros investigadores.
+        </p>
+      </div>
+      {/* Barra de búsqueda y filtro burger */}
+      <div className="mx-auto mb-8 w-full max-w-xl px-4 flex items-center gap-4">
+        <Search
+          onSearch={handleSearch}
+          campo={campo}
+          placeholder={`Buscar por ${campo}...`}
+        />
+        <FilterBurger campo={campo} setCampo={setCampo} />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16">
-        {projectsToDisplay.map((item) => {
-          const isActive = pathname === item.to;
-
-          return (
-            // eslint-disable-next-line react/jsx-key
-            <div className="">
-              <div
-                className="border-2 border-black border-opacity-10 rounded-lg overflow-hidden cursor-pointer"
-                onClick={() => router.push(item.to)}
-              >
-                <Image
-                  className="w-[670px] h-[360px] object-cover"
-                  src={item.Image}
-                  alt="Vista previa del mapa"
-                  width={600}
-                  height={300}
-                  priority
-                />
-
-                <div className="p-6 hover:bg-black hover:text-white transition duration-270 ease-in">
-                  <h2 className="text-base font-medium text-indigo-300 mb-1">
-                    {item.date}
-                  </h2>
-                  <h1 className="text-2xl font-semibold mb-3">{item.name}</h1>
-                  <p className="leading-relaxed mb-3"> {item.description}</p>
-                  <div className="flex items-center flex-wrap ">
-                    <a className="text-indigo-300 inline-flex items-center md:mb-2 lg:mb-0">
-                      <span className="flex-grow flex flex-col">Leer</span>
-
-                      <svg
-                        className="w-4 h-4 ml-2"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        fill="none"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      >
-                        <path d="M5 12h14"></path>
-                        <path d="M12 5l7 7-7 7"></path>
-                      </svg>
-                    </a>
-                    <span className="text-red-400 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
-                      {item.additionalDescription}
-                    </span>
-                  </div>
-                </div>
+      {/* Lista */}
+      <div className="bg-white max-w-7xl mx-auto p-10 rounded-xl shadow-xl">
+        {query.trim() && filtrados.length === 0 ? (
+          <div className="text-center text-gray-500 text-lg font-semibold">
+            No existen resultados para esta búsqueda.
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-5">
+            {listaPaginada.map((item) => (
+              <div key={item.id} className="h-full">
+                <ArticleCard item={item} expandible />
               </div>
-            </div>
-          );
-        })}
+            ))}
+          </div>
+        )}
+
+        {/* Paginación */}
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={setCurrentPage}
+        />
       </div>
-
-      <nav aria-label="Page navigation example">
-        <ul class="flex items-center -space-x-px h-8 text-sm p-16">
-          <li>
-            <a
-              href="#"
-              class="flex items-center justify-center px-3 h-8 ml-0 leading-tight text-black bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-              onClick={() => handlePageChange(currentPage - 1)}
-            >
-              <span class="sr-only">Previous</span>
-              <svg
-                class="w-2.5 h-2.5"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 6 10"
-              >
-                <path
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M5 1 1 5l4 4"
-                />
-              </svg>
-            </a>
-          </li>
-
-          {/* Mapea y muestra los números de página */}
-          {Array.from({ length: totalPages }, (_, index) => (
-            <li key={index}>
-              <a
-                href="#"
-                className={`${currentPage === index + 1
-                    ? "z-10 flex items-center justify-center px-3 h-8 leading-tight text-red-600 border border-red-300 bg-red-50 hover:bg-red-100 hover:text-red-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white"
-                    : "flex items-center justify-center px-3 h-8 leading-tight text-black bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                  }`}
-                onClick={() => handlePageChange(index + 1)}
-              >
-                {index + 1}
-              </a>
-            </li>
-          ))}
-
-          <li>
-            <a
-              href="#"
-              className="flex items-center justify-center px-3 h-8 leading-tight text-black bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-              onClick={() => handlePageChange(currentPage + 1)}
-            >
-              <span class="sr-only">Next</span>
-              <svg
-                class="w-2.5 h-2.5"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 6 10"
-              >
-                <path
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="m1 9 4-4-4-4"
-                />
-              </svg>
-            </a>
-          </li>
-        </ul>
-      </nav>
     </main>
   );
 }

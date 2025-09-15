@@ -8,19 +8,18 @@ export const eventos = [
   },
   {
     id: 2,
-    titulo: "Imposición de mandiles.",
-    fecha: "2025-07-15T12:00:00",
+    titulo: "Boletín N° 4",
+    fecha: "2025-09-15T12:00:00",
     ubi: "Universidad Católica De Cuenca, Posgrados.",
-    descripcion: "Imposición de mandiles de estudiantes de Psicología.",
-  }
-  ,
+    descripcion: "Estreno del Boletín N° 4 (Volumen 4 #1) de la Revista RIUC.",
+  },
 ];
 
 export const eventos_futuros = [
   {
     id: 1,
     titulo: "Nuevo boletín",
-    fecha: "2025-07-20T12:00:00",
+    fecha: "2025-10-20T12:00:00",
     ubi: "CIITT.",
     descripcion: "Presentación del Boletín #4.",
   },

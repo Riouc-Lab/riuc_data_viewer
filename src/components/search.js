@@ -1,28 +1,37 @@
-import React, { useState } from "react";
+import { useEffect, useState } from "react";
 
-const Search = ({ onSearch }) => {
-  const [searchQuery, setSearchQuery] = useState("");
+const Search = ({
+  onSearch,
+  campo = "titulo",
+  placeholder = "Buscar...",
+  delay = 300,
+}) => {
+  const [value, setValue] = useState("");
 
-  const handleSearch = (e) => {
+  // ① Lanza la búsqueda solo tras X ms sin teclear
+  useEffect(() => {
+    const id = setTimeout(() => onSearch(value, campo), delay);
+    return () => clearTimeout(id); // limpia al escribir
+  }, [value, delay, onSearch, campo]);
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-    onSearch(searchQuery);
+    onSearch(value, campo); // Enter aún funciona
   };
 
   return (
-    <form onSubmit={handleSearch} className="flex items-center justify-center">
+    <form
+      onSubmit={handleSubmit}
+      className="flex w-full"
+    >
       <input
         type="text"
-        placeholder="Buscar proyecto..."
-        value={searchQuery}
-        onChange={(e) => setSearchQuery(e.target.value)}
-        className="border border-black rounded-l px-14 py-1 focus:outline-none focus:red focus:border-red-500 transition duration-200"
+        placeholder={placeholder}
+        value={value}
+        onChange={(e) => setValue(e.target.value)} // actualiza estado local
+        className="w-full border border-black rounded px-4 py-2
+                   focus:outline-none focus:ring-2 focus:ring-red-500 transition"
       />
-      <button
-        type="submit"
-        className="bg-red-500 text-white rounded-r px-4 py-1"
-      >
-        Buscar
-      </button>
     </form>
   );
 };

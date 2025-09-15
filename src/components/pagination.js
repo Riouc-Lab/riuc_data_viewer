@@ -1,7 +1,7 @@
 // components/Pagination.jsx
 export default function Pagination({ currentPage, totalPages, onPageChange }) {
   return (
-    <nav aria-label="Page navigation" className="flex justify-center mt-3">
+    <nav aria-label="Page navigation" className="flex justify-center">
       <div className="flex items-center bg-white border border-gray-300 rounded-lg shadow-sm overflow-hidden">
         <button
           className="flex items-center justify-center px-2 sm:px-3 h-8 leading-tight text-black hover:bg-gray-100 hover:text-gray-700 disabled:opacity-50 disabled:cursor-not-allowed"
@@ -43,4 +43,3 @@ export default function Pagination({ currentPage, totalPages, onPageChange }) {
     </nav>
   );
 }
-

@@ -42,7 +42,7 @@ export default function Boletinn1() {
           </span>
         </button>
       </div>
-      <h1 className="text-6xl text-red-500 font-semibold mb-5 mt-3">BOLETIN</h1>
+      <h1 className="text-6xl text-red-500 font-semibold mb-5 mt-3">BOLETÍN</h1>
       <h2 className="text-base text-gray-400">Volumen 1 / N°1</h2>
       <h2 className="text-base text-gray-400 mb-3">mayo - agosto 2023</h2>
       <p className="text-lg text-gray-800 mb-5 text-justify">
