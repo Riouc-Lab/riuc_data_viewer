@@ -4,6 +4,9 @@ import { useRouter } from "next/navigation";
 import axios from "axios";
 import dynamic from "next/dynamic";
 import SwitchButton from "../../../components/buttonswitch";
+import HeatLayer from "../../../components/HeatMapBellavista";
+import HeatLayer2 from "../../../components/HeatMapBellavista2";
+import HeatLayer3 from "../../../components/HeatMapBellavista3";
 const Map = dynamic(() => import("../../../components/map"), { ssr: false });
 const DEFAULT_CENTER = [-2.891565, -79.005958];
 const coloresPorNivel = {
@@ -2501,6 +2504,47 @@ export default function Mapa() {
   const [showDescription, setShowDescription] = useState(false);
   const [isActive, setIsActive] = useState(false);
   const [mostrarCuadras, setMostrarCuadras] = useState(false);
+  const handleToggleBotonUnico = (boton) => {
+    if (boton === "cuadras") {
+      if (mostrarCuadras) {
+        // Si ya está activo, desactívalo
+        setMostrarCuadras(false);
+      } else {
+        // Activa solo este
+        setMostrarCuadras(true);
+        setBoton1Visible(false);
+        setBoton2Visible(false);
+        setBoton3Visible(false);
+      }
+    } else if (boton === 1) {
+      if (boton1Visible) {
+        setBoton1Visible(false);
+      } else {
+        setBoton1Visible(true);
+        setMostrarCuadras(false);
+        setBoton2Visible(false);
+        setBoton3Visible(false);
+      }
+    } else if (boton === 2) {
+      if (boton2Visible) {
+        setBoton2Visible(false);
+      } else {
+        setBoton2Visible(true);
+        setMostrarCuadras(false);
+        setBoton1Visible(false);
+        setBoton3Visible(false);
+      }
+    } else if (boton === 3) {
+      if (boton3Visible) {
+        setBoton3Visible(false);
+      } else {
+        setBoton3Visible(true);
+        setMostrarCuadras(false);
+        setBoton1Visible(false);
+        setBoton2Visible(false);
+      }
+    }
+  };
 
   // Utilidad para asignar color por nombre de parroquia
   const getColorByName = (name) => {
@@ -2610,7 +2654,7 @@ export default function Mapa() {
           <div className="overflow-auto p-4 space-y-4">
             {/* Información general */}
             <div className="text-white">
-              <h2 className="text-xl font-semibold">Información General</h2>
+              <h2 className="text-xl text-gray-400 font-semibold">Información General</h2>
               <p>
                 Aquí puedes agregar información general sobre el uso de la
                 interfaz.
@@ -2620,18 +2664,43 @@ export default function Mapa() {
             <div className="flex flex-col space-y-2 text-white">
               Mostrar Capas por cuadras.
             </div>
+
             <SwitchButton
+              label="Mostrar Cuadras"
               isActive={mostrarCuadras}
-              onClick={() => setMostrarCuadras(!mostrarCuadras)}
+              onClick={() => handleToggleBotonUnico("cuadras")}
             />
-            {/* <SwitchButton
-              label="Botón 2"
-              onClick={() => setBoton2Visible(!boton2Visible)}
-            /> */}
-            {/*<SwitchButton
-              label="Botón 3"
-              onClick={() => setBoton3Visible(!boton3Visible)}
-            /> */}
+
+            <div className="flex flex-col space-y-2 text-white">
+              Mostrar Mapa de Calor.
+            </div>
+
+            <SwitchButton
+              label="Mapa de Calor 1"
+              isActive={boton1Visible}
+              onClick={() => handleToggleBotonUnico(1)}
+            />
+
+            <div className="flex flex-col space-y-2 text-white">
+              Mostrar Mapa de Calor segun la variable "indpond".
+            </div>
+
+            <SwitchButton
+              label="Mapa de Calor 2"
+              isActive={boton2Visible}
+              onClick={() => handleToggleBotonUnico(2)}
+            />
+
+            <div className="flex flex-col space-y-2 text-white">
+              Mostrar Mapa de Calor segun la variable "indmult".
+            </div>
+
+            <SwitchButton
+              label="Mapa de Calor 3"
+              isActive={boton3Visible}
+              onClick={() => handleToggleBotonUnico(3)}
+            />
+
           </div>
           {/* Pie de página */}
           <div className="bg-gray-800 text-white p-4 text-center">
@@ -2666,6 +2735,11 @@ export default function Mapa() {
                         })}
                       />
                     )}
+
+                    <HeatLayer visible={boton1Visible} />
+                    <HeatLayer2 visible={boton2Visible} />
+                    <HeatLayer3 visible={boton3Visible} />
+
                     {mostrarCuadras &&
                       cuadras.map((cuadra, index) => (
                         <>

@@ -4,7 +4,7 @@ import L from 'leaflet';
 import 'leaflet.heat';
 import { useEffect, useRef } from 'react';
 
-export default function HeatLayer2({ visible }) {
+export default function HeatLayer3({ visible }) {
     const map = useMap();
     const heatLayerRef = useRef(null);
 

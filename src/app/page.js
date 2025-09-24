@@ -60,7 +60,7 @@ export default function Home() {
           <Link href="/proyectos" passHref>
             <div className="w-40 h-40 sm:w-48 sm:h-48 bg-gradient-to-r from-gray-500 rounded-xl flex flex-col items-center justify-center shadow-2xl cursor-pointer hover:shadow-xl transition-shadow duration-300">
               <Image src="/img/mapa.png" alt="Proyectos" width={80} height={80} />
-              <span className="text-white font-bold mt-2">Proyectos</span>
+              <span className="text-white font-bold mt-2">Geovisores</span>
             </div>
           </Link>
 
