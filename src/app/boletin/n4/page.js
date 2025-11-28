@@ -8,7 +8,7 @@ export default function Boletinn4() {
 
   // Función para abrir PDF
   const abrirPDF = () => {
-    const pdfUrl = "/pdf/REVISTA4-compressed.pdf";
+    const pdfUrl = "/pdf/REVISTA4_1.pdf";
     window.open(pdfUrl, "_blank");
   };
 
@@ -43,7 +43,7 @@ export default function Boletinn4() {
         </button>
       </div>
       <h1 className="text-6xl text-red-500 font-semibold mb-5 mt-3">BOLETÍN</h1>
-      <h2 className="text-base text-gray-400">Volumen 4 / N°1</h2>
+      <h2 className="text-base text-gray-400">Volumen 2 / N°1</h2>
       <h2 className="text-base text-gray-400 mb-1">enero - abril 2025</h2>
       <p className="text-lg text-gray-800 mb-5 text-justify">
         La Red de Investigación y Observatorios de la Universidad Católica de Cuenca (RIOUC) tiene el firme compromiso de generar y difundir conocimiento relevante, situado y transformador.

@@ -48,7 +48,19 @@ export default function Equipo() {
             height={160}
           />
           <h1 className="text-center font-semibold p-3 mb-2 bg-gradient-to-r from-black to-black bg-clip-text text-transparent border-b-2 border-red-400 w-2/4 mx-auto">
-            Claudia Emilia Calderón Cordero
+            Mateo Francisco Cordero Izquierdo
+          </h1>
+        </div>
+        <div className="w-5/6 p-2">
+          <Image
+            className="mx-auto"
+            src="/img/DESCONOCIDO.jpg"
+            alt="Imagen 2"
+            width={300}
+            height={160}
+          />
+          <h1 className="text-center font-semibold p-3 mb-2 bg-gradient-to-r from-black to-black bg-clip-text text-transparent border-b-2 border-red-400 w-2/4 mx-auto">
+            Alex Santiago Navas Falconi
           </h1>
         </div>
       </div>
@@ -71,8 +83,8 @@ export default function Equipo() {
       </p>
 
       <p className="text-lg text-gray-800 mb-6 text-justify">
-        Forma parte del equipo la <strong>Fís. Claudia Emilia Calderón Cordero</strong>,
-        responsable del diseño y estructuración de las bases de datos e
+        Forman parte del equipo el <strong>Lic. Alex Santiago Navas Falconi</strong> y el <strong>Ing. Mateo Francisco Cordero Izquierdo</strong>, 
+        responsables del diseño y estructuración de las bases de datos e
         información recolectada dentro de la RIOUC.
       </p>
 

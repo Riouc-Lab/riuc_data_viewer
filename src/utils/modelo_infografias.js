@@ -46,4 +46,14 @@ export const lista_infografia = [
     description: "Infografía educativa sobre hábitos alimenticios, hidratación y consejos nutricionales para una vida más saludable.",
     pdfUrl: "/pdf/info_alim_sal.pdf",
   },
+
+   {
+    Image: "/img/ViolMuj2025.jpeg",
+    id: 6,
+    name: "Femicidios y la violencia de Género hacia la Mujer en el Ecuador 2025",
+    date: "2025-06-30",
+    author: "María Emilia Molino de Tinto",
+    description: "Panorama estadístico sobre casos de violencia de género hacia las mujeres en Ecuador (2025) ",
+    pdfUrl: "/pdf/ViolMuj2025",
+  },
 ];

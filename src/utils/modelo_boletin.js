@@ -27,7 +27,7 @@ export const lista_boletin = [
       Image: "/img/boletin4.1.png",
       id: 1,
       to: "/boletin/n4",
-      name: "Boletín Volumen 4 / N°1",
+      name: "Boletín Volumen 2 / N°1",
       description: "En esta cuarta edición del boletín “RIOUC Informa” compartimos con ustedes un conjunto diverso de miradas que nacen desde los observatorios institucionales, la experiencia de investigadores comprometidos, y las voces que trabajan día a día en los ....",
       date: "enero - abril 2025",
     },
