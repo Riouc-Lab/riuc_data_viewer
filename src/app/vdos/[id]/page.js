@@ -13,7 +13,7 @@ export default function VideoPage({ params }) {
     },
     {
       id: '2',
-      video: 'raquelychampi.mp4',
+      youtube: 'https://www.youtube.com/embed/PM6ia_GPPq8',
       title: 'Raquel y Champi',
       description: 'Cuento científico'
     },
