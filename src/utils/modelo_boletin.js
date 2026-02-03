@@ -31,5 +31,13 @@ export const lista_boletin = [
       description: "En esta cuarta edición del boletín “RIOUC Informa” compartimos con ustedes un conjunto diverso de miradas que nacen desde los observatorios institucionales, la experiencia de investigadores comprometidos, y las voces que trabajan día a día en los ....",
       date: "enero - abril 2025",
     },
+    {
+      Image: "/img/boletin5.jpeg",
+      id: 1,
+      to: "/boletin/n5",
+      name: "Boletín Volumen 2 / N°2",
+      description: "En esta edición especial del boletín 'RIOUC Informa', dedicada a la Semana de la Ciencia 2025, abrimos las puertas de la universidad para conectar el rigor académico con las inquietudes de la sociedad. A través de estas páginas, les invitamos a ....",
+      date: "mayo - agosto 2025",
+    },
   ];
   
