@@ -1,0 +1,128 @@
+"use client";  // Asegura que este archivo es tratado como un componente de cliente
+
+import Image from "next/image";
+import { useRouter } from "next/navigation";
+
+export default function Boletinn6() {
+  const router = useRouter();
+  
+  // Función para abrir PDF
+  const abrirPDF = () => {
+    const pdfUrl = "/pdf/REVISTA6.pdf";
+    window.open(pdfUrl, "_blank"); // window es un objeto global del navegador, asegurate de que el entorno sea del cliente
+  };
+
+  // Función para navegar a una ruta específica
+  const Proyect = (to) => {
+    router.push(to);
+  };
+
+  return (
+    <div className="bg-white p-6 mx-auto max-w-7xl">
+      <div className="p-1 text-gray-500 hover:underline mb-2 flex items-center space-x-2 mt-4">
+        <button
+          className="p-1 text-gray-500 hover:underline mb-2 mb-2 flex items-center space-x-2 mt-4"
+          onClick={() => Proyect("/boletin")}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            className="bi bi-arrow-left-circle text-red-400"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fillRule="evenodd"
+              d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"
+            />
+          </svg>
+          <span className="text-gray-500 hover:text-red-400 transition">
+            Regresar
+          </span>
+        </button>
+      </div>
+      <h1 className="text-6xl text-red-500 font-semibold mb-5 mt-3">BOLETÍN</h1>
+      <h2 className="text-base text-gray-400">Volumen 2 / N°3</h2>
+      <h2 className="text-base text-gray-400 mb-3">septiembre - diciembre 2025</h2>
+      <p className="text-lg text-gray-800 mb-5 text-justify">
+        La Red de Investigación y Observatorios de la Universidad Católica de Cuenca (RIOUC) reafirma que la excelencia académica solo alcanza su verdadero propósito cuando se convierte en bienestar colectivo. La vinculación con la sociedad no es un apéndice de nuestra labor, sino el corazón mismo de nuestra misión transformadora.
+      </p>
+      <div className="flex flex-col md:flex-row mb-5">
+        <div className="md:w-1/2 md:pr-4">
+          <div className="text-lg text-gray-800 mb-5 text-justify">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5 inline text-red-500 mr-2"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M5 13l4 4L19 7"
+              />
+            </svg>
+            En esta nueva edición del boletín “RIOUC Informa” (Vol. 2, No. 3), compartimos con ustedes las memorias de la Semana de la Vinculación 2025, un recorrido por las iniciativas que están tejiendo lazos indisolubles entre la universidad y el territorio. Este número recoge experiencias vitales que van desde la intervención médica en el proyecto "Creando Sonrisas" para niños con labio fisurado, hasta la innovación educativa con la Academia STEAM y el fortalecimiento de la identidad cultural Cañari.
+          </div>
+          <div className="text-lg text-gray-800 mb-5 text-justify">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5 inline text-red-500 mr-2"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M5 13l4 4L19 7"
+              />
+            </svg>
+            Hablamos de ciencia aplicada al servicio de la comunidad: consultorios contables gratuitos, mejoramiento genético para el agro, prevención de salud en escuelas rurales y empoderamiento de mujeres artesanas. Es la evidencia de una academia que escucha, aprende y trabaja hombro a hombro con la ciudadanía.
+          </div>
+          
+        </div>
+        <div className="md:w-1/2 md:pl-4">
+          <Image
+            src="/img/preview_boletin.png"
+            alt="RIOUC"
+            width={440}
+            height={175}
+            className="mx-auto rounded-lg"
+          />
+        </div>
+      </div>
+
+      <div className="text-lg text-gray-800 mb-10 text-justify">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-5 w-5 inline text-red-500 mr-2"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M5 13l4 4L19 7"
+          />
+        </svg>
+        Invitamos a todas las personas lectoras a sumarse a esta red de solidaridad y conocimiento, con una mirada crítica, reflexiva y profundamente comprometida con la construcción de un futuro más justo y equitativo para todos.
+      </div>
+
+      <div className="mb-12 text-center">
+        <button
+          className="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-full focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50"
+          onClick={abrirPDF}
+        >
+          Abrir Boletin
+        </button>
+      </div>
+    </div>
+  );
+}

@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-export default function Boletinn4() {
+export default function Boletinn5() {
   const router = useRouter();
 
   // Función para abrir PDF
