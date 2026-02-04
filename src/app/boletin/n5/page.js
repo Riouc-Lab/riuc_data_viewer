@@ -74,7 +74,7 @@ export default function Boletinn5() {
                 d="M5 13l4 4L19 7"
               />
             </svg>
-            En esta edición especial del boletín “RIOUC Informa”, dedicada a la Semana de la Ciencia 2025, abrimos las puertas de la universidad para conectar el rigor académico con las inquietudes de la sociedad. A través de estas páginas, les invitamos a explorar la fascinante convergencia entre el arte y la microbiología en el proyecto 'Invisible Pegaso', a reflexionar sobre los desafíos éticos de la Inteligencia Artificial junto a la UNESCO y a ser testigos del esfuerzo por democratizar el conocimiento llevando la ciencia a las aulas de colegio. Este número celebra no solo la excelencia de nuestros investigadores, sino también nuestra misión de transformar el futuro a través de la divulgación y la innovación responsable.
+            En esta edición especial del boletín “RIOUC Informa”, dedicada a la Semana de la Ciencia 2025, abrimos las puertas de la universidad para conectar el rigor académico con las inquietudes de la sociedad. A través de estas páginas, les invitamos a explorar la fascinante convergencia entre el arte y la microbiología en el proyecto "Invisible Pegaso", a reflexionar sobre los desafíos éticos de la Inteligencia Artificial junto a la UNESCO y a ser testigos del esfuerzo por democratizar el conocimiento llevando la ciencia a las aulas de colegio. Este número celebra no solo la excelencia de nuestros investigadores, sino también nuestra misión de transformar el futuro a través de la divulgación y la innovación responsable.
           </div>
           <div className="text-lg text-gray-800 mb-5 text-justify">
             <svg
@@ -91,7 +91,7 @@ export default function Boletinn5() {
                 d="M5 13l4 4L19 7"
               />
             </svg>
-            Gracias a la visión de la recién creada Unidad de Divulgación Científica y al talento de nuestros galardonados —desde autores en la revista Science hasta innovadores en tecnología médica—, esta publicación se consolida como un espacio donde dialogan la biotecnología, la ética digital y la conciencia ambiental.
+            Gracias a la visión de la recién creada Unidad de Divulgación Científica y al talento de nuestros galardonados, esta publicación se consolida como un espacio donde dialogan la biotecnología, la ética digital y la conciencia ambiental.
           </div>
         </div>
       </div>
