@@ -46,4 +46,23 @@ export const lista_infografia = [
     description: "Infografía educativa sobre hábitos alimenticios, hidratación y consejos nutricionales para una vida más saludable.",
     pdfUrl: "/pdf/info_alim_sal.pdf",
   },
+
+   {
+    Image: "/img/ViolMuj2025.jpeg",
+    id: 6,
+    name: "Femicidios y la violencia de Género hacia la Mujer en el Ecuador 2025",
+    date: "2025-06-30",
+    author: "María Emilia Molina de Tinto",
+    description: "Panorama estadístico sobre casos de violencia de género hacia las mujeres en Ecuador (2025) ",
+    pdfUrl: "/pdf/ViolMuj2025.pdf",
+  },
+  { 
+  Image: "/img/PortadaInfoEmpleo2025.png",
+    id: 7,
+    name: "Panorama Laboral Ecuador 2025",
+    date: "2026-01-15",
+    author: "María Emilia Molina de Tinto",
+    description: "Esta infografía visualiza la realidad del mercado laboral ecuatoriano en 2025 a través de indicadores clave.",
+    pdfUrl: "/pdf/InfoEmpleo2025.pdf",
+  },
 ];
