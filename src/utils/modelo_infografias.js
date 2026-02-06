@@ -57,7 +57,7 @@ export const lista_infografia = [
     pdfUrl: "/pdf/ViolMuj2025.pdf",
   },
   { 
-  Image: "/img/PortadaInfoEmpleo2025.png",
+  Image: "/img/PortadainfoEmpleo2025.png",
     id: 7,
     name: "Panorama Laboral Ecuador 2025",
     date: "2026-01-15",
