@@ -12,6 +12,7 @@ export default function Equipo() {
   const [showInfo5, setShowInfo5] = useState(false);
   const [showInfo6, setShowInfo6] = useState(false);
   const [showInfo7, setShowInfo7] = useState(false);
+  const [showInfo8, setShowInfo8] = useState(false);
 
   return (
     <div className="bg-white container mx-auto p-4">
@@ -830,6 +831,80 @@ export default function Equipo() {
             <button
               className="inline-block px-8 py-4 bg-gradient-to-r from-red-600 to-red-500 text-white font-bold rounded-lg shadow-lg hover:scale-105 transform transition duration-300 hover:bg-red-700 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-red-300 mb-7"
               onClick={() => router.push('/quienes_somos/o7')}
+            >
+              Más detalles sobre este Observatorio
+            </button>
+          </div>
+        </>
+      )}
+
+            {/* Octavo observatorio */}
+      <h2
+        className="text-2xl font-semibold text-red-500 mb-8 cursor-pointer border-b-2 border-red-300 w-full"
+        onClick={() => setShowInfo8(!showInfo8)}
+      >
+        Observatorio de Género
+      </h2>
+
+      {/* Mostrar información si showInfo es verdadero */}
+      {showInfo8 && (
+        <>
+          <p className="text-lg text-gray-500 text-opacity-80 font-bold mb-10 pl-4 border-l-4 border-gray-500">
+            El Observatorio de Género busca comprender y visibilizar las desigualdades que enfrentan las mujeres en la educación 
+            superior, impulsando el análisis académico de las dinámicas de género en los espacios 
+            universitarios y promoviendo acciones que contribuyan al reconocimiento, la participación y 
+            el liderazgo femenino en la academia.
+          </p>
+          <div className="mb-10 text-center">
+            <Image
+              className="mx-auto rounded-lg"
+              src="/img/Johanna-Rosali-Reyes.png"
+              alt="RIOUC"
+              width={350}
+              height={225}
+            />
+            <h1 className="text-center font-semibold p-3 mb-2 bg-gradient-to-r from-black to-black bg-clip-text text-transparent border-b-2 border-red-400 w-2/4 mx-auto">
+              Johanna Rosali Reyes PhD
+            </h1>
+          </div>
+          <p className="text-lg text-gray-800 mb-6">
+            El Observatorio de Género orienta su trabajo en tres aristas estratégicas. 
+            En primer lugar, el monitoreo de las brechas de género en la educación superior, 
+            mediante la sistematización y análisis de información sobre participación de mujeres 
+            en la academia, especialmente en investigación, liderazgo y áreas STEM. En segundo lugar, 
+            la promoción de la reflexión académica sobre la violencia simbólica en los espacios universitarios, 
+            a través de la difusión de análisis, estudios y debates que permitan visibilizar estas dinámicas y sus efectos 
+            en las trayectorias académicas de las mujeres. De esta manera, el observatorio impulsa la difusión de buenas p
+            rácticas y experiencias de liderazgo femenino en la academia, con el objetivo de visibilizar iniciativas, 
+            proyectos y acciones que contribuyan a fortalecer la igualdad de género y el reconocimiento del aporte de las 
+            mujeres en la educación superior.
+          </p>
+          <p className="text-lg text-gray-800 mb-6">
+            La responsable del Observatorio es Johanna Rosali Reyes-Reinoso, PhD en Ciencias Sociales.
+          </p>
+          
+          <h2 className="text-2xl font-semibold text-black mb-6">Proyectos</h2>
+          <li className="text-lg text-gray-800 mb-6 ">
+            Diagnóstico de la implementación del gobierno abierto en municipios del Ecuador, durante el 2026. Estudio piloto bajo un enfoque de género.
+          </li>
+          <li className="text-lg text-gray-800 mb-6 ">
+            Percepción de las mujeres sobre el cumplimiento de los Objetivos de Desarrollo
+          </li>
+          <li className="text-lg text-gray-800 mb-6 ">
+            Sostenible (ODS) en Ecuador y Colombia (2025– 2026): Análisis crítico con enfoque de género.
+          </li>
+          <li className="text-lg text-gray-800 mb-6 ">
+            Percepciones estudiantiles sobre la violencia simbólica en género en la UCACUE.
+          </li>
+          <li className="text-lg text-gray-800 mb-6 ">
+            Factores que condicionan la sostenibilidad de emprendimientos productivos de mujeres en las provincias del Cañar y Azuay.
+          </li>
+          {" "}
+          {/* Botón para redirigir al respectivo observatorio*/}
+          <div className="text-center mt-8"> {/* Añadí mt-8 para espacio superior */}
+            <button
+              className="inline-block px-8 py-4 bg-gradient-to-r from-red-600 to-red-500 text-white font-bold rounded-lg shadow-lg hover:scale-105 transform transition duration-300 hover:bg-red-700 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-red-300"
+              onClick={() => router.push('/quienes_somos/o8')}
             >
               Más detalles sobre este Observatorio
             </button>

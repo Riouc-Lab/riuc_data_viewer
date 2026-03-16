@@ -57,12 +57,12 @@ export const lista_infografia = [
     pdfUrl: "/pdf/ViolMuj2025.pdf",
   },
   { 
-  Image: "/img/PortadaInfoEmpleo2025.png",
+  Image: "/img/PortadainfoEmpleo2025.png",
     id: 7,
     name: "Panorama Laboral Ecuador 2025",
     date: "2026-01-15",
     author: "María Emilia Molina de Tinto",
-    description: "Esta infografía visualiza la realidad del mercado laboral ecuatoriano en 2025 a través de indicadores clave.",
+    description: "Reporte gráfico sobre la realidad del mercado laboral ecuatoriano en 2025 a través de indicadores clave.",
     pdfUrl: "/pdf/InfoEmpleo2025.pdf",
   },
 ];
