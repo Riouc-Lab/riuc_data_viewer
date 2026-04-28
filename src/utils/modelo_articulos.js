@@ -38,5 +38,37 @@ export const lista_articulos = [
       "Este estudio cuasiexperimental evalúa el impacto de la Realidad Virtual (VR), implementada como un recurso educativo abierto, en la enseñanza de fisiología a estudiantes de Ciencias de la Salud. Estudios recientes han demostrado que las tecnologías inmersivas mejoran la comprensión conceptual y aumentan la participación activa de los estudiantes’; sin embargo, su adopción sigue siendo limitada en contextos formales de educación superior. Sobre la base de estos antecedentes, el presente estudio busca confirmar estos beneficios y examinar si la integración de la realidad virtual en el aula contribuye a desarrollar competencias genéricas adicionales relevantes para el desempeño profesional en entornos dinámicos. Se comparó un grupo experimental (VRG, n = 100), que utilizó aulas equipadas con tecnología VR, con un grupo control (CG, n = 63), que siguió el método tradicional basado en disección. Los resultados muestran un aumento significativo en el rendimiento académico y la retención de conocimientos en el VRG (una mejora del 25,93% frente a una disminución del 9,87% en el CG), así como un fortalecimiento de competencias genéricas como la aplicación práctica, el aprendizaje autónomo, la adaptabilidad al cambio, la toma de decisiones y la colaboración. Esta investigación se alinea con los objetivos de la Declaración de Dubai de la UNESCO sobre Recursos Educativos Abiertos, al resaltar el potencial de la realidad virtual para democratizar el acceso al conocimiento y fomentar el desarrollo de ecosistemas educativos y científicos abiertos, inclusivos y sostenibles.",
     pdf: "https://jime.open.ac.uk/articles/10.5334/jime.1029",
     observatorio: "Observatorio Natural",
+  },
+  {
+    id: 5,
+    titulo: "Teoría de los efectos olvidados en el rescate de la imagen comercial de los artesanos del calzado en el cantón Gualaceo provincia del Azuay, Ecuador",
+    autor: "Jaime Tinto Arandes, Kléber Antonio Luna Altamirano y Diego Patricio Cisneros Quintanilla",
+    fecha: "2016-07-28T12:00:00",
+    abstract:
+      "Gualaceo, cantón de la Provincia del Azuay, Ecuador, se caracteriza por ser eminentemente artesano, en especial, en la confección de calzado. Actualmente está presentando dificultades para la permanencia en el mercado debido a la introducción de nuevos materiales, generando la carencia del calzado de cuero lo que se traduce en un problema en el ámbito de la comercialización, donde no se hace atractiva dicha actividad, dando lugar a la confección utilizando únicamente materiales sintéticos. El presente estudio trata de explicar a través instrumentos novedosos, cuáles son realmente los efectos que se ejercen en la mejora de la comercialización a través de variables escondidas que no son fáciles de detectar por el artesano y que deben tomarse en cuenta ya que afectan la comercialización y permiten el rescate de esta actividad. La aplicación del instrumental que ofrece la lógica difusa ha permitido conocer los efectos que se pueden producir en el sector si no se actúa o no se reacciona ante las dificultades que presentan los artesanos en la zona. En este caso se ha seleccionado como instrumento “La Matriz de los Efectos Olvidados”, como herramienta eficaz que nos permita definir la causa-efecto del problema y direccionarla para la correcta toma de decisiones en el sector. Se determinan variables relevantes para arreglar el problema de la comercialización tales como: Puntualidad en la entrega del producto, la cual debe considerarse para el aumento de las ventas.",
+    pdf: "https://jime.open.ac.uk/articles/10.5334/jime.1029",
+    observatorio: "Observatorio Socioeconómico",
+  },
+
+  {
+    id: 6,
+    titulo: "Estudio de rentabilidad para el lanzamiento de un nuevo producto aplicando el enfoque difuso",
+    autor: "Jaime Tinto Arandes, Kléber Antonio Luna Altamirano y Diego Patricio Cisneros Quintanilla",
+    fecha: "2017-12-15T12:00:00",
+    abstract:
+      "El cantón Gualaceo Provincia del Azuay-Ecuador eminentemente productor de calzado, donde sus artesanos han visto la necesidad de introducir en el mercado, un nuevo modelo de este producto, por tal razón, en un estudio anterior se desarrolló una metodología de avanzada (STIM12) para el diseño de una bota para dama. En este artículo se demuestra la rentabilidad para comercializar en el mercado Gualacense este modelo novedoso de calzado para mujer con la utilización de la lógica difusa (fuzzy-set), la metodología hace referencia a la aplicación de herramientas de avanzada como alfa cortes en los datos obtenidos de los expertos artesanos del calzado; y, la aplicación de números borrosos triangulares (NBT) en forma de intervalos (bandas) con el propósito de trabajar a ciertos niveles de posibilidad de que ocurra el fenómeno. Con ello se entrega un nuevo conocimiento a los artesanos de calzado del cantón Gualaceo, cuyo propósito es determinar la rentabilidad de un novedoso producto a ofertar, bajo un enfoque diferente al tradicional.",
+    pdf: "https://www.redalyc.org/journal/4655/465554397005/465554397005.pdf",
+    observatorio: "Observatorio Socioeconómico",
+  },
+
+  {
+    id: 7,
+    titulo: "111111111111111111111111111111111111111o",
+    autor: "1111111111111111111",
+    fecha: "2011-12-15T12:00:00",
+    abstract:
+      "1t1eño de una bota para dama. En este artículo se demuestra la rentabilidad para comer1e modelo nove1lógica difusa (fuzzy-set), la metodología hace referencia a la aplicación de herramientas de avanzada como alfa cortes en los datos obtenidos de los expertos artesanos del calzado; y, la aplicación de números borrosos triangulares (NBT) en forma de intervalos (bandas) con el propósito de trabajar a ciertos niveles de posibilidad de que ocurra el fenómeno. Con ello se entrega un nuevo conocimiento a los artesanos de calzado del cantón Gualaceo, cuyo propósito es determinar la rentabilidad de un novedoso producto a ofertar, bajo un enfoque diferente al tradicional.",
+    pdf: "1",
+    observatorio: "Observatorio Socioeconómico",
   }
 ];
