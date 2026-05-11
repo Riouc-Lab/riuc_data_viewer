@@ -2662,7 +2662,7 @@ export default function Mapa() {
             </div>
             {/* Botones */}
             <div className="flex flex-col space-y-2 text-white">
-              Mostrar Capas por cuadras.
+              Referencia.
             </div>
 
             <SwitchButton
