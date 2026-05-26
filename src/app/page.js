@@ -85,7 +85,7 @@ export default function Home() {
           className="flex items-center space-x-2 mt-12 mb-5 transition-transform transform hover:scale-105"
         >
           <h2 className="text-lg font-semibold text-blue-600 hover:text-blue-800 transition-colors duration-300 cursor-pointer">
-            Explora las Estadísticas Nacionales Económicas Actualizadas
+            Explora las Estadísticas Nacionales Económicas oficiales 
           </h2>
           <svg
             xmlns="http://www.w3.org/2000/svg"
