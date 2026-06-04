@@ -208,4 +208,116 @@ export const lista_articulos = [
     observatorio: "Observatorio Socioeconómico",
   },
 
+
+
+  { 
+  id: 21,
+    titulo: "Interrupted trajectories: Gender metaphors and professional gaps in global academia. A bibliometric study",
+    autor: "Johanna Reyes-Reinoso, Ángel Morocho-Macas, Laura Cristancho-Giraldo, Marisol Salamanca-Olmos y Gloria-Nancy Ríos-Yepes.",
+    fecha: "2026-06-01T12:00:00",
+    abstract:
+      "Based on a bibliometric analysis of the literature addressing metaphors that represent invisible obstacles in the professional trajectories of women in higher education institutions, published in SCOPUS, this study aims to examine these trajectories to understand the specific challenges women face regarding their continuity and success in academia. The methodology employed includes a bibliometric analysis to identify established patterns on the topic, supported by a literature review to clarify how gender metaphors reflect and perpetuate professional gaps in academia. The study includes full-access documents published up to the first quarter of 2025, with no language restrictions, and excludes studies conducted in non-higher education contexts. The results reveal an epistemic hierarchy, where psychologically oriented metaphors dominate the field, while those focused on structural or historical factors remain on the discursive periphery, despite their high analytical value. Keyword mapping identified four main clusters: structural barriers, psychological dimensions, employed methodologies, and gender visibility in STEM. The study concludes that there is an urgent need to diversify interpretative frameworks through intersectional, decolonial, and transformative approaches. Strengthening institutional gender policies and systematically highlighting the contributions of women academics is essential to building fairer and more equitable higher education institutions.",
+    pdf: "https://www.sciencedirect.com/science/article/pii/S259029112600094X?via%3Dihub",
+    observatorio: "Observatorio de Género",
+  },
+  
+  { 
+  id: 22,
+    titulo: "Perspectives on the Practical Implications of Gender Equality in Latin America",
+    autor: "Johanna Rosalí Reyes-Reinoso; Angel Aurelio Morocho-Macas",
+    fecha: "2025-01-01T12:00:00",
+    abstract:
+        "This chapter explores the practical implications of gender equity in Latin America, a context marked by socioeconomic, cultural, and political diversity that complicates efforts toward equality. The research highlights how, despite normative advances and some social conquests, structural inequalities persist in multiple dimensions of public and private life, such as unequal access to employment, limited political participation, and gaps in education and health. The objective is to identify effective strategies that have facilitated progress toward equity in different contexts in the region and to propose guidelines adapted to the particularities of each country. The methodology adopted is qualitative, descriptive, and cross-sectional, based on a systematic literature review following the PRISMA criteria, using recognized academic databases such as Scopus, Web of Science, and Scielo. In addition, open access repositories and relevant secondary sources were consulted to provide a robust analysis. The results provide valuable inputs for the design and implementation of public policies aimed at gender equality, underlining the importance of adaptive policies capable of responding to the emerging challenges and changing realities of each nation. This analysis contributes to the academic and political debate, highlighting both structural obstacles and opportunities to consolidate progress. It emphasizes that the sustainability of progress depends on a continuous and strategic response to ensure effective gender mainstreaming in Latin America's social, political, and economic development.",   
+    pdf: "https://doi.org/10.1108/978-1-83708-202-520251002",
+    observatorio: "Observatorio de Género",
+  },
+
+  { 
+  id: 23,
+    titulo: "Perspectives on the Practical Implications of Gender Equality in Latin America",
+    autor: "Johanna Rosalí Reyes-Reinoso; Angel Aurelio Morocho-Macas",
+    fecha: "2025-01-01T12:00:00",
+    abstract:
+        "This chapter explores the practical implications of gender equity in Latin America, a context marked by socioeconomic, cultural, and political diversity that complicates efforts toward equality. The research highlights how, despite normative advances and some social conquests, structural inequalities persist in multiple dimensions of public and private life, such as unequal access to employment, limited political participation, and gaps in education and health. The objective is to identify effective strategies that have facilitated progress toward equity in different contexts in the region and to propose guidelines adapted to the particularities of each country. The methodology adopted is qualitative, descriptive, and cross-sectional, based on a systematic literature review following the PRISMA criteria, using recognized academic databases such as Scopus, Web of Science, and Scielo. In addition, open access repositories and relevant secondary sources were consulted to provide a robust analysis. The results provide valuable inputs for the design and implementation of public policies aimed at gender equality, underlining the importance of adaptive policies capable of responding to the emerging challenges and changing realities of each nation. This analysis contributes to the academic and political debate, highlighting both structural obstacles and opportunities to consolidate progress. It emphasizes that the sustainability of progress depends on a continuous and strategic response to ensure effective gender mainstreaming in Latin America's social, political, and economic development.",   
+    pdf: "https://doi.org/10.1108/978-1-83708-202-520251002",
+    observatorio: "Observatorio de Género",
+  },
+
+  { 
+  id: 24,
+    titulo: "Overview of Symbolic Violence: A Review of the Literature",
+    autor: "Reyes-Reinoso, J.R.; Vázquez, A.F.Z.; Aguirre, M.C.U.; Leon-Prieto, M.E.; Basso, L.S.; Ordoñez-Gavilanez, M.E.",
+    fecha: "2025-12-11T12:00:00",
+    abstract:
+        "This study aims to investigate the literature on symbolic violence over the past decade, with the purpose of understanding its nature and manifestations in contemporary society.",
+    pdf: "https://rgsa.openaccesspublications.org/rgsa/article/view/6065/3060",
+    observatorio: "Observatorio de Género",
+  },
+
+   { 
+  id: 25,
+    titulo: "Validación de una escala de medición de la perspectiva de género en la Educación Superior",
+    autor: "Gavilanes, M.E.O.; Ullauri, M.D.C.A.; Reinoso, J.R.R.; Aguirre, M.C.U.; Iñiguez, E.A.E.; Benavides, D.A.H.",
+    fecha: "2025-12-11T12:00:00",
+    abstract:
+        "Abordar el ámbito educativo universitario es exigente, debido a la carga gnoseológica y axiológica que implica el desarrollo de cada función sustantiva. Si a ello se suma una mirada desde el enfoque de género, la medición se torna compleja. Siendo el objetivo de estudio construir y validar un instrumento psicométrico de medida (cuestionario) que proporcione una escala de medición en referencia a la perspectiva de género en las funciones sustantivas, así como en los principios organizacionales de la Universidad Católica de Cuenca-Ecuador. La escala está basada en el constructo teórico de las dimensiones de valoración de la gestión, docencia, investigación y vinculación con la sociedad, así como la asequibilidad, accesibilidad, adaptabilidad y aceptabilidad, estas últimas consideradas como principios organizacionales, que constituyen ocho dimensiones definidas en una escala inicial con 58 ítems de respuestas cerradas en escala Likert. Se utilizó un análisis factorial confirmatorio, que luego de su aplicación y ajuste indicó que, el instrumento es válido y fiable para los objetivos propuestos en la creación de la escala con perspectiva de género; al tiempo que puede ser tomada como un modelo transferible a otras instituciones educativas.  ",
+    pdf: "https://revistas.uepg.br/index.php/praxiseducativa/es/article/view/23260/209209218624",
+    observatorio: "Observatorio de Género",
+  },
+
+  { 
+  id: 26,
+    titulo: "Practical implications of women’s participation in family businesses: A systematic review",
+    autor: "Deisy Carolina Castillo Castillo; Johanna Rosali Reyes-Reinoso; María Caridad Rojas Valdivieso; Karol Andrea Cabrera Calle",
+    fecha: "2024-09-09T12:00:00",
+    abstract:
+        "Presently, there exists a burgeoning trend of female entrepreneurs worldwide, notably within the realm of small and medium-sized enterprises (SMEs), many of which manifest as family-run enterprises. The systematic literature review endeavors to construct an integrative framework concerning the practical ramifications of female involvement in family businesses by amalgamating extant global studies. The findings elucidate the practical implications inherent in female participation across global family businesses, concurrently furnishing a reservoir of prospects for prospective investigations. The deduction posits the imperative eradication of gender disparities, cognizant that gender parity underpins economic and financial advancement and is contingent upon female involvement. Furthermore, familial enterprises are urged to acknowledge and integrate women’s contributions in entrepreneurial decision-making processes.",
+    pdf: "https://www.enpress-publisher.com/journal/JIPD/8/14/10.24294/jipd9052",
+    observatorio: "Observatorio de Género",
+  },
+
+  { 
+  id: 28,
+    titulo: "Docencia universitaria en el Ecuador: Desafíos desde el enfoque de género",
+    autor: "Reinoso, J.R.R.; Ullauri, M.D.C.A.; Gavilánes, M.E.O.; Aguirre, M.C.U.",
+    fecha: "2023-08-17T12:00:00",
+    abstract:
+          "Los procesos articulados de la educación superior con perspectiva de género constituyen un importante aporte a la comunidad y conducen a la valoración de todas las personas, sin distinción de naturaleza alguna; sin embargo, las estructuras patriarcales todavía prevalecen provocando diferencias claras. Este pensamiento hegemónico, androcéntrico en los espacios universitarios, provoca dificultades en la institucionalización y transversalización de la perspectiva de género, motivando a analizar el enfoque de género en la docencia de la Universidad Católica de Cuenca-Ecuador. Esta investigación fue de tipo mixta, con una técnica de investigación de tipo campo, siendo la población finita, conformada por 15.975 agentes informantes, a saber: Docentes, personal administrativo directivo, así como estudiantes, a los cuales se aplicó un muestreo probabilístico estratificado. Las técnicas de análisis de la data empleadas, fueron: Análisis de impacto, exploratorio-descriptivo de datos históricos, factorial confirmatoria del instrumento psicométrico aplicado y, finalmente, pruebas de discriminación de la escala total y subescalas obtenidas. Se concluye que existe una diferencia entre géneros en la docencia, mientras que, en el personal administrativo y de servicios, esta tendencia se torna de manera opuesta; asimismo, en el claustro docente en áreas específicas la presencia masculina es mayor que la femenina, quienes se encuentran infrarrepresentadas.",
+    pdf: "https://produccioncientificaluz.org/index.php/rcs/article/view/40709/46479",
+    observatorio: "Observatorio de Género",
+  },
+
+  
+  { 
+  id: 29,
+    titulo: "TECHNOLOGY A FACTOR IN DETERMINING THE SUSTAINABILITY OF WOMEN LEAD ENTERPRISES",
+    autor: "JOHANNA ROSALI REYES-REINOSO, DEISY CAROLINA CASTILLO CASTILLO, ANDREA VANESA MORY ALVARADO",
+    fecha: "2023-01-01T12:00:00",
+    abstract:
+        "This study analyses a model proposed by the authors based on the literature review whose constructs are the factors that influence the sustainable entrepreneurship of Ecuadorian women analyzed in previous studies. The ICT construct is added with the idea of determining the role played by technology in the sustainability of these enterprises. The research methodology is located in the positivist paradigm, quantitative approach, and descriptive type with a field design; the population analyzed are women entrepreneurs in the provinces of Cañar and Azuay. The data collection technique used was an instrument divided into sections, the first consisting of dichotomous questions, while the second was a questionnaire with questions measured on a Likert scale. The results of the analysis concluded that the factors that determine the sustainability of female entrepreneurship are associated with the type of entrepreneurship and the use of technology, which was also highlighted in the context of the pandemic that caused a social distancing and has left a new way of doing business, taking advantage of the technological era that has been installed in all latitudes. Once the model has been tested, it is concluded that information technologies determine companies’ sustainability.",
+    pdf: "https://www.russianlawjournal.org/index.php/journal/article/view/555/349",
+    observatorio: "Observatorio de Género",
+  },
+
+   { 
+  id: 30,
+    titulo: "Vinculación con la sociedad desde la perspectiva de género: un estudio en la universidad ecuatoriana",
+    autor: "María Cristina Useche Aguirre; Johanna Rosalí Reyes Reinoso; Magdalena Emilia Ordoñez Gavilanes; María del Cisne Aguirre Ullauri; Enma Alexandra Espinosa Iñigues",
+    fecha: "2022-03-22T12:00:00",
+    abstract:
+        "El objetivo del trabajo fue describir las acciones de vinculación con la sociedad desde la perspectiva de género, emprendidas por la Universidad Católica de Cuenca, en el entorno del covid-19. Desde una investigación empirista y de carácter analítica, se aplicó el método de estudio de caso con técnicas cuantitativas y cualitativas que se basaron en el análisis bibliográfico de registros e informes institucionales, la recolección de datos mediante un cuestionario estructurado con escala Likert y una entrevista a profundidad. Como hallazgos se define que la institución realiza actividades para divulgar y promover el enfoque de género; sin embargo, existe desconocimiento al interior de la comunidad universitária, incluso en oposición a las respuestas favorables predominantes. Asimismo, se identificó el protagonismo de proyectos en áreas sociales y de cuidado, en las cuales no se evidencia representatividad femenina aunque haya reconocimiento. Este panorama se acentúa por la ausencia de mecanismos de seguimiento y control en las actividades de vinculación que refieren a la igualdad de género, ratificando que la universidad requiere de un sistema de indicadores que permita fortalecer y orientar los esfuerzos y recursos institucionales.",
+    pdf: "https://revistas.uepg.br/index.php/praxiseducativa/es/article/view/19241/209209216537",
+    observatorio: "Observatorio de Género",
+  },
+  
+     { 
+  id: 31,
+    titulo: "Diferencias de género en unidades educativas rurales de Ecuador",
+    autor: "Vinicio Alexander Chávez Vaca; Johanna Rosali Reyes Reinoso; Marco Vinicio Carrillo Guerrero; Ángel Freddy Rodríguez Torres",
+    fecha: "2020-01-01T12:00:00",
+    abstract:
+        "Para lograr la universalización de la educación en Ecuador y reducir la desigualdad en la garantía del derecho al estudio, el Gobierno ha implementado programas enfocados en abrir oportunidades de formación en la zona rural del país. El objetivo de este estudio fue establecer las diferencias que con respecto al género se refleja en la calificación del Examen Nacional para la Educación Superior y la obtención de cupo universitario por los estudiantes de las Unidades Educativas del Milenio de la zona 2 de Ecuador. La investigación parte de un enfoque cuantitativo, es de tipo descriptiva, y se emplea el método estadístico. Como resultado, se encontraron diferencias significativas a favor de los hombres en la calificación obtenida del examen y a beneficio de las mujeres en la aceptación del cupo universitario. Es válido concluir que el género no es el único elemento que incide en el resultado escolar de los estudiantes. El rendimiento académico responde a otros factores de las trayectorias educativas de los alumnos, como es suinteligencia emocional, las condiciones socioeconómicas, aspiraciones y metas que se proponen, la costumbre de estudio, el apoyo de los padres, las particularidades de cada centro educativo y los docentes con los que cuentan.",
+    pdf: "https://www.redalyc.org/articulo.oa?id=28063104017",
+    observatorio: "Observatorio de Género",
+  },
 ];
