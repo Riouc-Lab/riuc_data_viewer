@@ -13,6 +13,7 @@ const inter = Inter({ subsets: ["latin"] });
 export default function RootLayout({ children}) {
   const pathname = usePathname();
   console.log(pathname);
+  const isHomePage = pathname === "/";
   return (
     <html lang="es">
       <title>{HTML_TITLE}</title>
@@ -20,7 +21,9 @@ export default function RootLayout({ children}) {
       <Providers>
       <body className={inter.className}>
         <SideBar navLinks={routers_menu} />
-        <main className="bg-white mt-16">{children}</main>
+        <main className={`bg-white ${isHomePage ? "" : "pt-24 md:pt-20"}`}>
+          {children}
+        </main>
         {!pathname.includes("proyectos/")?<Footer />:<></>}
       </body>
       </Providers>

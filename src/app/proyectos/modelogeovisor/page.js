@@ -139,7 +139,7 @@ export default function Modelogeovisor() {
           justifyContent: "center",
           alignItems: "center",
           backgroundColor: "#C0C0C0", // Color plateado
-          zIndex: 9999, // Asegura que se muestre encima de todo
+          zIndex: 500, // Asegura que se muestre encima de todo
         }}
       >
         <div
