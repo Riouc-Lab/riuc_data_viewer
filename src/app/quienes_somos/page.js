@@ -21,9 +21,7 @@ export default function Equipo() {
       </h1>
 
       <p className="text-lg text-gray-500 text-opacity-80 font-bold mb-10 pl-4 border-l-4 border-gray-500">
-        Somos una red compuesta por 7 observatorios que asumen distintos temas a
-        observar. Como ya se ha mencionado anteriormente, somos un equipo
-        multidisciplinario.
+        Somos una red conformada por 8 observatorios, cada uno especializado en un área de estudio específica. Nos respalda un equipo multidisciplinario comprometido con el análisis riguroso de cada temática.
       </p>
 
       <div className="flex justify-center mb-12">
@@ -31,10 +29,10 @@ export default function Equipo() {
 
           <Image
             className="mx-auto"
-            src="/img/DESCONOCIDO.jpg"
+            src="/img/mariaemilia.png"
             alt="Imagen 1"
-            width={300}
-            height={160}
+            width={150}
+            height={100}
           />
           <h1 className="text-center font-semibold p-3 mb-2 bg-gradient-to-r from-black to-black bg-clip-text text-transparent border-b-2 border-red-400 w-2/4 mx-auto">
             María Emilia Molina de Tinto
@@ -43,10 +41,10 @@ export default function Equipo() {
         <div className="w-5/6 p-2">
           <Image
             className="mx-auto"
-            src="/img/DESCONOCIDO.jpg"
+            src="/img/mateo.png"
             alt="Imagen 2"
-            width={300}
-            height={160}
+            width={150}
+            height={100}
           />
           <h1 className="text-center font-semibold p-3 mb-2 bg-gradient-to-r from-black to-black bg-clip-text text-transparent border-b-2 border-red-400 w-2/4 mx-auto">
             Mateo Francisco Cordero Izquierdo
@@ -55,10 +53,10 @@ export default function Equipo() {
         <div className="w-5/6 p-2">
           <Image
             className="mx-auto"
-            src="/img/DESCONOCIDO.jpg"
+            src="/img/santiago.png"
             alt="Imagen 2"
-            width={300}
-            height={160}
+            width={150}
+            height={100}
           />
           <h1 className="text-center font-semibold p-3 mb-2 bg-gradient-to-r from-black to-black bg-clip-text text-transparent border-b-2 border-red-400 w-2/4 mx-auto">
             Alex Santiago Navas Falconi
@@ -128,13 +126,13 @@ export default function Equipo() {
           <div className="mb-10 text-center">
             <Image
               className="mx-auto rounded-lg"
-              src="/img/mariaemilia.png"
+              src="/img/jaime.png"
               alt="RIOUC"
-              width={450}
-              height={225}
+              width={300}
+              height={175}
             />
             <h1 className="text-center font-semibold p-3 mb-2 bg-gradient-to-r from-black to-black bg-clip-text text-transparent border-b-2 border-red-400 w-2/4 mx-auto">
-              Lic. María Emilia Molina de Tinto
+              PhD. Jaime Tinto Arandes
             </h1>
           </div>
           <p className="text-lg text-gray-800 mb-6">
@@ -142,21 +140,10 @@ export default function Equipo() {
             temas como: el empleo, consumo, migraciones, emprendimientos, con la
             finalidad de entender el comportamiento de las variables que inciden
             en dichos fenómenos, y de esta manera poder explicarlos.
-          </p>
-          <p className="text-lg text-gray-800 mb-6">
-            La responsable del Observatorio es María Emilia Molina de Tinto,
-            Lic. en Administración de Empresas–Universidad de Los Andes,
-            Venezuela. Especialista en Gestión de Proyectos Barcelona Activa-
-            España y Logística Integral Universitat Politécnica de
-            Catalunya-España, MSc en Ciencia Contable Universidad de Los
-            Andes-Venezuela, MSc. en Gestión del Bienestar Organizacional-
-            Universidad Nebrija-España. Actualmente es Doctorando en Ciencia
-            Contable
-          </p>
-          <p className="text-lg text-gray-800 mb-6">
             Su inquietud en el ámbito de la observación se basa en el
             comportamiento del empleo y consumo.
           </p>
+          
           <h2 className="text-2xl font-semibold text-black mb-6">
             Proyecto de investigación
           </h2>
@@ -335,18 +322,6 @@ export default function Equipo() {
               />
               <h1 className="text-center font-semibold p-3 mb-2 bg-gradient-to-r from-black to-black bg-clip-text text-transparent border-b-2 border-red-400 w-2/4 mx-auto">
                 Od. Ebingen Villavicencio
-              </h1>
-            </div>
-            <div className="w-5/6 p-2">
-              <Image
-                className="mx-auto"
-                src="/img/ana.png"
-                alt="Imagen 2"
-                width={310}
-                height={160}
-              />
-              <h1 className="text-center font-semibold p-3 mb-2 bg-gradient-to-r from-black to-black bg-clip-text text-transparent border-b-2 border-red-400 w-2/4 mx-auto">
-                Od. Ana Cristina Vásquez
               </h1>
             </div>
           </div>
@@ -745,7 +720,7 @@ export default function Equipo() {
 
       {/* Septimo observatorio */}
       <h2
-        className="text-2xl font-semibold text-red-500 mb-8 cursor-pointer border-b-2 border-red-300 w-full mt-12"
+        className="text-2xl font-semibold text-red-500 mb-10 cursor-pointer border-b-2 border-red-300 w-full mt-12"
         onClick={() => setShowInfo7(!showInfo7)}
       >
         Observatorio Innovación Educativa
@@ -837,6 +812,7 @@ export default function Equipo() {
           </div>
         </>
       )}
+
 
             {/* Octavo observatorio */}
       <h2

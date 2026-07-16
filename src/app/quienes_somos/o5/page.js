@@ -79,7 +79,9 @@ export default function Observatorioo5() {
         <h2 className="text-2xl font-semibold mb-4">¿Quieres más información?</h2>
         <p className="text-lg mb-4">Contáctanos para obtener más detalles sobre nuestras investigaciones y proyectos ambientales.</p>
         <button className="bg-white text-green-600 font-bold px-6 py-3 rounded-lg hover:bg-gray-100 transition duration-300">
-          Contactar
+          <a href="mailto:scobosm@ucacue.edu.ec" className="inline-block bg-white text-green-600 font-bold px-6 py-3 rounded-lg hover:bg-gray-100 transition duration-300">
+            scobosm@ucacue.edu.ec
+          </a>
         </button>
       </div>
     </div>

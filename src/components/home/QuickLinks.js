@@ -43,7 +43,7 @@ export default function QuickLinks() {
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 leading-snug">
             ¡Explora el futuro de la{" "}
             <span className="text-[#E63329] italic">innovación</span>{" "}
-            con nosotros
+            con nosotros!
           </h2>
 
           {/* Contenedor del logo con expansión vertical y centrado absoluto */}
