@@ -18,10 +18,6 @@ export default function Intro() {
           observer.disconnect(); 
         }
       },
-      // [Ajuste de Inicio - Parte 1]:
-      // Subimos el threshold de 0.2 a 0.5. 
-      // Esto significa que la animación no empezará hasta que al menos 
-      // el 50% del bloque entero esté dentro del monitor del usuario.
       { threshold: 0.5 } 
     );
 
@@ -32,45 +28,7 @@ export default function Intro() {
     return () => observer.disconnect(); 
   }, []);
 
-  useEffect(() => {
-    let timer;
-    let startDelay; // Variable para controlar el retraso del contador
-
-    if (isVisible) {
-      let currentCount = 1;
-      const targetCount = 8;
-      const duration = 1200; 
-      const stepTime = duration / targetCount; 
-
-      // [Ajuste de Inicio - Parte 2]:
-      // Envolvemos el contador en un setTimeout de 600ms.
-      // Esto permite que el efecto "Slide-in" (que dura 1000ms) termine casi por 
-      // completo antes de que los números y el latido comiencen.
-      startDelay = setTimeout(() => {
-        
-        timer = setInterval(() => {
-          currentCount += 1;
-          setCount(currentCount);
-          setIsPulsing(true);
-
-          setTimeout(() => {
-            setIsPulsing(false);
-          }, 75);
-
-          if (currentCount >= targetCount) {
-            clearInterval(timer);
-          }
-        }, stepTime);
-
-      }, 600); // <-- Los 600ms de retraso clave
-    }
-
-    // Limpiamos los dos temporizadores para evitar fugas de memoria si el componente se desmonta rápido
-    return () => {
-      clearTimeout(startDelay);
-      clearInterval(timer);
-    };
-  }, [isVisible]);
+ 
 
   return (
     <section className="bg-white py-16 px-8 sm:px-16 lg:px-24 overflow-hidden">
@@ -93,20 +51,6 @@ export default function Intro() {
             height={380}
             className="w-full h-auto object-cover rounded-sm"
           />
-
-          {/* Badge animado */}
-          <div 
-            className={`absolute bottom-5 right-5 w-28 h-28 sm:w-28 sm:h-28 rounded-full bg-[#E63329] shadow-lg flex flex-col items-center justify-center transform transition-transform duration-75 ease-in-out ${
-              isPulsing ? "scale-110" : "scale-100"
-            }`}
-          >
-            <span className="text-white font-black text-1xl sm:text-2xl leading-none">
-              {count}
-            </span>
-            <span className="text-white text-[6px] sm:text-[8px] font-semibold mt-1 uppercase text-center">
-              Observatorios
-            </span>
-          </div>
         </div>
 
         {/* ── Texto ── */}

@@ -20,4 +20,7 @@ export const lista_observatorios = [
     {
         to: "/quienes _somos/o7",
     },
+    {
+        to: "/quienes _somos/o8",
+    },
 ];

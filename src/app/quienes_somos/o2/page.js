@@ -80,9 +80,11 @@ export default function Observatorioo2() {
       <div className="bg-gradient-to-r from-green-600 to-green-500 text-white p-6 rounded-lg shadow-md text-center">
         <h2 className="text-2xl font-semibold mb-4">¿Quieres más información?</h2>
         <p className="text-lg mb-4">Contáctanos para recibir más detalles sobre nuestros proyectos e investigaciones.</p>
-        <button className="bg-white text-green-600 font-bold px-6 py-3 rounded-lg hover:bg-gray-100 transition duration-300">
-          Contactar
-        </button>
+        <button className="bg-white text-red-600 font-bold px-6 py-3 rounded-lg hover:bg-gray-100 transition duration-300">
+                  <a href="mailto:aguerrero@ucacue.edu.ec" className="inline-block bg-white text-green-600 font-bold px-6 py-3 rounded-lg hover:bg-gray-100 transition duration-300">
+                        aguerrero@ucacue.edu.ec
+                  </a>
+          </button>
       </div>
     </div>
   );

@@ -77,7 +77,9 @@ export default function Observatorioo1() {
                 <h2 className="text-2xl font-semibold mb-4">¿Quieres más información?</h2>
                 <p className="text-lg mb-4">Contáctanos para recibir más detalles sobre nuestros proyectos e investigaciones.</p>
                 <button className="bg-white text-red-600 font-bold px-6 py-3 rounded-lg hover:bg-gray-100 transition duration-300">
-                    Contactar
+                    <a href="mailto:jtinto@ucacue.edu.ec" className="inline-block bg-white text-red-600 font-bold px-6 py-3 rounded-lg hover:bg-gray-100 transition duration-300">
+                        jtinto@ucacue.edu.ec
+                     </a>
                 </button>
             </div>
         </div>
