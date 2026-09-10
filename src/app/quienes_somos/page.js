@@ -54,7 +54,7 @@ export default function Equipo() {
           <Image
             className="mx-auto"
             src="/img/santiago.png"
-            alt="Imagen 2"
+            alt="Imagen 3"
             width={150}
             height={100}
           />

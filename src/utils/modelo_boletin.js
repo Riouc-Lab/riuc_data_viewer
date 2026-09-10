@@ -47,6 +47,14 @@ export const lista_boletin = [
       description: "En esta nueva edición del boletín “RIOUC Informa” (Vol. 2, No. 3), compartimos con ustedes las memorias de la Semana de la Vinculación 2025, un recorrido por las iniciativas que están tejiendo lazos indisolubles entre la universidad y el territorio. Este número recoge experiencias vitales que van desde la intervención médica en el proyecto.....",
       date: "septiembre - diciembre 2025",
     },
+    {
+      Image: "/img/riouc_informa_v3n1_portada.png",
+      id: 7,
+      to: "/boletin/n7",
+      name: "Boletín Volumen 3 / N°1",
+      description: "En esta nueva edición del boletín “RIOUC Informa” (Vol. 3, No. 1), compartimos con ustedes las memorias de la Semana de la Vinculación 2025, un recorrido por las iniciativas que están tejiendo lazos indisolubles entre la universidad y el territorio. Este número recoge experiencias vitales que van desde la intervención médica en el proyecto.....",
+      date: "Enero - abril 2026",
+    },
     
   ];
   
