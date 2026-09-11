@@ -3,8 +3,8 @@ import styles from '../../styles/Home.module.css';
 import VideoCard from '../../components/VideoCard';
 
 const videos = [
-  { id: '1', thumbnail: 'portada_mujpioneras.png', title: 'Mujeres Pioneras', description: 'Mujeres pioneras en el Ecuador.' },
-  { id: '2', thumbnail: 'portada_raquel.jpg', title: 'Raquel y Champi', description: 'La historia de Raquel y Champi.' },
+  { id: '1', thumbnail: 'v-mujeres-pioneras.png', title: 'Mujeres Pioneras', description: 'Mujeres pioneras en el Ecuador.' },
+  { id: '2', thumbnail: 'v-raquel-y-champi.jpg', title: 'Raquel y Champi', description: 'La historia de Raquel y Champi.' },
 ];
 
 export default function VideosPage() {

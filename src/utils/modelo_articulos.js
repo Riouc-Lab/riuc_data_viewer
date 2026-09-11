@@ -26,7 +26,7 @@ export const lista_articulos = [
     fecha: "2025-05-22T12:00:00",
     abstract:
       "Ecuador es reconocido por su alta diversidad de especies de anuros, distribuidas principalmente en el sur de los Andes. Sin embargo, debido a la ubicación geográfica y accesibilidad de estas zonas, existen pocos estudios sobre la microbiota cultivable de estos anfibios. Este estudio exploró la biodiversidad bacteriana y fúngica presente en la piel de especies silvestres de anuros en los Andes del sur de Ecuador, utilizando espectrometría de masas MALDI-TOF. Se identificaron 29 taxones bacterianos y 9 fúngicos, destacando géneros como Pseudomonas chlororaphis, Acinetobacter iwoffii, Pseudomonas fluorescens, Hortaea werneckii, Fusarium solani y Syncephalastrum spp.. La diversidad varió entre las cinco localidades de muestreo, siendo la ubicación geográfica un factor importante. Algunos de los géneros más abundantes están asociados con enfermedades cutáneas en fauna silvestre y humanos. Este trabajo ofrece una visión inicial de la compleja biodiversidad microbiana de la piel de los anfibios, con implicaciones para estrategias de conservación y protección animal.",
-    pdf: "/pdf/MALDI-TOF.pdf",
+    pdf: "/pdf/a-maldi-tof-anfibios.pdf",
     observatorio: "Observatorio Natural",
   },
   {

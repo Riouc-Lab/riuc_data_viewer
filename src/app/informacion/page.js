@@ -23,7 +23,7 @@ export default function Informacion() {
       <div className="mb-8 text-center">
         <Image
           className="mx-auto"
-          src="/img/FINAL_LOGO.jpg"
+          src="/img/l-riouc-color.jpg"
           alt="RIOUC"
           width={480}
           height={170}
@@ -175,7 +175,7 @@ export default function Informacion() {
         <div className="w-full md:w-2/4 mt-1 p-2 text-center">
           <Image
             className="mx-auto rounded-lg"
-            src="/img/info_1.png"
+            src="/img/s-informacion-imagen.png"
             alt="RIOUC"
             width={480}
             height={280}

@@ -33,7 +33,7 @@ const EventosRiouc = () => {
       {/* Banner imagen con texto */}
       <div
         className="w-full h-96 bg-cover bg-center relative"
-        style={{ backgroundImage: "url('/img/riouc_lab_ciitt.jpg')" }}
+        style={{ backgroundImage: "url('/img/s-eventos-banner.jpg')" }}
       >
         <div className="bg-black bg-opacity-30 w-full h-full absolute top-0 left-0" />
         <div className="absolute bottom-4 left-0 z-10">

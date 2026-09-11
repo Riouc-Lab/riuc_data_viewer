@@ -29,7 +29,7 @@ export default function Equipo() {
 
           <Image
             className="mx-auto"
-            src="/img/mariaemilia.png"
+            src="/img/e-maria-emilia-molina.png"
             alt="Imagen 1"
             width={150}
             height={100}
@@ -41,7 +41,7 @@ export default function Equipo() {
         <div className="w-5/6 p-2">
           <Image
             className="mx-auto"
-            src="/img/mateo.png"
+            src="/img/e-mateo-cordero.png"
             alt="Imagen 2"
             width={150}
             height={100}
@@ -53,8 +53,8 @@ export default function Equipo() {
         <div className="w-5/6 p-2">
           <Image
             className="mx-auto"
-            src="/img/santiago.png"
-            alt="Imagen 2"
+            src="/img/e-santiago-navas.png"
+            alt="Imagen 3"
             width={150}
             height={100}
           />
@@ -93,7 +93,7 @@ export default function Equipo() {
         {/* Foto del coordinador al inicio */}
         <Image
           className="rounded-full mr-4 mt-1"
-          src="/img/BLOGO.TORRACCHI.jpg"
+          src="/img/e-jose-torracchi.jpg"
           alt="Coordinador"
           width={55}
           height={55}
@@ -126,7 +126,7 @@ export default function Equipo() {
           <div className="mb-10 text-center">
             <Image
               className="mx-auto rounded-lg"
-              src="/img/jaime.png"
+              src="/img/e-jaime-tinto.png"
               alt="RIOUC"
               width={300}
               height={175}
@@ -205,7 +205,7 @@ export default function Equipo() {
             <div className="w-5/6 p-2">
               <Image
                 className="mx-auto"
-                src="/img/ingeniera_aura.png"
+                src="/img/e-aura-guerrero.png"
                 alt="Imagen 1"
                 width={310}
                 height={160}
@@ -217,7 +217,7 @@ export default function Equipo() {
             <div className="w-5/6 p-2">
               <Image
                 className="mx-auto"
-                src="/img/pisc_elizabeth_leon.png"
+                src="/img/e-elizabeth-leon.png"
                 alt="Imagen 2"
                 width={310}
                 height={160}
@@ -315,7 +315,7 @@ export default function Equipo() {
             <div className="w-5/6 p-2">
               <Image
                 className="mx-auto"
-                src="/img/ebingen.png"
+                src="/img/e-ebingen-villavicencio.png"
                 alt="Imagen 1"
                 width={310}
                 height={160}
@@ -451,7 +451,7 @@ export default function Equipo() {
           <div className="mb-10 text-center">
             <Image
               className="mx-auto rounded-lg"
-              src="/img/arq_christian.png"
+              src="/img/e-christian-contreras.png"
               alt="RIOUC"
               width={280}
               height={155}
@@ -516,7 +516,7 @@ export default function Equipo() {
           <div className="mb-10 text-center">
             <Image
               className="mx-auto rounded-lg"
-              src="/img/sandra.png"
+              src="/img/e-sandra-cobos.png"
               alt="RIOUC"
               width={300}
               height={155}
@@ -627,7 +627,7 @@ export default function Equipo() {
           <div className="mb-10 text-center">
             <Image
               className="mx-auto rounded-lg"
-              src="/img/blg_jazmin.png"
+              src="/img/e-jazmin-salazar.png"
               alt="RIOUC"
               width={280}
               height={155}
@@ -738,7 +738,7 @@ export default function Equipo() {
           <div className="mb-10 text-center">
             <Image
               className="mx-auto rounded-lg"
-              src="/img/augusto.png"
+              src="/img/e-augusto-cabrera.png"
               alt="RIOUC"
               width={300}
               height={155}
@@ -834,7 +834,7 @@ export default function Equipo() {
           <div className="mb-10 text-center">
             <Image
               className="mx-auto rounded-lg"
-              src="/img/Johanna-Rosali-Reyes.png"
+              src="/img/e-johanna-reyes.png"
               alt="RIOUC"
               width={350}
               height={225}

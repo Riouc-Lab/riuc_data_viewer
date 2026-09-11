@@ -49,7 +49,7 @@ export default function QuickLinks() {
           {/* Contenedor del logo con expansión vertical y centrado absoluto */}
           <div className="flex-1 w-full flex items-center justify-center mt-8">
             <Image 
-              src="/img/LogoDark.png" 
+              src="/img/l-riouc-oscuro.png" 
               alt="Logo RIOUC" 
               width={250} 
               height={250} 
@@ -73,7 +73,7 @@ export default function QuickLinks() {
           >
             <div className="flex-1 flex items-center justify-center w-full">
               <Image
-                src="/img/iconoBoletines.png"
+                src="/img/h-tarjeta-boletines.png"
                 alt="Boletines"
                 width={150}
                 height={150}
@@ -120,7 +120,7 @@ export default function QuickLinks() {
           >
             <div className="flex-1 flex items-center justify-center w-full">
               <Image
-                src="/img/iconoArticulos.png"
+                src="/img/h-tarjeta-articulos.png"
                 alt="Artículos Científicos"
                 width={100}
                 height={100}

@@ -61,14 +61,14 @@ export default function SideBar({ navLinks }) {
           onClick={() => router.push("/")}
         >
           <Image
-            src="/img/ucacue-sidebar.png"
+            src="/img/l-ucacue-horizontal.png"
             alt="CIITT Logo"
             width={145}
             height={20}
             className={`${open ? "block lg:hidden" : "hidden lg:block"}`}
           />
           <Image
-            src="/img/logo_Riouc_letras.png"
+            src="/img/l-riouc-isotipo.png"
             alt="CIITT Logo"
             width={40}
             height={40}
@@ -144,7 +144,7 @@ export default function SideBar({ navLinks }) {
           <div className="flex items-center justify-between">
             <h1 className="text-white text-3xl font-bold mb-5">Menú</h1>
             <Image
-              src="/img/FINAL_LOGO_BLANCO_ts.png"
+              src="/img/l-riouc-blanco.png"
               alt="CIITT Logo"
               width={115}
               height={20}
