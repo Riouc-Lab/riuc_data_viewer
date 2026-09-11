@@ -17,7 +17,7 @@ export default function RootLayout({ children}) {
   return (
     <html lang="es">
       <title>{HTML_TITLE}</title>
-      <link rel="icon" href="/img/UC_ICONO.png" />
+      <link rel="icon" href="/img/l-ucacue-favicon.png" />
       <Providers>
       <body className={inter.className}>
         <SideBar navLinks={routers_menu} />

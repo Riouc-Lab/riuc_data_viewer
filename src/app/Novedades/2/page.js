@@ -8,7 +8,7 @@ export default function Boletinn3() {
   
   // Función para abrir PDF
   const abrirPDF = () => {
-    const pdfUrl = "/pdf/migracion2023.pdf";
+    const pdfUrl = "/pdf/i-migracion-2023.pdf";
     window.open(pdfUrl, "_blank"); // window es un objeto global del navegador, asegurate de que el entorno sea del cliente
   };
 
@@ -53,7 +53,7 @@ export default function Boletinn3() {
         </div>
         <div className="md:w-1/8 md:pl-4">
           <Image
-            src="/img/migracion2023.png"
+            src="/img/i-migracion-2023-detalle.png"
             alt="RIOUC"
             width={440}
             height={175}

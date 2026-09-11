@@ -8,7 +8,7 @@ export default function Boletinn5() {
 
   // Función para abrir PDF
   const abrirPDF = () => {
-    const pdfUrl = "/pdf/REVISTA5.pdf";
+    const pdfUrl = "/pdf/b-v2n2.pdf";
     window.open(pdfUrl, "_blank");
   };
 
@@ -51,7 +51,7 @@ export default function Boletinn5() {
       <div className="flex flex-col md:flex-row mb-5">
         <div className="md:w-1/2 md:pr-4 mt-2">
           <Image
-            src="/img/mariaemilia.png"
+            src="/img/e-maria-emilia-molina.png"
             alt="RIOUC"
             width={405}
             height={165}

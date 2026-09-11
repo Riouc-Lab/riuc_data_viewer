@@ -1,6 +1,6 @@
 export const lista_videos = [
     {
-      Image: "/img/vdo1_socioec.png",
+      Image: "/img/v-observatorio-socioeconomico.png",
       id: 1,
       to: "/videos/n1",
       name: "Fenómenos Socioeconómicos",
@@ -8,7 +8,7 @@ export const lista_videos = [
       date: "Lic. María Emilia Molina de Tinto",
     },
     {
-      Image: "/img/vdo2_desasocial.png",
+      Image: "/img/v-observatorio-desarrollo-social.png",
       id: 1,
       to: "/videos/n2",
       name: "Desarrollo Social",
@@ -16,7 +16,7 @@ export const lista_videos = [
       date: "Ing. Aura del Cisne Guerrero Luzuriaga & Pisc. Elizabeth León MSc",
     },
     {
-      Image: "/img/vdo3_salud.png",
+      Image: "/img/v-observatorio-salud-publica.png",
       id: 1,
       to: "/videos/n3",
       name: "Salud Pública",
@@ -24,7 +24,7 @@ export const lista_videos = [
       date: "2Od. Ebingen Villavicencio & Od. Ana Cristina Vásquez ",
     },
     {
-        Image: "/img/vdo4_urbano.png",
+        Image: "/img/v-observatorio-urbano.png",
         id: 1,
         to: "/videos/n4",
         name: "Comportamiento Urbano",
@@ -32,7 +32,7 @@ export const lista_videos = [
         date: "Arq. Christian Hernán Contreras Escandón",
     },
     {
-        Image: "/img/vdo5_ambient.png",
+        Image: "/img/v-observatorio-ambiental.png",
         id: 1,
         to: "/videos/n5",
         name: "Observatorio Ambiental",
@@ -40,7 +40,7 @@ export const lista_videos = [
         date: "Ing. Sandra Cobos Mora",
     },
     {
-        Image: "/img/vdo6_natur.png",
+        Image: "/img/v-observatorio-natural.png",
         id: 1,
         to: "/videos/n6",
         name: "Observatorio Natural",
@@ -48,7 +48,7 @@ export const lista_videos = [
         date: "BIg. Jazmín Salazar MSc",
     },
     {
-        Image: "/img/vdo7_edu.png",
+        Image: "/img/v-observatorio-educativo.png",
         id: 1,
         to: "/videos/n7",
         name: "Innovación Educativa",

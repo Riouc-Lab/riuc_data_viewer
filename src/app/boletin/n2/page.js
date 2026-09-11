@@ -8,7 +8,7 @@ export default function Boletinn2() {
 
   // Función para abrir el PDF en una nueva ventana
   const abrirPDF = () => {
-    const pdfUrl = "/pdf/REVISTA2.pdf"; // URL del PDF
+    const pdfUrl = "/pdf/b-v1n2.pdf"; // URL del PDF
     window.open(pdfUrl, "_blank"); // Abre el PDF en una nueva pestaña del navegador
   };
 
@@ -102,7 +102,7 @@ export default function Boletinn2() {
         </div>
         <div className="md:w-1/2 md:pl-4">
           <Image
-            src="/img/preview_boletin2.png"
+            src="/img/b-generico-preview-2.png"
             alt="RIOUC"
             width={480}
             height={175}

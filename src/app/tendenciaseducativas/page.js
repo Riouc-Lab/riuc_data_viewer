@@ -215,7 +215,7 @@ export default function TendenciasEducativas() {
               target="_blank"
               rel="noopener noreferrer">
               <Image
-                src="/img/UC_TRS.png"
+                src="/img/l-ucacue-transparente.png"
                 alt="Logo UCACUE"
                 width={65}
                 height={20}
@@ -230,7 +230,7 @@ export default function TendenciasEducativas() {
               rel="noopener noreferrer">
               <Image
                 className="mr-5"
-                src="/img/contactos_ucacue.png"
+                src="/img/s-tendencias-contactos.png"
                 alt="Contactos ucacue"
                 width={115}
                 height={40}
@@ -243,7 +243,7 @@ export default function TendenciasEducativas() {
             >
               <Image
                 className="ml-3 mr-1"
-                src="/img/enterate_cato.png"
+                src="/img/s-tendencias-enterate.png"
                 alt="Next.js Logo"
                 width={80}
                 height={40}

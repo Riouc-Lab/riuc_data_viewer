@@ -45,7 +45,7 @@ export default function Intro() {
           }`}
         >
           <Image
-            src="/img/ciitt.png"
+            src="/img/h-intro-edificio-ciitt.png"
             alt="Edificio RIOUC"
             width={500}
             height={380}

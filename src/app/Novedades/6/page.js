@@ -8,7 +8,7 @@ export default function Boletinn3() {
   
   // Función para abrir PDF
   const abrirPDF = () => {
-    const pdfUrl = "/pdf/ViolMuj2025.pdf";
+    const pdfUrl = "/pdf/i-femicidios-2025.pdf";
     window.open(pdfUrl, "_blank"); // window es un objeto global del navegador, asegurate de que el entorno sea del cliente
   };
 
@@ -57,7 +57,7 @@ export default function Boletinn3() {
 
         <div className="md:w-1/2 md:pl-4">
           <Image
-            src="/img/ViolMuj2025.jpeg"
+            src="/img/i-femicidios-2025.jpeg"
             alt="RIOUC"
             width={440}
             height={175}

@@ -1,6 +1,6 @@
 export const lista_noticias = [
   {
-    Image: "/img/femicidios2024.jpg",
+    Image: "/img/i-femicidios-2024.jpg",
     id: 1,
     name: "Femicidios y la violencia de Género hacia la Mujer en el Ecuador 2024",
     date: "2024-11-28",
@@ -8,7 +8,7 @@ export const lista_noticias = [
     description: "",
   },
   {
-    Image: "/img/migraciones_ecuador_2023.png",
+    Image: "/img/i-migracion-2023.png",
     id: 2,
     name: "Migración en el Ecuador 2023",
     date: "2024-12-28",
@@ -16,7 +16,7 @@ export const lista_noticias = [
     description: "",
   },
   {
-    Image: "/img/inf1.png",
+    Image: "/img/i-inflacion-2024-t4.png",
     id: 3,
     name: "Inflación en Ecuador del último trimestre del año 2024",
     date: "2025-05-28",
@@ -24,7 +24,7 @@ export const lista_noticias = [
     description: "",
   },
   {
-    Image: "/img/inf2.png",
+    Image: "/img/i-inflacion-2025-t1.png",
     id: 4,
     name: "Inflación en Ecuador del primer trimestre del año 2025",
     date: "2025-05-28",
@@ -32,7 +32,7 @@ export const lista_noticias = [
     description: "",
   },
   {
-    Image: "/img/info_alim_sal.jpg",
+    Image: "/img/i-alimentacion-saludable-2025.jpg",
     id: 5,
     name: "Alimentación saludable",
     date: "2025-05-30",

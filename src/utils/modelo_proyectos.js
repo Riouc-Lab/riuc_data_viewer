@@ -1,6 +1,6 @@
 export const lista_proyectos = [
   {
-    Image: "/img/visor1.png",
+    Image: "/img/g-poblacion-ecuador-2020.png",
     id: 1,
     to: "/proyectos/modelogeovisor",
     name: "Población del Ecuador año 2020", 
@@ -9,7 +9,7 @@ export const lista_proyectos = [
     additionalDescription: "Observatorio de Fenómenos Socioeconómicos",
   },
   {
-    Image: "/img/visor2.png",
+    Image: "/img/g-empresas-canar.png",
     id: 2,
     to: "/proyectos/canar",
     name: "Empresas en Cañar", 
@@ -19,7 +19,7 @@ export const lista_proyectos = [
   },
   /* 
   {
-    Image: "/img/visor3.png",
+    Image: "/img/g-salud-bucal-bellavista.png",
     id: 3,
     to: "/proyectos/saludbucal",
     name: "Estudio en Bellavista",

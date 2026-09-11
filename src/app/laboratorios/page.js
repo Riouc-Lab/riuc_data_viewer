@@ -12,7 +12,7 @@ export default function Laboratorios() {
         <div className="bg-white rounded-lg p-6">
           <div className="flex">
             <Image
-              src="/img/riouc_centro.png"
+              src="/img/l-riouc-icono.png"
               alt="Icono"
               width={600}
               height={600} // Ajusta la altura según tus necesidades
@@ -243,7 +243,7 @@ export default function Laboratorios() {
         {/* Imagen para Laboratorio 1 */}
         <div className="h-64 lg:h-auto flex justify-center items-center">
           <Image
-            src="/img/RIOUC.jpg"
+            src="/img/l-riouc-cuadrado.jpg"
             alt="RIOUC Logo"
             layout="responsive"
             width={605}

@@ -8,7 +8,7 @@ export default function Novedades() {
 
   // Función para abrir PDF
   const abrirPDF = () => {
-    const pdfUrl = "/pdf/violmuj2024.pdf";
+    const pdfUrl = "/pdf/i-femicidios-2024.pdf";
     window.open(pdfUrl, "_blank"); // window es un objeto global del navegador, asegurate de que el entorno sea del cliente
   };
 
@@ -57,7 +57,7 @@ export default function Novedades() {
 
         <div className="md:w-1/2 md:pl-4">
           <Image
-            src="/img/violmujer2024.png"
+            src="/img/i-femicidios-2024-detalle.png"
             alt="RIOUC"
             width={440}
             height={175}

@@ -8,7 +8,7 @@ export default function Boletinn3() {
 
   // Función para abrir PDF
   const abrirPDF = () => {
-    const pdfUrl = "/pdf/REVISTA3.pdf";
+    const pdfUrl = "/pdf/b-v1n3.pdf";
     window.open(pdfUrl, "_blank"); // window es un objeto global del navegador, asegurate de que el entorno sea del cliente
   };
 
@@ -51,7 +51,7 @@ export default function Boletinn3() {
       <div className="flex flex-col md:flex-row mb-5">
         <div className="md:w-1/2 md:pr-4 mt-2">
           <Image
-            src="/img/preview_boletin2.png"
+            src="/img/b-generico-preview-2.png"
             alt="RIOUC"
             width={480}
             height={175}

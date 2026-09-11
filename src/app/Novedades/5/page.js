@@ -8,7 +8,7 @@ export default function Boletinn3() {
   
   // Función para abrir PDF
   const abrirPDF = () => {
-    const pdfUrl = "/pdf/info_alim_sal.pdf"; // Asegúrate de que la ruta sea correcta
+    const pdfUrl = "/pdf/i-alimentacion-saludable-2025.pdf"; // Asegúrate de que la ruta sea correcta
     window.open(pdfUrl, "_blank"); // window es un objeto global del navegador, asegurate de que el entorno sea del cliente
   };
 
@@ -56,7 +56,7 @@ export default function Boletinn3() {
         </div>
         <div className="md:w-1/2 md:pl-4">
           <Image
-            src="/img/info_alim_sal.jpg"
+            src="/img/i-alimentacion-saludable-2025.jpg"
             alt="RIOUC"
             width={440}
             height={175}
