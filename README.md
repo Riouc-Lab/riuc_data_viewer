@@ -6,7 +6,7 @@ El sitio publicado en [riouc.ucacue.edu.ec](https://riouc.ucacue.edu.ec) se desp
 ## Requisitos
 
 - [Node.js](https://nodejs.org/) 20 o superior
-- [PostgreSQL](https://www.postgresql.org/download/) 14 o superior, con `psql` disponible en la terminal
+- [PostgreSQL](https://www.postgresql.org/download/) 14 o superior, con `psql` disponible en la terminal. En Windows, si `psql` no se reconoce, agrega `C:\Program Files\PostgreSQL\<versión>\bin` al `PATH`
 - [Git](https://git-scm.com/)
 
 ## Puesta en marcha
@@ -27,10 +27,11 @@ Inventa una contraseña solo con letras y números, y úsala en lugar de `CAMBIA
 ```bash
 psql -U postgres -c "CREATE ROLE riouc_dev LOGIN PASSWORD 'CAMBIA_ESTA_CLAVE'"
 psql -U postgres -c "CREATE DATABASE riouc_dev OWNER riouc_dev"
-psql "postgresql://riouc_dev:CAMBIA_ESTA_CLAVE@localhost:5432/riouc_dev" -f db/desarrollo.sql
+psql -d "postgresql://riouc_dev:CAMBIA_ESTA_CLAVE@localhost:5432/riouc_dev" -f db/desarrollo.sql
+psql -d "postgresql://riouc_dev:CAMBIA_ESTA_CLAVE@localhost:5432/riouc_dev" -c "\dt"
 ```
 
-`db/desarrollo.sql` crea las tablas con datos ficticios. Puedes volver a ejecutarlo para reiniciarlas.
+`db/desarrollo.sql` crea las tablas con datos ficticios. Puedes volver a ejecutarlo para reiniciarlas. El último comando debe listar 3 tablas: `canarencuesta`, `parroquias` y `poblacion`.
 
 ### 3. Configurar las variables de entorno
 
@@ -50,7 +51,7 @@ En `.env.local`:
    node -e "console.log(require('crypto').randomBytes(32).toString('base64'))"
    ```
 
-`GOOGLE_CLIENT_ID` y `GOOGLE_CLIENT_SECRET` pueden quedar vacíos. Solo se necesitan para iniciar sesión con Google en `/tendenciaseducativas/[id]`; si tu tarea lo requiere, pídeselos a tu tutor.
+`GOOGLE_CLIENT_ID` y `GOOGLE_CLIENT_SECRET` pueden quedar vacíos para ejecutar el sitio, pero sin ellos falla el inicio de sesión. Si tu tarea necesita probarlo, pídeselos a tu tutor.
 
 ### 4. Ejecutar
 
@@ -58,7 +59,7 @@ En `.env.local`:
 npm run dev
 ```
 
-Abre <http://localhost:3000>. Para comprobar la conexión a la base:
+Abre <http://localhost:3000>. Para comprobar la conexión a la base (no revisa que existan las tablas):
 
 ```bash
 node --env-file=.env.local src/app/testConnection.js
@@ -92,6 +93,8 @@ Solo `/proyectos/canar` y `/proyectos/modelogeovisor` leen la base de datos. Los
 | `main` | Rama estable. No se trabaja directamente aquí |
 | `develop` | Integración y pruebas. Tus PR van aquí |
 | `feat/...`, `fix/...` | Una rama por tarea |
+
+Se trabaja como miembro del equipo `pasantes-tics`, no con fork.
 
 1. Actualiza `develop` y crea tu rama:
 
