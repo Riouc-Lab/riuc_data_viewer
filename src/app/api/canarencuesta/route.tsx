@@ -12,6 +12,8 @@ type ResponseData = {
       const data= await db.query("SELECT * FROM canarencuesta");
       return NextResponse.json({data:data},{status:200})
     }catch(error){
-      return NextResponse.json({error:error},{status:401});
+      // No exponer el detalle del error de la base al cliente
+      console.error(error);
+      return NextResponse.json({error:"Error al consultar los datos"},{status:500});
     }
   }

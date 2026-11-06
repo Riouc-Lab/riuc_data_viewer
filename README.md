@@ -1,34 +1,115 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# RIOUC Data Viewer
 
-## Getting Started
+Portal público de datos y estadísticas de la RIOUC (Universidad Católica de Cuenca), hecho con Next.js 13.
+El sitio publicado en [riouc.ucacue.edu.ec](https://riouc.ucacue.edu.ec) se despliega por separado: los cambios en este repositorio no lo afectan.
 
-First, run the development server:
+## Requisitos
+
+- [Node.js](https://nodejs.org/) 20 o superior
+- [PostgreSQL](https://www.postgresql.org/download/) 14 o superior, con `psql` disponible en la terminal
+- [Git](https://git-scm.com/)
+
+## Puesta en marcha
+
+### 1. Clonar e instalar
+
+```bash
+git clone https://github.com/Riouc-Lab/riuc_data_viewer.git
+cd riuc_data_viewer
+git switch develop
+npm ci
+```
+
+### 2. Crear la base local
+
+Inventa una contraseña solo con letras y números, y úsala en lugar de `CAMBIA_ESTA_CLAVE`:
+
+```bash
+psql -U postgres -c "CREATE ROLE riouc_dev LOGIN PASSWORD 'CAMBIA_ESTA_CLAVE'"
+psql -U postgres -c "CREATE DATABASE riouc_dev OWNER riouc_dev"
+psql "postgresql://riouc_dev:CAMBIA_ESTA_CLAVE@localhost:5432/riouc_dev" -f db/desarrollo.sql
+```
+
+`db/desarrollo.sql` crea las tablas con datos ficticios. Puedes volver a ejecutarlo para reiniciarlas.
+
+### 3. Configurar las variables de entorno
+
+Copia la plantilla:
+
+```bash
+cp .env.example .env.local        # Git Bash, macOS o Linux
+copy .env.example .env.local      # PowerShell o CMD
+```
+
+En `.env.local`:
+
+1. Pon tu contraseña en `DATABASE_URL`.
+2. Genera un valor para `NEXTAUTH_SECRET` con este comando:
+
+   ```bash
+   node -e "console.log(require('crypto').randomBytes(32).toString('base64'))"
+   ```
+
+`GOOGLE_CLIENT_ID` y `GOOGLE_CLIENT_SECRET` pueden quedar vacíos. Solo se necesitan para iniciar sesión con Google en `/tendenciaseducativas/[id]`; si tu tarea lo requiere, pídeselos a tu tutor.
+
+### 4. Ejecutar
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abre <http://localhost:3000>. Para comprobar la conexión a la base:
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```bash
+node --env-file=.env.local src/app/testConnection.js
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Comandos
 
-## Learn More
+| Comando | Para qué |
+|---|---|
+| `npm run dev` | Servidor de desarrollo |
+| `npm run lint` | Revisa el código con ESLint |
+| `npm run build` | Compila para producción. Ejecútalo antes de abrir un PR |
 
-To learn more about Next.js, take a look at the following resources:
+## Estructura
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Carpeta | Contenido |
+|---|---|
+| `src/app/` | Páginas (cada carpeta es una ruta) |
+| `src/app/api/` | Rutas de la API que leen PostgreSQL y login |
+| `src/components/` | Componentes reutilizables |
+| `src/utils/` | Conexión a la base y listas de contenido (noticias, proyectos) |
+| `public/` | Imágenes, PDF y GeoJSON |
+| `db/` | Base local de desarrollo |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Solo `/proyectos/canar` y `/proyectos/modelogeovisor` leen la base de datos. Los mapas también descargan datos de servicios externos, así que necesitan internet.
 
-## Deploy on Vercel
+## Cómo trabajar
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+| Rama | Uso |
+|---|---|
+| `main` | Rama estable. No se trabaja directamente aquí |
+| `develop` | Integración y pruebas. Tus PR van aquí |
+| `feat/...`, `fix/...` | Una rama por tarea |
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+1. Actualiza `develop` y crea tu rama:
+
+   ```bash
+   git switch develop
+   git pull
+   git switch -c feat/nombre-de-la-tarea
+   ```
+
+2. Haz commits pequeños con mensajes claros, en español.
+3. Antes de abrir el PR, verifica que pasen `npm run lint` y `npm run build`.
+4. Abre el PR hacia `develop`.
+
+## Seguridad
+
+Este repositorio es **público**: todo lo que se sube, incluido el historial, lo puede ver cualquiera.
+
+- Nunca subas contraseñas, tokens ni claves. Van en `.env.local`, que Git ignora.
+- Si necesitas una variable nueva, agrégala a `.env.example` sin su valor real.
+- Trabaja siempre con tu base local, nunca con la de producción.
+- Si subes un secreto por error, avisa de inmediato a tu tutor. Borrarlo con otro commit no basta: hay que cambiarlo.

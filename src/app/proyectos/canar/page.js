@@ -34,7 +34,7 @@ export default function Canar() {
   const handleDownloadClick = async () => {
     try {
       const response = await axios.get(
-        "https://riouc.ucacue.edu.ec/api/canarencuesta",
+        "/api/canarencuesta",
         {
           responseType: "blob", // Esto configura la respuesta como un blob
         }

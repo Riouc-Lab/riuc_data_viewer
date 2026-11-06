@@ -64,7 +64,7 @@ export default function Boletinn7() {
                 d="M5 13l4 4L19 7"
               />
             </svg>
-En esta nueva edición del boletín "RIOUC Informa" (Vol. 3, No. 1, enero - abril 2026), damos la bienvenida a tres nuevos observatorios que amplían el alcance de nuestra red: el Observatorio de Equidad y Género, que profundiza en el monitoreo de las brechas de género en la educación superior y la violencia simbólica en los espacios universitarios; el Observatorio de la Actividad Física, que vigila el comportamiento del movimiento en niños, niñas y adolescentes del territorio ecuatoriano; y el Observatorio Contable, que desde el proyecto NAF UCACUE fortalece la cultura tributaria y acompaña a miles de contribuyentes en distintas sedes del país.          </div>
+En esta nueva edición del boletín &quot;RIOUC Informa&quot; (Vol. 3, No. 1, enero - abril 2026), damos la bienvenida a tres nuevos observatorios que amplían el alcance de nuestra red: el Observatorio de Equidad y Género, que profundiza en el monitoreo de las brechas de género en la educación superior y la violencia simbólica en los espacios universitarios; el Observatorio de la Actividad Física, que vigila el comportamiento del movimiento en niños, niñas y adolescentes del territorio ecuatoriano; y el Observatorio Contable, que desde el proyecto NAF UCACUE fortalece la cultura tributaria y acompaña a miles de contribuyentes en distintas sedes del país.          </div>
           <div className="text-lg text-gray-800 mb-5 text-justify">
             <svg
               xmlns="http://www.w3.org/2000/svg"

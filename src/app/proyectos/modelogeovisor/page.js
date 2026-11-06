@@ -39,7 +39,7 @@ export default function Modelogeovisor() {
 
   const handleDownloadClick = async () => {
     try {
-      const response = await axios.get("https://riouc.ucacue.edu.ec/api/poblacion", {
+      const response = await axios.get("/api/poblacion", {
         responseType: "blob", // Esto configura la respuesta como un blob
       });
 
@@ -92,7 +92,7 @@ export default function Modelogeovisor() {
 
   const fetchPoblacion = async () => {
     try {
-      const response = await axios.get("https://riouc.ucacue.edu.ec/api/poblacion");
+      const response = await axios.get("/api/poblacion");
       const poblacionData = response.data.data;
       if (Array.isArray(poblacionData) && poblacionData.length > 0) {
         setPoblacion(poblacionData);

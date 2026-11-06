@@ -65,7 +65,7 @@ export default function Boletinn6() {
                 d="M5 13l4 4L19 7"
               />
             </svg>
-            En esta nueva edición del boletín “RIOUC Informa” (Vol. 2, No. 3), compartimos con ustedes las memorias de la Semana de la Vinculación 2025, un recorrido por las iniciativas que están tejiendo lazos indisolubles entre la universidad y el territorio. Este número recoge experiencias vitales que van desde la intervención médica en el proyecto "Creando Sonrisas" para niños con labio fisurado, hasta la innovación educativa con la Academia STEAM y el fortalecimiento de la identidad cultural Cañari.
+            En esta nueva edición del boletín “RIOUC Informa” (Vol. 2, No. 3), compartimos con ustedes las memorias de la Semana de la Vinculación 2025, un recorrido por las iniciativas que están tejiendo lazos indisolubles entre la universidad y el territorio. Este número recoge experiencias vitales que van desde la intervención médica en el proyecto &quot;Creando Sonrisas&quot; para niños con labio fisurado, hasta la innovación educativa con la Academia STEAM y el fortalecimiento de la identidad cultural Cañari.
           </div>
           <div className="text-lg text-gray-800 mb-5 text-justify">
             <svg

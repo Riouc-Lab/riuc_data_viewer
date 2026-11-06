@@ -4,9 +4,9 @@ import { useRouter } from "next/navigation";
 import axios from "axios";
 import dynamic from "next/dynamic";
 import SwitchButton from "../../../components/buttonswitch";
-import HeatLayer from "../../../components/HeatMapBellavista";
-import HeatLayer2 from "../../../components/HeatMapBellavista2";
-import HeatLayer3 from "../../../components/HeatMapBellavista3";
+const HeatLayer = dynamic(() => import("../../../components/HeatMapBellavista"), { ssr: false });
+const HeatLayer2 = dynamic(() => import("../../../components/HeatMapBellavista2"), { ssr: false });
+const HeatLayer3 = dynamic(() => import("../../../components/HeatMapBellavista3"), { ssr: false });
 const Map = dynamic(() => import("../../../components/map"), { ssr: false });
 const DEFAULT_CENTER = [-2.891565, -79.005958];
 const coloresPorNivel = {
@@ -2682,7 +2682,7 @@ export default function Mapa() {
             />
 
             <div className="flex flex-col space-y-2 text-white">
-              Mostrar Mapa de Calor segun la variable "indpond".
+              Mostrar Mapa de Calor segun la variable &quot;indpond&quot;.
             </div>
 
             <SwitchButton
@@ -2692,7 +2692,7 @@ export default function Mapa() {
             />
 
             <div className="flex flex-col space-y-2 text-white">
-              Mostrar Mapa de Calor segun la variable "indmult".
+              Mostrar Mapa de Calor segun la variable &quot;indmult&quot;.
             </div>
 
             <SwitchButton
