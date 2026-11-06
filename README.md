@@ -51,7 +51,12 @@ En `.env.local`:
    node -e "console.log(require('crypto').randomBytes(32).toString('base64'))"
    ```
 
-`GOOGLE_CLIENT_ID` y `GOOGLE_CLIENT_SECRET` pueden quedar vacíos para ejecutar el sitio, pero sin ellos falla el inicio de sesión. Si tu tarea necesita probarlo, pídeselos a tu tutor.
+`GOOGLE_CLIENT_ID` y `GOOGLE_CLIENT_SECRET` pueden quedar vacíos para ejecutar el sitio, pero sin ellos falla el inicio de sesión. Si tu tarea necesita probarlo, crea tu propio cliente de desarrollo:
+
+1. En [Google Cloud Console](https://console.cloud.google.com/), crea un proyecto con tu cuenta.
+2. Configura la pantalla de consentimiento con público **Externo**, en modo de prueba, y agrega como usuarios de prueba las cuentas que vayas a usar.
+3. Crea un cliente de tipo **Aplicación web**, con origen autorizado `http://localhost:3000` y URI de redirección `http://localhost:3000/api/auth/callback/google`.
+4. Copia el ID y el secreto en `.env.local`.
 
 ### 4. Ejecutar
 
@@ -106,7 +111,8 @@ Se trabaja como miembro del equipo `pasantes-tics`, no con fork.
 
 2. Haz commits pequeños con mensajes claros, en español.
 3. Antes de abrir el PR, verifica que pasen `npm run lint` y `npm run build`.
-4. Abre el PR hacia `develop`.
+4. Documenta el cambio en el registro de cambios, en este orden: título, descripción general y detalle técnico. Sin esa entrada, el PR no se aprueba.
+5. Abre el PR hacia `develop`.
 
 ## Seguridad
 
