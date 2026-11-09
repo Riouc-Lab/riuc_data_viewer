@@ -1,11 +1,11 @@
 "use client";
+import 'leaflet.fullscreen';
+import 'leaflet.fullscreen/dist/Control.FullScreen.css';
 import { useEffect } from "react";
 import Leaflet from "leaflet";
 import * as ReactLeaflet from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import styles from "../assets/scss/Map.module.scss";
-import 'leaflet.fullscreen/Control.FullScreen';
-import 'leaflet.fullscreen/Control.FullScreen.css';
 
 const { MapContainer, LayersControl, LayerGroup, TileLayer, ScaleControl } = ReactLeaflet;
 const InfoBox = ({ content }) => {
