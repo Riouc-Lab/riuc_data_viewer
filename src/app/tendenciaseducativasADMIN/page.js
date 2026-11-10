@@ -26,10 +26,13 @@ function AdminPage() {
 
   useEffect(() => {
     if (!editing) {
-      setNewNews(prevState => ({
-        ...prevState,
-        id: getNextId()
-      }));
+      const timer = setTimeout(() => {
+        setNewNews(prevState => ({
+          ...prevState,
+          id: getNextId()
+        }));
+      }, 0);
+      return () => clearTimeout(timer);
     }
   }, [editing]);
 

@@ -30,9 +30,12 @@ export default function Modelogeovisor() {
 
   useEffect(() => {
     window.addEventListener("resize", handleZoom);
-    handleZoom(); // Inicialmente comprobar el nivel de zoom
+    const timer = setTimeout(() => {
+      handleZoom();
+    }, 0);
 
     return () => {
+      clearTimeout(timer);
       window.removeEventListener("resize", handleZoom);
     };
   }, []);

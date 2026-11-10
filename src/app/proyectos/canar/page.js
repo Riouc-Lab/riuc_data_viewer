@@ -65,9 +65,12 @@ export default function Canar() {
 
   useEffect(() => {
     window.addEventListener("resize", handleZoom);
-    handleZoom();
+    const timer = setTimeout(() => {
+      handleZoom();
+    }, 0);
 
     return () => {
+      clearTimeout(timer);
       window.removeEventListener("resize", handleZoom);
     };
   }, []);

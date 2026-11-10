@@ -2560,11 +2560,19 @@ export default function Mapa() {
     setTextVisibility(!isTextVisible);
   };
 
+  const handleZoom = () => {
+    const zoomLevel = window.devicePixelRatio;
+    setIsZoomed(zoomLevel > 1);
+  };
+
   useEffect(() => {
     window.addEventListener("resize", handleZoom);
-    handleZoom();
+    const timer = setTimeout(() => {
+      handleZoom();
+    }, 0);
 
     return () => {
+      clearTimeout(timer);
       window.removeEventListener("resize", handleZoom);
     };
   }, []);
@@ -2579,11 +2587,6 @@ export default function Mapa() {
   function proyect(to) {
     router.push(to);
   }
-
-  const handleZoom = () => {
-    const zoomLevel = window.devicePixelRatio;
-    setIsZoomed(zoomLevel > 1);
-  };
 
   useEffect(() => {
     const fetchGeoJson = async () => {
