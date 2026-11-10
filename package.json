@@ -15,7 +15,7 @@
     "leaflet": "^1.9.4",
     "leaflet.fullscreen": "^5.3.3",
     "leaflet.heat": "^0.2.0",
-    "next": "^13.5.7",
+    "next": "14.2.35",
     "next-auth": "4.24.15",
     "pg-promise": "^11.5.4",
     "prop-types": "^15.8.1",
