@@ -12,19 +12,11 @@ export default function Noticia() {
 
   // Obtener el ID de la noticia de la URL
   const { id } = useParams();
-  const [noticia, setNoticia] = useState(null);
+  const noticia = id
+    ? lista_noticias.find((item) => item.id === parseInt(id))
+    : null;
   const router = useRouter();
   console.log("id", id);
-
-  useEffect(() => {
-    // Buscar la noticia correspondiente al ID en la lista de noticias
-    if (id) {
-      const noticiaEncontrada = lista_noticias.find(
-        (item) => item.id === parseInt(id)
-      );
-      setNoticia(noticiaEncontrada);
-    }
-  }, [id]);
 
   const [likes, setLikes] = useState(0);
   const [likedByUser, setLikedByUser] = useState(false); // Estado para controlar si el usuario ha dado "Me gusta"
@@ -32,13 +24,9 @@ export default function Noticia() {
   const [showAllComments, setShowAllComments] = useState(false);
 
   useEffect(() => {
-    if (id) {
-      // Buscar la noticia correspondiente al ID en la lista de noticias
-      const noticiaEncontrada = lista_noticias.find(
-        (item) => item.id === parseInt(id)
-      );
-      setNoticia(noticiaEncontrada);
+    if (!id) return;
 
+    const timer = setTimeout(() => {
       // Cargar el número de "Me gusta" desde el localStorage
       const storedLikes = localStorage.getItem(`likes_${id}`);
       if (storedLikes) {
@@ -47,49 +35,23 @@ export default function Noticia() {
 
       // Verificar si el usuario ya ha dado "Me gusta" a esta noticia
       if (session) {
-        const likedByUser = localStorage.getItem(
+        const liked = localStorage.getItem(
           `liked_${id}_${session.user.id}`
         );
-        if (likedByUser) {
+        if (liked) {
           setLikedByUser(true);
         }
       }
-    }
+
+      // Cargar comentarios desde localStorage al cargar la página
+      const storedComments = localStorage.getItem(`comments_${id}`);
+      if (storedComments) {
+        setComments(JSON.parse(storedComments));
+      }
+    }, 0);
+
+    return () => clearTimeout(timer);
   }, [id, session]);
-
-  const handleLike = () => {
-    if (!session) {
-      // Si el usuario no está logueado, redirigir a la página de inicio de sesión
-      signIn();
-      return;
-    }
-
-    // Toggle del "Me gusta" del usuario
-    const newLikedByUser = !likedByUser;
-    setLikedByUser(newLikedByUser);
-
-    // Actualizar el número de "Me gusta"
-    const newLikes = newLikedByUser ? likes + 1 : likes - 1;
-    setLikes(newLikes);
-
-    // Guardar el nuevo número de "Me gusta" en localStorage
-    localStorage.setItem(`likes_${id}`, newLikes.toString());
-
-    // Actualizar el estado del "Me gusta" del usuario en localStorage
-    if (newLikedByUser) {
-      localStorage.setItem(`liked_${id}_${session.user.id}`, "true");
-    } else {
-      localStorage.removeItem(`liked_${id}_${session.user.id}`);
-    }
-  };
-
-  useEffect(() => {
-    // Cargar comentarios desde localStorage al cargar la página
-    const storedComments = localStorage.getItem(`comments_${id}`);
-    if (storedComments) {
-      setComments(JSON.parse(storedComments));
-    }
-  }, [id]);
 
   const handleCommentSubmit = (comment) => {
     const newComment = {

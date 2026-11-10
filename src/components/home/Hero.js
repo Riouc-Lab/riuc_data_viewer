@@ -7,7 +7,10 @@ export default function Hero() {
 
   // Activamos la animación justo cuando el componente se carga en la pantalla
   useEffect(() => {
-    setIsMounted(true);
+    const timer = setTimeout(() => {
+      setIsMounted(true);
+    }, 0);
+    return () => clearTimeout(timer);
   }, []);
 
   return (
