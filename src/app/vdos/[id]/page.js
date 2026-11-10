@@ -1,8 +1,8 @@
 import styles from '../../../styles/VideoPlayer.module.css';
 import VideoCard from '../../../components/VideoCard';
 
-export default function VideoPage({ params }) {
-  const { id } = params;
+export default async function VideoPage({ params }) {
+  const { id } = await params;
 
   const videos = [
     {
