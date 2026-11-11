@@ -1,8 +1,10 @@
 "use client";
 import { useState, useEffect } from 'react';
+import { useSession, signIn, signOut } from 'next-auth/react';
 import { lista_noticias } from '../../utils/modelo_noticias.js';
 
 function AdminPage() {
+  const { data: session, status } = useSession();
   const [newNews, setNewNews] = useState({
     Image: "",
     id: 0,
@@ -100,9 +102,49 @@ function AdminPage() {
     console.log(lista_noticias);
   };
 
+  if (status === "loading") {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+        <p className="text-gray-600 text-lg font-medium">Verificando sesión...</p>
+      </div>
+    );
+  }
+
+  if (!session) {
+    return (
+      <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 px-4">
+        <div className="max-w-md w-full bg-white p-8 rounded-lg shadow-md text-center">
+          <h1 className="text-2xl font-bold text-red-600 mb-4">Acceso Restringido</h1>
+          <p className="text-gray-600 mb-6">
+            Debes iniciar sesión con una cuenta autorizada para acceder al panel de administración de noticias.
+          </p>
+          <button
+            onClick={() => signIn()}
+            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2.5 px-4 rounded transition-colors"
+          >
+            Iniciar sesión
+          </button>
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div className="container mx-auto mt-8">
-      <h1 className="text-2xl font-bold mb-4 p-5">Administración de Noticias</h1>
+    <div className="container mx-auto mt-8 px-4">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 pb-4 border-b">
+        <h1 className="text-2xl font-bold">Administración de Noticias</h1>
+        <div className="flex items-center gap-4 mt-2 sm:mt-0">
+          <span className="text-sm text-gray-600">
+            Sesión: <strong>{session.user?.name || session.user?.email || "Administrador"}</strong>
+          </span>
+          <button
+            onClick={() => signOut()}
+            className="bg-gray-200 hover:bg-gray-300 text-gray-800 text-sm font-medium py-1.5 px-3 rounded transition-colors"
+          >
+            Cerrar sesión
+          </button>
+        </div>
+      </div>
       <form className="space-y-4">
         <div className="grid grid-cols-2 gap-4">
           <div>
