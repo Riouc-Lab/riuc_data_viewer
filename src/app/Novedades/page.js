@@ -1,14 +1,13 @@
 "use client";
 import Image from "next/image";
 import React, { useState, useMemo } from "react";
-import Link from "next/link";
-import Pagination from "../../components/pagination";
+import ContentCard from "../../components/cards/ContentCard";
+import PaginatedGrid from "../../components/common/PaginatedGrid";
 import Search from "../../components/search";
 import { lista_infografia, truncateDescription } from "../../utils";
 
 export default function Infografia() {
   const [searchTerm, setSearchTerm] = useState("");
-  const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 8;
 
   // Filtrado y ordenamiento
@@ -24,11 +23,6 @@ export default function Infografia() {
       })
       .sort((a, b) => new Date(b.date) - new Date(a.date));
   }, [searchTerm]);
-
-  const totalPages = Math.ceil(filteredNoticias.length / itemsPerPage);
-  const startIndex = (currentPage - 1) * itemsPerPage;
-  const paginatedNoticias = filteredNoticias.slice(startIndex, startIndex + itemsPerPage);
-
 
   return (
     <div className="bg-gradient-to-b from-gray-100 to-white min-h-screen w-full overflow-x-hidden">
@@ -49,28 +43,15 @@ export default function Infografia() {
         {/* Campo de búsqueda */}
         <div className="mb-8 flex sm:w-1/2 mx-auto">
           <Search
-            onSearch={(texto) => {
-              if (texto !== searchTerm) {
-                setSearchTerm(texto);
-                setCurrentPage(1);
-              }
-            }}
+            onSearch={setSearchTerm}
             placeholder="Buscar por título o autor..."
           />
         </div>
 
         {/* Lista paginada de infografías */}
         <div className="sm:bg-white p-4 sm:p-10 rounded-none sm:rounded-xl shadow-none sm:shadow-xl w-full mx-auto">
-          {paginatedNoticias.length === 0 ? (
-            <div className="text-center text-gray-500 text-base sm:text-lg font-semibold py-8">
-              No se encontraron resultados.
-            </div>
-          ) : (
-            <>
-              {/* Grid de tarjetas */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                {paginatedNoticias.map((item) => (
-                  <Link
+          <PaginatedGrid key={searchTerm} items={filteredNoticias} pageSize={itemsPerPage} renderCard={(item) => (
+            <ContentCard
                     key={item.id}
                     href={`/Novedades/${item.id}`}
                     className="cursor-pointer"
@@ -95,20 +76,8 @@ export default function Infografia() {
                         </p>
                       </div>
                     </div>
-                  </Link>
-                ))}
-              </div>
-
-              {/* Paginación separada */}
-              <div className="mt-8 sm:mt-12 w-full">
-                <Pagination
-                  currentPage={currentPage}
-                  totalPages={totalPages}
-                  onPageChange={setCurrentPage}
-                />
-              </div>
-            </>
-          )}
+                  </ContentCard>
+          )} />
         </div>
       </div >
     </div >

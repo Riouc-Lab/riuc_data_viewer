@@ -1,5 +1,6 @@
 // components/ArticleCard.jsx
 "use client";
+import ContentCard from "./ContentCard";
 import { useState } from "react";
 
 export default function ArticleCard({
@@ -25,7 +26,7 @@ export default function ArticleCard({
   };
 
   return (
-    <div className="group" onClick={() => window.open(item.pdf, "_blank")}>
+    <ContentCard className="group relative">
       <div
         className={`relative bg-white border border-gray-200 rounded-2xl overflow-hidden cursor-pointer shadow-md hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 ease-out flex flex-col ${isExpanded ? "min-h-fit" : "h-80"
           }`}
@@ -53,13 +54,9 @@ export default function ArticleCard({
 
           {/* Título del Articulo */}
           <h2
-            onClick={(e) => {
-              e.stopPropagation();
-              window.open(item.pdf, "_blank");
-            }}
             className="text-xl font-bold text-gray-800 mb-2 line-clamp-2 group-hover:text-red-600 transition-colors duration-200 leading-tight flex-shrink-0 titulo-articulo"
           >
-            {item.titulo}
+            <a href={item.pdf} target="_blank" rel="noopener noreferrer" className="after:absolute after:inset-0">{item.titulo}</a>
           </h2>
 
           {/* Autor con ícono */}
@@ -109,7 +106,7 @@ export default function ArticleCard({
             {expandible && (
               <button
                 onClick={toggleExpand}
-                className="flex items-center text-blue-400 font-medium text-sm group-hover:text-blue-600 transition-colors duration-200"
+                className="relative z-10 flex items-center text-blue-400 font-medium text-sm group-hover:text-blue-600 transition-colors duration-200"
               >
                 {isExpanded ? "Volver" : "Saber más"}
                 <svg
@@ -136,7 +133,7 @@ export default function ArticleCard({
         {/* Hover overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-red-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
       </div>
-    </div>
+    </ContentCard>
   );
 }
 
