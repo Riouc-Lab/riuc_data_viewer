@@ -1,15 +1,17 @@
+import ContentCard from "../../components/cards/ContentCard";
+import CardGrid from "../../components/common/CardGrid";
 import Image from "next/image";
 
 export default function Laboratorios() {
   return (
     <main className="container mx-auto p-4 text-justify">
-      <h1 className="text-5xl md:text-2xl font-semibold p-2 mb-5 text-black border-b-2 border-red-400 mt-8">
+      <h1 className="text-4xl md:text-2xl font-semibold p-2 mb-5 text-black border-b-2 border-red-400 mt-8">
         LABORATORIO
       </h1>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-5">
+      <CardGrid>
         {/* Laboratorio 1 */}
-        <div className="bg-white rounded-lg p-6">
+        <ContentCard className="bg-white rounded-lg p-6 lg:col-span-2">
           <div className="flex">
             <Image
               src="/img/l-riouc-icono.png"
@@ -238,7 +240,7 @@ export default function Laboratorios() {
               </li>
             </ul>
           </div>
-        </div>
+        </ContentCard>
 
         {/* Imagen para Laboratorio 1 */}
         <div className="h-64 lg:h-auto flex justify-center items-center">
@@ -252,9 +254,9 @@ export default function Laboratorios() {
             className="rounded-lg"
           />
         </div>
-      </div>
+      </CardGrid>
 
-      <div className="bg-white rounded-lg p-6 mb-5">
+      <ContentCard className="bg-white rounded-lg p-6 mb-5">
         <h2 className="text-xl font-semibold mb-4 text-red-500">
           Fenómeno a Observar (la problemática)
         </h2>
@@ -291,9 +293,9 @@ export default function Laboratorios() {
           relacionan con las preguntas de investigación y, no deben colocarse
           más de un verbo por objetivo.
         </p>
-      </div>
+      </ContentCard>
 
-      <div className="bg-white rounded-lg p-6 mb-5">
+      <ContentCard className="bg-white rounded-lg p-6 mb-5">
         <h2 className="text-xl font-semibold mb-4 text-red-500">
           Portafolio de productos ofertados:
         </h2>
@@ -348,7 +350,7 @@ export default function Laboratorios() {
             Estudios de selección de personal utilizando técnicas Fuzzy-logic.
           </li>
         </ul>
-      </div>
+      </ContentCard>
     </main>
   );
 }

@@ -1,12 +1,10 @@
-"use client";
-import React from "react";
+import ContentCard from "../../components/cards/ContentCard";
+import CardGrid from "../../components/common/CardGrid";
+
 import Image from "next/image";
-import { usePathname, useRouter } from "next/navigation";
 import { lista_boletin } from "../../utils/modelo_boletin";
 
 export default function Boletin() {
-  const router = useRouter();
-  const pathname = usePathname();
 
   const sortedBoletines = [...lista_boletin].sort(
     (a, b) => new Date(b.date) - new Date(a.date)
@@ -26,15 +24,10 @@ export default function Boletin() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-        {sortedBoletines.map((item, index) => {
-          const isActive = pathname === item.to;
-
-          return (
-            <div
-              key={index}
+      <CardGrid>
+        {sortedBoletines.map((item) => (
+            <ContentCard key={item.to} href={item.to}
               className="w-full max-w-md mx-auto border-2 border-black border-opacity-10 rounded-lg overflow-hidden cursor-pointer shadow-md hover:shadow-lg transition duration-300"
-              onClick={() => router.push(item.to)}
             >
               {/* Imagen con tamaño fijo */}
               <div className="w-full h-[270px] bg-black flex items-center justify-center overflow-hidden">
@@ -56,7 +49,7 @@ export default function Boletin() {
                 <h1 className="text-2xl font-semibold mb-3">{item.name}</h1>
                 <p className="leading-relaxed mb-3">{item.description}</p>
                 <div className="flex items-center flex-wrap">
-                  <a className="text-indigo-300 inline-flex items-center md:mb-2 lg:mb-0">
+                  <span className="text-indigo-300 inline-flex items-center md:mb-2 lg:mb-0">
                     <span className="flex-grow flex flex-col">Saber más</span>
                     <svg
                       className="w-4 h-4 ml-2"
@@ -70,16 +63,15 @@ export default function Boletin() {
                       <path d="M5 12h14"></path>
                       <path d="M12 5l7 7-7 7"></path>
                     </svg>
-                  </a>
+                  </span>
                   <span className="text-gray-400 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
                     RIOUC
                   </span>
                 </div>
               </div>
-            </div>
-          );
-        })}
-      </div>
+            </ContentCard>
+        ))}
+      </CardGrid>
     </main>
   );
 }

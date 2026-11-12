@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import ArticleCard from "../../components/articlecard";
-import Pagination from "../../components/pagination";
+import ArticleCard from "../../components/cards/ArticleCard";
+import PaginatedGrid from "../../components/common/PaginatedGrid";
 import Search from "../../components/search";
 import FilterBurger from "../../components/FilterBurger";
 import { lista_articulos } from "../../utils/modelo_articulos";
@@ -11,14 +11,12 @@ export default function ArticulosCientificos() {
   // ----------------- estado -----------------
   const [query, setQuery] = useState("");
   const [campo, setCampo] = useState("titulo");
-  const [currentPage, setCurrentPage] = useState(1);
   const articulosPorPagina = 6;
 
   // ----------------- búsqueda -----------------
   const handleSearch = (texto, campoBusqueda) => {
     setQuery(texto);
     setCampo(campoBusqueda || campo);
-    setCurrentPage(1);
   };
 
   const normalizar = (str = "") =>
@@ -38,11 +36,7 @@ export default function ArticulosCientificos() {
   });
 
   // ----------------- paginación -----------------
-  const totalPages = Math.ceil(filtrados.length / articulosPorPagina);
-  const startIndex = (currentPage - 1) * articulosPorPagina;
-  const listaPaginada = [...filtrados]
-    .sort((a, b) => new Date(b.fecha) - new Date(a.fecha))
-    .slice(startIndex, startIndex + articulosPorPagina);
+  const ordenados = filtrados.sort((a, b) => new Date(b.fecha) - new Date(a.fecha));
 
   // ----------------- render -----------------
   return (
@@ -71,25 +65,12 @@ export default function ArticulosCientificos() {
 
       {/* Lista */}
       <div className="bg-white max-w-7xl mx-auto p-10 rounded-xl shadow-xl">
-        {query.trim() && filtrados.length === 0 ? (
-          <div className="text-center text-gray-500 text-lg font-semibold">
-            No existen resultados para esta búsqueda.
-          </div>
-        ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-5">
-            {listaPaginada.map((item) => (
-              <div key={item.id} className="h-full">
-                <ArticleCard item={item} expandible />
-              </div>
-            ))}
-          </div>
-        )}
-
-        {/* Paginación */}
-        <Pagination
-          currentPage={currentPage}
-          totalPages={totalPages}
-          onPageChange={setCurrentPage}
+        <PaginatedGrid
+          key={JSON.stringify([campo, query])}
+          items={ordenados}
+          pageSize={articulosPorPagina}
+          emptyMessage="No existen resultados para esta búsqueda."
+          renderCard={(item) => <ArticleCard key={item.id} item={item} expandible />}
         />
       </div>
     </main>

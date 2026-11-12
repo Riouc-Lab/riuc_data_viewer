@@ -1,6 +1,6 @@
-import Link from 'next/link';
-import styles from '../../styles/Home.module.css';
-import VideoCard from '../../components/VideoCard';
+import ContentCard from "../../components/cards/ContentCard";
+import CardGrid from "../../components/common/CardGrid";
+
 
 const videos = [
   { id: '1', thumbnail: 'v-mujeres-pioneras.png', title: 'Mujeres Pioneras', description: 'Mujeres pioneras en el Ecuador.' },
@@ -23,13 +23,13 @@ export default function VideosPage() {
       </div>
       <div className="container mx-auto px-4 text-center">
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <CardGrid>
           {videos.map((video) => (
-            <Link key={video.id} href={`/vdos/${video.id}`} className="block">
+            <ContentCard key={video.id} href={`/vdos/${video.id}`}>
               <div className="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-transform transform hover:scale-105">
                 <img
                   src={`/img/${video.thumbnail}`}
-                  alt={`Thumbnail for ${video.title}`}
+                  alt={`Miniatura de ${video.title}`}
                   className="w-full h-48 object-cover"
                 />
                 <div className="p-4">
@@ -37,9 +37,9 @@ export default function VideosPage() {
                   <p className="text-gray-600 mt-2">{video.description}</p>
                 </div>
               </div>
-            </Link>
+            </ContentCard>
           ))}
-        </div>
+        </CardGrid>
       </div>
     </div>
   );
