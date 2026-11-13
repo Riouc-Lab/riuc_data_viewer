@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
-import { lista_proyectos } from "../utils/modelo_proyectos";
+import { lista_proyectos } from "../../utils/modelo_proyectos";
 
 export default function SideBar({ navLinks }) {
   // ─── ESTADOS Y REFERENCIAS ──────────────────────────────────────────────────

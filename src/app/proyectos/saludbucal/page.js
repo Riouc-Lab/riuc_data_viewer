@@ -3,11 +3,11 @@ import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import dynamic from "next/dynamic";
-import SwitchButton from "../../../components/buttonswitch";
-const HeatLayer = dynamic(() => import("../../../components/HeatMapBellavista"), { ssr: false });
-const HeatLayer2 = dynamic(() => import("../../../components/HeatMapBellavista2"), { ssr: false });
-const HeatLayer3 = dynamic(() => import("../../../components/HeatMapBellavista3"), { ssr: false });
-const Map = dynamic(() => import("../../../components/map"), { ssr: false });
+import SwitchButton from "../../../components/common/SwitchButton";
+const HeatLayer = dynamic(() => import("../../../components/maps/HeatMapBellavista"), { ssr: false });
+const HeatLayer2 = dynamic(() => import("../../../components/maps/HeatMapBellavista2"), { ssr: false });
+const HeatLayer3 = dynamic(() => import("../../../components/maps/HeatMapBellavista3"), { ssr: false });
+const Map = dynamic(() => import("../../../components/maps/Map"), { ssr: false });
 const DEFAULT_CENTER = [-2.891565, -79.005958];
 const coloresPorNivel = {
   1: "#FF0000", // rojo (75-100)

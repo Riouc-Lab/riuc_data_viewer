@@ -1,5 +1,5 @@
 import styles from '../../../styles/VideoPlayer.module.css';
-import VideoCard from '../../../components/VideoCard';
+import VideoCard from '../../../components/cards/VideoCard';
 
 export default async function VideoPage({ params }) {
   const { id } = await params;

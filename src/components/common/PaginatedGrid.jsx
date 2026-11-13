@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Pagination from "../pagination";
+import Pagination from "./Pagination";
 import CardGrid from "./CardGrid";
 
 export default function PaginatedGrid({ items, pageSize, renderCard, emptyMessage = "No se encontraron resultados." }) {
