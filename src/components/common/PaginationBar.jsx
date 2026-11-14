@@ -1,0 +1,55 @@
+"use client";
+
+export default function PaginationBar({ currentPage, totalPages, onPageChange }) {
+    if (totalPages <= 1) return null;
+
+    return (
+        <nav aria-label="Navegación entre páginas" className="flex justify-center">
+            <div className="flex items-center bg-white border border-gray-300 rounded-lg shadow-sm overflow-hidden">
+                <button
+                    type="button"
+                    aria-label="Página anterior"
+                    className="flex items-center justify-center px-2 sm:px-3 h-8 leading-tight text-black hover:bg-gray-100 hover:text-gray-700 disabled:opacity-50 disabled:cursor-not-allowed"
+                    onClick={() => onPageChange(Math.max(currentPage - 1, 1))}
+                    disabled={currentPage === 1}
+                >
+                    <svg className="w-2.5 h-2.5" viewBox="0 0 6 10" fill="none">
+                        <path d="M5 1L1 5l4 4" stroke="currentColor" strokeWidth="2" />
+                    </svg>
+                </button>
+
+                {Array.from({ length: totalPages }, (_, i) => {
+                    const pageNumber = i + 1;
+                    const isActive = currentPage === pageNumber;
+                    return (
+                        <button
+                            key={pageNumber}
+                            type="button"
+                            aria-current={isActive ? "page" : undefined}
+                            className={
+                                isActive
+                                    ? "flex items-center justify-center px-2 sm:px-3 h-8 text-white bg-red-500 hover:bg-red-600 min-w-[32px]"
+                                    : "flex items-center justify-center px-2 sm:px-3 h-8 text-black hover:bg-gray-100 hover:text-gray-700 min-w-[32px] border-l border-gray-300"
+                            }
+                            onClick={() => onPageChange(pageNumber)}
+                        >
+                            {pageNumber}
+                        </button>
+                    );
+                })}
+
+                <button
+                    type="button"
+                    aria-label="Página siguiente"
+                    className="flex items-center justify-center px-2 sm:px-3 h-8 text-black hover:bg-gray-100 hover:text-gray-700 border-l border-gray-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                    onClick={() => onPageChange(Math.min(currentPage + 1, totalPages))}
+                    disabled={currentPage === totalPages}
+                >
+                    <svg className="w-2.5 h-2.5" viewBox="0 0 6 10" fill="none">
+                        <path d="m1 9 4-4-4-4" stroke="currentColor" strokeWidth="2" />
+                    </svg>
+                </button>
+            </div>
+        </nav>
+    );
+}
