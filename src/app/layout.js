@@ -1,9 +1,9 @@
 "use client";
 import "./globals.css";
 import { Inter } from "next/font/google";
-import SideBar from "../components/SideBar";
+import SideBar from "../components/layout/SideBar";
 import { routers_menu } from "../utils/routers";
-import Footer from "../components/footer";
+import Footer from "../components/layout/Footer";
 import { usePathname } from "next/navigation";
 import { Providers } from "./api/Providers";
 

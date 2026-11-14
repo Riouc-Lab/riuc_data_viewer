@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import Leaflet from "leaflet";
 import * as ReactLeaflet from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import styles from "../assets/scss/Map.module.scss";
+import styles from "../../assets/scss/Map.module.scss";
 
 const { MapContainer, LayersControl, LayerGroup, TileLayer, ScaleControl } = ReactLeaflet;
 const InfoBox = ({ content }) => {

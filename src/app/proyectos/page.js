@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { lista_proyectos } from "../../utils/modelo_proyectos";
-import Search from "../../components/search";
+import Search from "../../components/common/Search";
 import ContentCard from "../../components/cards/ContentCard";
 import PaginatedGrid from "../../components/common/PaginatedGrid";
 

@@ -3,7 +3,7 @@ import Image from "next/image";
 import React, { useState, useMemo } from "react";
 import ContentCard from "../../components/cards/ContentCard";
 import PaginatedGrid from "../../components/common/PaginatedGrid";
-import Search from "../../components/search";
+import Search from "../../components/common/Search";
 import { lista_infografia, truncateDescription } from "../../utils";
 
 export default function Infografia() {

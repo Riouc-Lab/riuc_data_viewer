@@ -3,8 +3,8 @@ import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import dynamic from "next/dynamic";
-import SwitchButton from "../../../components/buttonswitch";
-const Map = dynamic(() => import("../../../components/map"), { ssr: false });
+import SwitchButton from "../../../components/common/SwitchButton";
+const Map = dynamic(() => import("../../../components/maps/Map"), { ssr: false });
 const DEFAULT_CENTER = [-2.506314, -79.024609];
 
 export default function Canar() {

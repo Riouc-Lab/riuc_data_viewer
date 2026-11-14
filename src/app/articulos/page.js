@@ -3,8 +3,8 @@
 import { useState } from "react";
 import ArticleCard from "../../components/cards/ArticleCard";
 import PaginatedGrid from "../../components/common/PaginatedGrid";
-import Search from "../../components/search";
-import FilterBurger from "../../components/FilterBurger";
+import Search from "../../components/common/Search";
+import FilterBurger from "../../components/common/FilterBurger";
 import { lista_articulos } from "../../utils/modelo_articulos";
 
 export default function ArticulosCientificos() {

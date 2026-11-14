@@ -2,8 +2,8 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
-import Map from "../../../components/map";
-import SwitchButton from "../../../components/buttonswitch";
+import Map from "../../../components/maps/Map";
+import SwitchButton from "../../../components/common/SwitchButton";
 
 const DEFAULT_CENTER = [-1.598653, -78.180479];
 
