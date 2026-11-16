@@ -64,6 +64,8 @@ En `.env.local`:
 3. Crea un cliente de tipo **Aplicación web**, con origen autorizado `http://localhost:3000` y URI de redirección `http://localhost:3000/api/auth/callback/google`.
 4. Copia el ID y el secreto en `.env.local`.
 
+Si trabajas en el panel de contenidos, pon `PANEL_DOMINIO=gmail.com` en `.env.local`. Sin esa variable nadie puede entrar al panel. Para comprobar tu acceso, inicia sesión y abre <http://localhost:3000/api/panel/sesion>: responde `{"autorizado":true}` solo si tu correo es de ese dominio y está en `usuarios_autorizados`.
+
 ### 4. Ejecutar
 
 ```bash
