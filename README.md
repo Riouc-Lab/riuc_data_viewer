@@ -31,7 +31,13 @@ psql -d "postgresql://riouc_dev:CAMBIA_ESTA_CLAVE@localhost:5432/riouc_dev" -f d
 psql -d "postgresql://riouc_dev:CAMBIA_ESTA_CLAVE@localhost:5432/riouc_dev" -c "\dt"
 ```
 
-`db/desarrollo.sql` crea las tablas con datos ficticios. Puedes volver a ejecutarlo para reiniciarlas. El último comando debe listar 3 tablas: `canarencuesta`, `parroquias` y `poblacion`.
+`db/desarrollo.sql` crea las tablas con datos ficticios. Puedes volver a ejecutarlo para reiniciarlas. El último comando debe listar 5 tablas: `canarencuesta`, `contenidos`, `parroquias`, `poblacion` y `usuarios_autorizados`. Las dos del panel de contenidos se crean con las migraciones de `db/migraciones/` (ver su `README.md`).
+
+Para entrar al panel de contenidos, agrega tu correo de Gmail a la lista de autorizados de **tu base local**, en minúsculas. Vuelve a hacerlo cada vez que ejecutes `db/desarrollo.sql`, porque reinicia la tabla:
+
+```bash
+psql -d "postgresql://riouc_dev:CAMBIA_ESTA_CLAVE@localhost:5432/riouc_dev" -c "INSERT INTO usuarios_autorizados (correo) VALUES ('tu.correo@gmail.com')"
+```
 
 ### 3. Configurar las variables de entorno
 
@@ -87,7 +93,7 @@ node --env-file=.env.local src/app/testConnection.js
 | `src/components/` | Componentes reutilizables |
 | `src/utils/` | Conexión a la base y listas de contenido (noticias, proyectos) |
 | `public/` | Imágenes, PDF y GeoJSON |
-| `db/` | Base local de desarrollo |
+| `db/` | Base local de desarrollo y migraciones (`db/migraciones/`) |
 
 Solo `/proyectos/canar` y `/proyectos/modelogeovisor` leen la base de datos. Los mapas también descargan datos de servicios externos, así que necesitan internet.
 
