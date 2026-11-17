@@ -78,6 +78,40 @@ Abre <http://localhost:3000>. Para comprobar la conexión a la base (no revisa q
 node --env-file=.env.local src/app/testConnection.js
 ```
 
+## Panel de contenidos
+
+En `/panel` las cuentas autorizadas crean, editan, guardan como borrador y publican boletines y novedades, y suben sus PDF e imágenes.
+
+Para usarlo en local:
+
+1. En `.env.local`, pon `PANEL_DOMINIO=gmail.com` y en `UPLOAD_DIR` una carpeta **fuera del proyecto** (por ejemplo `C:\Users\tu_usuario\riouc-uploads`).
+2. Configura tu cliente de Google (paso 3) y agrega tu Gmail a `usuarios_autorizados` (paso 2).
+3. Ejecuta `npm run dev` y abre `http://localhost:3000/panel`.
+
+| Parte | Dónde está |
+|---|---|
+| Pantallas | `src/app/panel/` y `src/components/panel/` |
+| Rutas que escriben | `src/app/api/panel/` (todas revisan el acceso en el servidor) |
+| Acceso | `src/utils/acceso_panel.js`, `correo_panel.js` y `auth.js` |
+| Base de datos | `src/utils/contenidos_panel.js` |
+| Reglas de archivos | `src/utils/archivos_panel.js` (PDF hasta 60 MB; JPG, PNG y WebP hasta 5 MB; se revisa el tipo real) |
+
+Los archivos subidos se guardan en `UPLOAD_DIR` con un nombre aleatorio y se publican en `/subidas/<nombre>`. En local los muestra `src/app/subidas/[nombre]/route.js`, que **no funciona en producción**.
+
+**Para el servidor (lo hace el responsable de RIOUC):**
+
+- Agregar `PANEL_DOMINIO=ucacue.edu.ec` y `UPLOAD_DIR` al `.env.local` del servidor. La carpeta debe existir y el usuario que ejecuta PM2 debe poder escribir en ella.
+- En nginx, servir la carpeta en `/subidas/` y permitir subidas de al menos 60 MB:
+
+  ```nginx
+  client_max_body_size 60M;
+
+  location /subidas/ {
+      alias /ruta/de/UPLOAD_DIR/;
+      add_header X-Content-Type-Options nosniff;
+  }
+  ```
+
 ## Comandos
 
 | Comando | Para qué |

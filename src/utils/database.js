@@ -8,6 +8,13 @@ if (!connectionString) {
   throw new Error('Falta la variable de entorno DATABASE_URL (ver .env.example)');
 }
 
-const db = pgp(connectionString);
+// Next carga este archivo una vez por cada parte de la aplicación (rutas,
+// páginas...). Se guarda la conexión en globalThis para crear una sola y
+// evitar el aviso "Creating a duplicate database object for the same connection".
+if (!globalThis.conexionRiouc) {
+  globalThis.conexionRiouc = pgp(connectionString);
+}
+
+const db = globalThis.conexionRiouc;
 
 module.exports = db;
