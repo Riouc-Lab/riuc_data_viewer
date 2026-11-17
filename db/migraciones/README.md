@@ -6,6 +6,7 @@ Cada archivo cambia la estructura de la base una sola vez. Se aplican **en orden
 |---|---|
 | `001_contenidos.sql` | Crea `contenidos`: boletines y novedades, en borrador o publicados |
 | `002_usuarios_autorizados.sql` | Crea `usuarios_autorizados`: correos que pueden entrar al panel |
+| `003_contenidos_iniciales.sql` | Inserta los 7 boletines y las 7 novedades existentes como publicados |
 
 ## Base local
 
