@@ -1,14 +1,12 @@
+import Image from "next/image";
 import ContentCard from "../../components/cards/ContentCard";
 import CardGrid from "../../components/common/CardGrid";
+import { listarPublicadosPorTipo } from "../../utils/contenidos_publicos";
 
-import Image from "next/image";
-import { lista_boletin } from "../../utils/modelo_boletin";
+export const dynamic = "force-dynamic";
 
-export default function Boletin() {
-
-  const sortedBoletines = [...lista_boletin].sort(
-    (a, b) => new Date(b.date) - new Date(a.date)
-  );
+export default async function Boletin() {
+  const boletines = await listarPublicadosPorTipo("boletin");
 
   return (
     <main className="flex min-h-screen flex-col items-center p-7 mb-5">
@@ -24,30 +22,39 @@ export default function Boletin() {
         </p>
       </div>
 
-      <CardGrid>
-        {sortedBoletines.map((item) => (
-            <ContentCard key={item.to} href={item.to}
+      {boletines.length === 0 ? (
+        <p className="py-8 text-center text-gray-500">
+          No hay boletines publicados todavía.
+        </p>
+      ) : (
+        <CardGrid>
+          {boletines.map((item) => (
+            <ContentCard
+              key={item.id}
+              href={`/boletin/n${item.numero}`}
               className="w-full max-w-md mx-auto border-2 border-black border-opacity-10 rounded-lg overflow-hidden cursor-pointer shadow-md hover:shadow-lg transition duration-300"
             >
-              {/* Imagen con tamaño fijo */}
               <div className="w-full h-[270px] bg-black flex items-center justify-center overflow-hidden">
-                <Image
-                  src={item.Image}
-                  alt="Boletín"
-                  width={450}
-                  height={350}
-                  className="object-contain"
-                  priority
-                />
+                {item.imagen_url && (
+                  <Image
+                    src={item.imagen_url}
+                    alt={item.titulo}
+                    width={450}
+                    height={350}
+                    unoptimized
+                    className="object-contain"
+                  />
+                )}
               </div>
 
-              {/* Contenido textual */}
               <div className="p-6 hover:bg-black hover:text-white transition duration-270 ease-in">
                 <h2 className="text-base font-medium text-indigo-300 mb-1">
-                  {item.date}
+                  {item.periodo || item.fecha_publicacion}
                 </h2>
-                <h1 className="text-2xl font-semibold mb-3">{item.name}</h1>
-                <p className="leading-relaxed mb-3">{item.description}</p>
+                <h1 className="text-2xl font-semibold mb-3">{item.titulo}</h1>
+                {item.resumen && (
+                  <p className="leading-relaxed mb-3">{item.resumen}</p>
+                )}
                 <div className="flex items-center flex-wrap">
                   <span className="text-indigo-300 inline-flex items-center md:mb-2 lg:mb-0">
                     <span className="flex-grow flex flex-col">Saber más</span>
@@ -70,8 +77,9 @@ export default function Boletin() {
                 </div>
               </div>
             </ContentCard>
-        ))}
-      </CardGrid>
+          ))}
+        </CardGrid>
+      )}
     </main>
   );
 }

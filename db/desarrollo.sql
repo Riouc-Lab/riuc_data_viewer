@@ -50,19 +50,16 @@ INSERT INTO parroquias (nombre, canton, provincia) VALUES
   ('Parroquia de prueba 2', 'Cantón de prueba 1', 'Provincia de prueba 1'),
   ('Parroquia de prueba 3', 'Cantón de prueba 2', 'Provincia de prueba 2');
 
--- Panel de contenidos: mismas tablas que en producción, creadas con las migraciones.
+-- Panel de contenidos: mismas tablas y contenidos iniciales que en producción.
 \ir migraciones/001_contenidos.sql
 \ir migraciones/002_usuarios_autorizados.sql
+\ir migraciones/003_contenidos_iniciales.sql
 
--- Un publicado y un borrador de cada tipo, para probar que el borrador no sale en la web.
+-- Un borrador de cada tipo, para probar que el borrador no sale en la web pública.
 INSERT INTO contenidos (tipo, numero, titulo, resumen, cuerpo, imagen_url, archivo_url, autor, periodo, estado, fecha_publicacion) VALUES
-  ('boletin', 1, 'Boletín de prueba 1', 'Resumen del boletín de prueba 1.', '<p>Contenido del boletín de prueba 1.</p>',
-   NULL, NULL, NULL, 'enero - abril 2026', 'publicado', '2026-04-30'),
-  ('boletin', 2, 'Boletín de prueba 2 (borrador)', 'Resumen del boletín de prueba 2.', '<p>Contenido del boletín de prueba 2.</p>',
+  ('boletin', 8, 'Boletín de prueba 8 (borrador)', 'Resumen del boletín de prueba 8.', '<p>Contenido del boletín de prueba 8.</p>',
    NULL, NULL, NULL, 'mayo - agosto 2026', 'borrador', NULL),
-  ('novedad', 1, 'Novedad de prueba 1', 'Resumen de la novedad de prueba 1.', '<p>Contenido de la novedad de prueba 1.</p>',
-   NULL, NULL, 'Autor de prueba', NULL, 'publicado', '2026-10-01'),
-  ('novedad', 2, 'Novedad de prueba 2 (borrador)', 'Resumen de la novedad de prueba 2.', '<p>Contenido de la novedad de prueba 2.</p>',
+  ('novedad', 8, 'Novedad de prueba 8 (borrador)', 'Resumen de la novedad de prueba 8.', '<p>Contenido de la novedad de prueba 8.</p>',
    NULL, NULL, 'Autor de prueba', NULL, 'borrador', NULL);
 
 -- Correo ficticio (example.com está reservado para ejemplos y no pertenece a nadie).
