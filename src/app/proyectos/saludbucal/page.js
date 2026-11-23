@@ -2772,7 +2772,7 @@ export default function Mapa() {
                               <Marker
                                 position={[-2.884445, -79.005800]} // Primer punto
                                 icon={L.icon({
-                                  iconUrl: "https://muchomejorecuador.org.ec/wp-content/uploads/2024/04/Universidad-Catolica_de_Cuenca.jpg",
+                                  iconUrl: "/img/l-ucacue-favicon.png",
                                   iconSize: [30, 30],
                                   iconAnchor: [15, 30],
                                   popupAnchor: [0, -30],
@@ -2787,7 +2787,7 @@ export default function Mapa() {
                               <Marker
                                 position={[-2.885450, -79.005120]} // Segundo punto
                                 icon={L.icon({
-                                  iconUrl: "https://muchomejorecuador.org.ec/wp-content/uploads/2024/04/Universidad-Catolica_de_Cuenca.jpg",
+                                  iconUrl: "/img/l-ucacue-favicon.png",
                                   iconSize: [30, 30],
                                   iconAnchor: [15, 30],
                                   popupAnchor: [0, -30],

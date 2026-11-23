@@ -122,9 +122,7 @@ export default function Canar() {
 
   async function fetchGeoJSON() {
     try {
-      const response = await fetch(
-        "https://raw.githubusercontent.com/jpmarindiaz/geo-collection/master/ecu/ecuador.geojson"
-      );
+      const response = await fetch("/data/provincias.geojson");
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }

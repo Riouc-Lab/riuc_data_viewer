@@ -109,7 +109,7 @@ export default function Modelogeovisor() {
 
   const fetchCapas = async () => {
     try {
-      const response = await axios.get("https://raw.githubusercontent.com/jpmarindiaz/geo-collection/master/ecu/ecuador.geojson");
+      const response = await axios.get("/data/provincias.geojson");
       return response.data.features;
     } catch (error) {
       console.error("Error al obtener capas:", error);
