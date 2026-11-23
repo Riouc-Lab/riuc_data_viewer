@@ -2499,7 +2499,6 @@ export default function Mapa() {
   const [boton2Visible, setBoton2Visible] = useState(false);
   const [boton3Visible, setBoton3Visible] = useState(false);
   const [isTextVisible, setTextVisibility] = useState(false);
-  const [isZoomed, setIsZoomed] = useState(false);
   const [geoData, setGeoData] = useState(null);
   const [showDescription, setShowDescription] = useState(false);
   const [isActive, setIsActive] = useState(false);
@@ -2559,23 +2558,6 @@ export default function Mapa() {
   const toggleTextVisibility = () => {
     setTextVisibility(!isTextVisible);
   };
-
-  const handleZoom = () => {
-    const zoomLevel = window.devicePixelRatio;
-    setIsZoomed(zoomLevel > 1);
-  };
-
-  useEffect(() => {
-    window.addEventListener("resize", handleZoom);
-    const timer = setTimeout(() => {
-      handleZoom();
-    }, 0);
-
-    return () => {
-      clearTimeout(timer);
-      window.removeEventListener("resize", handleZoom);
-    };
-  }, []);
 
   const handleDescriptionToggle = () => {
     setShowDescription((prev) => !prev); // Alterna la visibilidad de la descripción
@@ -2711,7 +2693,7 @@ export default function Mapa() {
                 width="full"
                 height="800"
               >
-                {({ GeoJSON, Polygon, Popup, Tooltip, Marker }) => (
+                {({ GeoJSON, Polygon, Popup, Tooltip, Marker }, L) => (
                   <>
                     {geoData && (
                       <GeoJSON
@@ -2762,12 +2744,12 @@ export default function Mapa() {
                             <>
                               <Marker
                                 position={[-2.884445, -79.005800]} // Primer punto
-                                icon={L.icon({
+                                icon={L?.icon ? L.icon({
                                   iconUrl: "/img/l-ucacue-favicon.png",
                                   iconSize: [30, 30],
                                   iconAnchor: [15, 30],
                                   popupAnchor: [0, -30],
-                                })}
+                                }) : undefined}
                               >
                                 <Popup>
                                   <strong>{cuadra.nombre}</strong><br />
@@ -2777,12 +2759,12 @@ export default function Mapa() {
 
                               <Marker
                                 position={[-2.885450, -79.005120]} // Segundo punto
-                                icon={L.icon({
+                                icon={L?.icon ? L.icon({
                                   iconUrl: "/img/l-ucacue-favicon.png",
                                   iconSize: [30, 30],
                                   iconAnchor: [15, 30],
                                   popupAnchor: [0, -30],
-                                })}
+                                }) : undefined}
                               >
                                 <Popup>
                                   <strong>{cuadra.nombre}</strong><br />

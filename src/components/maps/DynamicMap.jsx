@@ -12,7 +12,7 @@ const InfoBox = ({ content }) => {
   return (
     <div className="info-box">
       <div className="info-content">
-        <p>{content}</p>
+        <div>{content}</div>
       </div>
     </div>
   );
@@ -35,9 +35,9 @@ const Map = ({
     (async function init() {
       delete Leaflet.Icon.Default.prototype._getIconUrl;
       Leaflet.Icon.Default.mergeOptions({
-        iconRetinaUrl: "leaflet/images/marker-icon-2x.png",
-        iconUrl: "leaflet/images/marker-icon.png",
-        shadowUrl: "leaflet/images/marker-shadow.png",
+        iconRetinaUrl: "/leaflet/images/marker-icon-2x.png",
+        iconUrl: "/leaflet/images/marker-icon.png",
+        shadowUrl: "/leaflet/images/marker-shadow.png",
       });
     })();
   }, []);

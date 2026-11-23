@@ -17,28 +17,10 @@ export default function Modelogeovisor() {
   const [poblacion, setPoblacion] = useState([]);
   const [selectedProvince, setSelectedProvince] = useState(null);
   const [dataLoaded, setDataLoaded] = useState(false);
-  const [isZoomed, setIsZoomed] = useState(false);
 
   const toggleTextVisibility = () => {
     setTextVisibility(!isTextVisible);
   };
-
-  const handleZoom = () => {
-    const zoomLevel = window.devicePixelRatio;
-    setIsZoomed(zoomLevel > 1); // Ajusta este valor según el nivel de zoom deseado
-  };
-
-  useEffect(() => {
-    window.addEventListener("resize", handleZoom);
-    const timer = setTimeout(() => {
-      handleZoom();
-    }, 0);
-
-    return () => {
-      clearTimeout(timer);
-      window.removeEventListener("resize", handleZoom);
-    };
-  }, []);
 
   function getColor(id) {
     const colorMapping = {

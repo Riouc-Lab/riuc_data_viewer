@@ -15,7 +15,6 @@ export default function Canar() {
   const [isTextVisible, setTextVisibility] = useState(false);
   const [provincias, setProvincias] = useState([]);
   const [dataLoaded, setDataLoaded] = useState(false);
-  const [isZoomed, setIsZoomed] = useState(false);
   const [geoData, setGeoData] = useState(null);
   const [showTable, setShowTable] = useState(false);
   const [showTable2, setShowTable2] = useState(false);
@@ -25,23 +24,6 @@ export default function Canar() {
   const toggleTextVisibility = () => {
     setTextVisibility(!isTextVisible);
   };
-
-  const handleZoom = () => {
-    const zoomLevel = window.devicePixelRatio;
-    setIsZoomed(zoomLevel > 1);
-  };
-
-  useEffect(() => {
-    window.addEventListener("resize", handleZoom);
-    const timer = setTimeout(() => {
-      handleZoom();
-    }, 0);
-
-    return () => {
-      clearTimeout(timer);
-      window.removeEventListener("resize", handleZoom);
-    };
-  }, []);
 
   function getColor(id) {
     const colorMapping = {
@@ -625,9 +607,9 @@ export default function Canar() {
                           fillOpacity: 0.5,
                         })}
                         onEachFeature={(feature, layer) => {
-                          if (feature.properties && feature.properties.name) {
+                          if (feature.properties && (feature.properties.nombre || feature.properties.name)) {
                             layer.bindPopup(
-                              `<b>${feature.properties.name}</b>`
+                              `<b>${feature.properties.nombre || feature.properties.name}</b>`
                             );
                           }
                         }}

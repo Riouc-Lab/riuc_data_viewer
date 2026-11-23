@@ -9,8 +9,9 @@ const DynamicMap = dynamic(() => import('./DynamicMap'), {
 
 const Map = (props) => {
   const { width , height  } = props;
+  const ratio = width && height && !isNaN(Number(width)) && !isNaN(Number(height)) ? Number(width) / Number(height) : undefined;
   return (
-    <div style={{ aspectRatio: width / height }}>
+    <div style={ratio ? { aspectRatio: ratio } : undefined}>
       <DynamicMap {...props} />
     </div>
   )

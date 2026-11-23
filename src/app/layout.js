@@ -12,7 +12,6 @@ const HTML_TITLE = "RIOUC - UCACUE";
 const inter = Inter({ subsets: ["latin"] });
 export default function RootLayout({ children}) {
   const pathname = usePathname();
-  console.log(pathname);
   const isHomePage = pathname === "/";
   return (
     <html lang="es">
