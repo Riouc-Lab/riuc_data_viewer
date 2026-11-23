@@ -2720,12 +2720,8 @@ export default function Mapa() {
                 width="full"
                 height="800"
               >
-                {({ TileLayer, GeoJSON, Polygon, Popup, Tooltip, Marker }) => (
+                {({ GeoJSON, Polygon, Popup, Tooltip, Marker }) => (
                   <>
-                    <TileLayer
-                      url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
-                      attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/">CARTO</a>'
-                    />
                     {geoData && (
                       <GeoJSON
                         data={geoData}
