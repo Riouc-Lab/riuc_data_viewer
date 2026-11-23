@@ -2577,9 +2577,6 @@ export default function Mapa() {
     };
   }, []);
 
-  const handleDownloadClick = async () => {
-  };
-
   const handleDescriptionToggle = () => {
     setShowDescription((prev) => !prev); // Alterna la visibilidad de la descripción
   };
@@ -2636,12 +2633,6 @@ export default function Mapa() {
               className="bg-red-600 text-white py-1 px-3 rounded mb-4 mr-4"
             >
               {showDescription ? "Ocultar Descripción" : "Mostrar Descripción"}
-            </button>
-            <button
-              className="bg-red-600 text-white py-1 px-3 rounded mb-4"
-              onClick={handleDownloadClick}
-            >
-              Descargar
             </button>
             {showDescription && (
               <div className="mt-1 text-white text-justify">

@@ -31,38 +31,6 @@ export default function Canar() {
     setIsZoomed(zoomLevel > 1);
   };
 
-  const handleDownloadClick = async () => {
-    try {
-      const response = await axios.get(
-        "/api/canarencuesta",
-        {
-          responseType: "blob", // Esto configura la respuesta como un blob
-        }
-      );
-
-      if (response.status === 200) {
-        const blob = new Blob([response.data], { type: "text/csv" });
-
-        const url = window.URL.createObjectURL(blob);
-
-        const a = document.createElement("a");
-        a.style.display = "none";
-        a.href = url;
-        a.download = "encuesta_Cañar.csv";
-
-        document.body.appendChild(a);
-        a.click();
-
-        window.URL.revokeObjectURL(url);
-        document.body.removeChild(a);
-      } else {
-        console.error("Error al descargar los datos. Respuesta no exitosa.");
-      }
-    } catch (error) {
-      console.error("Error al descargar los datos:", error);
-    }
-  };
-
   useEffect(() => {
     window.addEventListener("resize", handleZoom);
     const timer = setTimeout(() => {
@@ -501,14 +469,6 @@ export default function Canar() {
             >
               {showDescription ? "Ocultar Descripción" : "Mostrar Descripción"}
             </button>
-            {/* 
-            <button
-              className="bg-red-600 text-white py-1 px-3 rounded mb-4"
-              onClick={handleDownloadClick}
-            >
-              Descargar
-            </button>
-            */}
             {showDescription && (
               <div className="mt-1 text-white text-justify">
                 <p>

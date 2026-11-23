@@ -40,35 +40,6 @@ export default function Modelogeovisor() {
     };
   }, []);
 
-  const handleDownloadClick = async () => {
-    try {
-      const response = await axios.get("/api/poblacion", {
-        responseType: "blob", // Esto configura la respuesta como un blob
-      });
-
-      if (response.status === 200) {
-        const blob = new Blob([response.data], { type: "text/csv" });
-
-        const url = window.URL.createObjectURL(blob);
-
-        const a = document.createElement("a");
-        a.style.display = "none";
-        a.href = url;
-        a.download = "poblacion.csv";
-
-        document.body.appendChild(a);
-        a.click();
-
-        window.URL.revokeObjectURL(url);
-        document.body.removeChild(a);
-      } else {
-        console.error("Error al descargar los datos. Respuesta no exitosa.");
-      }
-    } catch (error) {
-      console.error("Error al descargar los datos:", error);
-    }
-  };
-
   function getColor(id) {
     const colorMapping = {
       1: "blue", 2: "green", 3: "red", 4: "yellow", 5: "purple", 6: "orange", 7: "brown", 8: "pink", 9: "gray", 10: "cyan", 11: "magenta", 12: "olive", 13: "lime", 14: "teal", 15: "indigo", 16: "maroon", 17: "navy", 18: "azure", 19: "aquamarine", 20: "beige", 21: "bisque", 22: "blanchedalmond", 23: "blueviolet", 24: "burlywood",
@@ -459,15 +430,6 @@ export default function Modelogeovisor() {
             >
               {isTextVisible ? "Ocultar Descripcion" : "Mostrar Descripcion"}
             </button>
-            {/* Botón de Descarga (Añadido al final de la primera columna de capas) */}
-            {/* 
-            <button
-              className="bg-red-600 text-white py-1 px-3 rounded mb-4"
-              onClick={handleDownloadClick}
-            >
-              Descargar
-            </button>
-            */}
             {isTextVisible && (
               <div className="mt-1 text-white text-justify">
                 {/* Aquí coloca el texto que deseas mostrar u ocultar */}
