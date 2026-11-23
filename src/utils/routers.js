@@ -55,17 +55,4 @@ export const routers_menu = [
   },
 ];
 
-export const routers_submenu_proyects = [
-  {
-    id: 1,
-    parent: 3,
-    to: "/proyectos/map",
-    name: "Mapa",
-  },
-  {
-    id: 2,
-    parent: 3,
-    to: "/proyectos/canastabasica",
-    name: "Canasta Básica",
-  },  
-];
+
