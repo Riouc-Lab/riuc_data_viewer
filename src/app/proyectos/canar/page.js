@@ -656,12 +656,8 @@ export default function Canar() {
                 width="full"
                 height="800"
               >
-                {({ TileLayer, GeoJSON, Popup, Circle }) => (
+                {({ GeoJSON, Popup, Circle }) => (
                   <>
-                    <TileLayer
-                      url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
-                      attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                    />
                     {geoData && (
                       <GeoJSON
                         data={geoData}

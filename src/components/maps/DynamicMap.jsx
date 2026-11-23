@@ -77,30 +77,24 @@ const Map = ({
 
         {/* Agregar capas en el mapa */}
         <LayersControl position="topleft" className={styles.layersControl}>
-          <LayersControl.Overlay name="Mapa Satelital">
-            <LayerGroup>
-              <TileLayer
-                url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
-                attribution="&amp;copy Esri &amp;mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community"
-              />
-            </LayerGroup>
-          </LayersControl.Overlay>
-          <LayersControl.Overlay name="Mapa Callejero">
-            <LayerGroup>
-              <TileLayer
-                url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}"
-                attribution="&amp;copy OpenStreetMap contributors"
-              />
-            </LayerGroup>
-          </LayersControl.Overlay>
-          <LayersControl.Overlay name="Mapa Carto">
-            <LayerGroup>
-              <TileLayer
-                url="https://basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
-                attribution="&amp;copy Esri &amp;mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community"
-              />
-            </LayerGroup>
-          </LayersControl.Overlay>
+          <LayersControl.BaseLayer checked name="OpenStreetMap">
+            <TileLayer
+              url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
+              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            />
+          </LayersControl.BaseLayer>
+          <LayersControl.BaseLayer name="Esri Satelital">
+            <TileLayer
+              url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
+              attribution="Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community"
+            />
+          </LayersControl.BaseLayer>
+          <LayersControl.BaseLayer name="Esri Callejero">
+            <TileLayer
+              url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}"
+              attribution="Tiles &copy; Esri &mdash; Source: Esri, DeLorme, NAVTEQ, USGS, Intermap, iPC, NRCAN, Esri Japan, METI, Esri China (Hong Kong), Esri (Thailand), TomTom, 2012"
+            />
+          </LayersControl.BaseLayer>
         </LayersControl>
 
         {/* Agregar leaflet bar y leaflet ruler */}
